@@ -1,0 +1,217 @@
+{
+ "slug": "radiologia",
+ "path": "/radiologia/",
+ "it": {
+  "h1": "Radiologia",
+  "metaTitle": "Radiologia della Parete Addominale: Ecografia, TC e RM",
+  "metaDescription": "Ecografia, TC e risonanza magnetica nella valutazione dei difetti della parete addominale: che cosa mostra ciascun esame, i limiti e quando è indispensabile.",
+  "blocks": [
+   {
+    "type": "h2",
+    "text": "Radiologia"
+   },
+   {
+    "type": "h2",
+    "text": "DIAGNOSTICA PER IMMAGINI NELLA CHIRURGIA DELLA PARETE ADDOMINALE"
+   },
+   {
+    "type": "p",
+    "html": "La diagnostica per immagini nella valutazione della parete addominale  ha assunto rilevanza sempre maggiore negli ultimi anni e si stanno  ampliando le indicazioni e le metodiche disponibili per fornire al clinico il massimo delle informazioni per una sempre più dettagliata pianificazione terapeutica."
+   },
+   {
+    "type": "p",
+    "html": "Nel caso di pazienti già operati la diagnostica può essere utile per l’identificazione di complicanze acute/subacute nonché per la ricerca di eventuali recidive."
+   },
+   {
+    "type": "p",
+    "html": "Da questo deriva la necessità di una costante collaborazione tra gli specialisti: il radiologo definisce meglio il suo ruolo confrontandosi con le domande del chirurgo e dal lavoro d’equipe cresce la competenza di ciascuno."
+   },
+   {
+    "type": "p",
+    "html": "Quali le metodiche per la valutazione della parete addominale?"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/ecografia-parete-addominale.webp",
+    "alt": "Ecografia della parete addominale in ambulatorio",
+    "caption": "",
+    "width": 800,
+    "height": 548
+   },
+   {
+    "type": "img",
+    "src": "/api/media/ecografia-addominale.webp",
+    "alt": "Esame ecografico dell'addome per lo studio della parete",
+    "caption": "",
+    "width": 800,
+    "height": 800
+   },
+   {
+    "type": "p",
+    "html": "L ‘ecografia è l’imaging di primo approccio per la valutazione del piano cutaneo-sottocutaneo e muscolare e risultata ampiamente validata per le sue ottime possibilità diagnostiche nella patologia muscolo-scheletrica e osteoarticolare."
+   },
+   {
+    "type": "p",
+    "html": "Pertanto l’ecografia risulta ad oggi la metodica più largamente disponibile nella valutazione della parete addominale e si offre come esame di primo livello per la diagnosi strumentale per i difetti di parete (diastasi, ernie, laparoceli )."
+   },
+   {
+    "type": "p",
+    "html": "Inoltre l’ecografia della parete può essere utile anche nella valutazione post-operatoria in caso di laparotomie o interventi endo/laparoscopici addominali sia per le eventuali complicanze acute/subacute (ematomi, sieromi) sia per la diagnosi di recidiva di diastasi/ernia."
+   },
+   {
+    "type": "p",
+    "html": "L’ecografia non ha controindicazioni, consente lo studio diretto dei piani superficiali senza necessità di preparazione e in modo totalmente <b>non invasivo</b>, cioè innocuo."
+   },
+   {
+    "type": "p",
+    "html": "Disponibilità delle apparecchiature,  non invasività della metodica, <b>semplicità</b> e <b>rapidità</b> di esecuzione con immagini di buona qualità tecnica, <b>costi limitati</b> rappresentano senza dubbio i principali vantaggi."
+   },
+   {
+    "type": "p",
+    "html": "D’altro canto esistono dei <b>limiti</b> intrinseci dell’ecografia."
+   },
+   {
+    "type": "p",
+    "html": "In primo luogo, l’essere <b>operatore-dipendente</b> con conseguente possibilità di variabilità di risultato tra operatori diversi. In questo senso gioca un ruolo fondamentale l’esperienza dell’operatore da cui nasce una maggior affidabilità e riproducibilità della metodica con  misurazioni sovrapponibili a  TC ed RM."
+   },
+   {
+    "type": "img",
+    "src": "/api/media/ecografia-sicura.webp",
+    "alt": "Ecografia addominale, esame non invasivo e privo di radiazioni",
+    "caption": "",
+    "width": 800,
+    "height": 800
+   },
+   {
+    "type": "img",
+    "src": "/api/media/ecografia-parete-addominale-01.webp",
+    "alt": "Ecografia della parete addominale in ambulatorio",
+    "caption": "",
+    "width": 800,
+    "height": 343
+   },
+   {
+    "type": "p",
+    "html": "Ulteriore svantaggio dell’ecografia è l’essere <strong>poco panoramica</strong>; questo limita la valutazione precisa dei difetti di parete di dimensioni più cospicue. Infatti  le dimensioni della sonda ecografica rappresentano all’incirca le dimensioni massime della misura che si può effettuare.  Va da sé che se la sonda lineare  come normalmente avviene, ha una lunghezza di circa 5-5,5 cm, le misurazioni massime si aggirano su quel valore. Quindi può essere difficile quantificare con precisione diastasi superiori ai 5.5 cm. In queste situazioni si ricorre a vari escamotage che tuttavia danno misure più approssimative."
+   },
+   {
+    "type": "p",
+    "html": "Dal punto di vista tecnico si utilizzano sonde lineari ad alta frequenza (circa 10-18 MHz) dotate di ottima risoluzione spaziale (misurazioni fino al decimo di millimetro)."
+   },
+   {
+    "type": "p",
+    "html": "L’esame viene condotto generalmente in clinostasi, a paziente supino ma la metodica si adatta a situazioni dinamiche, consentendo lo studio anche in ortostasi o in situazione di contrazione della parete (manovra di Valsalva)."
+   },
+   {
+    "type": "p",
+    "html": "Ecograficamente è possibile visualizzare la linea alba, valutarne l’integrità evidenziando eventuali soluzioni di continuo (porte erniarie), misurare l’ampiezza della linea alba lungo tutta la sua estensione longitudinale dal processo xifoideo fino al pube."
+   },
+   {
+    "type": "p",
+    "html": "Questo permette di avere una rappresentazione piuttosto precisa della distanza tra i muscoli retti ai diversi piani tracciando una sorta di mappa che definisce la forma di una eventuale diastasi oltre che la massima ampiezza."
+   },
+   {
+    "type": "p",
+    "html": "In sede ombelicale dovrà essere prestata massima attenzione per la dimostrazione di eventuali sacchi erniari con misurazione dell’ampiezza della porta e del contenuto del sacco che solitamente in questa sede è costituito da grasso properitoneale ma in caso di ernie più voluminose può essere rappresentato anche da anse intestinali."
+   },
+   {
+    "type": "img",
+    "src": "/api/media/ecografia-parete-addominale-01-1.webp",
+    "alt": "Ecografia della parete addominale in ambulatorio",
+    "caption": "",
+    "width": 800,
+    "height": 516
+   },
+   {
+    "type": "p",
+    "html": "Ecografia: ernia ombelicale a contenuto adiposo"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/ecografia-parete-addominale-02.webp",
+    "alt": "Ecografia della parete addominale in ambulatorio",
+    "caption": "",
+    "width": 800,
+    "height": 800
+   },
+   {
+    "type": "p",
+    "html": "Ulteriori porte erniarie sono possibili lungo la linea alba per lo più in sede epimesogastrica, talvolta in associazione ad ernia ombelicale."
+   },
+   {
+    "type": "p",
+    "html": "Utili le prove dinamiche e in ortostasi per la conferma diagnostica e la definizione di ernia riducibile. Ricordiamo che in caso di sospetto clinico l’ecografia si presta anche per la conferma diagnostica delle ernie inguinali e delle più rare ernie di Spigelio."
+   },
+   {
+    "type": "p",
+    "html": "Ecograficamente è possibile la valutazione dei muscoli della parete addominale (muscolo retto e muscoli larghi: oblliquo esterno, interno e trasverso): si potranno evidenziare eventuali asimmetrie o lesioni muscolari ma soprattutto stimare il trofismo della parete, dato che si dimostra importante ai fini della pianificazione chirurgica e della comprensione del concetto fisiopatologia di parete addominale come organo."
+   },
+   {
+    "type": "p",
+    "html": "La perdita di trofismo (ossia di massa muscolare) si traduce solitamente in assottigliamento dei ventri muscolari (in particolare del muscoli retti) e in allungamento dei piani muscolari (in particolare dei muscoli larghi) che porta all’aumento della circonferenza addominale."
+   },
+   {
+    "type": "h2",
+    "text": "TC E RM NELLA VALUTAZIONE DELLA PARETE ADDOMINALE"
+   },
+   {
+    "type": "p",
+    "html": "Le metodiche di II livello per lo studio della parete sono la TC e la RM.<br/>Metodiche che utilizzano macchine pesanti e che pertanto hanno costi superiori e minore<br/>disponibilità sul territorio.<br/>Metodiche che solitamente si riservano allo studio del contenuto dell’addome e quindi alle<br/>patologie più “nobili”."
+   },
+   {
+    "type": "img",
+    "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale.webp",
+    "alt": "TC della parete addominale per la valutazione dei difetti",
+    "caption": "",
+    "width": 800,
+    "height": 366
+   },
+   {
+    "type": "img",
+    "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale-01.webp",
+    "alt": "TC della parete addominale per la valutazione dei difetti",
+    "caption": "",
+    "width": 800,
+    "height": 672
+   },
+   {
+    "type": "p",
+    "html": "Le misurazioni ottenute in TC/RM sono meno operatore dipendente e più facilmente riproducibili e questo rappresenta sicuramente un vantaggio, così come il fatto che queste metodiche sono intrinsecamente più panoramiche, adatte a misurare difetti di parete molto ampi. Per questo vengono di solito richieste dai chirurghi in caso di problematiche di parete più complesse ed estese come può essere nel caso di laparoceli/grossolane ernie oppure per grossolane raccolte postchirurgiche."
+   },
+   {
+    "type": "p",
+    "html": "Però ci sono alcuni svantaggi. In particolare sono metodiche non dinamiche cioè, a differenza dell’ecografia, non possono essere eseguite in ortostasi o sotto spinta (manovra di Valsalva)."
+   },
+   {
+    "type": "p",
+    "html": "Poi sono metodiche più costose e meno disponibili sul territorio, con tempi di attesa più lunghi per ottenere un appuntamento e questo vale soprattutto per la RM. Invece per la TC che è relativamente più disponibile, c’è il grosso svantaggio di essere metodica che utilizza radiazioni ionizzanti perciò non innocua e quindi indicata solo se esiste adeguato rapporto rischio/beneficio."
+   },
+   {
+    "type": "p",
+    "html": "Per tutto quanto si è detto risulta ragionevole concludere che l’indicazione a TC/RM debba rimanere di competenza specialistica : sarà il chirurgo a decidere la necessità e scegliere il momento. Al contrario per l’ecografia vale anche l’autoprescrizione (nel senso che è sufficiente il sospetto di diastasi per decidere di fare l’esame) purché si abbia l’accortezza di scegliere un centro competente per fare una buona ecografia!"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale-02.webp",
+    "alt": "TC della parete addominale per la valutazione dei difetti",
+    "caption": "",
+    "width": 800,
+    "height": 681
+   }
+  ],
+  "kind": "clinical",
+  "answer": "La diagnostica per immagini nella valutazione della parete addominale ha assunto rilevanza sempre maggiore negli ultimi anni e si stanno ampliando le indicazioni e le metodiche disponibili per fornire al clinico il massimo delle informazioni per una sempre più dettagliata pianificazione terapeutica.",
+  "faq": [
+   {
+    "q": "A che cosa serve l'ecografia della parete addominale?",
+    "a": "L ‘ecografia è l’imaging di primo approccio per la valutazione del piano cutaneo-sottocutaneo e muscolare e risultata ampiamente validata per le sue ottime possibilità diagnostiche nella patologia muscolo-scheletrica e osteoarticolare."
+   },
+   {
+    "q": "Quali limiti ha l'ecografia nella parete addominale?",
+    "a": "In primo luogo, l’essere operatore-dipendente con conseguente possibilità di variabilità di risultato tra operatori diversi. In questo senso gioca un ruolo fondamentale l’esperienza dell’operatore da cui nasce una maggior affidabilità e riproducibilità della metodica con misurazioni sovrapponibili a TC ed RM."
+   }
+  ]
+ },
+ "en": null,
+ "modified": "2023-11-07T16:40:52"
+}

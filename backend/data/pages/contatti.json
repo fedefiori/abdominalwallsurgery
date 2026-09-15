@@ -1,0 +1,85 @@
+{
+ "slug": "contatti",
+ "path": "/contatti/",
+ "it": {
+  "h1": "Contatti",
+  "metaTitle": "Contatti | Chirurgia della Parete Addominale a Milano",
+  "metaDescription": "Come contattare il dott. Federico Fiori per una valutazione dei difetti della parete addominale: studio in Galleria del Corso 4 a Milano, telefono ed e-mail.",
+  "blocks": [
+   {
+    "type": "h2",
+    "text": "Richiedi maggiori informazioni"
+   },
+   {
+    "type": "p",
+    "html": "Gli eventuali dati personali forniti saranno acquisiti dal Titolare del trattamento che li tratterà, secondo la legge sulla privacy, al solo scopo di rispondere alla richiesta di contatto. I dati non saranno ceduti a terzi al di fuori del titolare del trattamento e sua organizzazione. L’accesso, modifica e cancellazione potrà essere richiesta in ogni momento inviando una comunicazione a <a href=\"mailto:fedefiori@tiscali.it\">fedefiori@tiscali.it</a>"
+   },
+   {
+    "type": "p",
+    "html": ""
+   },
+   {
+    "type": "h2",
+    "text": "Indirizzo"
+   },
+   {
+    "type": "p",
+    "html": "Galleria del corso 4<br/>CAP: 20122 – Milano"
+   },
+   {
+    "type": "p",
+    "html": ""
+   },
+   {
+    "type": "h2",
+    "text": "E-mail"
+   },
+   {
+    "type": "p",
+    "html": "fedefiori@tiscali.it"
+   },
+   {
+    "type": "p",
+    "html": ""
+   },
+   {
+    "type": "h2",
+    "text": "Telefono"
+   },
+   {
+    "type": "p",
+    "html": "0276021568"
+   },
+   {
+    "type": "p",
+    "html": ""
+   },
+   {
+    "type": "h2",
+    "text": "Seguici su Facebook"
+   },
+   {
+    "type": "p",
+    "html": ""
+   },
+   {
+    "type": "h2",
+    "text": "Seguici su Youtube"
+   },
+   {
+    "type": "h3",
+    "text": "Chirurgia della parete"
+   }
+  ],
+  "kind": "contact",
+  "answer": "Per contattare il dott. Federico Fiori, chirurgo della parete addominale: sede in Galleria del Corso 4, 20122 Milano; telefono 02 76021568; e-mail fedefiori@tiscali.it. È possibile richiedere una valutazione per ernie, laparoceli e altri difetti della parete.",
+  "faq": [
+   {
+    "q": "Dove si trova lo studio del dott. Federico Fiori?",
+    "a": "Galleria del corso 4CAP: 20122 – Milano"
+   }
+  ]
+ },
+ "en": null,
+ "modified": "2023-11-13T20:05:34"
+}

@@ -1,0 +1,89 @@
+{
+ "slug": "la-diastasi-dei-muscoli-retti",
+ "path": "/la-diastasi-dei-muscoli-retti/",
+ "it": {
+  "h1": "La diastasi dei muscoli retti in chirurgia della parete",
+  "metaTitle": "Diastasi dei Muscoli Retti in Chirurgia della Parete",
+  "metaDescription": "La diastasi dei retti vista dalla chirurgia della parete addominale: rapporto con l'ernia ombelicale e come cambia l'indicazione e la tecnica dell'intervento.",
+  "blocks": [
+   {
+    "type": "p",
+    "html": "<a href=\"https://www.diastasiedintorni.it\">Tutto il percorso della diastasi dei retti — sintomi, misurazione, riabilitazione, intervento e risultati — è trattato su diastasiedintorni.it</a>, il sito verticale della rete dedicato a questo argomento. In questa pagina la diastasi è descritta solo per quello che conta nella chirurgia della parete addominale."
+   },
+   {
+    "type": "h2",
+    "text": "Che cos'è la diastasi dei muscoli retti"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/diastasi-muscoli-retti-addome-01.webp",
+    "alt": "Rappresentazione della diastasi dei muscoli retti dell'addome",
+    "caption": "",
+    "width": 800,
+    "height": 450
+   },
+   {
+    "type": "p",
+    "html": "La diastasi dei muscoli retti è l'allontanamento dei due muscoli retti dell'addome sulla linea alba, la fascia fibrosa che li unisce sulla linea mediana. Non è una lesione della fascia e non è un'ernia: la parete resta continua, ma è assottigliata e cede sotto pressione."
+   },
+   {
+    "type": "h2",
+    "text": "Perché la diastasi compare in questo sito"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/diastasi-muscoli-retti-addome-03.webp",
+    "alt": "Visione anatomica della diastasi dei retti addominali",
+    "caption": "",
+    "width": 800,
+    "height": 386
+   },
+   {
+    "type": "p",
+    "html": "La diastasi si associa spesso a ernia ombelicale o a piccoli difetti della linea mediana. Quando i due problemi coesistono la scelta tecnica cambia: non basta chiudere il difetto erniario, va ricostruita l'intera linea mediana, altrimenti la riparazione resta esposta alla recidiva."
+   },
+   {
+    "type": "h2",
+    "text": "Che cosa cambia nell'indicazione chirurgica"
+   },
+   {
+    "type": "p",
+    "html": "Nella valutazione chirurgica contano la dimensione del difetto erniario associato, la qualità della linea alba residua e la presenza di eccesso cutaneo. Da questi tre elementi dipendono la via d'accesso, il piano di posizionamento della protesi e l'eventuale necessità di un rimodellamento cutaneo. Un difetto piccolo con linea alba solida può essere trattato in modo diverso da una diastasi ampia con ernia ombelicale e cute in eccesso, che richiede una ricostruzione completa della linea mediana."
+   },
+   {
+    "type": "h2",
+    "text": "I limiti di questa pagina"
+   },
+   {
+    "type": "p",
+    "html": "La valutazione morfo-funzionale della diastasi e il percorso riabilitativo non sono trattati in questo sito. Per la misurazione, i sintomi, la riabilitazione e i risultati dell'intervento il riferimento è la <a href=\"https://www.diastasiedintorni.it\">diastasi dei muscoli retti trattata su diastasiedintorni.it</a>."
+   },
+   {
+    "type": "img",
+    "src": "/api/media/diastasi-muscoli-retti-addome-02.webp",
+    "alt": "Diastasi dei muscoli retti: allontanamento dei retti sulla linea alba",
+    "caption": "",
+    "width": 800,
+    "height": 529
+   }
+  ],
+  "kind": "clinical-condition",
+  "answer": "La diastasi dei muscoli retti è l'allontanamento dei due muscoli retti sulla linea alba: non è una lesione della fascia né un'ernia. Conta in chirurgia della parete perché si associa spesso a ernia ombelicale e cambia la scelta tecnica dell'intervento.",
+  "faq": [
+   {
+    "q": "La diastasi dei retti è un'ernia?",
+    "a": "La diastasi dei muscoli retti è l'allontanamento dei due muscoli retti dell'addome sulla linea alba, la fascia fibrosa che li unisce sulla linea mediana. Non è una lesione della fascia e non è un'ernia: la parete resta continua, ma è assottigliata e cede sotto pressione."
+   },
+   {
+    "q": "Perché la diastasi conta nella chirurgia della parete?",
+    "a": "La diastasi si associa spesso a ernia ombelicale o a piccoli difetti della linea mediana. Quando i due problemi coesistono la scelta tecnica cambia: non basta chiudere il difetto erniario, va ricostruita l'intera linea mediana, altrimenti la riparazione resta esposta alla recidiva."
+   },
+   {
+    "q": "Dove trovo il percorso completo della diastasi?",
+    "a": "Tutto il percorso della diastasi dei retti — sintomi, misurazione, riabilitazione, intervento e risultati — è trattato su diastasiedintorni.it, il sito verticale della rete dedicato a questo argomento. In questa pagina la diastasi è descritta solo per quello che conta nella chirurgia della parete addominale."
+   }
+  ]
+ },
+ "en": null,
+ "modified": "2023-12-15T12:18:04"
+}

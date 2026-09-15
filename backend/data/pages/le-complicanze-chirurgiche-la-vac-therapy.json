@@ -1,0 +1,158 @@
+{
+ "slug": "le-complicanze-chirurgiche-la-vac-therapy",
+ "path": "/le-complicanze-chirurgiche-la-vac-therapy/",
+ "it": {
+  "h1": "Le complicanze Chirurgiche, la VAC Therapy",
+  "metaTitle": "Complicanze Chirurgiche e VAC Therapy della Parete",
+  "metaDescription": "Sieromi, infezioni e deiscenze dopo chirurgia della parete addominale: come si riconoscono, come si trattano e quale ruolo ha la VAC therapy nella guarigione.",
+  "blocks": [
+   {
+    "type": "h2",
+    "text": "Le complicanze Chirurgiche la VAC Therapy"
+   },
+   {
+    "type": "h2",
+    "text": "Le Complicanze in Chirurgia della Parete e la loro gestione"
+   },
+   {
+    "type": "p",
+    "html": "La chirurgia della parete addominale anteriore può essere aperta , laparoscopica, endoscopica o robotica.<br/>Le complicanze variano in base al tipo di approccio e hanno globalmente una incidenza minore per le tecniche mininvasive.<br/>Vediamo in maniera riassuntiva quali sono quelle piu’ comuni ricordando che esistono differenze statistiche correlate al tipo di tecnica.<br/>Le complicanze in seguito a chirurgia della parete addominale possono essere suddivise in precoci (entro 30 giorni dall’intervento) e tardive (oltre 30 giorni dall’intervento)."
+   },
+   {
+    "type": "p",
+    "html": "Complicanze precoci"
+   },
+   {
+    "type": "ul",
+    "ordered": true,
+    "items": [
+     "<b>Emorragia:</b> Può verificarsi subito dopo la chirurgia. L’incidenza varia a seconda del tipo di chirurgia e della tecnica utilizzata, ma è generalmente bassa.",
+     "<b>Infezione della ferita:</b> L’incidenza varia dal 1% al 10%, a seconda della tecnica chirurgica, delle condizioni del paziente e dell’ambiente. Possono richiedere trattamenti antibiotici e, in alcuni casi, la rimozione chirurgica dei tessuti infetti.",
+     "<b>Seroma:</b> Accumulo di liquido nella zona operata. Può presentarsi nel 10-15% dei casi, a seconda del tipo di chirurgia. Può essere fastidioso , richiedere punture evcuative ripetute, in rari casi di persistenza a diversi mesi puo’ essere indicato un intervento chirurgico per asportazione della capsula.",
+     "<b>Lesione viscerale:</b> È rara, ma può verificarsi, in particolare durante la chirurgia laparoscopica. L’incidenza è meno dell’1%.",
+     "<b>Lesione vascolare:</b> Anche questa complicazione è rara, con un’incidenza di meno dell’1%."
+    ]
+   },
+   {
+    "type": "p",
+    "html": "<b>Complicanze di ferita:</b> Frequenti, e precoci. In certe casistiche raggiungono il 25-30 % per la chirurgia aperta. Guariscono in un tempo molto lungo e possono giovarsi di terapia con Vacuum."
+   },
+   {
+    "type": "p",
+    "html": "Complicanze tardive"
+   },
+   {
+    "type": "ul",
+    "ordered": true,
+    "items": [
+     "<b>Recidiva erniaria:</b> Recidiva vuol dire che siamo di fronte ad una ulteriore difetto erniario nella stessa zona operata. L’incidenza varia a seconda del tipo di chirurgia e della tecnica utilizzata, ma in media si aggira intorno al 5-10%.",
+     "<b>Dolore cronico:</b> Può variare, ma si stima che circa il 10% dei pazienti possa sperimentare un certo grado di dolore cronico post-operatorio.",
+     "<b>Aderenze:</b> Possono formarsi dopo un intervento chirurgico. Possono causare dolore e, in rari casi, ostruzione intestinale. L’incidenza specifica varia a seconda della chirurgia, ma è più comune dopo procedure aperte rispetto alla laparoscopia.",
+     "<b>Atrofia o Ipotrofia muscolare:</b> Può accadere se vi è stato un lungo periodo di ipomobilità muscolare o in caso di lesioni nervose."
+    ]
+   },
+   {
+    "type": "p",
+    "html": "<b>Patologie cicatriziali:</b> Ipertrofia, cheloide, diastasi cicatriziale sono complicanze possibili e comuni ad ogni peocedura chirurgica"
+   },
+   {
+    "type": "p",
+    "html": "Bisogna sottolineare che le statistiche possono variare in base al tipo di chirurgia, alla tecnica chirurgica, alle condizioni del paziente, alle competenze del chirurgo e ad altri fattori."
+   },
+   {
+    "type": "p",
+    "html": "Non sono generalmente complicanze gravi , e la lesione viscerale ha davvero una incidenza marginale, ma possono richiedere una gestione lunga e fastidiosa, che comporta medicazioni ripetute per un tempo che puo’ essere lungo."
+   },
+   {
+    "type": "h2",
+    "text": "La VAC-Therapy"
+   },
+   {
+    "type": "p",
+    "html": "La terapia a pressione negativa, o Vacuum Assisted Closure (VAC), è una tecnica utilizzata per il trattamento delle ferite chirurgiche complesse. Il suo utilizzo è indicato per favorire la guarigione delle ferite difficili, ridurre l’infezione e accelerare il processo di cicatrizzazione. Ecco alcuni elementi del razionale di utilizzo della Vacuum therapy:"
+   },
+   {
+    "type": "p",
+    "html": "Riduzione dell'edema"
+   },
+   {
+    "type": "p",
+    "html": "La terapia a pressione negativa riduce l’edema o gonfiore nella ferita. L’applicazione di una pressione negativa e costante attraverso il dispositivo VAC aiuta a rimuovere i liquidi eccessivi dalla ferita, migliorando la circolazione sanguigna locale e riducendo l’accumulo di fluidi."
+   },
+   {
+    "type": "p",
+    "html": "Rimozione dell'essudato"
+   },
+   {
+    "type": "p",
+    "html": "L’essudato, ovvero il secreto che fuoriesce dalla ferita, può rallentare il processo di guarigione. La Vacuum therapy rimuove in modo efficiente l’essudato dalla ferita attraverso un sistema di drenaggio collegato al dispositivo VAC. Ciò riduce la possibilità di accumulo di fluidi che possono favorire l’infezione."
+   },
+   {
+    "type": "p",
+    "html": "Promozione dell'angiogenesi"
+   },
+   {
+    "type": "p",
+    "html": "La pressione negativa continua applicata dalla Vacuum therapy stimola la formazione di nuovi vasi sanguigni, un processo noto come angiogenesi. Questo favorisce una migliore irrorazione sanguigna nella ferita, fornendo sostanze nutritive e ossigeno necessari per la guarigione."
+   },
+   {
+    "type": "p",
+    "html": "Riduzione della dimensione della ferita"
+   },
+   {
+    "type": "p",
+    "html": "La Vacuum therapy aiuta a ridurre la dimensione della ferita nel tempo. Applicando una pressione negativa costante, il tessuto della ferita viene contratto, favorendo la chiusura dei bordi della ferita e accelerando il processo di cicatrizzazione."
+   },
+   {
+    "type": "p",
+    "html": "Prevenzione delle infezioni"
+   },
+   {
+    "type": "p",
+    "html": "La Vacuum therapy crea un ambiente a basso contenuto di ossigeno nella ferita, il che ostacola la crescita dei batteri. Inoltre, l’aspirazione costante del liquido dalla ferita contribuisce a rimuovere i batteri presenti, riducendo il rischio di infezione."
+   },
+   {
+    "type": "p",
+    "html": "Facilitazione della granulazione"
+   },
+   {
+    "type": "p",
+    "html": "La Vacuum therapy promuove la formazione di tessuto di granulazione, che è cruciale per il processo di guarigione delle ferite. Il sistema di pressione negativa applicato al VAC stimola la proliferazione delle cellule che compongono il tessuto di granulazione, favorisce la formazione di nuovi vasi sanguigni e contribuisce alla ricostruzione del tessuto danneggiato."
+   },
+   {
+    "type": "p",
+    "html": "Tuttavia, è importante sottolineare che l’utilizzo della Vacuum therapy deve essere valutato caso per caso e non è sempre indicato per tutte le ferite chirurgiche complesse. È fondamentale che un chirurgo specializzato e un team di supporto valutino  la ferita e determinino se la terapia con vacuum è appropriata e vantaggiosa per il paziente."
+   },
+   {
+    "type": "img",
+    "src": "/api/media/vac-01.webp",
+    "alt": "Medicazione VAC therapy su ferita chirurgica della parete addominale",
+    "caption": "",
+    "width": 800,
+    "height": 725
+   },
+   {
+    "type": "img",
+    "src": "/api/media/vac-02.webp",
+    "alt": "Applicazione del sistema VAC therapy per complicanze della ferita addominale",
+    "caption": "",
+    "width": 800,
+    "height": 490
+   }
+  ],
+  "kind": "clinical",
+  "answer": "La chirurgia della parete addominale anteriore può essere aperta , laparoscopica, endoscopica o robotica.Le complicanze variano in base al tipo di approccio e hanno globalmente una incidenza minore per le tecniche mininvasive.Vediamo in maniera riassuntiva quali sono quelle piu’ comuni ricordando che esistono differenze statistiche correlate al tipo di tecnica.Le complicanze in seguito a chirurgia della parete addominale possono essere suddivise in precoci (entro 30 giorni dall’intervento) e tardive (oltre…",
+  "faq": [
+   {
+    "q": "Quali complicanze può avere la chirurgia della parete?",
+    "a": "La chirurgia della parete addominale anteriore può essere aperta , laparoscopica, endoscopica o robotica.Le complicanze variano in base al tipo di approccio e hanno globalmente una incidenza minore per le tecniche mininvasive.Vediamo in maniera riassuntiva quali sono quelle piu’ comuni ricordando che esistono differenze statistiche correlate al tipo di tecnica.Le complicanze in seguito a chirurgia della parete addominale possono essere suddivise in precoci (entro 30 giorni dall’intervento) e tardive (oltre 30 giorni dall’intervento)."
+   },
+   {
+    "q": "Quali complicanze di ferita si possono verificare?",
+    "a": "Complicanze di ferita: Frequenti, e precoci. In certe casistiche raggiungono il 25-30 % per la chirurgia aperta. Guariscono in un tempo molto lungo e possono giovarsi di terapia con Vacuum."
+   }
+  ]
+ },
+ "en": null,
+ "modified": "2023-11-07T16:55:22"
+}

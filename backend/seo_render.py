@@ -1,0 +1,457 @@
+"""Rendering SEO: blocchi -> HTML, JSON-LD, canonical/hreflang, sitemap, robots, llms."""
+import html as htmllib
+import json
+import re
+from urllib.parse import urlparse
+
+TAG_RE = re.compile(r'<[^>]+>')
+
+
+def esc(s):
+    return htmllib.escape(s or '', quote=True)
+
+
+def text_of(html):
+    return re.sub(r'\s+', ' ', TAG_RE.sub(' ', html or '')).strip()
+
+
+def abs_url(domain, src):
+    if not src:
+        return src
+    if src.startswith('http'):
+        return src
+    return domain + (src if src.startswith('/') else '/' + src)
+
+
+def render_blocks(blocks, domain, lang, lazy_from=1):
+    """Blocchi -> HTML semantico. lazy_from: indice img da cui parte il lazy loading."""
+    out, img_i = [], 0
+    for b in blocks:
+        t = b.get('type')
+        if t == 'h2':
+            anchor = re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', (b.get('text') or '').lower())).strip('-')
+            out.append(f'<h2 id="{esc(anchor)}">{esc(b.get("text"))}</h2>')
+        elif t == 'h3':
+            out.append(f'<h3>{esc(b.get("text"))}</h3>')
+        elif t == 'p':
+            out.append(f'<p>{b.get("html", "")}</p>')
+        elif t == 'ul':
+            tag = 'ol' if b.get('ordered') else 'ul'
+            items = ''.join(f'<li>{i}</li>' for i in b.get('items', []))
+            out.append(f'<{tag}>{items}</{tag}>')
+        elif t == 'img':
+            img_i += 1
+            src = abs_url(domain, b.get('src', ''))
+            w, h = b.get('width') or 1200, b.get('height') or 800
+            lazy = ' loading="lazy"' if img_i > lazy_from else ' fetchpriority="high"'
+            cap = f'<figcaption>{esc(b.get("caption"))}</figcaption>' if b.get('caption') else ''
+            out.append(
+                f'<figure><img src="{esc(src)}" alt="{esc(b.get("alt"))}" width="{w}" height="{h}"'
+                f'{lazy} decoding="async" />{cap}</figure>')
+        elif t == 'plainBox':
+            out.append(f'<div class="pw-plainbox"><p>{b.get("html", "")}</p></div>')
+        elif t == 'proBox':
+            out.append(f'<div class="pw-probox"><p>{b.get("html", "")}</p></div>')
+        elif t == 'note':
+            out.append(f'<div class="pw-note"><p>{b.get("html", "")}</p></div>')
+        elif t == 'keyPoints':
+            items = ''.join(f'<li>{i}</li>' for i in b.get('items', []))
+            out.append(f'<ul class="pw-keypoints">{items}</ul>')
+        elif t == 'table':
+            out.append(f'<div class="pw-table">{b.get("html", "")}</div>')
+    return '\n'.join(out)
+
+
+def breadcrumb_ld(items):
+    return {
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': u}
+            for i, (n, u) in enumerate(items)
+        ],
+    }
+
+
+def org_ld(entity, domain, lang):
+    person = (entity or {}).get('person', {})
+    same = [
+        'https://www.federicofiori.com',
+        'https://www.diastasiedintorni.it',
+        'https://www.diastasisandbeyond.com',
+        'https://www.federico-fiori.it',
+        'https://www.chirurgiadellaparete.it',
+        'https://www.abdominalwallsurgery.com',
+    ]
+    org = {
+        '@type': 'MedicalBusiness',
+        '@id': f'{domain}/#organization',
+        'name': 'Chirurgia della Parete Addominale - Dott. Federico Fiori',
+        'url': domain,
+        'sameAs': same,
+        'address': {
+            '@type': 'PostalAddress',
+            'streetAddress': 'Galleria del Corso 4',
+            'postalCode': '20122',
+            'addressLocality': 'Milano',
+            'addressCountry': 'IT',
+        },
+        'geo': {'@type': 'GeoCoordinates', 'latitude': 45.4637, 'longitude': 9.1963},
+        'telephone': '+39-02-76021568',
+        'medicalSpecialty': 'Chirurgia della parete addominale',
+    }
+    return org
+
+
+def person_ld(entity):
+    person = (entity or {}).get('person') or {}
+    p = dict(person)
+    p.pop('@context', None)
+    return p
+
+
+def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
+    """JSON-LD per le 14 pagine ereditate, in base al kind."""
+    kind = page.get('it', {}).get('kind', 'clinical') if page.get('it') else 'clinical'
+    graphs = []
+    person = person_ld(entity)
+    org = org_ld(entity, site['domain'], site['lang'])
+    web = {
+        '@type': 'MedicalWebPage',
+        '@id': canonical,
+        'url': canonical,
+        'name': content.get('metaTitle') or content.get('h1'),
+        'description': content.get('metaDescription'),
+        'inLanguage': site['lang'],
+        'isPartOf': {'@id': f"{site['domain']}/#website"},
+        'about': {'@id': person.get('@id')} if person.get('@id') else None,
+        'speakable': {
+            '@type': 'SpeakableSpecification',
+            'cssSelector': ['h1', '.pw-answer'],
+        },
+        'lastReviewed': page.get('modified', '')[:10] or None,
+    }
+    web = {k: v for k, v in web.items() if v is not None}
+    graphs.append(web)
+    graphs.append({'@type': 'WebSite', '@id': f"{site['domain']}/#website",
+                   'url': site['domain'], 'name': site['ui']['site_name'], 'inLanguage': site['lang']})
+    graphs.append(org)
+
+    if kind == 'clinical-condition':
+        graphs.append({
+            '@type': 'MedicalCondition',
+            'name': content.get('h1'),
+            'url': canonical,
+            'code': {'@type': 'MedicalCode', 'codingSystem': 'mesh'},
+        })
+    elif kind == 'clinical-procedure':
+        graphs.append({
+            '@type': 'MedicalProcedure',
+            'name': content.get('h1'),
+            'url': canonical,
+            'procedureType': 'https://schema.org/SurgicalProcedure',
+        })
+    elif kind == 'classifications':
+        graphs.append({
+            '@type': 'DefinedTermSet',
+            'name': 'Classificazione EHS delle ernie della parete addominale',
+            'url': canonical,
+            'hasDefinedTerm': [
+                {'@type': 'DefinedTerm', 'name': 'EHS', 'description': 'European Hernia Society'},
+                {'@type': 'DefinedTerm', 'name': 'Ernia primaria', 'description': 'Ernia della parete addominale non associata a precedente incisione chirurgica'},
+                {'@type': 'DefinedTerm', 'name': 'Ernia incisionale (laparocele)', 'description': 'Ernia su cicatrice di precedente intervento chirurgico addominale'},
+            ],
+        })
+    elif kind == 'profile':
+        graphs = [{
+            '@type': 'ProfilePage',
+            '@id': canonical,
+            'url': canonical,
+            'name': content.get('metaTitle'),
+            'inLanguage': site['lang'],
+            'mainEntity': person,
+            'isPartOf': {'@id': f"{site['domain']}/#website"},
+        }, person] if person else graphs
+    elif kind == 'contact':
+        cb = dict(org)
+        cb['openingHoursSpecification'] = [{
+            '@type': 'OpeningHoursSpecification',
+            'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            'opens': '09:00', 'closes': '18:00',
+        }]
+        graphs.append(cb)
+    if breadcrumb_items:
+        graphs.append(breadcrumb_ld(breadcrumb_items))
+    faq = content.get('faq') or []
+    if faq:
+        graphs.append({
+            '@type': 'FAQPage',
+            'mainEntity': [
+                {'@type': 'Question', 'name': f['q'],
+                 'acceptedAnswer': {'@type': 'Answer', 'text': f['a']}}
+                for f in faq
+            ],
+        })
+    return {'@context': 'https://schema.org', '@graph': graphs}
+
+
+def article_jsonld(article, site, entity, canonical, breadcrumb_items):
+    person = person_ld(entity)
+    faq = article.get('faq') or []
+    graphs = [
+        {
+            '@type': 'BlogPosting',
+            '@id': f'{canonical}#post',
+            'headline': article.get('title'),
+            'description': article.get('metaDescription') or article.get('excerpt'),
+            'image': article.get('coverUrl'),
+            'datePublished': article.get('publishedAt'),
+            'dateModified': article.get('updatedAt') or article.get('publishedAt'),
+            'inLanguage': article.get('lang', site['lang']),
+            'mainEntityOfPage': canonical,
+            'author': person if person else {'@type': 'Person', 'name': 'Dott. Federico Fiori'},
+            'isPartOf': {'@id': f"{site['domain']}/#website"},
+        },
+        {
+            '@type': 'MedicalWebPage',
+            '@id': canonical,
+            'url': canonical,
+            'name': article.get('metaTitle') or article.get('title'),
+            'description': article.get('metaDescription') or article.get('excerpt'),
+            'inLanguage': article.get('lang', site['lang']),
+            'isPartOf': {'@id': f"{site['domain']}/#website"},
+            'speakable': {'@type': 'SpeakableSpecification', 'cssSelector': ['h1', '.pw-answer']},
+        },
+        breadcrumb_ld(breadcrumb_items),
+    ]
+    if faq:
+        graphs.append({
+            '@type': 'FAQPage',
+            'mainEntity': [
+                {'@type': 'Question', 'name': f['q'],
+                 'acceptedAnswer': {'@type': 'Answer', 'text': text_of(f.get('a', ''))}}
+                for f in faq
+            ],
+        })
+    return {'@context': 'https://schema.org', '@graph': graphs}
+
+
+BASE_CSS = """
+:root{--ink:#070B0F;--surface:#0E141A;--line:#1E2A33;--text:#F5F8FA;--muted:#8FA3B2;--accent:#E4762C;--steel:#7FA8C9}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font-family:Georgia,serif;line-height:1.7;font-size:18px}
+main{max-width:44em;margin:0 auto;padding:2rem 1.25rem}
+h1{font-size:2.2rem;line-height:1.2;margin-bottom:1rem}
+h2{font-size:1.5rem;margin:2.2rem 0 .8rem}
+h3{font-size:1.2rem;margin:1.6rem 0 .6rem}
+p{margin-bottom:1rem}
+ul,ol{margin:0 0 1rem 1.4rem}
+a{color:var(--steel)}
+figure{margin:1.4rem 0}
+img{max-width:100%;height:auto}
+figcaption{color:var(--muted);font-size:.85rem;margin-top:.4rem}
+.pw-answer{border-left:2px solid var(--accent);padding:.6rem 1rem;background:var(--surface);margin:1.2rem 0}
+.pw-plainbox,.pw-note{border:1px solid var(--line);padding:1rem 1.2rem;background:var(--surface);margin:1.4rem 0}
+.pw-table{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}
+.pw-crumbs{font-size:.8rem;color:var(--muted);margin-bottom:1.4rem}
+.pw-crumbs a{color:var(--muted)}
+.pw-faq details{border-top:1px solid var(--line);padding:.8rem 0}
+.pw-faq summary{cursor:pointer;font-weight:600}
+.pw-net{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;color:var(--muted);font-size:.9rem}
+"""
+
+
+def prerender_page(page, content, site, entity, absolute, noindex):
+    domain = site['domain']
+    path = page['path']
+    canonical = domain + path
+    h1 = content.get('h1', '')
+    body = render_blocks(content.get('blocks', []), domain, site['lang'])
+    answer = content.get('answer') or ''
+    faq = content.get('faq') or []
+    ui = site['ui']
+    crumbs_html = ''
+    crumb_items = None
+    if path != '/':
+        crumb_items = [(ui['breadcrumb_home'], domain + '/'), (h1, canonical)]
+        crumbs_html = (f'<nav class="pw-crumbs" aria-label="breadcrumb">'
+                       f'<a href="{domain}/">{esc(ui["breadcrumb_home"])}</a> / <span>{esc(h1)}</span></nav>')
+    faq_html = ''
+    if faq:
+        items = ''.join(f'<details><summary>{esc(f["q"])}</summary><p>{esc(f["a"])}</p></details>' for f in faq)
+        faq_html = f'<section class="pw-faq" aria-label="{esc(ui["faq_title"])}"><h2>{esc(ui["faq_title"])}</h2>{items}</section>'
+    ld = page_jsonld(page, content, site, entity, canonical, crumb_items)
+    robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+    net = network_html(site)
+    return f"""<!DOCTYPE html>
+<html lang="{site['lang']}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{esc(content.get('metaTitle') or h1)}</title>
+<meta name="description" content="{esc(content.get('metaDescription', ''))}" />
+<link rel="canonical" href="{esc(canonical)}" />
+{robots}
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<style>{BASE_CSS}</style>
+</head>
+<body>
+<main>
+{crumbs_html}
+<h1>{esc(h1)}</h1>
+{f'<p class="pw-answer">{esc(answer)}</p>' if answer else ''}
+{body}
+{faq_html}
+{net}
+</main>
+</body>
+</html>"""
+
+
+def prerender_article(article, site, entity, absolute, noindex):
+    domain = site['domain']
+    canonical = article.get('canonical') or (domain + site['articlePath'] + article['slug'])
+    ui = site['lang']
+    body = render_blocks(article.get('sections', []), domain, site['lang'])
+    da = article.get('directAnswer') or article.get('excerpt') or ''
+    faq = article.get('faq') or []
+    u = site['ui']
+    crumb_items = [(u['breadcrumb_home'], domain + '/'),
+                   (u['breadcrumb_articles'], domain + site['articlesIndex']),
+                   (article.get('title', ''), canonical)]
+    crumbs_html = (f'<nav class="pw-crumbs" aria-label="breadcrumb">'
+                   f'<a href="{domain}/">{esc(u["breadcrumb_home"])}</a> / '
+                   f'<a href="{domain}{site["articlesIndex"]}">{esc(u["breadcrumb_articles"])}</a> / '
+                   f'<span>{esc(article.get("title", ""))}</span></nav>')
+    cover = ''
+    if article.get('coverUrl'):
+        cover = (f'<figure><img src="{esc(article["coverUrl"])}" alt="{esc(article.get("title", ""))}" '
+                 f'width="1200" height="675" fetchpriority="high" decoding="async" /></figure>')
+    faq_html = ''
+    if faq:
+        items = ''.join(f'<details><summary>{esc(f["q"])}</summary><p>{esc(text_of(f.get("a","")))}</p></details>' for f in faq)
+        faq_html = f'<section class="pw-faq"><h2>{esc(u["faq_title"])}</h2>{items}</section>'
+    ld = article_jsonld(article, site, entity, canonical, crumb_items)
+    robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+    hreflang = ''
+    tr = article.get('translation')
+    if tr and tr.get('url'):
+        hreflang = (f'<link rel="alternate" hreflang="{"en" if site["lang"]=="it" else "it"}" href="{esc(tr["url"])}" />\n'
+                    f'<link rel="alternate" hreflang="{site["lang"]}" href="{esc(canonical)}" />\n'
+                    f'<link rel="alternate" hreflang="x-default" href="{esc(canonical if site["lang"]=="it" else tr["url"])}" />')
+    return f"""<!DOCTYPE html>
+<html lang="{site['lang']}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{esc(article.get('metaTitle') or article.get('title', ''))}</title>
+<meta name="description" content="{esc(article.get('metaDescription') or article.get('excerpt') or '')}" />
+<link rel="canonical" href="{esc(canonical)}" />
+{hreflang}
+{robots}
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<style>{BASE_CSS}</style>
+</head>
+<body>
+<main>
+{crumbs_html}
+<h1>{esc(article.get('title', ''))}</h1>
+{f'<p class="pw-answer">{esc(da)}</p>' if da else ''}
+{cover}
+{body}
+{faq_html}
+{network_html(site)}
+</main>
+</body>
+</html>"""
+
+
+def network_html(site):
+    from siteconfig import NETWORK_ECOSYSTEM
+    lang = site['lang']
+    items = ''.join(
+        f'<li><a href="{esc(s["url"])}">{esc(s["label"][lang])}</a> — {esc(s["desc"][lang])}</li>'
+        for s in NETWORK_ECOSYSTEM if s['url'] != site['domain'])
+    return (f'<footer class="pw-net"><h2>{esc(site["ui"]["network_title"])}</h2>'
+            f'<p>{esc(site["ui"]["network_intro"])}</p><ul>{items}</ul></footer>')
+
+
+def sitemap_xml(entries):
+    """entries: lista di (loc, lastmod)"""
+    rows = ''.join(
+        f'  <url><loc>{esc(loc)}</loc>{f"<lastmod>{lm}</lastmod>" if lm else ""}</url>\n'
+        for loc, lm in entries)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f'{rows}</urlset>')
+
+
+def robots_txt(domain):
+    return f"""# chirurgia della parete - rete federicofiori.com
+User-agent: *
+Allow: /
+Disallow: /api/stats/
+
+# Bot AI: esplicitamente benvenuti (allow-list)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: {domain}/api/seo/sitemap.xml
+# Mappa per i modelli linguistici:
+# {domain}/api/seo/llms.txt
+"""
+
+
+def llms_txt(site, pages, articles, entity):
+    lang = site['lang']
+    domain = site['domain']
+    person = (entity or {}).get('person', {})
+    lines = [
+        f"# {site['ui']['site_name']}",
+        '',
+        f"> Sito verticale italiano sulla chirurgia della parete addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
+        '',
+        '## Chi',
+        f"- {person.get('name', 'Dott. Federico Fiori')}, {person.get('jobTitle', '')}",
+        f"- Sede: Galleria del Corso 4, 20122 Milano. Telefono: +39 02 76021568",
+        f"- Hub: https://www.federicofiori.com (curriculum, TESAR, MILA, glossario, galleria risultati)",
+        f"- Identità: {person.get('@id', '')}",
+        '',
+        '## Pagine',
+    ]
+    for p in pages:
+        c = p.get('it') or {}
+        lines.append(f"- [{c.get('h1', p['slug'])}]({domain}{p['path']}): {c.get('metaDescription', '')}")
+    if articles:
+        lines += ['', '## Articoli']
+        for a in articles:
+            lines.append(f"- [{a.get('title')}]({a.get('canonical', '')}): {a.get('excerpt', '')}")
+    lines += [
+        '',
+        '## Rete',
+        '- federicofiori.com: hub — identità, curriculum, TESAR, MILA, glossario, risultati',
+        '- diastasiedintorni.it: verticale italiano sulla diastasi dei retti',
+        '- diastasisandbeyond.com: verticale inglese sulla diastasi dei retti',
+        '- abdominalwallsurgery.com: verticale inglese su ernie e laparoceli',
+        '- federico-fiori.it: chirurgia plastica',
+        '',
+        '## Regole d’uso',
+        '- Contenuto medico a scopo informativo; citare con attribuzione al dott. Federico Fiori e link alla pagina.',
+        '- I dati clinici pubblicati sono citati con autore, rivista, anno e DOI/PMID nelle fonti.',
+    ]
+    return '\n'.join(lines) + '\n'

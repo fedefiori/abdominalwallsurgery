@@ -11,6 +11,15 @@
     "text": "Che cos'è la pre-abilitazione e a che cosa serve?"
    },
    {
+    "type": "img",
+    "src": "/api/media/arte-preabilitazione-pulso.webp",
+    "alt": "Schema stilizzato del tracciato di preparazione fisica prima dell’intervento",
+    "caption": "La pre-abilitazione: arrivare all’intervento con il tracciato fisico in miglioramento.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 675
+   },
+   {
     "type": "p",
     "html": "I tassi di recidiva dopo <a href=\"/contatti/\">chirurg</a>ia riparativa di un difetto primitivo della parete addominale anteriore sono un elemento da conoscere e considerare . Circa il 24 % , e in alcune statistiche ben di piu’, in caso di riparazione senza mesh e oltre il 7% in caso di riparazione con protesi. Tali percentuali si alzano in maniera estrema in caso si trattino Pazienti obesi."
    },

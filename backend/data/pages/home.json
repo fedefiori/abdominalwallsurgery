@@ -47,6 +47,15 @@
     "html": "Questo sito è il verticale italiano sulla chirurgia della parete addominale del dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
    },
    {
+    "type": "img",
+    "src": "/api/media/arte-parete-strati.webp",
+    "alt": "Schema stilizzato degli strati della parete addominale",
+    "caption": "Gli strati della parete addominale: cute, muscoli, fasce e peritoneo, in sintesi grafica.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 675
+   },
+   {
     "type": "p",
     "html": "Ogni argomento della rete ha un sito di riferimento: la diastasi dei muscoli retti è trattata per esteso su diastasiedintorni.it, mentre il curriculum, la tecnica TESAR, la tecnica MILA e il glossario degli acronimi vivono sull'hub federicofiori.com. Qui resta tutto quello che serve per capire ernie e laparoceli e per arrivare preparati alla visita."
    },
@@ -87,6 +96,15 @@
      "La <strong>pre-abilitazione</strong>, se il quadro lo richiede, per arrivare all'intervento nelle migliori condizioni.",
      "L'<strong>intervento</strong> con la tecnica scelta sul singolo Paziente: le tecniche sono nella pagina della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica</a>."
     ]
+   },
+   {
+    "type": "img",
+    "src": "/api/media/arte-preabilitazione-passi.webp",
+    "alt": "Schema dei passi del percorso verso l'intervento",
+    "caption": "Il percorso verso l’intervento in quattro passi: valutazione, imaging, pre-abilitazione, chirurgia.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 675
    }
   ],
   "kind": "home",

@@ -54,6 +54,15 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
 2. Asset video hero.
 3. Aggancio Worker + go-live dominio.
 
+## Illustrazioni e ritmo visivo (16/09/2026, sera)
+- 10 illustrazioni stilizzate generate in stile hub (blu notte + linee luminose su reticolo,
+  webp 5-38KB) in /app/backend/static/media/arte-*.webp, inserite come blocchi schema con
+  alt+didascalia in: home (2), sintomi, vac, preabilitazione, privacy, cookie.
+  Generatore riproducibile: /app/scripts/make_art.py.
+- Font dell'hub ripristinati su richiesta utente: Inter Tight / Manrope / Azeret Mono.
+- Contenuti raggruppati in sezioni per h2 con sfondi alternati (trasparente / --surface /
+  --band piu' chiara, radius 14px) in Blocks.jsx: ritmo dinamico senza cambiare il testo.
+
 ## Giro correzioni hub (16/09/2026) — CHIUSO
 1. Guasto /articoli: causa = doppia rotta `/articoli` e `/articoli/` (react-router v7) + config non caricata; risolto e verificato in browser, 0 errori console su home/articoli/3 articoli a 1920 e 390.
 2. Palette blu #0B81E1 su grigio acciaio (esatta da specifica), alone radiale con parallasse lento, niente campiture piene, un solo pulsante pieno per schermata. Font ripristinati Space Grotesk/Literata 18px/1.75/IBM Plex Mono.

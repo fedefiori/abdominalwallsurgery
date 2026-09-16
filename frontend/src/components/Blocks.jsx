@@ -40,68 +40,85 @@ function Figure({ b, first }) {
 
 export function Blocks({ blocks }) {
     let imgIndex = 0;
-    const out = [];
-    for (let i = 0; i < blocks.length; i += 1) {
-        const b = blocks[i];
-        if (b.type === 'img') {
-            // coppie di immagini consecutive -> due colonne
-            const duo = [];
-            while (i < blocks.length && blocks[i].type === 'img' && duo.length < 2) {
-                duo.push(blocks[i]);
-                i += 1;
-            }
-            i -= 1;
-            const items = duo.map((d) => {
-                imgIndex += 1;
-                return <Figure key={imgIndex} b={d} first={imgIndex === 1} />;
-            });
-            out.push(duo.length === 2
-                ? <div className="pw-img-duo" data-testid="figure-duo" key={`duo-${i}`}>{items}</div>
-                : <div key={`solo-${i}`}>{items}</div>);
-            continue;
+    // raggruppa i blocchi in sezioni delimitate dagli h2: sfondi alternati
+    const sections = [];
+    let current = [];
+    for (const b of blocks) {
+        if (b.type === 'h2' && current.length) {
+            sections.push(current);
+            current = [];
         }
+        current.push(b);
+    }
+    if (current.length) sections.push(current);
+
+    const renderBlock = (b, i) => {
         switch (b.type) {
             case 'h2':
-                out.push(<h2 key={i} id={anchorOf(b.text)}>{b.text}</h2>);
-                break;
+                return <h2 key={i} id={anchorOf(b.text)}>{b.text}</h2>;
             case 'h3':
-                out.push(<h3 key={i} id={anchorOf(b.text)}>{b.text}</h3>);
-                break;
+                return <h3 key={i} id={anchorOf(b.text)}>{b.text}</h3>;
             case 'p':
-                out.push(<p key={i} dangerouslySetInnerHTML={{ __html: b.html }} />);
-                break;
+                return <p key={i} dangerouslySetInnerHTML={{ __html: b.html }} />;
             case 'ul': {
                 const List = b.ordered ? 'ol' : 'ul';
-                out.push(
+                return (
                     <List key={i}>
                         {b.items.map((it, j) => (
                             <li key={j} dangerouslySetInnerHTML={{ __html: it }} />
                         ))}
-                    </List>);
-                break;
+                    </List>
+                );
             }
             case 'plainBox':
-                out.push(<div key={i} className="pw-plainbox" data-testid="plain-box" dangerouslySetInnerHTML={{ __html: `<p>${b.html}</p>` }} />);
-                break;
+                return <div key={i} className="pw-plainbox" data-testid="plain-box" dangerouslySetInnerHTML={{ __html: `<p>${b.html}</p>` }} />;
             case 'proBox':
-                out.push(<div key={i} className="pw-probox" data-testid="pro-box" dangerouslySetInnerHTML={{ __html: `<p>${b.html}</p>` }} />);
-                break;
+                return <div key={i} className="pw-probox" data-testid="pro-box" dangerouslySetInnerHTML={{ __html: `<p>${b.html}</p>` }} />;
             case 'note':
-                out.push(<div key={i} className="pw-note" data-testid="note-box" dangerouslySetInnerHTML={{ __html: `<p>${b.html}</p>` }} />);
-                break;
+                return <div key={i} className="pw-note" data-testid="note-box" dangerouslySetInnerHTML={{ __html: `<p>${b.html}</p>` }} />;
             case 'keyPoints':
-                out.push(
+                return (
                     <ul key={i} className="pw-keypoints">
                         {b.items.map((it, j) => <li key={j} dangerouslySetInnerHTML={{ __html: it }} />)}
-                    </ul>);
-                break;
+                    </ul>
+                );
             case 'table':
-                out.push(<div key={i} className="pw-table" data-testid="content-table" dangerouslySetInnerHTML={{ __html: b.html }} />);
-                break;
+                return <div key={i} className="pw-table" data-testid="content-table" dangerouslySetInnerHTML={{ __html: b.html }} />;
             default:
-                break;
+                return null;
         }
-    }
+    };
+
+    const out = [];
+    sections.forEach((sec, s) => {
+        const band = s === 0 && sec[0].type !== 'h2' ? 0 : (s % 3 === 1 ? 1 : s % 3 === 2 ? 2 : 0);
+        const children = [];
+        for (let i = 0; i < sec.length; i += 1) {
+            const b = sec[i];
+            if (b.type === 'img') {
+                const duo = [];
+                while (i < sec.length && sec[i].type === 'img' && duo.length < 2) {
+                    duo.push(sec[i]);
+                    i += 1;
+                }
+                i -= 1;
+                const items = duo.map((d) => {
+                    imgIndex += 1;
+                    return <Figure key={imgIndex} b={d} first={imgIndex === 1} />;
+                });
+                children.push(duo.length === 2
+                    ? <div className="pw-img-duo" data-testid="figure-duo" key={`duo-${i}`}>{items}</div>
+                    : <div key={`solo-${i}`}>{items}</div>);
+            } else {
+                children.push(renderBlock(b, i));
+            }
+        }
+        out.push(
+            <section key={s} className={`pw-sect pw-sect-${band}`} data-testid={`content-section-${s}`}>
+                {children}
+            </section>
+        );
+    });
     return <div className="pw-content" data-testid="page-blocks">{out}</div>;
 }
 

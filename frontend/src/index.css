@@ -17,9 +17,10 @@
     --accent-soft: #4FB0F5;
     --deep: #08243B;
     --accent-ink: #04121D;
-    --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
-    --font-body: "Literata", Georgia, serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --font-display: "Inter Tight", ui-sans-serif, sans-serif;
+    --font-body: "Manrope", ui-sans-serif, sans-serif;
+    --font-mono: "Azeret Mono", ui-monospace, monospace;
+    --band: #232E3A;
     --noise-opacity: 0.05;
 }
 
@@ -33,6 +34,7 @@
     --accent-soft: #0A63AE;
     --deep: #08243B;
     --accent-ink: #FFFFFF;
+    --band: #E9EFF5;
     --noise-opacity: 0.028;
 }
 
@@ -321,8 +323,16 @@ h1, h2, h3, h4 {
 .pw-toc a:hover { color: var(--text); }
 .pw-toc a.active { color: var(--accent-soft); border-left-color: var(--accent); }
 
-.pw-content { max-width: 68ch; }
+/* ---------------- sezioni alternate: nuance scura / chiara ---------------- */
+.pw-sect { border-radius: 14px; padding: 0.2rem 1.4rem; margin: 0 0 1.1rem; }
+.pw-sect-1 { background: var(--surface); border: 1px solid var(--line); }
+.pw-sect-2 { background: var(--band); border: 1px solid var(--line); }
+.pw-sect .pw-plainbox, .pw-sect .pw-probox, .pw-sect .pw-note { background: var(--deep); color: #EEF4FA; }
+
+.pw-content { max-width: 72ch; }
 .pw-content h2 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 2.75rem 0 .8rem; scroll-margin-top: 96px; }
+.pw-sect h2:first-child { margin-top: 1.4rem; }
+.pw-sect > :last-child { margin-bottom: 1.4rem; }
 .pw-content h3 { font-size: 1.25rem; margin: 2.2rem 0 .75rem; scroll-margin-top: 96px; }
 .pw-content p { margin: 0 0 1.15rem; }
 .pw-content ul, .pw-content ol { margin: 0 0 1.15rem 1.3rem; }

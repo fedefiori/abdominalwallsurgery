@@ -15,6 +15,15 @@
     "text": "Quali sintomi dà un'ernia della parete addominale?"
    },
    {
+    "type": "img",
+    "src": "/api/media/arte-sintomi-profilo.webp",
+    "alt": "Schema stilizzato del rigonfiamento di una ernia della parete",
+    "caption": "Il rigonfiamento di un’ernia: il difetto nella parete e la sporgenza del contenuto.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 675
+   },
+   {
     "type": "p",
     "html": "<strong>I sintomi di un difetto della parete sono molto variabili e ovviamente dipendono dal tipo di difetto in quanto a intensità e frequenza. I piu’ comuni sono:</strong>"
    },

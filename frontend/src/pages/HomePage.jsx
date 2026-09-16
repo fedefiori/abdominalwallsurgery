@@ -66,7 +66,9 @@ export default function HomePage() {
     return (
         <div data-testid="home-page">
             <section className="pw-hero">
+                <div className="pw-hero-ghost" aria-hidden="true">PARETE</div>
                 <div className="pw-shell" style={{ position: 'relative' }}>
+                    <div className="pw-ticks" aria-hidden="true"><i /><i /><i /><i /></div>
                     <div className="pw-hero-kicker">
                         <span className="pw-label" data-testid="home-kicker">{ui.home_kicker}</span>
                     </div>
@@ -92,6 +94,7 @@ export default function HomePage() {
                         </Link>
                     </motion.div>
                     <WallArt />
+                    <div className="pw-scanline" aria-hidden="true" />
                 </div>
             </section>
 
@@ -101,7 +104,7 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <div className="pw-band-paper" data-testid="paper-band">
+            <div className="pw-band-deep" data-testid="chapters-band">
             <section className="pw-section">
                 <div className="pw-shell">
                     <Reveal>

@@ -49,24 +49,26 @@ export default function ArticlePage() {
     return (
         <div className="pw-page" data-testid={`article-${slug}`}>
             <div className="pw-shell">
-                <nav className="pw-crumbs" aria-label="breadcrumb" data-testid="breadcrumb">
-                    <Link to="/">{ui.breadcrumb_home}</Link>
-                    <span aria-hidden="true">/</span>
-                    <Link to={site.articlesIndex}>{ui.breadcrumb_articles}</Link>
-                    <span aria-hidden="true">/</span>
-                    <span>{post.title}</span>
-                </nav>
+                <div className="pw-pagehead" data-testid="page-head">
+                    <nav className="pw-crumbs" aria-label="breadcrumb" data-testid="breadcrumb">
+                        <Link to="/">{ui.breadcrumb_home}</Link>
+                        <span aria-hidden="true">/</span>
+                        <Link to={site.articlesIndex}>{ui.breadcrumb_articles}</Link>
+                        <span aria-hidden="true">/</span>
+                        <span>{post.title}</span>
+                    </nav>
+                    <Reveal y={18}>
+                        {post.categoryLabel && <span className="pw-label" data-testid="article-category">{post.categoryLabel}</span>}
+                        <h1 className="pw-h1" data-testid="article-h1">{post.title}</h1>
+                        <p className="pw-label" style={{ marginBottom: 0, marginTop: '1rem' }}>
+                            {ui.published} {fmt(post.publishedAt, site.lang)}
+                            {post.updatedAt && post.updatedAt !== post.publishedAt &&
+                                ` — ${ui.updated} ${fmt(post.updatedAt, site.lang)}`}
+                        </p>
+                    </Reveal>
+                </div>
                 <div className="pw-grid">
                     <article>
-                        <Reveal y={18}>
-                            {post.categoryLabel && <span className="pw-label" data-testid="article-category">{post.categoryLabel}</span>}
-                            <h1 className="pw-h1" data-testid="article-h1">{post.title}</h1>
-                            <p className="pw-label" style={{ marginBottom: '1rem' }}>
-                                {ui.published} {fmt(post.publishedAt, site.lang)}
-                                {post.updatedAt && post.updatedAt !== post.publishedAt &&
-                                    ` — ${ui.updated} ${fmt(post.updatedAt, site.lang)}`}
-                            </p>
-                        </Reveal>
                         {post.directAnswer && (
                             <Reveal delay={0.08}>
                                 <p className="pw-answer" data-testid="direct-answer">

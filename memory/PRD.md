@@ -56,12 +56,8 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
 4. Fissare la variante colore scelta dall'utente come default (attualmente default=1 Bronzo).
 
 ## Design refresh (16/09/2026)
-- Font dell'hub: Inter Tight (titoli), Manrope (testo), Azeret Mono (etichette) — sostituiscono Space Grotesk/Literata/IBM Plex Mono.
+- Font dell'hub: Inter Tight (titoli), Manrope (testo), Azeret Mono (etichette).
 - H1 home: "Chirurgia della Parete Addominale" (maiuscolo).
-- Contrasto: striscia marquee piena in colore accento, banda "carta" calda per capitoli e articoli home, blocco risposta diretta con fondo tinta rame.
-- 4 varianti colore selezionabili con ?v=1..4 (persistenza localStorage, picker visibile solo con ?v=):
-  1 Bronzo (grafite caldo #C08A45 / carta osso) — default
-  2 Rame chiaro (#E8935A / carta cipria)
-  3 Ottone e petrolio (#D2A94E su verde petrolio #071216 / carta salvia)
-  4 Carta e rame (base editoriale chiara #FAF5EC, banda cioccolato, rame scuro #A44A12)
-- Screenshot varianti in /tmp/v1_bronzo.png, v2_rame_chiaro.png (+hero), v3_ottone_petrolio.png, v4_carta_rame.png (+hero).
+- DOPO il confronto varianti l'utente ha scelto la PALETTE ORIGINALE del contratto (rame #E4762C / grafite #070B0F / acciaio #7FA8C9): varianti ?v= rimosse, niente bande chiare.
+- Grafica "profonda": reticolo tecnico fisso sul fondo, grana, spotlight radiale rame nell'hero, parola fantasma PARETE outline verticale, segni di taglio agli angoli, scanline animata sull'anatomia SVG, marquee pieno rame, banda capitoli con contorni topografici e numerali ghost outline 01-09 (hover = riempimento rame), testata delle pagine interne con cornice tecnica + barra rame + spotlight, 404 con numerale outline.
+- Screenshot finali: /tmp/new_hero.png, new_chapters.png, new_pillar.png, new_mobile.png.

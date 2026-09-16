@@ -107,16 +107,18 @@ export default function PillarPage() {
     return (
         <div className="pw-page" data-testid={`pillar-${slug}`}>
             <div className="pw-shell">
-                <nav className="pw-crumbs" aria-label="breadcrumb" data-testid="breadcrumb">
-                    <Link to="/">{ui.breadcrumb_home}</Link>
-                    <span aria-hidden="true">/</span>
-                    <span>{page.h1}</span>
-                </nav>
+                <div className="pw-pagehead" data-testid="page-head">
+                    <nav className="pw-crumbs" aria-label="breadcrumb" data-testid="breadcrumb">
+                        <Link to="/">{ui.breadcrumb_home}</Link>
+                        <span aria-hidden="true">/</span>
+                        <span>{page.h1}</span>
+                    </nav>
+                    <Reveal y={18}>
+                        <h1 className="pw-h1" data-testid="page-h1">{page.h1}</h1>
+                    </Reveal>
+                </div>
                 <div className="pw-grid">
                     <article>
-                        <Reveal y={18}>
-                            <h1 className="pw-h1" data-testid="page-h1">{page.h1}</h1>
-                        </Reveal>
                         {page.answer && (
                             <Reveal delay={0.1}>
                                 <p className="pw-answer" data-testid="direct-answer">

@@ -170,7 +170,15 @@ async def get_site():
         'articlePath': SITE['articlePath'], 'articlesIndex': SITE['articlesIndex'],
         'ui': ui, 'nav': nav,
         'network': [{'url': s['url'], 'label': s['label'][SITE['lang']], 'desc': s['desc'][SITE['lang']]}
-                    for s in NETWORK_ECOSYSTEM if s['url'] != SITE['domain']],
+                    for s in NETWORK_ECOSYSTEM if s['url'] != SITE['domain'] and s.get('live', True)],
+        'clinic': {
+            'name': 'Fi Multicare — Centro Medico Multidisciplinare',
+            'address': 'Galleria del Corso 4, 20122 Milano',
+            'telLabel': '02 7602 1568', 'telHref': 'tel:+390276021568',
+            'email': 'info@fimulticare.it',
+            'url': 'https://www.fimulticare.it/',
+            'note': {'it': 'Visite su appuntamento', 'en': 'Visits by appointment'}[SITE['lang']],
+        },
         'homeKicker': ui['home_kicker'],
     }
 
@@ -191,6 +199,7 @@ async def get_page(slug: str):
         'h1': content.get('h1'), 'metaTitle': content.get('metaTitle'),
         'metaDescription': content.get('metaDescription'), 'kind': content.get('kind'),
         'answer': content.get('answer'), 'faq': content.get('faq') or [],
+        'related': content.get('related') or [],
         'blocks': content.get('blocks') or [],
     }
 
@@ -242,6 +251,13 @@ async def seo_routes():
         paths.append(SITE['articlePath'] + a['slug'])
     paths.append('/404')
     redirects = {}
+    # doppioni da barra finale: "/slug" -> "/slug/" (assoluto), piu' /home e /home/ -> /
+    for p in pages.values():
+        if page_content(p) and p['path'] != '/':
+            bare = p['path'].rstrip('/')
+            redirects[bare] = SITE['domain'] + p['path']
+    redirects['/home'] = SITE['domain'] + '/'
+    redirects['/home/'] = SITE['domain'] + '/'
     ret = await db.retired_redirects.find({}).to_list(1000)
     for r in ret:
         redirects[r['path']] = r['target']

@@ -8,19 +8,19 @@
   "blocks": [
    {
     "type": "h2",
-    "text": "Radiologia"
+    "text": "Quali esami servono prima di operare la parete?"
    },
    {
-    "type": "h2",
-    "text": "DIAGNOSTICA PER IMMAGINI NELLA CHIRURGIA DELLA PARETE ADDOMINALE"
-   },
-   {
-    "type": "p",
-    "html": "La diagnostica per immagini nella valutazione della parete addominale  ha assunto rilevanza sempre maggiore negli ultimi anni e si stanno  ampliando le indicazioni e le metodiche disponibili per fornire al clinico il massimo delle informazioni per una sempre più dettagliata pianificazione terapeutica."
+    "type": "table",
+    "html": "<table><thead><tr><th>Esame</th><th>Che cosa mostra</th><th>Quando si richiede</th></tr></thead><tbody><tr><td>Ecografia</td><td>Piani cutaneo-sottocutanei e muscolari, linea alba, porte erniarie, diastasi dei retti</td><td>Imaging di primo approccio; esame dinamico, senza radiazioni né preparazione</td></tr><tr><td>TC</td><td>Visione panoramica della parete, misurazioni riproducibili dei difetti</td><td>Secondo livello, su indicazione specialistica, nei difetti complessi</td></tr><tr><td>Risonanza magnetica</td><td>Come la TC, senza radiazioni ionizzanti</td><td>Secondo livello, su indicazione specialistica</td></tr></tbody></table><p class=\"pw-table-caption\">Diagnostica per immagini nella valutazione della parete addominale.</p>"
    },
    {
     "type": "p",
-    "html": "Nel caso di pazienti già operati la diagnostica può essere utile per l’identificazione di complicanze acute/subacute nonché per la ricerca di eventuali recidive."
+    "html": "La diagnostica per immagini nella valutazione della <a href=\"/anatomia-della-parete-addominale-e-abdominal-core/\">parete addominale</a> ha assunto rilevanza sempre maggiore negli ultimi anni e si stanno ampliando le indicazioni e le metodiche disponibili per fornire al clinico il massimo delle informazioni per una sempre più dettagliata pianificazione terapeutica."
+   },
+   {
+    "type": "p",
+    "html": "Nel caso di Pazienti già operati la diagnostica può essere utile per l’identificazione di complicanze acute/subacute nonché per la ricerca di eventuali recidive."
    },
    {
     "type": "p",
@@ -34,17 +34,19 @@
     "type": "img",
     "src": "/api/media/ecografia-parete-addominale.webp",
     "alt": "Ecografia della parete addominale in ambulatorio",
-    "caption": "",
+    "caption": "Ecografia della parete addominale in ambulatorio",
     "width": 800,
-    "height": 548
+    "height": 548,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/ecografia-addominale.webp",
     "alt": "Esame ecografico dell'addome per lo studio della parete",
-    "caption": "",
+    "caption": "Esame ecografico dell'addome per lo studio della parete",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "p",
@@ -52,7 +54,7 @@
    },
    {
     "type": "p",
-    "html": "Pertanto l’ecografia risulta ad oggi la metodica più largamente disponibile nella valutazione della parete addominale e si offre come esame di primo livello per la diagnosi strumentale per i difetti di parete (diastasi, ernie, laparoceli )."
+    "html": "Pertanto l’ecografia risulta ad oggi la metodica più largamente disponibile nella valutazione della parete addominale e si offre come esame di primo livello per la diagnosi strumentale per i <a href=\"/difetti-della-parete-addominale-e-classificazione/\">difetti</a> di parete (diastasi, ernie, laparoceli )."
    },
    {
     "type": "p",
@@ -64,7 +66,7 @@
    },
    {
     "type": "p",
-    "html": "Disponibilità delle apparecchiature,  non invasività della metodica, <b>semplicità</b> e <b>rapidità</b> di esecuzione con immagini di buona qualità tecnica, <b>costi limitati</b> rappresentano senza dubbio i principali vantaggi."
+    "html": "Disponibilità delle apparecchiature, non invasività della metodica, <b>semplicità</b> e <b>rapidità</b> di esecuzione con immagini di buona qualità tecnica, <b>costi limitati</b> rappresentano senza dubbio i principali vantaggi."
    },
    {
     "type": "p",
@@ -72,27 +74,29 @@
    },
    {
     "type": "p",
-    "html": "In primo luogo, l’essere <b>operatore-dipendente</b> con conseguente possibilità di variabilità di risultato tra operatori diversi. In questo senso gioca un ruolo fondamentale l’esperienza dell’operatore da cui nasce una maggior affidabilità e riproducibilità della metodica con  misurazioni sovrapponibili a  TC ed RM."
+    "html": "In primo luogo, l’essere <b>operatore-dipendente</b> con conseguente possibilità di variabilità di risultato tra operatori diversi. In questo senso gioca un ruolo fondamentale l’esperienza dell’operatore da cui nasce una maggior affidabilità e riproducibilità della metodica con misurazioni sovrapponibili a TC ed RM."
    },
    {
     "type": "img",
     "src": "/api/media/ecografia-sicura.webp",
     "alt": "Ecografia addominale, esame non invasivo e privo di radiazioni",
-    "caption": "",
+    "caption": "Ecografia addominale, esame non invasivo e privo di radiazioni",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/ecografia-parete-addominale-01.webp",
     "alt": "Ecografia della parete addominale in ambulatorio",
-    "caption": "",
+    "caption": "Ecografia della parete addominale in ambulatorio",
     "width": 800,
-    "height": 343
+    "height": 343,
+    "kind": "photo"
    },
    {
     "type": "p",
-    "html": "Ulteriore svantaggio dell’ecografia è l’essere <strong>poco panoramica</strong>; questo limita la valutazione precisa dei difetti di parete di dimensioni più cospicue. Infatti  le dimensioni della sonda ecografica rappresentano all’incirca le dimensioni massime della misura che si può effettuare.  Va da sé che se la sonda lineare  come normalmente avviene, ha una lunghezza di circa 5-5,5 cm, le misurazioni massime si aggirano su quel valore. Quindi può essere difficile quantificare con precisione diastasi superiori ai 5.5 cm. In queste situazioni si ricorre a vari escamotage che tuttavia danno misure più approssimative."
+    "html": "Ulteriore svantaggio dell’ecografia è l’essere <strong>poco panoramica</strong>; questo limita la valutazione precisa dei difetti di parete di dimensioni più cospicue. Infatti le dimensioni della sonda ecografica rappresentano all’incirca le dimensioni massime della misura che si può effettuare. Va da sé che se la sonda lineare come normalmente avviene, ha una lunghezza di circa 5-5,5 cm, le misurazioni massime si aggirano su quel valore. Quindi può essere difficile quantificare con precisione diastasi superiori ai 5.5 cm. In queste situazioni si ricorre a vari escamotage che tuttavia danno misure più approssimative."
    },
    {
     "type": "p",
@@ -100,7 +104,7 @@
    },
    {
     "type": "p",
-    "html": "L’esame viene condotto generalmente in clinostasi, a paziente supino ma la metodica si adatta a situazioni dinamiche, consentendo lo studio anche in ortostasi o in situazione di contrazione della parete (manovra di Valsalva)."
+    "html": "L’esame viene condotto generalmente in clinostasi, a Paziente supino ma la metodica si adatta a situazioni dinamiche, consentendo lo studio anche in ortostasi o in situazione di contrazione della parete (manovra di Valsalva)."
    },
    {
     "type": "p",
@@ -118,9 +122,10 @@
     "type": "img",
     "src": "/api/media/ecografia-parete-addominale-01-1.webp",
     "alt": "Ecografia della parete addominale in ambulatorio",
-    "caption": "",
+    "caption": "Ecografia della parete addominale in ambulatorio",
     "width": 800,
-    "height": 516
+    "height": 516,
+    "kind": "photo"
    },
    {
     "type": "p",
@@ -130,9 +135,10 @@
     "type": "img",
     "src": "/api/media/ecografia-parete-addominale-02.webp",
     "alt": "Ecografia della parete addominale in ambulatorio",
-    "caption": "",
+    "caption": "Ecografia della parete addominale in ambulatorio",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "p",
@@ -144,7 +150,7 @@
    },
    {
     "type": "p",
-    "html": "Ecograficamente è possibile la valutazione dei muscoli della parete addominale (muscolo retto e muscoli larghi: oblliquo esterno, interno e trasverso): si potranno evidenziare eventuali asimmetrie o lesioni muscolari ma soprattutto stimare il trofismo della parete, dato che si dimostra importante ai fini della pianificazione chirurgica e della comprensione del concetto fisiopatologia di parete addominale come organo."
+    "html": "Ecograficamente è possibile la valutazione dei muscoli della parete addominale (muscolo retto e muscoli larghi: oblliquo esterno, interno e trasverso): si potranno evidenziare eventuali asimmetrie o lesioni muscolari ma soprattutto stimare il trofismo della parete, dato che si dimostra importante ai fini della pianificazione <a href=\"/la-terapia-chirurgica/\">chirurgica</a> e della comprensione del concetto fisiopatologia di parete addominale come organo."
    },
    {
     "type": "p",
@@ -152,7 +158,7 @@
    },
    {
     "type": "h2",
-    "text": "TC E RM NELLA VALUTAZIONE DELLA PARETE ADDOMINALE"
+    "text": "Che cosa cerca il chirurgo nella TC e nella risonanza?"
    },
    {
     "type": "p",
@@ -162,17 +168,19 @@
     "type": "img",
     "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale.webp",
     "alt": "TC della parete addominale per la valutazione dei difetti",
-    "caption": "",
+    "caption": "TC della parete addominale per la valutazione dei difetti",
     "width": 800,
-    "height": 366
+    "height": 366,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale-01.webp",
     "alt": "TC della parete addominale per la valutazione dei difetti",
-    "caption": "",
+    "caption": "TC della parete addominale per la valutazione dei difetti",
     "width": 800,
-    "height": 672
+    "height": 672,
+    "kind": "photo"
    },
    {
     "type": "p",
@@ -194,9 +202,10 @@
     "type": "img",
     "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale-02.webp",
     "alt": "TC della parete addominale per la valutazione dei difetti",
-    "caption": "",
+    "caption": "TC della parete addominale per la valutazione dei difetti",
     "width": 800,
-    "height": 681
+    "height": 681,
+    "kind": "photo"
    }
   ],
   "kind": "clinical",
@@ -209,6 +218,20 @@
    {
     "q": "Quali limiti ha l'ecografia nella parete addominale?",
     "a": "In primo luogo, l’essere operatore-dipendente con conseguente possibilità di variabilità di risultato tra operatori diversi. In questo senso gioca un ruolo fondamentale l’esperienza dell’operatore da cui nasce una maggior affidabilità e riproducibilità della metodica con misurazioni sovrapponibili a TC ed RM."
+   }
+  ],
+  "related": [
+   {
+    "label": "Sintomi e complicanze",
+    "href": "/sintomi-e-complicanze/"
+   },
+   {
+    "label": "Difetti della parete addominale e classificazione",
+    "href": "/difetti-della-parete-addominale-e-classificazione/"
+   },
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
    }
   ]
  },

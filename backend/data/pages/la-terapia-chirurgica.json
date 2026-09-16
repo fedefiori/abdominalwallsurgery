@@ -7,20 +7,16 @@
   "metaDescription": "Tecniche di riparazione di ernie e laparoceli della parete: Rives-Stoppa, TAR, separazione dei componenti, chirurgia robotica, endoscopica e mininvasiva.",
   "blocks": [
    {
-    "type": "h2",
-    "text": "La terapia chirurgica"
+    "type": "note",
+    "html": "Questa pagina contiene immagini di interventi chirurgici. Se ne sconsiglia la visione se facilmente impressionabili."
    },
    {
     "type": "h2",
-    "text": "Questa pagina contiene immagini di interventi chirurgici. Se ne sconsiglia la visione se facilmente impressionabili."
-   },
-   {
-    "type": "h2",
-    "text": "LA CHIRURGIA DELLA PARETE ADDOMINALE ANTERIORE"
+    "text": "Quali tecniche si usano oggi per la parete addominale?"
    },
    {
     "type": "p",
-    "html": "Gli interventi chirurgici per la riparazione dei difetti della parete addominale anteriore possono essere eseguiti per"
+    "html": "Gli interventi chirurgici per la riparazione dei difetti della pa<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">rete</a> addominale anteriore possono essere eseguiti per"
    },
    {
     "type": "ul",
@@ -32,27 +28,33 @@
    },
    {
     "type": "p",
-    "html": "<strong>La chirurgia open</strong> della parete addominale anteriore è una chirurgia molto eterogenea. Prevede interventi molto differenti a seconda del difetto da trattare. Si passa da procedure con ridotte incisioni per la riparazione di una piccola ernia ombelicale senza protesi, ad interventi chirurgici molto molto complessi , con ampie incisioni, della durata di diverse ore, per la riparazione di disastri di parete. La riparazione della parete con l’eliminazione del difetto possono essere ottenuti per sutura diretta o con l’ausilio di materiali protesici che hanno la funzione di rendere piu’ solida la riparazione stessa. Attualmente sono molto poche le condizioni patologiche che non prevedono l’utilizzo di una protesi. Se una piccola ernia di 1-1,5 cm puo’ essere riparata per sutura diretta, con rischio di recidiva comunque elevato,  il processo decisionale che indirizza verso una chirurgia open e verso l’utilizzo o meno di una protesi si basa su una attenta valutazione del Paziente in merito a età, anamnesi prossima e remota, condizioni di rischio."
+    "html": "<strong>La chirurgia open</strong> della parete addominale anteriore è una chirurgia molto eterogenea. Prevede interventi molto differenti a seconda del difetto da trattare. Si passa da procedure con ridotte incisioni per la riparazione di una piccola ernia ombelicale senza <a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">protesi</a>, ad interventi chirurgici molto molto complessi , con ampie incisioni, della durata di diverse ore, per la riparazione di disastri di parete. La riparazione della parete con l’eliminazione del difetto possono essere ottenuti per sutura diretta o con l’ausilio di materiali protesici che hanno la funzione di rendere piu’ solida la riparazione stessa."
+   },
+   {
+    "type": "p",
+    "html": "Attualmente sono molto poche le condizioni patologiche che non prevedono l’utilizzo di una protesi. Se una piccola ernia di 1-1,5 cm puo’ essere riparata per sutura diretta, con rischio di recidiva comunque elevato, il processo decisionale che indirizza verso una chirurgia open e verso l’utilizzo o meno di una protesi si basa su una attenta valutazione del Paziente in merito a età, anamnesi prossima e remota, condizioni di rischio."
    },
    {
     "type": "img",
     "src": "/api/media/rete-con-ponti-1.webp",
     "alt": "Cicatrice addominale con ponti cutanei dopo intervento sulla parete",
-    "caption": "",
+    "caption": "Cicatrice addominale con ponti cutanei dopo intervento sulla parete",
     "width": 500,
-    "height": 635
+    "height": 635,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/cica-a-t-ok.webp",
     "alt": "Cicatrice addominale a T dopo intervento di chirurgia della parete",
-    "caption": "",
+    "caption": "Cicatrice addominale a T dopo intervento di chirurgia della parete",
     "width": 500,
-    "height": 586
+    "height": 586,
+    "kind": "photo"
    },
    {
     "type": "p",
-    "html": "Vero è che negli ultimi anni la chirurgia open ha lasciato molto spazio alla chirurgia mininvasiva. Tralasciando i disastri di parete e la chirurgia in emergenza-urgenza probabilmente ogni tipo di intervento chirurgico  sulla parete  addominale anteriore è stato ormai eseguito per via mininvasiva."
+    "html": "Vero è che negli ultimi anni la chirurgia open ha lasciato molto spazio alla chirurgia mininvasiva. Tralasciando i disastri di parete e la chirurgia in emergenza-urgenza probabilmente ogni tipo di <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">intervento</a> chirurgico sulla parete addominale anteriore è stato ormai eseguito per via mininvasiva."
    },
    {
     "type": "p",
@@ -66,12 +68,12 @@
     "type": "ul",
     "ordered": false,
     "items": [
-     "eTEP, THT, MISAR, TAPP, TESAR, SCOLA"
+     "e TEP, THT, MISAR, TAPP, TESAR, SCOLA"
     ]
    },
    {
     "type": "p",
-    "html": "Queste tecniche si possono classificare al di là degli acronimi in base alla posizione degli strumenti rispetto alla cavità peritoneale come: laparoscopiche, che operano con strumenti posti all’interno della cavità addominale; endoscopiche, che lavorano fuori dalla cavità; endolaparoscopiche, un mix delle prime due; e robotiche, che utilizzano piattaforme automatizzate. Inoltre possono essere suddivise da un punto di vista piu’ tecnico anche  in base al loro approccio alla parete muscolare che può essere:"
+    "html": "Queste tecniche si possono classificare al di là degli acronimi in base alla posizione degli strumenti rispetto alla cavità peritoneale come: laparoscopiche, che operano con strumenti posti all’interno della cavità addominale; endoscopiche, che lavorano fuori dalla cavità; endolaparoscopiche, un mix delle prime due; e robotiche, che utilizzano piattaforme automatizzate. Inoltre possono essere suddivise da un punto di vista piu’ tecnico anche in base al loro approccio alla parete muscolare che può essere:"
    },
    {
     "type": "ul",
@@ -87,7 +89,7 @@
    },
    {
     "type": "h2",
-    "text": "Approccio Posteriore Intraperitoneale"
+    "text": "Che cos'è l'approccio posteriore intraperitoneale?"
    },
    {
     "type": "p",
@@ -105,13 +107,14 @@
     "type": "img",
     "src": "/api/media/ipom.webp",
     "alt": "Schema della tecnica IPOM con protesi intraperitoneale",
-    "caption": "",
+    "caption": "Schema della tecnica IPOM con protesi intraperitoneale",
     "width": 800,
-    "height": 375
+    "height": 375,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "Approccio Posteriore Endo-Laparoscopico"
+    "text": "Che cos'è l'approccio posteriore endo-laparoscopico?"
    },
    {
     "type": "p",
@@ -125,57 +128,65 @@
     "type": "img",
     "src": "/api/media/tht1.webp",
     "alt": "Imaging della parete addominale prima dell'intervento",
-    "caption": "",
+    "caption": "Imaging della parete addominale prima dell'intervento",
     "width": 846,
-    "height": 927
+    "height": 927,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/tht2.webp",
     "alt": "Imaging della parete addominale dopo il trattamento chirurgico",
-    "caption": "",
+    "caption": "Imaging della parete addominale dopo il trattamento chirurgico",
     "width": 813,
-    "height": 747
+    "height": 747,
+    "kind": "photo"
    },
    {
     "type": "h2",
-    "text": "Approccio Posteriore Extraperitoneale Endoscopico"
+    "text": "Che cos'è l'approccio posteriore extraperitoneale endoscopico?"
    },
    {
     "type": "p",
-    "html": "L’approccio posteriore extraperitoneale <strong>(eTEP, enhanced view Totally Extra Peritoneal)</strong> è attualmente la tecnica di cui si parla di piu’nel campo della chirurgia mininvasiva. Si tratta di un metodo che non coinvolge , almeno inizialmente, la cavità addominale ma piuttosto un’area retromuscolare creata chirurgicamente. Questo approccio è utilizzato sia per la riparazione di difetti nella linea mediana che per quelli inguinali e femorali. Dalla sua introduzione nei primi anni ’90, la tecnica ha visto significative evoluzioni, in particolare nel 2012 con l’apporto del Professor Jorge Daes.  Insieme a Daes, Belyansky, Radu, Ramana, Novitsky e altri esperti di rilievo internazionale hanno ulteriormente sviluppato la tecnica nel marzo 2018, rendendo possibile la riparazione di vari tipi di ernie, non solo inguinali. La procedura inizia con l’accesso all’area retromuscolare usando una telecamera e altri strumenti. Si crea uno spazio di lavoro unificato dietro i muscoli, attraversando da un lato all’altro della zona retrorettale con una tecnica chiamata “crossover”. Successivamente, si esegue la riparazione del difetto, sia dal lato posteriore che anteriore, utilizzando vari tipi di sutura. Infine, viene posizionata una protesi, solitamente fissata con colla, prima di rimuovere gli strumenti e completare l’intervento. C’è da dire che nella maggior parte dei casi di riparazione secondaria, quindi di ernie incisionali, non è possibile completare la procedura restando completamente extra peritoneali e questo in alcuni casi può comportare dei rischi, pertanto la procedura va eseguita da mani esperte."
+    "html": "L’approccio posteriore extraperitoneale <strong>(e TEP, enhanced view Totally Extra Peritoneal)</strong> è attualmente la tecnica di cui si parla di piu’nel campo della chirurgia mininvasiva. Si tratta di un metodo che non coinvolge , almeno inizialmente, la cavità addominale ma piuttosto un’area retromuscolare creata chirurgicamente. Questo approccio è utilizzato sia per la riparazione di difetti nella linea mediana che per quelli inguinali e femorali. Dalla sua introduzione nei primi anni ’90, la tecnica ha visto significative evoluzioni, in particolare nel 2012 con l’apporto del Professor Jorge Daes. Insieme a Daes, Belyansky, Radu, Ramana, Novitsky e altri esperti di rilievo internazionale hanno ulteriormente sviluppato la tecnica nel marzo 2018, rendendo possibile la riparazione di vari tipi di ernie, non solo inguinali."
    },
    {
     "type": "p",
-    "html": "L’evoluzione di questa tecnica prevede oggi l’utilizzo della piattaforma robotica ( r-eTEP). L’uso di piattaforme robotiche ha notevolmente semplificato l’esecuzione della procedura, altrimenti complicata anche a causa della necessità di manovrare gli strumenti”en reverse”."
+    "html": "La procedura inizia con l’accesso all’area retromuscolare usando una telecamera e altri strumenti. Si crea uno spazio di lavoro unificato dietro i muscoli, attraversando da un lato all’altro della zona retrorettale con una tecnica chiamata “crossover”. Successivamente, si esegue la riparazione del difetto, sia dal lato posteriore che anteriore, utilizzando vari tipi di sutura. Infine, viene posizionata una protesi, solitamente fissata con colla, prima di rimuovere gli strumenti e completare l’intervento. C’è da dire che nella maggior parte dei casi di riparazione secondaria, quindi di ernie incisionali, non è possibile completare la procedura restando completamente extra peritoneali e questo in alcuni casi può comportare dei rischi, pertanto la procedura va eseguita da mani esperte."
+   },
+   {
+    "type": "p",
+    "html": "L’evoluzione di questa tecnica prevede oggi l’utilizzo della piattaforma robotica ( r-e TEP). L’uso di piattaforme robotiche ha notevolmente semplificato l’esecuzione della procedura, altrimenti complicata anche a causa della necessità di manovrare gli strumenti”en reverse”."
    },
    {
     "type": "img",
     "src": "/api/media/chirurgia-parete-addominale-06.webp",
     "alt": "Chirurgia ricostruttiva della parete addominale",
-    "caption": "",
+    "caption": "Chirurgia ricostruttiva della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/chirurgia-parete-addominale-03.webp",
     "alt": "Fase di preparazione della parete addominale durante l'intervento",
-    "caption": "",
+    "caption": "Fase di preparazione della parete addominale durante l'intervento",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "h2",
-    "text": "Approccio Anteriore"
+    "text": "Che cos'è l'approccio anteriore?"
    },
    {
     "type": "p",
-    "html": "L’approccio anteriore alla chirurgia mininvasiva della parete addominale anteriore è stato introdotto sostanzialmente nel 2014 da Bellido e Guadalajara. Questi Chirurghi spagnoli hanno utilizzato piccole incisioni e strumenti endoscopici per una dissezione del tessuto al di sopra della fascia muscolare, creando uno spazio di lavoro sicuro e ampio. Il loro studio presentava 21casi di pazienti curati con una semplice sutura continua per riparare la diastasi e possibili ernie."
+    "html": "L’approccio anteriore alla chirurgia mininvasiva della parete addominale anteriore è stato introdotto sostanzialmente nel 2014 da Bellido e Guadalajara. Questi Chirurghi spagnoli hanno utilizzato piccole incisioni e strumenti endoscopici per una dissezione del tessuto al di sopra della fascia muscolare, creando uno spazio di lavoro sicuro e ampio. Il loro studio presentava 21casi di Pazienti curati con una semplice sutura continua per riparare la diastasi e possibili ernie."
    },
    {
     "type": "h2",
-    "text": "Approccio Anteriore con Protesi Onlay ( sovra-muscolare)"
+    "text": "Che cos'è la protesi onlay, sovra-muscolare?"
    },
    {
     "type": "p",
@@ -183,27 +194,29 @@
    },
    {
     "type": "h2",
-    "text": "Approccio Anteriore con Protesi Sublay (retro-muscolare)"
+    "text": "Che cos'è la protesi sublay, retro-muscolare?"
    },
    {
     "type": "p",
-    "html": "La <strong>TESAR</strong> (Totally Endoscopic Sublay Anterior Repair), presentata dal nostro gruppo nel 2018 e pubblicata nel 2019, è la tecnica endoscopica per via anteriore con protesi in piano sublay retromuscolare sviluppata per i difetti della linea mediana. La descrizione completa della tecnica, i dati scientifici pubblicati e i risultati sono la fonte canonica su federicofiori.com: <a href=\"https://www.federicofiori.com/tecnica-tesar\">la tecnica TESAR</a>."
+    "html": "La <strong><a href=\"/articoli/tecnica-tesar-riparazione-endoscopica-sublay-anteriore\">TESAR</a></strong> (Totally Endoscopic Sublay Anterior Repair), presentata dal nostro gruppo nel 2018 e pubblicata nel 2019, è la tecnica endoscopica per via anteriore con protesi in piano sublay retromuscolare sviluppata per i difetti della linea mediana. La descrizione completa della tecnica, i dati scientifici pubblicati e i risultati sono la fonte canonica su federicofiori.com: <a href=\"https://www.federicofiori.com/tecnica-tesar\">la tecnica TESAR</a>."
    },
    {
     "type": "img",
     "src": "/api/media/chirurgia-parete-addominale-05.webp",
     "alt": "Ricostruzione della parete addominale con protesi",
-    "caption": "",
+    "caption": "Ricostruzione della parete addominale con protesi",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/chirurgia-parete-addominale-04.webp",
     "alt": "Dettaglio intraoperatorio della ricostruzione della parete addominale",
-    "caption": "",
+    "caption": "Dettaglio intraoperatorio della ricostruzione della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "p",
@@ -213,13 +226,14 @@
     "type": "img",
     "src": "/api/media/chirurgia-parete-addominale-01.webp",
     "alt": "Intervento di chirurgia della parete addominale in sala operatoria",
-    "caption": "",
+    "caption": "Intervento di chirurgia della parete addominale in sala operatoria",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "h2",
-    "text": "LA CHIRURGIA ROBOTICA"
+    "text": "Che cosa cambia con la chirurgia robotica?"
    },
    {
     "type": "p",
@@ -227,7 +241,7 @@
    },
    {
     "type": "p",
-    "html": "<b>I vantaggi maggiori di una piattaforma robotica si  ritrovano in questi elementi:</b>"
+    "html": "<b>I vantaggi maggiori di una piattaforma robotica si ritrovano in questi elementi:</b>"
    },
    {
     "type": "p",
@@ -291,37 +305,39 @@
     "type": "img",
     "src": "/api/media/chirurgia-robotica-01.webp",
     "alt": "Consolle robotica per la chirurgia della parete addominale",
-    "caption": "",
+    "caption": "Consolle robotica per la chirurgia della parete addominale",
     "width": 800,
-    "height": 1057
+    "height": 1057,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/chirurgia-robotica-02.webp",
     "alt": "Bracci robotici durante un intervento sulla parete addominale",
-    "caption": "",
+    "caption": "Bracci robotici durante un intervento sulla parete addominale",
     "width": 800,
-    "height": 514
+    "height": 514,
+    "kind": "photo"
    },
    {
     "type": "p",
-    "html": "La chirurgia robotica nella riparazione della parete addominale rappresenta un significativo step di innovazione, offrendo -come detto- potenziali benefici in termini di precisione, controllo, sicurezza. Non entriamo nel merito delle problematiche specifiche legate ai costi – su cui si dibatte molto, e ricordiamo solo come l’utilizzo della piattaforma roboticha debba essere attentamente ponderato, considerando oggi globalmente fattori come  costo, disponibilità di formazione adeguata,  specifiche esigenze e condizioni dei pazienti."
-   },
-   {
-    "type": "h2",
-    "text": "Al di là delle specifiche tecniche e per quanto si utilizzino differenti modalità operative nella Chirurgia della Parete , open e mininvasive, ricordiamo di seguito quelli che sono elementi tecnici fondamentali, capisaldi di questo tipo di Chirurgia, che possono essere sia eseguiti in chirurgia aperta come anche con tecniche mininvasive e robotiche."
-   },
-   {
-    "type": "h2",
-    "text": "CAPISALDI IN CHIRURGIA DI PARETE"
-   },
-   {
-    "type": "h2",
-    "text": "La Riparazione secondo Rives e Stoppa"
+    "html": "La chirurgia robotica nella riparazione della parete addominale rappresenta un significativo step di innovazione, offrendo -come detto- potenziali benefici in termini di precisione, controllo, sicurezza. Non entriamo nel merito delle problematiche specifiche legate ai costi – su cui si dibatte molto, e ricordiamo solo come l’utilizzo della piattaforma roboticha debba essere attentamente ponderato, considerando oggi globalmente fattori come costo, disponibilità di formazione adeguata, specifiche esigenze e condizioni dei Pazienti."
    },
    {
     "type": "p",
-    "html": "La tecnica di riparazione della parete addominale proposta da Rives e Stoppa rappresenta un punto  importante  nella storia della chirurgia delle ernie."
+    "html": "Al di là delle specifiche tecniche e per quanto si utilizzino differenti modalità operative nella Chirurgia della Parete , open e mininvasive, ricordiamo di seguito quelli che sono elementi tecnici fondamentali, capisaldi di questo tipo di Chirurgia, che possono essere sia eseguiti in chirurgia aperta come anche con tecniche mininvasive e robotiche."
+   },
+   {
+    "type": "h2",
+    "text": "Quali sono i capisaldi della chirurgia di parete?"
+   },
+   {
+    "type": "h2",
+    "text": "In che cosa consiste la riparazione secondo Rives e Stoppa?"
+   },
+   {
+    "type": "p",
+    "html": "La tecnica di riparazione della parete addominale proposta da Rives e Stoppa rappresenta un punto importante nella storia della chirurgia delle ernie."
    },
    {
     "type": "p",
@@ -347,21 +363,23 @@
     "type": "img",
     "src": "/api/media/chirurgia-della-parete-05.webp",
     "alt": "Risultato di un intervento di chirurgia della parete addominale",
-    "caption": "",
+    "caption": "Risultato di un intervento di chirurgia della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/tar-3.webp",
     "alt": "Schema della tecnica TAR di separazione dei componenti addominali",
-    "caption": "",
+    "caption": "Schema della tecnica TAR di separazione dei componenti addominali",
     "width": 800,
-    "height": 748
+    "height": 748,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "La TAR"
+    "text": "Che cos'è la TAR?"
    },
    {
     "type": "p",
@@ -381,19 +399,23 @@
    },
    {
     "type": "p",
-    "html": "La release del trasverso si effettua dopo aver raggiunto lo spazio retrorettale (dietro ai muscoli retti). A questo punto la guaina posteriore dei muscoli retti viene incisa medialmente ai neurovascolar bundle, in modo da non compromettere la neurovascolarizzazione dei muscoli retti, cioe’ circa a 1 cm dal margine laterale della stessa guaina indicato dalla Linea Semilunare.  Al disotto della guaina posteriore dei retti, nella parte superiore dell’addome, si incontra il muscolo trasverso dell’addome. Questo viene inciso in senso cranio-caudale (oppure ne vengono sezionate le inserzioni mediali, come nella modifica di Madrid proposta dal famoso chirurgo spagnolo Miguel Angel Garcia Urena). Quando il trasverso si lateralizza la dissezione procede verso il basso incidendo la guaina posteriore del muscolo obliquo interno e completando la creazione di uno spazio al di sotto del muscolo trasverso e al di sopra di Peritoneo e Fascia Transversalis. In questo modo il comparto mediale della parete si mobilizza verso la linea mediana consentendo la riparazione di ampi difetti senza tensione.  La protesi puo’ essere molto ampia e viene posizionata in questo stesso spazio."
+    "html": "La release del trasverso si effettua dopo aver raggiunto lo spazio retrorettale (dietro ai muscoli retti). A questo punto la guaina posteriore dei muscoli retti viene incisa medialmente ai neurovascolar bundle, in modo da non compromettere la neurovascolarizzazione dei muscoli retti, cioe’ circa a 1 cm dal margine laterale della stessa guaina indicato dalla Linea Semilunare. Al disotto della guaina posteriore dei retti, nella parte superiore dell’addome, si incontra il muscolo trasverso dell’addome."
    },
    {
     "type": "p",
-    "html": "La tecnica TAR è un’approccio innovativo e altamente specialistico per la riparazione delle ernie complesse della parete addominale. Come per  tutte le procedure chirurgiche tuttavia esistono rischi e complicanze potenziali, e la selezione appropriata dei pazienti, la preparazione e la competenza chirurgica sono fondamentali per ottenere risultati ottimali."
+    "html": "Questo viene inciso in senso cranio-caudale (oppure ne vengono sezionate le inserzioni mediali, come nella modifica di Madrid proposta dal famoso chirurgo spagnolo Miguel Angel Garcia Urena). Quando il trasverso si lateralizza la dissezione procede verso il basso incidendo la guaina posteriore del muscolo obliquo interno e completando la creazione di uno spazio al di sotto del muscolo trasverso e al di sopra di Peritoneo e Fascia Transversalis. In questo modo il comparto mediale della parete si mobilizza verso la linea mediana consentendo la riparazione di ampi difetti senza tensione. La protesi puo’ essere molto ampia e viene posizionata in questo stesso spazio."
+   },
+   {
+    "type": "p",
+    "html": "La tecnica TAR è un’approccio innovativo e altamente specialistico per la riparazione delle ernie complesse della parete addominale. Come per tutte le procedure chirurgiche tuttavia esistono rischi e complicanze potenziali, e la selezione appropriata dei Pazienti, la preparazione e la competenza chirurgica sono fondamentali per ottenere risultati ottimali."
    },
    {
     "type": "h2",
-    "text": "La Anterior Component Separation (ACS)"
+    "text": "Quando serve la separazione delle componenti?"
    },
    {
     "type": "p",
-    "html": "È stata introdotta dal chirurgo plastico Dr. Ramirez  nel 1990 ed è diventata una delle tecniche più comunemente utilizzate per la riparazione delle ernie ventrali complesse, con modifiche minori nel corso del tempo."
+    "html": "È stata introdotta dal chirurgo plastico Dr. Ramirez nel 1990 ed è diventata una delle tecniche più comunemente utilizzate per la riparazione delle ernie ventrali complesse, con modifiche minori nel corso del tempo."
    },
    {
     "type": "p",
@@ -419,29 +441,32 @@
     "type": "img",
     "src": "/api/media/chirurgia-della-parete-07.webp",
     "alt": "Esito cicatriziale dopo ricostruzione della parete addominale",
-    "caption": "",
+    "caption": "Esito cicatriziale dopo ricostruzione della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/anterior-component-separation.webp",
     "alt": "Schema della separazione anteriore dei componenti della parete",
-    "caption": "",
+    "caption": "Schema della separazione anteriore dei componenti della parete",
     "width": 1200,
-    "height": 398
+    "height": 398,
+    "kind": "schema"
    },
    {
     "type": "img",
     "src": "/api/media/modifica-endoscopica.webp",
     "alt": "Modifica endoscopica della separazione dei componenti addominali",
-    "caption": "",
+    "caption": "Modifica endoscopica della separazione dei componenti addominali",
     "width": 800,
-    "height": 853
+    "height": 853,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "Modifica Endoscopica"
+    "text": "Che cos'è la modifica endoscopica della separazione dei componenti?"
    },
    {
     "type": "p",
@@ -473,11 +498,11 @@
    },
    {
     "type": "p",
-    "html": "La Anterior Component Separation è un metodo efficace per la riparazione di ernie complesse della parete addominale, specialmente quando siano presenti ampi difetti della fascia anteriore. L’approccio endoscopico rappresenta una significativa evoluzione della tecnica, offrendo un’opzione minimamente invasiva che può ridurre il trauma chirurgico e accelerare la guarigione. Come con tutte le procedure chirurgiche, la selezione appropriata dei pazienti e l’esperienza chirurgica sono fondamentali per ottenere i migliori risultati possibili."
+    "html": "La Anterior Component Separation è un metodo efficace per la riparazione di ernie complesse della parete addominale, specialmente quando siano presenti ampi difetti della fascia anteriore. L’approccio endoscopico rappresenta una significativa evoluzione della tecnica, offrendo un’opzione minimamente invasiva che può ridurre il trauma chirurgico e accelerare la guarigione. Come con tutte le procedure chirurgiche, la selezione appropriata dei Pazienti e l’esperienza chirurgica sono fondamentali per ottenere i migliori risultati possibili."
    },
    {
     "type": "h2",
-    "text": "Gli SMALL BITES nella Sintesi della Parete Addominale"
+    "text": "Che cosa sono gli small bites nella sintesi della parete addominale?"
    },
    {
     "type": "p",
@@ -502,6 +527,24 @@
    {
     "q": "Quali vantaggi offre la chirurgia robotica della parete?",
     "a": "Le tecniche di chirurgia mininvasiva sono molte: negli ultimi anni ne sono state sviluppate diverse, ognuna con le proprie prerogative. Questo ha portato ad un innalzamento importante del livello e della qualità di questo tipo di chirurgia. In ultimo la chirurgia robotica."
+   }
+  ],
+  "related": [
+   {
+    "label": "Le protesi e il piano di posizionamento",
+    "href": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/"
+   },
+   {
+    "label": "La pre-abilitazione prima dell’intervento",
+    "href": "/preabilitazione-dei-pazienti-all-intervento-chirurgico/"
+   },
+   {
+    "label": "Le complicanze chirurgiche e la VAC therapy",
+    "href": "/le-complicanze-chirurgiche-la-vac-therapy/"
+   },
+   {
+    "label": "La tecnica TESAR sull’hub",
+    "href": "https://www.federicofiori.com/tecnica-tesar"
    }
   ]
  },

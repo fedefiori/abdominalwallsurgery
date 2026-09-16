@@ -1,80 +1,105 @@
-# COLLAUDO chirurgiadellaparete.it — 15/09/2026
-Host di prova: https://chirurgia-test.preview.emergentagent.com (su host non finale tutte le pagine portano `noindex`, come da contratto)
+# COLLAUDO 2 — giro di correzioni hub (16/09/2026, ore 20)
+Host: https://chirurgia-test.preview.emergentagent.com (noindex attivo fuori dominio)
 
-## 1. Contenuti: le 14 pagine (indirizzo | HTTP | parole | immagini | len title | len description)
-```
-200 /                                                219 parole  1 img   t=56 d=159
-200 /anatomia-della-parete-addominale-e-abdominal-core/   2743    5 img   t=57 d=156
-200 /la-terapia-chirurgica/                          2399   17 img   t=57 d=153
-200 /chi-sono/                                       1275    0 img   t=54 d=160
-200 /radiologia/                                     1015    9 img   t=54 d=157
-200 /le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/  1009 5 img t=59 d=150
-200 /le-complicanze-chirurgiche-la-vac-therapy/       819    2 img   t=50 d=158
-200 /sintomi-e-complicanze/                           755    2 img   t=57 d=155
-200 /difetti-della-parete-addominale-e-classificazione/ 758  5 img   t=53 d=159
-200 /la-diastasi-dei-muscoli-retti/                   268    3 img   t=52 d=158
-200 /preabilitazione-dei-pazienti-all-intervento-chirurgico/ 642 0 img t=50 d=154
-200 /contatti/                                         89    0 img   t=53 d=157
-200 /privacy-policy/                                 3028    0 img   t=50 d=158
-200 /cookie-policy/                                  2006    0 img   t=56 d=154
-```
-Totale estratto dal WordPress PRIMA delle riduzioni del punto 4: 18.248 parole / 49 immagini
-(contratto: 18.251 — differenza di 3 parole dovuta all'unione di token spezzati da tag inline Divi).
-Dopo il punto 4 (diastasi 250-350, TESAR in sintesi, chi-sono senza congressi/titoli): 17.025 parole.
-Riduzioni solo dove il contratto lo prescrive (punto 4 a/d/e). Immagini: 49/49 scaricate, webp, max 1600px, 0 file oltre 150 KB, alt presente su tutte (generato descrittivo in italiano dove mancava: elenco in /app/scripts/migrate.py ALT_GENERATI).
+## 1. Guasto bloccante home e /articoli — RISOLTO
+Causa vera: doppia rotta React Router `/articoli` + `/articoli/` (duplicate path in react-router v7
+-> render silenzioso nullo) e lettura di `site.articlesIndex` prima del caricamento della config.
+Fix: rotte duplicate eliminate (la barra finale si normalizza dentro i componenti), guardie su
+config non ancora caricata. Verificato in browser reale (Playwright):
+- home: H1 nel DOM, footer presente, 0 errori console (1920 e 390)
+- /articoli: 3 card, 0 errori console (1920 e 390)
+- /articoli/{tesar, laparocele, ernia-recidiva}: H1 presente, 0 errori console
+Nota: la sotto-agente "testing_agent" non esiste in questo ambiente; la verifica e' stata fatta
+in browser reale con cattura di console e pageerror.
 
-## 2. Articoli (catalogo hub LIVE)
-```
-$ curl -s https://www.federicofiori.com/api/blog/syndication/parete | head -c 300
-{"site":"parete","label":"chirurgiadellaparete.it","lang":"it","articlePath":"/articoli/","hubUrl":"https://www.federicofiori.com","total":3,"pending":3,"items":[{"id":"96583b75-...
-```
-Articoli importati (upsert su groupId, sections sovrascritte a ogni sync, sync all'avvio + ogni ora):
-- tecnica-tesar-riparazione-endoscopica-sublay-anteriore
-- laparocele-dopo-intervento-addominale-quando-operare
-- ernia-ombelicale-recidiva-come-prevenirla
+## 2. Colore — blu #0B81E1 su grigio acciaio (sostituisce acciaio e rame)
+Variabili esatte da specifica (ink #161B21, surface #1E252D, line #2C3742, text #EEF4FA,
+muted #9BAAB9, accent #0B81E1, accent-soft #4FB0F5, deep #08243B); chiaro ritarato
+(#F2F5F8/#FFFFFF/#D5DEE7/#0C161F/#55636F/#0A63AE). Un solo pulsante pieno per schermata,
+marquee tornata striscia tecnica con dettagli blu (niente campiture piene). Fondi mobili:
+alone blu radiale con parallasse lento (4% dello scroll) + griglia 1px + grana; tutto sospeso
+con prefers-reduced-motion. Conferma: `grep -ciE '#E4762C|#B85A18|#C08A45|#E8935A|#E07B39' index.css` -> 0
+Tipografia ripristinata: Space Grotesk / Literata 18px/1.75 max 68ch / IBM Plex Mono;
+h2 a 2.75rem sopra, 0.8rem sotto.
 
-Sonde (esempio reale; lo slug `chirurgia-test` del contratto non esiste nel catalogo attuale):
-```
-$ curl -s .../api/blog/posts/it/laparocele-dopo-intervento-addominale-quando-operare | head -c 150
-{"post":{"id":"cf8b5e5d-...","groupId":"...","lang":"it","title":"Laparocele dopo un intervento addominale: cosa fare e quando...
-HTTP 200, content-type application/json ✓ — lingua sbagliata: 404 ✓
-$ curl -s -o /dev/null -w "%{http_code}" .../articoli/laparocele-dopo-intervento-addominale-quando-operare
-200
-```
+## 3. Immagini — FOTO vs SCHEMI
+49/49 classificate: FOTO max 320px h (200px mobile), max 560px w, cover, raggio 10px, hairline;
+SCHEMI max 420px contain su --surface; coppie consecutive a due colonne; didascalia visibile
+12.5px su tutte; width/height dichiarati; lazy tranne la prima; lightbox sobria con Esc
+(verificata in browser: apertura=1, dopo Esc=0). Campione reso su /la-terapia-chirurgica/:
+252x320 (nat 500), 273x320 (nat 500), 680x330 (nat 800), 292x320, 348x320 — mai oltre il nativo.
+Pesi: ipom 34KB, ecografia 24KB, chirurgia-01 137KB, vac-01 20KB, tar-3 34KB, protesi-01 40KB
+(tutte <=150KB).
 
-## 3. SEO machine
-```
-$ curl -s .../api/seo/routes | head -c 400
-{"paths":["/","/404","/anatomia-della-parete-addominale-e-abdominal-core/","/articoli","/articoli/ernia-ombelicale-recidiva-come-prevenirla","/articoli/laparocele-dopo-intervento-addominale-quando-operare","/articoli/tecnica-tesar-riparazione-endoscopica-sublay-anteriore","/chi-sono/",...]}
-$ curl -s ".../api/seo/prerender?path=/chi-sono/&absolute=true" | grep canonical
-<link rel="canonical" href="https://www.chirurgiadellaparete.it/chi-sono/" />
-   + JSON-LD ProfilePage + Person (stesso @id dell'hub) + BreadcrumbList; noindex su host non finale ✓
-$ curl -s ".../api/seo/prerender?path=/articoli/tecnica-tesar-...&absolute=true" | grep -E "canonical|alternate"
-canonical = ESATTAMENTE il campo canonical del catalogo ✓
-hreflang en -> https://www.federicofiori.com/en/articles/tesar-technique-... (translation.url dell'hub, invariato) ✓
-$ curl -s .../api/seo/sitemap.xml | grep -c "<url>"   -> 18 (14 pagine + /articoli + 3 articoli, lastmod veri)
-$ curl -s .../api/seo/robots.txt   -> Allow: /, allow-list bot AI, Disallow solo /api/stats/, Sitemap + llms.txt ✓ (nessun Disallow: /)
-$ curl -s .../api/seo/llms.txt | head -c 400  -> generato dai dati ✓
-```
-hreflang sulle 14 pagine: ASSENTI di proposito — la chiave `en` di ogni pagina è vuota, quindi la pagina inglese non esiste (né URL, né sitemap, né hreflang).
+## 4. Footer a quattro blocchi
+Chi opera (con link curriculum hub) / Dove riceve (Fi Multicare, Galleria del Corso 4, 20122
+Milano, tel:+390276021568, info@fimulticare.it, visite su appuntamento, fimulticare.it) /
+La rete (abdominalwallsurgery.com RIMOSSO, federico-fiori.it presente) / Legale e servizio
+(privacy, cookie, sitemap, torna su) + riga finale divulgativa. Verificato: 4 sezioni nel DOM.
 
-## 4. Statistiche
+## 5. Fi Multicare
+Footer + sezione "Dove riceve" in /contatti/ con mappa statica webp (9KB, no iframe) +
+3 FAQ + JSON-LD: MedicalClinic una sola volta (@id /contatti/#clinic), Person con
+workLocation -> @id clinica e affiliation -> ASST (blocco completo verificato nel prerender).
+Nessun orario inventato (rimosso openingHours).
+
+## 6. /chi-sono/ — profilo
+736 parole (700-900), H1 "Dott. Federico Fiori — chirurgo della parete addominale", 5 H2-domande
+come da elenco, risposta diretta 64 parole, foto dal dominio hub sotto la risposta, congressi e
+pubblicazioni solo citati con DOI/PMID (10.1089/lap.2018.0807, 10.1007/s10029-020-02252-0),
+rimando a /curriculum, 4 FAQ + FAQPage. Tolti capacita' linguistiche/tecnologie e liste congressi.
+
+## 7-8. Forma del testo e H2-domande
+Igiene applicata a tutte le pagine: nbsp e doppi spazi rimossi, corsivi ereditati tolti,
+concatenazioni minuscole-Maiuscole separate ("d'UrgenzaChirurgia" -> corretta), accenti con
+apostrofo corretti (puo'->può ecc.), Paziente maiuscolo, paragrafi >110 parole spezzati a frase.
+H2 con punto di domanda: anatomia 4, chi-sono 5, difetti 6, terapia 14, protesi 4, radiologia 2,
+sintomi 4, vac 2, preabilitazione 2 (testo sotto invariato).
+
+## 9. Link interni
+Inline nel corpo (ancore descrittive) + blocco "Leggi anche" (campo related) su ogni pagina
+clinica; i 3 articoli dell'hub linkati dalle pagine affini (TESAR da terapia; laparocele da
+difetti/sintomi; ernia recidiva da protesi/diastasi). Conteggi per pagina nella tabella sotto.
+
+## 10. Redirects barra finale
+`curl -s .../api/seo/routes`: paths=19; redirects con 13 "/slug" -> "https://.../slug/"
+assoluti + "/home" e "/home/" -> "/". (output incollato sopra in questa sessione)
+
+## 11. Tabelle
+EHS sedi M1-M5/L1-L4 + dimensioni (primaria <2/2-4/>4 cm; incisionale W1<4, W2 4-10, W3>10 cm)
+con fonte Muysoms et al., Hernia 2009;13(4):407-414, DOI 10.1007/s10029-009-0518-x;
+protesi: materiali (6 righe) + piani (4 righe); radiologia: esame/mostra/quando. Scorrevoli
+su telefono (min-width + overflow-x).
+
+## 12. Home — 709 parole
+Risposta diretta, "Di che cosa si occupa questo sito?" con 3 percorsi linkati,
+"Come si arriva all'intervento?" in 4 passi linkati, ultimi articoli dal canale, 4 FAQ + FAQPage.
+Un solo H1. Prima schermata dichiara l'ambito in 3 righe.
+
+## 13. Diastasi
+Corpo 268 parole (250-350), rimando a diastasiedintorni.it come PRIMO link del testo, 3 immagini
+conservate. (461 parole totali contando answer+FAQ richieste dalle regole AEO.)
+
+## 14. Cookie tecnici
+Paragrafo __emg_vid/__emg_sid presente in cookie-policy e privacy-policy
+(grep su /api/pages/cookie-policy -> 1, /api/pages/privacy-policy -> 1).
+
+## Tabella riepilogo (parole incluse answer+FAQ | h2? | link int. | tabelle | faq)
 ```
-$ curl -s -o /dev/null -w "%{http_code}" .../api/stats/summary          -> 401
-$ curl -s -H "X-Network-Token: ***" .../api/stats/summary | head -c 200
-{"site":"www.chirurgiadellaparete.it","days":30,"visits":0,"visitors":0,"pageviews":0,"topPages":[],...}
+/                                                     709  2  3  0  4
+/anatomia-della-parete-addominale-e-abdominal-core/  3105  4  5  0  4
+/chi-sono/                                            736  5  8  0  4
+/contatti/                                            273  0  3  0  3
+/cookie-policy/                                      2089  0  0  0  0
+/difetti-della-parete-addominale-e-classificazione/   977  6  6  2  2
+/la-diastasi-dei-muscoli-retti/                       461  0  5  0  3
+/la-terapia-chirurgica/                              2659 14  8  0  4
+/le-complicanze-chirurgiche-la-vac-therapy/          1006  2  4  0  2
+/le-protesi-...-posizionamento-della-protesi/        1421  4  6  2  3
+/preabilitazione-dei-pazienti-all-intervento.../      785  2  4  0  3
+/privacy-policy/                                     3112  0  1  0  0
+/radiologia/                                         1199  2  6  1  2
+/sintomi-e-complicanze/                              1008  4  5  0  3
 ```
-Token in backend/.env (NETWORK_STATS_TOKEN) e in /app/memory/test_credentials.md.
-
-## 5. Grafica
-Screenshot acquisiti: home 1920 scuro, home 1920 chiaro, pagina clinica lunga 1920 scuro+chiaro, articolo 1920 scuro, home 390 scuro + menu mobile, 404. Nessuno sbordamento orizzontale a 390px. Temi: scuro base + chiaro ritarato (rame #B85A18 AA su bianco).
-
-## Note per il chirurgo (frasi migliorabili, testo NON toccato)
-- /la-terapia-chirurgica/: "molto molto complessi" (doppione) e "Viene quindi posizionato un drenaggio" (concordanza).
-- /preabilitazione.../: "Controllo dell'peso" (refuso nel testo originale).
-- /chi-sono/: il testo WP originale conteneva shortcode Divi residui ([et_pb_...]) stampati come testo: rimossi perché markup tecnico, non parole cliniche.
-
-## Da fare in produzione (fuori da questa app)
-- Worker Cloudflare davanti al dominio: legge /api/seo/routes, /api/seo/prerender, sitemap/robots/llms dal backend (gli endpoint sono pronti e calcolati dai dati).
-- DNS: lo configura il cliente, per ultimo.
-- Video anatomia home: predisposto lo spazio hero (SVG animato); serve il file video definitivo.
+Screenshot acquisiti: home 1920 scuro+chiaro, /articoli 1920+390, chi-sono 1920 scuro+chiaro,
+terapia 1920 (coppie immagini, TOC, link), articolo 1920, 404.

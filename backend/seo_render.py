@@ -73,14 +73,12 @@ def breadcrumb_ld(items):
 
 
 def org_ld(entity, domain, lang):
-    person = (entity or {}).get('person', {})
     same = [
         'https://www.federicofiori.com',
         'https://www.diastasiedintorni.it',
         'https://www.diastasisandbeyond.com',
         'https://www.federico-fiori.it',
         'https://www.chirurgiadellaparete.it',
-        'https://www.abdominalwallsurgery.com',
     ]
     org = {
         '@type': 'MedicalBusiness',
@@ -88,6 +86,20 @@ def org_ld(entity, domain, lang):
         'name': 'Chirurgia della Parete Addominale - Dott. Federico Fiori',
         'url': domain,
         'sameAs': same,
+        'medicalSpecialty': 'Chirurgia della parete addominale',
+    }
+    return org
+
+
+CLINIC_ID = 'https://www.chirurgiadellaparete.it/contatti/#clinic'
+
+
+def clinic_ld(domain):
+    """Fi Multicare: dichiarata UNA VOLTA SOLA, in /contatti/, richiamata per @id."""
+    return {
+        '@type': 'MedicalClinic',
+        '@id': f'{domain}/contatti/#clinic',
+        'name': 'Fi Multicare — Centro Medico Multidisciplinare',
         'address': {
             '@type': 'PostalAddress',
             'streetAddress': 'Galleria del Corso 4',
@@ -95,11 +107,10 @@ def org_ld(entity, domain, lang):
             'addressLocality': 'Milano',
             'addressCountry': 'IT',
         },
-        'geo': {'@type': 'GeoCoordinates', 'latitude': 45.4637, 'longitude': 9.1963},
-        'telephone': '+39-02-76021568',
-        'medicalSpecialty': 'Chirurgia della parete addominale',
+        'telephone': '+390276021568',
+        'email': 'info@fimulticare.it',
+        'sameAs': ['https://www.fimulticare.it/'],
     }
-    return org
 
 
 def person_ld(entity):
@@ -172,13 +183,16 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
             'isPartOf': {'@id': f"{site['domain']}/#website"},
         }, person] if person else graphs
     elif kind == 'contact':
-        cb = dict(org)
-        cb['openingHoursSpecification'] = [{
-            '@type': 'OpeningHoursSpecification',
-            'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            'opens': '09:00', 'closes': '18:00',
-        }]
-        graphs.append(cb)
+        person_node = person_ld(entity)
+        if person_node:
+            person_node['workLocation'] = {'@id': f"{site['domain']}/contatti/#clinic"}
+            person_node['affiliation'] = {
+                '@type': 'Hospital',
+                'name': "Divisione di Chirurgia d'Urgenza – Chirurgia Generale e Robotica – ASST Santi Paolo e Carlo – PO San Carlo Borromeo, Milano",
+            }
+        graphs.append(clinic_ld(site['domain']))
+        if person_node:
+            graphs.append(person_node)
     if breadcrumb_items:
         graphs.append(breadcrumb_ld(breadcrumb_items))
     faq = content.get('faq') or []
@@ -236,29 +250,32 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
 
 
 BASE_CSS = """
-:root{--ink:#070B0F;--surface:#0E141A;--line:#1E2A33;--text:#F5F8FA;--muted:#8FA3B2;--accent:#E4762C;--steel:#7FA8C9}
+:root{--ink:#161B21;--surface:#1E252D;--line:#2C3742;--text:#EEF4FA;--muted:#9BAAB9;--accent:#0B81E1;--accent-soft:#4FB0F5;--deep:#08243B}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--ink);color:var(--text);font-family:Georgia,serif;line-height:1.7;font-size:18px}
+body{background:var(--ink);color:var(--text);font-family:Georgia,serif;line-height:1.75;font-size:18px}
 main{max-width:44em;margin:0 auto;padding:2rem 1.25rem}
 h1{font-size:2.2rem;line-height:1.2;margin-bottom:1rem}
-h2{font-size:1.5rem;margin:2.2rem 0 .8rem}
-h3{font-size:1.2rem;margin:1.6rem 0 .6rem}
+h2{font-size:1.5rem;margin:2.75rem 0 .8rem}
+h3{font-size:1.2rem;margin:2.2rem 0 .75rem}
 p{margin-bottom:1rem}
 ul,ol{margin:0 0 1rem 1.4rem}
-a{color:var(--steel)}
+a{color:var(--accent-soft)}
 figure{margin:1.4rem 0}
-img{max-width:100%;height:auto}
-figcaption{color:var(--muted);font-size:.85rem;margin-top:.4rem}
-.pw-answer{border-left:2px solid var(--accent);padding:.6rem 1rem;background:var(--surface);margin:1.2rem 0}
+img{max-width:100%;height:auto;border-radius:10px}
+figcaption{color:var(--muted);font-size:12.5px;margin-top:.5rem}
+.pw-answer{border-left:3px solid var(--accent);padding:.8rem 1.1rem;background:var(--deep);margin:1.2rem 0}
 .pw-plainbox,.pw-note{border:1px solid var(--line);padding:1rem 1.2rem;background:var(--surface);margin:1.4rem 0}
 .pw-table{overflow-x:auto}
-table{border-collapse:collapse;width:100%}
+table{border-collapse:collapse;width:100%;min-width:520px}
 td,th{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}
+th{background:var(--deep)}
 .pw-crumbs{font-size:.8rem;color:var(--muted);margin-bottom:1.4rem}
 .pw-crumbs a{color:var(--muted)}
 .pw-faq details{border-top:1px solid var(--line);padding:.8rem 0}
 .pw-faq summary{cursor:pointer;font-weight:600}
 .pw-net{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;color:var(--muted);font-size:.9rem}
+.pw-rel{border:1px solid var(--line);background:var(--surface);padding:1rem 1.2rem;margin-top:2.4rem;font-size:.95rem}
+.pw-rel li{margin:.3rem 0}
 """
 
 
@@ -284,6 +301,11 @@ def prerender_page(page, content, site, entity, absolute, noindex):
     ld = page_jsonld(page, content, site, entity, canonical, crumb_items)
     robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
     net = network_html(site)
+    rel = content.get('related') or []
+    rel_html = ''
+    if rel:
+        lis = ''.join(f'<li><a href="{esc(r["href"] if r["href"].startswith("http") else domain + r["href"])}">{esc(r["label"])}</a></li>' for r in rel)
+        rel_html = f'<nav class="pw-rel" aria-label="Leggi anche"><strong>Leggi anche</strong><ul>{lis}</ul></nav>'
     return f"""<!DOCTYPE html>
 <html lang="{site['lang']}">
 <head>
@@ -303,6 +325,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
 {f'<p class="pw-answer">{esc(answer)}</p>' if answer else ''}
 {body}
 {faq_html}
+{rel_html}
 {net}
 </main>
 </body>
@@ -372,7 +395,8 @@ def network_html(site):
     lang = site['lang']
     items = ''.join(
         f'<li><a href="{esc(s["url"])}">{esc(s["label"][lang])}</a> — {esc(s["desc"][lang])}</li>'
-        for s in NETWORK_ECOSYSTEM if s['url'] != site['domain'])
+        for s in NETWORK_ECOSYSTEM
+        if s['url'] != site['domain'] and s.get('live', True))
     return (f'<footer class="pw-net"><h2>{esc(site["ui"]["network_title"])}</h2>'
             f'<p>{esc(site["ui"]["network_intro"])}</p><ul>{items}</ul></footer>')
 

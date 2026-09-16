@@ -69,14 +69,57 @@
    {
     "type": "h3",
     "text": "Chirurgia della parete"
+   },
+   {
+    "type": "h2",
+    "text": "Dove riceve"
+   },
+   {
+    "type": "p",
+    "html": "Il dott. Federico Fiori riceve presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano. Le visite sono su appuntamento."
+   },
+   {
+    "type": "p",
+    "html": "Telefono <a href=\"tel:+390276021568\">02 7602 1568</a> · E-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a> · Sito del centro: <a href=\"https://www.fimulticare.it/\">fimulticare.it</a>"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/mappa-fi-multicare.webp",
+    "alt": "Mappa schematica della zona di Galleria del Corso 4 a Milano, sede di Fi Multicare",
+    "caption": "Fi Multicare, Galleria del Corso 4, 20122 Milano — posizione indicativa.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 675
    }
   ],
   "kind": "contact",
   "answer": "Per contattare il dott. Federico Fiori, chirurgo della parete addominale: sede in Galleria del Corso 4, 20122 Milano; telefono 02 76021568; e-mail fedefiori@tiscali.it. È possibile richiedere una valutazione per ernie, laparoceli e altri difetti della parete.",
   "faq": [
    {
-    "q": "Dove si trova lo studio del dott. Federico Fiori?",
-    "a": "Galleria del corso 4CAP: 20122 – Milano"
+    "q": "Come si prenota una visita?",
+    "a": "La visita si prenota contattando Fi Multicare — Centro Medico Multidisciplinare: telefono 02 7602 1568 oppure e-mail info@fimulticare.it. Le visite sono su appuntamento; la sede è in Galleria del Corso 4, 20122 Milano."
+   },
+   {
+    "q": "Dove si trova lo studio?",
+    "a": "Lo studio è presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano, in pieno centro, a pochi passi da Piazza San Babila."
+   },
+   {
+    "q": "Quali documenti portare alla prima visita?",
+    "a": "Alla prima visita è utile portare un documento di identità, il codice fiscale o la tessera sanitaria, gli esami già eseguiti (ecografie, TC o risonanze della parete addominale) e la documentazione degli eventuali interventi chirurgici precedenti."
+   }
+  ],
+  "related": [
+   {
+    "label": "Chi sono",
+    "href": "/chi-sono/"
+   },
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
+   },
+   {
+    "label": "La pre-abilitazione prima dell’intervento",
+    "href": "/preabilitazione-dei-pazienti-all-intervento-chirurgico/"
    }
   ]
  },

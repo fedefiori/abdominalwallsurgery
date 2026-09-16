@@ -8,15 +8,11 @@
   "blocks": [
    {
     "type": "h2",
-    "text": "Anatomia della parete addominale e Abdominal Core"
-   },
-   {
-    "type": "h2",
-    "text": "Anatomia e Abdominal core"
+    "text": "Com'è fatta la parete addominale?"
    },
    {
     "type": "p",
-    "html": "Per comprendere i difetti della parete addominale dobbiamo per forza capirne l’anatomia."
+    "html": "Per comprendere i <a href=\"/difetti-della-parete-addominale-e-classificazione/\">difetti della <a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">parete</a> addominale</a> dobbiamo per forza capirne l’anatomia."
    },
    {
     "type": "p",
@@ -26,9 +22,10 @@
     "type": "img",
     "src": "/api/media/muscolo-retto-addome.webp",
     "alt": "Modello anatomico di muscolo retto dell'addome",
-    "caption": "",
+    "caption": "Modello anatomico di muscolo retto dell'addome",
     "width": 800,
-    "height": 1200
+    "height": 1200,
+    "kind": "schema"
    },
    {
     "type": "h2",
@@ -150,9 +147,10 @@
     "type": "img",
     "src": "/api/media/muscolo-obliquo-addome.webp",
     "alt": "Modello anatomico di muscolo Obliquo Interno dell'addome",
-    "caption": "",
+    "caption": "Modello anatomico di muscolo Obliquo Interno dell'addome",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "schema"
    },
    {
     "type": "h2",
@@ -200,11 +198,11 @@
    },
    {
     "type": "h2",
-    "text": "Abdominal Core"
+    "text": "Che cos'è l'abdominal core?"
    },
    {
     "type": "p",
-    "html": "I muscoli della Parete Addominale anteriore fanno parte di un contesto piu’ ampio, che indichiamo come Abdominal Core, o Abdominal Box (con il Diaframma) che rappresenta un ampio gruppo  di muscoli che costituiscono un sistema muscolare sinergico, lavorando all’unisono.  L’Abdominal Core svolge un ruolo fondamentale nel mantenimento della postura, nel supporto della colonna vertebrale e nella stabilizzazione del tronco durante i movimenti. Inoltre, contribuisce alla trasmissione delle forze tra la parte superiore e inferiore del corpo durante attività come sollevamento pesi, movimenti rotatori e movimenti funzionali."
+    "html": "I muscoli della Parete Addominale anteriore fanno parte di un contesto piu’ ampio, che indichiamo come Abdominal Core, o Abdominal Box (con il Diaframma) che rappresenta un ampio gruppo di muscoli che costituiscono un sistema muscolare sinergico, lavorando all’unisono. L’Abdominal Core svolge un ruolo fondamentale nel mantenimento della postura, nel supporto della colonna vertebrale e nella stabilizzazione del tronco durante i movimenti. Inoltre, contribuisce alla trasmissione delle forze tra la parte superiore e inferiore del corpo durante attività come sollevamento pesi, movimenti rotatori e movimenti funzionali."
    },
    {
     "type": "p",
@@ -218,9 +216,10 @@
     "type": "img",
     "src": "/api/media/abdominal-core.webp",
     "alt": "Modello anatomico che rappresenta l'abdomial core",
-    "caption": "",
+    "caption": "Modello anatomico che rappresenta l'abdomial core",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "schema"
    },
    {
     "type": "h2",
@@ -354,9 +353,10 @@
     "type": "img",
     "src": "/api/media/muscoli-paravertebrali.webp",
     "alt": "Modello anatomico dei muscoli paravertebrali",
-    "caption": "",
+    "caption": "Modello anatomico dei muscoli paravertebrali",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "schema"
    },
    {
     "type": "h2",
@@ -396,7 +396,7 @@
    },
    {
     "type": "p",
-    "html": "Tutti questi gruppi muscolari – del pavimento pelvico, i muscoli dell’anca e i muscoli paravertebrali svolgono diverse funzioni e sono collegati a diverse strutture ossee  essenziali per garantire un corretto supporto, movimento e controllo nel bacino e nella colonna vertebrale."
+    "html": "Tutti questi gruppi muscolari – del pavimento pelvico, i muscoli dell’anca e i muscoli paravertebrali svolgono diverse funzioni e sono collegati a diverse strutture ossee essenziali per garantire un corretto supporto, movimento e controllo nel bacino e nella colonna vertebrale."
    },
    {
     "type": "p",
@@ -412,7 +412,7 @@
    },
    {
     "type": "p",
-    "html": "Il diaframma è un muscolo  a forma di cupola situato tra la cavità toracica e la cavità addominale."
+    "html": "Il diaframma è un muscolo a forma di cupola situato tra la cavità toracica e la cavità addominale."
    },
    {
     "type": "p",
@@ -469,7 +469,7 @@
    },
    {
     "type": "h2",
-    "text": "Funzioni del Core"
+    "text": "Quali funzioni ha l'abdominal core?"
    },
    {
     "type": "p",
@@ -513,7 +513,7 @@
    },
    {
     "type": "h2",
-    "text": "Riferimenti anatomici della Parete Addominale"
+    "text": "Quali sono i riferimenti anatomici della parete addominale?"
    },
    {
     "type": "p",
@@ -521,7 +521,7 @@
    },
    {
     "type": "p",
-    "html": "Il diaframma è un muscolo  a forma di cupola situato tra la cavità toracica e la cavità addominale."
+    "html": "Il diaframma è un muscolo a forma di cupola situato tra la cavità toracica e la cavità addominale."
    },
    {
     "type": "p",
@@ -578,9 +578,10 @@
     "type": "img",
     "src": "/api/media/riferimenti-anatomici-parete-addominale.webp",
     "alt": "Riferimenti anatomici della parete addominale",
-    "caption": "",
+    "caption": "Riferimenti anatomici della parete addominale",
     "width": 800,
-    "height": 1212
+    "height": 1212,
+    "kind": "schema"
    }
   ],
   "kind": "clinical",
@@ -601,6 +602,20 @@
    {
     "q": "Perché l'anatomia conta per capire ernie e laparoceli?",
     "a": "Per comprendere i difetti della parete addominale dobbiamo per forza capirne l’anatomia."
+   }
+  ],
+  "related": [
+   {
+    "label": "Difetti della parete addominale e classificazione",
+    "href": "/difetti-della-parete-addominale-e-classificazione/"
+   },
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
+   },
+   {
+    "label": "Le protesi e il piano di posizionamento",
+    "href": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/"
    }
   ]
  },

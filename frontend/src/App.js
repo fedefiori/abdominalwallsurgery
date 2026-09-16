@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import { SiteProvider } from './lib/SiteContext';
+import { LightboxProvider } from './components/Lightbox';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import PillarPage, { KNOWN_SLUGS } from './pages/PillarPage';
@@ -37,15 +38,14 @@ export default function App() {
     useLenis();
     return (
         <SiteProvider>
+            <LightboxProvider>
             <BrowserRouter>
                 <ScrollTop />
                 <Layout>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/articoli" element={<ArticlesPage />} />
-                        <Route path="/articoli/" element={<Navigate to="/articoli" replace />} />
                         <Route path="/articoli/:slug" element={<ArticlePage />} />
-                        <Route path="/articoli/:slug/" element={<ArticlePage />} />
                         <Route path="/404" element={<NotFoundPage />} />
                         <Route path="/:slug/" element={<PillarPage />} />
                         <Route path="/:slug" element={<SlugRedirect />} />
@@ -53,6 +53,7 @@ export default function App() {
                     </Routes>
                 </Layout>
             </BrowserRouter>
+            </LightboxProvider>
         </SiteProvider>
     );
 }

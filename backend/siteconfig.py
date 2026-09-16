@@ -47,6 +47,7 @@ NETWORK_ECOSYSTEM = [
      'desc': {'it': 'Questo sito: ernie, laparoceli e pre-abilitazione, in italiano.',
               'en': 'The Italian site on hernias, incisional hernias and prehabilitation.'}},
     {'url': 'https://www.abdominalwallsurgery.com', 'label': {'it': 'abdominalwallsurgery.com', 'en': 'abdominalwallsurgery.com'},
+     'live': False,
      'desc': {'it': 'Il verticale inglese su ernie, laparoceli e chirurgia della parete addominale.',
               'en': 'The English vertical on hernias, incisional hernias and abdominal wall surgery.'}},
     {'url': 'https://www.federico-fiori.it', 'label': {'it': 'federico-fiori.it', 'en': 'federico-fiori.it'},

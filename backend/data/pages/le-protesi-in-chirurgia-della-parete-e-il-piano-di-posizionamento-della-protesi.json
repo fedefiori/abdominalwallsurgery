@@ -7,24 +7,25 @@
   "metaDescription": "Tipi di protesi per ernie e laparoceli e i piani di posizionamento: sottocutaneo onlay, retromuscolare sublay, preperitoneale e intraperitoneale IPOM.",
   "blocks": [
    {
-    "type": "h2",
-    "text": "Le Protesi in Chirurgia della Parete"
-   },
-   {
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-01.webp",
     "alt": "Protesi in materiale sintetico per la riparazione della parete addominale",
-    "caption": "",
+    "caption": "Protesi in materiale sintetico per la riparazione della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "h2",
-    "text": "Le Protesi in Chirurgia della Parete"
+    "text": "Quali protesi si usano nella parete addominale?"
    },
    {
     "type": "p",
-    "html": "La conoscenza delle basi biologiche dello sviluppo dell’ernia è progredita rapidamente e come conseguenza sia le tecniche chirurgiche che l’utilizzo di  protesi per la riparazione chirurgica hanno subito un’evoluzione altrettanto rapida. Ogni anno oltre 20 milioni di mesh vengono impiantate con l’obiettivo di ridurre il tasso di recidiva in confronto alla riparazione con sola sutura. E riguardo a tale obiettivo oggi l’efficacia della protesi non è in discussione. Inoltre si parla già da tempo di prevenzione, ovvero di posizionare una mesh durante l’intervento chirurgico primitivo al fine di non avere comparsa di un difetto di parete secondario. Per quanto gli studi siano ancora all’inizio i dati sono già incoraggianti anche in questo senso."
+    "html": "La conoscenza delle basi biologiche dello sviluppo dell’ernia è progredita rapidamente e come conseguenza sia le tecniche chirurgiche che l’utilizzo di protesi per la riparazione chirurgica hanno subito un’evoluzione altrettanto rapida. Ogni anno oltre 20 milioni di mesh vengono impiantate con l’obiettivo di ridurre il tasso di <a href=\"/articoli/ernia-ombelicale-recidiva-come-prevenirla\">recidiva</a> in confronto alla riparazione con sola sutura."
+   },
+   {
+    "type": "p",
+    "html": "E riguardo a tale obiettivo oggi l’efficacia della protesi non è in discussione. Inoltre si parla già da tempo di prevenzione, ovvero di posizionare una mesh durante l’intervento chirurgico primitivo al fine di non avere comparsa di un difetto di parete secondario. Per quanto gli studi siano ancora all’inizio i dati sono già incoraggianti anche in questo senso."
    },
    {
     "type": "p",
@@ -32,7 +33,7 @@
    },
    {
     "type": "h2",
-    "text": "Materiali"
+    "text": "Di quali materiali sono fatte le protesi?"
    },
    {
     "type": "p",
@@ -46,13 +47,14 @@
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-04.webp",
     "alt": "Protesi biologica utilizzata nella chirurgia della parete addominale",
-    "caption": "",
+    "caption": "Protesi biologica utilizzata nella chirurgia della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "p",
-    "html": "Il termine plastica si riferisce a uno qualsiasi tra gli innumerevoli materiali organici, sintetici o trasformati che sono per lo più polimeri termoplastici ad alto peso molecolare. Questi materiali possono essere lavorati e possono essere modellati, fusi, estrusi, disegnati o laminati in oggetti, film o filamenti. Tuttavia sono 3 i  polimeri che sono stati utilizzati  per la costruzione di reti  rete sintetiche:"
+    "html": "Il termine plastica si riferisce a uno qualsiasi tra gli innumerevoli materiali organici, sintetici o trasformati che sono per lo più polimeri termoplastici ad alto peso molecolare. Questi materiali possono essere lavorati e possono essere modellati, fusi, estrusi, disegnati o laminati in oggetti, film o filamenti. Tuttavia sono 3 i polimeri che sono stati utilizzati per la costruzione di reti rete sintetiche:"
    },
    {
     "type": "p",
@@ -60,23 +62,23 @@
    },
    {
     "type": "p",
-    "html": "-poliestere  e"
+    "html": "-poliestere e"
    },
    {
     "type": "p",
-    "html": "-politetrafluoroetilene espanso (ePTFE)."
+    "html": "-politetrafluoroetilene espanso (e PTFE)."
    },
    {
     "type": "p",
-    "html": "Più recentemente sono stati utilizzati altri polimeri plastici, vale a dire il cPTFE (PTFE condensato) e il polivinilidenfluoruro (PVDF)."
+    "html": "Più recentemente sono stati utilizzati altri polimeri plastici, vale a dire il c PTFE (PTFE condensato) e il polivinilidenfluoruro (PVDF)."
    },
    {
     "type": "p",
-    "html": "Il propilene deriva dal gas propano mediante una tecnica introdotta dallo scienziato italiano Giulio Natta . Utilizzando un misuratore di regolazione, il polimero liquido viene estruso come monofilamento di larghezza e resistenza predeterminate. Il Polipropilene è modellato intrecciando i filamenti per formare fibre, che vengono poi lavorate insieme per creare una rete idrofila. Si possono creare diverse forme di  cambiando le dimensioni delle fibre e il design del lavoro a maglia. Le protesi in Polipropilene sono sen’altro le protesi oggi le pi’ diffuse."
+    "html": "Il propilene deriva dal gas propano mediante una tecnica introdotta dallo scienziato italiano Giulio Natta . Utilizzando un misuratore di regolazione, il polimero liquido viene estruso come monofilamento di larghezza e resistenza predeterminate. Il Polipropilene è modellato intrecciando i filamenti per formare fibre, che vengono poi lavorate insieme per creare una rete idrofila. Si possono creare diverse forme di cambiando le dimensioni delle fibre e il design del lavoro a maglia. Le protesi in Polipropilene sono sen’altro le protesi oggi le pi’ diffuse."
    },
    {
     "type": "p",
-    "html": "Meno diffuse le protesi in ePTFE, mentre le protesi in PVDF , un fluoropolimero non assorbibile, sono sempre piu’ utilizzate. Le suture in PVDF sono state ampiamente utilizzate sia nella chirurgia cardiotoracica che nella  ortopedica . Si è osservato che il processo infiammatorio è stato meno intenso con PVDF rispetto al PPM leggero macroporoso. La capsula di collagene è piu’  limitata e non produce come per altri materiali una  una piastra cicatriziale che incorpora l’intera mesh. Ad oggi questo materiale raccoglie grande consenso tra tutti i Chirurghi"
+    "html": "Meno diffuse le protesi in e PTFE, mentre le protesi in PVDF , un fluoropolimero non assorbibile, sono sempre piu’ utilizzate. Le suture in PVDF sono state ampiamente utilizzate sia nella chirurgia cardiotoracica che nella ortopedica . Si è osservato che il processo infiammatorio è stato meno intenso con PVDF rispetto al PPM leggero macroporoso. La capsula di collagene è piu’ limitata e non produce come per altri materiali una una piastra cicatriziale che incorpora l’intera mesh. Ad oggi questo materiale raccoglie grande consenso tra tutti i Chirurghi"
    },
    {
     "type": "p",
@@ -94,9 +96,10 @@
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-02.webp",
     "alt": "Dettaglio di una protesi per chirurgia della parete addominale",
-    "caption": "",
+    "caption": "Dettaglio di una protesi per chirurgia della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "p",
@@ -104,7 +107,11 @@
    },
    {
     "type": "p",
-    "html": "Queste reti sono progettate per essere completamente riassorbibili nel corso del tempo, riducendo così il rischio di complicazioni a lungo termine. La loro struttura unica offre un supporto temporaneo alle aree deboli dell’addome, consentendo al tessuto cicatriziale di formarsi e rafforzare l’area danneggiata. La mesh biosintetica ha in pratica la di funzione di scaffold. Fornisce un supporto tridimensionale che viene utilizzato per favorire la crescita e la rigenerazione dei tessuti, e viene colonizzata da cellule riparative che si adattano alla sua superficie e cominciano a proliferare al suo interno. Nel frattempo, la mesh fornisce un supporto meccanico alle cellule, mantenendole in posizione e consentendone la efficace adesione a formare un tessuto solido."
+    "html": "Queste reti sono progettate per essere completamente riassorbibili nel corso del tempo, riducendo così il rischio di complicazioni a lungo termine. La loro struttura unica offre un supporto temporaneo alle aree deboli dell’addome, consentendo al tessuto cicatriziale di formarsi e rafforzare l’area danneggiata. La mesh biosintetica ha in pratica la di funzione di scaffold."
+   },
+   {
+    "type": "p",
+    "html": "Fornisce un supporto tridimensionale che viene utilizzato per favorire la crescita e la rigenerazione dei tessuti, e viene colonizzata da cellule riparative che si adattano alla sua superficie e cominciano a proliferare al suo interno. Nel frattempo, la mesh fornisce un supporto meccanico alle cellule, mantenendole in posizione e consentendone la efficace adesione a formare un tessuto solido."
    },
    {
     "type": "p",
@@ -116,15 +123,19 @@
    },
    {
     "type": "p",
-    "html": "Queste protesi sono costituite da piu’ materiali di vario tipo sintetici/biologici al fine di renderle idonee all’utilizzo e al piano di posizionamento per cui sono indicate. Le reti Dual Mesh sono state sviluppate per poter  essere posizionate all’interno della cavità peritoneale. La tecnica IPOM o IPUM prevede la riparazione con protesi posizionate in cavità fissate in vario modo a ricoprire il difetto. Queste mesh devono essere costruite con materiale opportuno sul lato rivolto all’interno della cavità per evitare la formazione di aderenze con i visceri, che potrebbero causare complicanze importanti."
+    "html": "Queste protesi sono costituite da piu’ materiali di vario tipo sintetici/biologici al fine di renderle idonee all’utilizzo e al piano di posizionamento per cui sono indicate. Le reti Dual Mesh sono state sviluppate per poter essere posizionate all’interno della cavità peritoneale. La tecnica IPOM o IPUM prevede la riparazione con protesi posizionate in cavità fissate in vario modo a ricoprire il difetto. Queste mesh devono essere costruite con materiale opportuno sul lato rivolto all’interno della cavità per evitare la formazione di aderenze con i visceri, che potrebbero causare <a href=\"/le-complicanze-chirurgiche-la-vac-therapy/\">complicanz</a>e importanti."
+   },
+   {
+    "type": "table",
+    "html": "<table><thead><tr><th>Materiale</th><th>Tipo</th><th>Caratteristica</th></tr></thead><tbody><tr><td>Polipropilene (PPM)</td><td>Sintetico non assorbibile</td><td>La protesi più utilizzata nella chirurgia della parete</td></tr><tr><td>Poliestere</td><td>Sintetico non assorbibile</td><td>Alternativa storica al polipropilene</td></tr><tr><td>ePTFE / cPTFE</td><td>Sintetico non assorbibile</td><td>Superficie adatta al contatto viscerale</td></tr><tr><td>PVDF</td><td>Fluoropolimero non assorbibile</td><td>Uso crescente nelle riparazioni della parete</td></tr><tr><td>Reti biosintetiche</td><td>Riassorbibili a lento assorbimento</td><td>Combinano vantaggi di reti sintetiche e biologiche</td></tr><tr><td>Protesi composite / dual mesh</td><td>Ibride</td><td>Più materiali per il contatto con i visceri</td></tr></tbody></table><p class=\"pw-table-caption\">Materiali delle protesi per la chirurgia della parete addominale.</p>"
    },
    {
     "type": "h2",
-    "text": "Classificazione delle Protesi"
+    "text": "Come si classificano le protesi?"
    },
    {
     "type": "p",
-    "html": "Il sistema di classificazione della mesh piu’ utilizzato è stato creato da Amid nel 1997  sulla base della porosità della mesh ."
+    "html": "Il sistema di <a href=\"/difetti-della-parete-addominale-e-classificazione/\">classificazione</a> della mesh piu’ utilizzato è stato creato da Amid nel 1997 sulla base della porosità della mesh ."
    },
    {
     "type": "p",
@@ -148,13 +159,14 @@
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-03.webp",
     "alt": "Protesi a maglia larga per il rinforzo della parete addominale",
-    "caption": "",
+    "caption": "Protesi a maglia larga per il rinforzo della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "photo"
    },
    {
     "type": "h2",
-    "text": "Il Piano di Posizionamento della Protesi"
+    "text": "In quale piano si posiziona la protesi?"
    },
    {
     "type": "p",
@@ -168,21 +180,22 @@
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-05.webp",
     "alt": "Posizionamento della protesi nel piano retromuscolare",
-    "caption": "",
+    "caption": "Posizionamento della protesi nel piano retromuscolare",
     "width": 800,
-    "height": 261
+    "height": 261,
+    "kind": "photo"
    },
    {
     "type": "p",
-    "html": "<b><i>International classification of abdominal wall planes (ICAP) to describe mesh insertion for ventral hernia repair </i></b>"
+    "html": "<b>International classification of abdominal wall planes (ICAP) to describe mesh insertion for ventral hernia repair </b>"
    },
    {
     "type": "p",
-    "html": "<i>S G Parker</i><i>, </i><i>S Halligan</i><i>, </i><i>M K Liang</i><i>, </i><i>F E Muysoms</i><i>, </i><i>G L Adrales</i><i>, </i><i>A Boutall</i><i>, </i><i>A C Beaux</i><i>, </i><i>U A Dietz</i><i>, </i><i>C M Divino</i><i>, </i><i>M T Hawn</i><i>…</i>"
+    "html": "S G Parker, S Halligan, M K Liang, F E Muysoms, G L Adrales, A Boutall, A C Beaux, U A Dietz, C M Divino, M T Hawn…"
    },
    {
     "type": "p",
-    "html": "<i>British Journal of Surgery, Volume 107, Issue 3, February 2020, Pages 209–217, </i><i><a href=\"https://doi.org/10.1002/bjs.11400\">https://doi.org/10.1002/bjs.11400</a></i>"
+    "html": "British Journal of Surgery, Volume 107, Issue 3, February 2020, Pages 209–217, <a href=\"https://doi.org/10.1002/bjs.11400\">https://doi.org/10.1002/bjs.11400</a>"
    },
    {
     "type": "p",
@@ -193,14 +206,8 @@
     "html": "Partendo dalla superficie e andando in profondità possiamo prevedere"
    },
    {
-    "type": "ul",
-    "ordered": false,
-    "items": [
-     "mesh onlay: la protesi viene posizionata al di sopra della fascia muscolare",
-     "mesh inlay: la protesi viene posizionata a bridge tra le fasce muscolari",
-     "mesh sublay: la protesi viene posizionata posteriormente ai muscoli retti (o preperitoneale)",
-     "mesh underlay: la mesh viene posizionata all’interno della cavità peritoneale"
-    ]
+    "type": "table",
+    "html": "<table><thead><tr><th>Piano di posizionamento</th><th>Posizione della protesi</th></tr></thead><tbody><tr><td>Onlay</td><td>Al di sopra della fascia muscolare</td></tr><tr><td>Inlay</td><td>A ponte, nel difetto</td></tr><tr><td>Sublay</td><td>Retromuscolare o preperitoneale</td></tr><tr><td>Intraperitoneale (IPOM)</td><td>Al di sotto del peritoneo</td></tr></tbody></table><p class=\"pw-table-caption\">Piani di posizionamento della protesi, dalla superficie alla profondità.</p>"
    },
    {
     "type": "p",
@@ -221,6 +228,20 @@
    {
     "q": "Come si sceglie il piano di posizionamento della protesi?",
     "a": "Queste protesi sono costituite da piu’ materiali di vario tipo sintetici/biologici al fine di renderle idonee all’utilizzo e al piano di posizionamento per cui sono indicate. Le reti Dual Mesh sono state sviluppate per poter essere posizionate all’interno della cavità peritoneale. La tecnica IPOM o IPUM prevede la riparazione con protesi posizionate in cavità fissate in vario modo a ricoprire il difetto. Queste mesh devono essere costruite con materiale opportuno sul lato rivolto all’interno della cavità per evitare la formazione di aderenze con i visceri, che potrebbero causare complicanze importanti."
+   }
+  ],
+  "related": [
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
+   },
+   {
+    "label": "Difetti della parete addominale e classificazione",
+    "href": "/difetti-della-parete-addominale-e-classificazione/"
+   },
+   {
+    "label": "Le complicanze chirurgiche e la VAC therapy",
+    "href": "/le-complicanze-chirurgiche-la-vac-therapy/"
    }
   ]
  },

@@ -1,9 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useSite } from '../lib/SiteContext';
 import { track } from '../lib/api';
+
+function Halo() {
+    const ref = useRef(null);
+    useEffect(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+        let raf = 0;
+        const onScroll = () => {
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+                if (ref.current) {
+                    const y = window.scrollY * 0.04; // pochi pixel, parallasse lento
+                    ref.current.style.transform = `translate3d(0, ${y}px, 0)`;
+                }
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+    }, []);
+    return <div className="pw-halo" ref={ref} aria-hidden="true" />;
+}
 
 function ThemeToggle() {
     const { theme, setTheme, ui } = useSite();
@@ -38,6 +58,7 @@ export default function Layout({ children }) {
 
     return (
         <>
+            <Halo />
             <header className="pw-header" data-testid="site-header">
                 <div className="pw-shell pw-header-inner">
                     <Link to="/" className="pw-brand" data-testid="brand-link">
@@ -86,24 +107,57 @@ export default function Layout({ children }) {
             <main>{children}</main>
             <footer className="pw-footer" data-testid="site-footer">
                 <div className="pw-shell">
-                    <p className="pw-label">{ui.network_title}</p>
-                    <h2 style={{ fontSize: 'clamp(1.4rem,2.6vw,1.9rem)', maxWidth: '34ch', marginTop: '.6rem' }}>
-                        {ui.network_intro}
-                    </h2>
-                    <div className="pw-net-grid" data-testid="network-grid">
-                        {(site?.network || []).map((n) => (
-                            <div className="pw-net-item" key={n.url}>
-                                <a href={n.url} target="_blank" rel="noopener">{n.label}</a>
-                                <p>{n.desc}</p>
-                            </div>
-                        ))}
+                    <div className="pw-footer-grid">
+                        <section data-testid="footer-chi-opera">
+                            <h3>Chi opera</h3>
+                            <p><strong>Dott. Federico Fiori</strong> — Chirurgo</p>
+                            <p>Responsabile della Chirurgia della Parete Addominale</p>
+                            <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo sull’hub</a></p>
+                        </section>
+                        <section data-testid="footer-dove-riceve">
+                            <h3>Dove riceve</h3>
+                            <p><strong>Fi Multicare</strong> — Centro Medico Multidisciplinare</p>
+                            <p>Galleria del Corso 4, 20122 Milano</p>
+                            <p>Telefono <a href={site?.clinic?.telHref || 'tel:+390276021568'}>02 7602 1568</a><br />
+                                E-mail <a href="mailto:info@fimulticare.it">info@fimulticare.it</a></p>
+                            <p>Visite su appuntamento</p>
+                            <p><a href="https://www.fimulticare.it/" target="_blank" rel="noopener">fimulticare.it</a></p>
+                        </section>
+                        <section data-testid="footer-la-rete">
+                            <h3>La rete</h3>
+                            <ul className="pw-footer-net">
+                                {(site?.network || []).map((n) => (
+                                    <li key={n.url}>
+                                        <a href={n.url} target="_blank" rel="noopener">{n.label}</a>
+                                        <p>{n.desc}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </section>
+                        <section data-testid="footer-legale">
+                            <h3>Legale e servizio</h3>
+                            <ul>
+                                <li><Link to="/privacy-policy/">Privacy policy</Link></li>
+                                <li><Link to="/cookie-policy/">Cookie policy</Link></li>
+                                <li><a href="/api/seo/sitemap.xml">Sitemap</a></li>
+                                <li>
+                                    <button
+                                        className="pw-footer-toplink"
+                                        data-testid="back-to-top"
+                                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                        style={{ color: 'var(--accent-soft)', fontSize: '14px' }}
+                                    >
+                                        Torna su ↑
+                                    </button>
+                                </li>
+                            </ul>
+                        </section>
                     </div>
-                    <div className="pw-footer-base">
-                        <span className="pw-label">© {new Date().getFullYear()} Dott. Federico Fiori — Milano</span>
-                        <span style={{ display: 'flex', gap: '1.4rem' }}>
-                            <Link to="/privacy-policy/" className="pw-label" style={{ textDecoration: 'none' }}>Privacy</Link>
-                            <Link to="/cookie-policy/" className="pw-label" style={{ textDecoration: 'none' }}>Cookie</Link>
+                    <div className="pw-footer-legal">
+                        <span className="pw-footer-disclaimer" data-testid="footer-disclaimer">
+                            Le informazioni di questo sito hanno finalità divulgativa e non sostituiscono la visita medica.
                         </span>
+                        <span className="pw-label">© {new Date().getFullYear()} Dott. Federico Fiori — Milano</span>
                     </div>
                 </div>
             </footer>

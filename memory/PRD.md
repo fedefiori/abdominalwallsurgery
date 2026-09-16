@@ -53,7 +53,21 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
 1. Traduzione EN delle pagine (chiavi en) — una passata sola.
 2. Asset video hero.
 3. Aggancio Worker + go-live dominio.
-4. Fissare la variante colore scelta dall'utente come default (attualmente default=1 Bronzo).
+
+## Giro correzioni hub (16/09/2026) — CHIUSO
+1. Guasto /articoli: causa = doppia rotta `/articoli` e `/articoli/` (react-router v7) + config non caricata; risolto e verificato in browser, 0 errori console su home/articoli/3 articoli a 1920 e 390.
+2. Palette blu #0B81E1 su grigio acciaio (esatta da specifica), alone radiale con parallasse lento, niente campiture piene, un solo pulsante pieno per schermata. Font ripristinati Space Grotesk/Literata 18px/1.75/IBM Plex Mono.
+3. Immagini FOTO (max 320px/200px mobile, cover, raggio 10px) vs SCHEMI (max 420px, contain), coppie a due colonne, didascalie, lightbox con Esc.
+4. Footer a 4 blocchi (Chi opera / Dove riceve Fi Multicare / La rete senza abdominalwallsurgery.com / Legale) + disclaimer.
+5. Fi Multicare: footer + sezione in /contatti/ con mappa statica + 3 FAQ + MedicalClinic JSON-LD una sola volta, Person workLocation/affiliation.
+6. /chi-sono/ riscritto 736 parole con 5 H2-domande, foto, DOI/PMID.
+7. Igiene testo (nbsp, corsivi, concatenazioni, accenti, Paziente, split paragrafi lunghi).
+8. H2-domande su tutte le pagine cliniche; FAQ+FAQPage anche su home e contatti.
+9. Link interni inline + blocco "Leggi anche" ovunque; articoli hub linkati dalle pagine affini.
+10. routes.redirects pieno (13 slash-redirect + /home, /home/).
+11. Tabelle EHS/protesi/radiologia con fonte DOI.
+12. Home a 709 parole. 13. Diastasi 268 parole corpo, primo link a diastasiedintorni. 14. Cookie __emg_vid/__emg_sid in cookie+privacy.
+Collaudo completo: /app/memory/collaudo.md.
 
 ## Design refresh (16/09/2026)
 - Font dell'hub: Inter Tight (titoli), Manrope (testo), Azeret Mono (etichette).

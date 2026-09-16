@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { useSite } from '../lib/SiteContext';
 import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
-import { Blocks, tocOf } from '../components/Blocks';
+import { Blocks, tocOf, Related } from '../components/Blocks';
 import { Reveal } from '../components/Reveal';
 
 export const KNOWN_SLUGS = [
@@ -129,6 +129,7 @@ export default function PillarPage() {
                         )}
                         <Blocks blocks={page.blocks} />
                         <Faq faq={page.faq} title={ui.faq_title} />
+                        <Related items={page.related} />
                     </article>
                     <Toc items={toc} />
                 </div>

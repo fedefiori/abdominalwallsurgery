@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { useSite } from '../lib/SiteContext';
 import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
@@ -7,6 +7,7 @@ import { Reveal } from '../components/Reveal';
 
 export default function ArticlesPage() {
     const { site, ui } = useSite();
+    const location = useLocation();
     const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -19,6 +20,10 @@ export default function ArticlesPage() {
         canonical: site ? `${site.domain}${site.articlesIndex}` : undefined,
         domain: site?.domain,
     });
+
+    if (location.pathname !== (site?.articlesIndex || '/articoli')) {
+        return <Navigate to={site?.articlesIndex || '/articoli'} replace />;
+    }
 
     return (
         <div className="pw-page" data-testid="articles-index">
@@ -37,7 +42,7 @@ export default function ArticlesPage() {
                 <div className="pw-article-list" data-testid="article-list">
                     {(data?.items || []).map((a, i) => (
                         <Reveal key={a.slug} delay={i * 0.06}>
-                            <Link className="pw-article-card" to={`${site.articlesIndex}/${a.slug}`} data-testid={`article-card-${a.slug}`}>
+                            <Link className="pw-article-card" to={`${site?.articlesIndex || '/articoli'}/${a.slug}`} data-testid={`article-card-${a.slug}`}>
                                 {a.coverUrl
                                     ? <img src={a.coverUrl} alt={a.title} width="1200" height="675" loading="lazy" decoding="async" />
                                     : <span />}

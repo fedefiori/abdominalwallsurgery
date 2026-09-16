@@ -6,6 +6,8 @@ import { useSite } from '../lib/SiteContext';
 import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
 import { MaskLines, Reveal } from '../components/Reveal';
+import { Blocks } from '../components/Blocks';
+import { FaqView } from '../components/FaqView';
 import { useState } from 'react';
 
 const MARQUEE = [
@@ -104,6 +106,14 @@ export default function HomePage() {
                 </div>
             </div>
 
+            {page?.blocks?.length > 0 && (
+                <section className="pw-section" data-testid="home-intro">
+                    <div className="pw-shell">
+                        <Blocks blocks={page.blocks.filter((b) => !(b.type === 'img' && (b.src || '').includes('logo')))} />
+                    </div>
+                </section>
+            )}
+
             <div className="pw-band-deep" data-testid="chapters-band">
             <section className="pw-section">
                 <div className="pw-shell">
@@ -141,7 +151,7 @@ export default function HomePage() {
                         <div className="pw-article-list" data-testid="home-articles">
                             {articles.slice(0, 3).map((a) => (
                                 <Reveal key={a.slug}>
-                                    <Link className="pw-article-card" to={`${site.articlesIndex}/${a.slug}`} data-testid={`home-article-${a.slug}`}>
+                                    <Link className="pw-article-card" to={`${site?.articlesIndex || '/articoli'}/${a.slug}`} data-testid={`home-article-${a.slug}`}>
                                         {a.coverUrl && <img src={a.coverUrl} alt={a.title} width="1200" height="675" loading="lazy" decoding="async" />}
                                         <span>
                                             {a.categoryLabel && <span className="pw-label">{a.categoryLabel}</span>}
@@ -156,6 +166,14 @@ export default function HomePage() {
                 </section>
             )}
             </div>
+
+            {page?.faq?.length > 0 && (
+                <section className="pw-section" data-testid="home-faq-section">
+                    <div className="pw-shell" style={{ maxWidth: '820px' }}>
+                        <FaqView faq={page.faq} title={ui.faq_title} />
+                    </div>
+                </section>
+            )}
         </div>
     );
 }

@@ -18,9 +18,10 @@
     "type": "img",
     "src": "/api/media/diastasi-muscoli-retti-addome-01.webp",
     "alt": "Rappresentazione della diastasi dei muscoli retti dell'addome",
-    "caption": "",
+    "caption": "Rappresentazione della diastasi dei muscoli retti dell'addome",
     "width": 800,
-    "height": 450
+    "height": 450,
+    "kind": "schema"
    },
    {
     "type": "p",
@@ -34,13 +35,14 @@
     "type": "img",
     "src": "/api/media/diastasi-muscoli-retti-addome-03.webp",
     "alt": "Visione anatomica della diastasi dei retti addominali",
-    "caption": "",
+    "caption": "Visione anatomica della diastasi dei retti addominali",
     "width": 800,
-    "height": 386
+    "height": 386,
+    "kind": "schema"
    },
    {
     "type": "p",
-    "html": "La diastasi si associa spesso a ernia ombelicale o a piccoli difetti della linea mediana. Quando i due problemi coesistono la scelta tecnica cambia: non basta chiudere il difetto erniario, va ricostruita l'intera linea mediana, altrimenti la riparazione resta esposta alla recidiva."
+    "html": "La diastasi si associa spesso a <a href=\"/articoli/ernia-ombelicale-recidiva-come-prevenirla\">ernia ombelicale</a> o a piccoli difetti della linea mediana. Quando i due problemi coesistono la scelta tecnica cambia: non basta chiudere il <a href=\"/difetti-della-parete-addominale-e-classificazione/\">difetto</a> erniario, va ricostruita l'intera linea mediana, altrimenti la riparazione resta esposta alla recidiva."
    },
    {
     "type": "h2",
@@ -62,9 +64,10 @@
     "type": "img",
     "src": "/api/media/diastasi-muscoli-retti-addome-02.webp",
     "alt": "Diastasi dei muscoli retti: allontanamento dei retti sulla linea alba",
-    "caption": "",
+    "caption": "Diastasi dei muscoli retti: allontanamento dei retti sulla linea alba",
     "width": 800,
-    "height": 529
+    "height": 529,
+    "kind": "schema"
    }
   ],
   "kind": "clinical-condition",
@@ -81,6 +84,20 @@
    {
     "q": "Dove trovo il percorso completo della diastasi?",
     "a": "Tutto il percorso della diastasi dei retti — sintomi, misurazione, riabilitazione, intervento e risultati — è trattato su diastasiedintorni.it, il sito verticale della rete dedicato a questo argomento. In questa pagina la diastasi è descritta solo per quello che conta nella chirurgia della parete addominale."
+   }
+  ],
+  "related": [
+   {
+    "label": "Il percorso completo della diastasi su diastasiedintorni.it",
+    "href": "https://www.diastasiedintorni.it"
+   },
+   {
+    "label": "Difetti della parete addominale e classificazione",
+    "href": "/difetti-della-parete-addominale-e-classificazione/"
+   },
+   {
+    "label": "Ernia ombelicale recidiva: come prevenirla (articolo)",
+    "href": "/articoli/ernia-ombelicale-recidiva-come-prevenirla"
    }
   ]
  },

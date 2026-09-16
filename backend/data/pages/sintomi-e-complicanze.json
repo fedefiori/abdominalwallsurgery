@@ -7,16 +7,12 @@
   "metaDescription": "Sintomi di ernie e laparoceli per tipo di difetto della parete, segni di allarme di incarceramento e strangolamento e quando l'urgenza cambia la strategia.",
   "blocks": [
    {
-    "type": "h2",
-    "text": "Sintomi e complicanze"
-   },
-   {
     "type": "plainBox",
     "html": "Questa pagina è il riferimento clinico su sintomi e complicanze dei difetti della parete addominale; la versione per il Paziente, divulgativa, è l'articolo <a href=\"https://www.federicofiori.com/articoli/sintomi-complicanze-difetti-parete-addominale\">Sintomi e complicanze dei difetti della parete addominale</a> pubblicato su federicofiori.com."
    },
    {
     "type": "h2",
-    "text": "Sintomi e complicanze dei difetti della parete addominale"
+    "text": "Quali sintomi dà un'ernia della parete addominale?"
    },
    {
     "type": "p",
@@ -31,8 +27,8 @@
     "ordered": false,
     "items": [
      "<b>Visibile</b>: Una protuberanza o gonfiore visibile nella zona dell’ernia, spesso più evidente quando si è in piedi o si fa sforzo.",
-     "<b>Riducibile</b>: La protuberanza può spesso essere ridotta  manualmente nella cavità addominale,",
-     "<b>Irriducibile</b>: In alcuni casi, l’ernia può diventare non riducibile in addome,  cioè non può essere spinta all’interno. Questo può portare a una condizione più grave indicata come incarceramento, che non definiamo sintomo ma complicanza."
+     "<b>Riducibile</b>: La protuberanza può spesso essere ridotta manualmente nella cavità addominale,",
+     "<b>Irriducibile</b>: In alcuni casi, l’ernia può diventare non riducibile in addome, cioè non può essere spinta all’interno. Questo può portare a una condizione più grave indicata come incarceramento, che non definiamo sintomo ma complicanza."
     ]
    },
    {
@@ -57,15 +53,15 @@
    },
    {
     "type": "p",
-    "html": "I sintomi delle ernie della parete addominale anteriore possono variare notevolmente, e il riconoscimento precoce è essenziale per un trattamento efficace. Mentre alcune ernie ,valutando età e patologie associate, possono essere gestite con un monitoraggio regolare e modifiche dello stile di vita, altre richiedono un intervento chirurgico. In particolare, le ernie incarcerate o strangolate rappresentano un’emergenza medica che richiede un trattamento immediato per prevenire complicanze gravi o potenzialmente fatali."
+    "html": "I sintomi delle ernie della parete addominale anteriore possono variare notevolmente, e il riconoscimento precoce è essenziale per un trattamento efficace. Mentre alcune ernie ,valutando età e patologie associate, possono essere gestite con un monitoraggio regolare e modifiche dello stile di vita, altre richiedono un <a href=\"/la-terapia-chirurgica/\">intervento chirurgico</a>. In particolare, le ernie incarcerate o strangolate rappresentano un’emergenza medica che richiede un trattamento immediato per prevenire complicanze gravi o potenzialmente fatali."
    },
    {
     "type": "h2",
-    "text": "Insufficienza Muscolare"
+    "text": "Che cos'è l'insufficienza muscolare della parete?"
    },
    {
     "type": "p",
-    "html": "<strong>L’alterazione del Core Addominale per un difetto della parete addominale anteriore puo’ provocare, specialmente in caso di diastasi o di ampi difetti,  una ipotrofia della muscolatura conseguente al malfunzionamento protratto dei muscoli causato dalla insufficiente funzione della linea mediana, che di fatto determina la “ mancata chiusura” del circuito muscolare a livello anteriore. La riduzione del carico durante il lavoro muscolare si ripercuote in primis sui muscoli direttamente interessati, e secondariamente su tutti gli altri muscoli del core addominale, con una sintomatologia varabile e soggettiva, ma talvolta grave e invalidante, tipica di Pazienti affette/i da importante diastasi dei muscoli retti.</strong>"
+    "html": "<strong>L’alterazione del Core Addominale per un difetto della parete addominale anteriore puo’ provocare, specialmente in caso di diastasi o di ampi difetti, una ipotrofia della muscolatura conseguente al malfunzionamento protratto dei muscoli causato dalla insufficiente funzione della linea mediana, che di fatto determina la “ mancata chiusura” del circuito muscolare a livello anteriore. La riduzione del carico durante il lavoro muscolare si ripercuote in primis sui muscoli direttamente interessati, e secondariamente su tutti gli altri muscoli del core addominale, con una sintomatologia varabile e soggettiva, ma talvolta grave e invalidante, tipica di Pazienti affette/i da importante diastasi dei muscoli retti.</strong>"
    },
    {
     "type": "p",
@@ -77,7 +73,7 @@
    },
    {
     "type": "h2",
-    "text": "Complicanze delle ernie"
+    "text": "Che cosa succede se non si interviene?"
    },
    {
     "type": "p",
@@ -123,25 +119,27 @@
     "type": "img",
     "src": "/api/media/complicazioni-delle-ernie.webp",
     "alt": "Modello anatomico che mostra le complicanze delle ernie della parete addominale",
-    "caption": "",
+    "caption": "Modello anatomico che mostra le complicanze delle ernie della parete addominale",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "schema"
    },
    {
     "type": "img",
     "src": "/api/media/sintomatologia-01.webp",
     "alt": "Sintomi principali dell'ernia incarcerata o strangolata",
-    "caption": "",
+    "caption": "Sintomi principali dell'ernia incarcerata o strangolata",
     "width": 800,
-    "height": 800
+    "height": 800,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "Sintomi dell’Ernia Incarcerata o Strangolata"
+    "text": "Quando un rigonfiamento diventa un'urgenza?"
    },
    {
     "type": "p",
-    "html": "<b>Generalmente uno strozzamento erniario non ha  bisogno di particolare diagnostica. In prima istanza per il forte dolore che provoca nel Paziente. I sintomi sono</b>"
+    "html": "<b>Generalmente uno strozzamento erniario non ha bisogno di particolare <a href=\"/radiologia/\">diagnostica</a>. In prima istanza per il forte dolore che provoca nel Paziente. I sintomi sono</b>"
    },
    {
     "type": "p",
@@ -194,6 +192,20 @@
    {
     "q": "Quando un'ernia diventa un'urgenza?",
     "a": "I sintomi delle ernie della parete addominale anteriore possono variare notevolmente, e il riconoscimento precoce è essenziale per un trattamento efficace. Mentre alcune ernie ,valutando età e patologie associate, possono essere gestite con un monitoraggio regolare e modifiche dello stile di vita, altre richiedono un intervento chirurgico. In particolare, le ernie incarcerate o strangolate rappresentano un’emergenza medica che richiede un trattamento immediato per prevenire complicanze gravi o potenzialmente fatali."
+   }
+  ],
+  "related": [
+   {
+    "label": "Difetti della parete addominale e classificazione",
+    "href": "/difetti-della-parete-addominale-e-classificazione/"
+   },
+   {
+    "label": "Radiologia della parete addominale",
+    "href": "/radiologia/"
+   },
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
    }
   ]
  },

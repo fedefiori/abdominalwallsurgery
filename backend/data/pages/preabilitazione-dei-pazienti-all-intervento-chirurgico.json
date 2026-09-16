@@ -8,15 +8,11 @@
   "blocks": [
    {
     "type": "h2",
-    "text": "Pre-abilitazione clinica"
-   },
-   {
-    "type": "h2",
-    "text": "PREABILITAZIONE"
+    "text": "Che cos'è la pre-abilitazione e a che cosa serve?"
    },
    {
     "type": "p",
-    "html": "I tassi di recidiva dopo chirurgia riparativa di un difetto primitivo della parete addominale anteriore sono un elemento da conoscere e considerare . Circa il 24 % , e in alcune statistiche ben di piu’, in caso di riparazione senza mesh e oltre il 7% in caso di riparazione con protesi. Tali percentuali si alzano in maniera estrema in caso si trattino Pazienti obesi."
+    "html": "I tassi di recidiva dopo <a href=\"/contatti/\">chirurg</a>ia riparativa di un difetto primitivo della parete addominale anteriore sono un elemento da conoscere e considerare . Circa il 24 % , e in alcune statistiche ben di piu’, in caso di riparazione senza mesh e oltre il 7% in caso di riparazione con protesi. Tali percentuali si alzano in maniera estrema in caso si trattino Pazienti obesi."
    },
    {
     "type": "p",
@@ -32,7 +28,11 @@
    },
    {
     "type": "p",
-    "html": "Ma diversi fattori correlati al Paziente contribuiscono in vario modo ad innalzare in maniera importante il rischio di recidiva aumentando la percentuale di SSO, Surgical Site Occurrence, e cioè cellulite della ferita, ferita non cicatrizzante, rottura fasciale, ischemia della pelle o dei tessuti molli, necrosi della pelle o dei tessuti molli, secrezione sierosa o purulenta della ferita, ascesso, seroma, ematoma e rete infetta o esposta , deiscenza di  ferita e fistola enterocutanea."
+    "html": "Ma diversi fattori correlati al Paziente contribuiscono in vario modo ad innalzare in maniera importante il rischio di recidiva aumentando la percentuale di SSO, Surgical Site Occurrence, e cioè cellulite della ferita, ferita non cicatrizzante, rottura fasciale, ischemia della pelle o dei tessuti molli, necrosi della pelle o dei tessuti molli, secrezione sierosa o purulenta della ferita, ascesso, seroma, ematoma e rete infetta o esposta , deiscenza di ferita e fistola enterocutanea."
+   },
+   {
+    "type": "h2",
+    "text": "Che cosa devo fare nelle settimane prima dell'intervento?"
    },
    {
     "type": "p",
@@ -40,15 +40,15 @@
    },
    {
     "type": "p",
-    "html": "Questi elementi sono trattabili, o comunque sono aspetti che è indicato provare a migliorare dal punto di vista clinico. In questo modo si  ottimizzano le possibilità del paziente di avere un percorso chirurgico libero da complicanze e quindi abbattendo il tasso di recidiva."
+    "html": "Questi elementi sono trattabili, o comunque sono aspetti che è indicato provare a migliorare dal punto di vista clinico. In questo modo si ottimizzano le possibilità del Paziente di avere un percorso chirurgico libero da complicanze e quindi abbattendo il tasso di recidiva."
    },
    {
     "type": "p",
-    "html": "La corretta preparazione ad un intervento chirurgico di riparazione della parete addominale deve prevedere:"
+    "html": "La corretta preparazione ad un <a href=\"/la-terapia-chirurgica/\">intervento chirurgico</a> di riparazione della parete addominale deve prevedere:"
    },
    {
     "type": "p",
-    "html": "Astensione dal fumo per  4 settimane prima dell’intervento"
+    "html": "Astensione dal fumo per 4 settimane prima dell’intervento"
    },
    {
     "type": "p",
@@ -68,7 +68,7 @@
    },
    {
     "type": "p",
-    "html": "Affrontare un Intervento chirurgico in una condizione di malnutrizione comporta maggior rischio di complicanze. Questo vale per ogni ambito chirurgico.  In particolare è stato valutato che un valore di Albumina inferiore a 3.0 g/dL è predittivo di un outcome peggiore, pertanto chi deve sottoporsi ad un Intervento , specialmente di chirurgia maggiore, dovrebbe essere valutato e trattato con l’obiettivo di arrivare alla procedura in condizioni ottimali."
+    "html": "Affrontare un Intervento chirurgico in una condizione di malnutrizione comporta maggior rischio di complicanze. Questo vale per ogni ambito chirurgico. In particolare è stato valutato che un valore di Albumina inferiore a 3.0 g/d L è predittivo di un outcome peggiore, pertanto chi deve sottoporsi ad un Intervento , specialmente di chirurgia maggiore, dovrebbe essere valutato e trattato con l’obiettivo di arrivare alla procedura in condizioni ottimali."
    },
    {
     "type": "p",
@@ -80,7 +80,7 @@
    },
    {
     "type": "p",
-    "html": "Ottimizzazione clinica di  una eventuali BPCO"
+    "html": "Ottimizzazione clinica di una eventuali BPCO"
    },
    {
     "type": "p",
@@ -101,6 +101,16 @@
    {
     "q": "Perché si prepara il paziente prima dell'intervento?",
     "a": "La corretta preparazione ad un intervento chirurgico di riparazione della parete addominale deve prevedere:"
+   }
+  ],
+  "related": [
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
+   },
+   {
+    "label": "Contatti e prenotazione della valutazione",
+    "href": "/contatti/"
    }
   ]
  },

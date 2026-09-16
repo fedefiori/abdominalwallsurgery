@@ -7,10 +7,6 @@
   "metaDescription": "Classificazione delle ernie della parete addominale secondo l'European Hernia Society: sedi anatomiche, dimensioni del difetto, definizioni cliniche e tabelle.",
   "blocks": [
    {
-    "type": "h2",
-    "text": "Difetti della parete addominale e Classificazione"
-   },
-   {
     "type": "plainBox",
     "html": "Per gli acronimi e le sigle usati in questa pagina il riferimento è il <a href=\"https://www.federicofiori.com/glossario-acronimi-chirurgia-parete-addominale\">glossario degli acronimi della chirurgia della parete addominale</a> su federicofiori.com; la versione divulgativa di questo argomento è l'articolo <a href=\"https://www.federicofiori.com/articoli/difetti-parete-addominale-classificazione\">Difetti della parete addominale e classificazione</a>."
    },
@@ -18,17 +14,18 @@
     "type": "img",
     "src": "/api/media/difetti-parete-addominale.webp",
     "alt": "Rappresentazione grafica dei difetti della parete addominale",
-    "caption": "",
+    "caption": "Rappresentazione grafica dei difetti della parete addominale",
     "width": 800,
-    "height": 475
+    "height": 475,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "I DIFETTI DELLA PARETE ADDOMINALE ANTERIORE"
+    "text": "Quali sono i difetti della parete addominale anteriore?"
    },
    {
     "type": "p",
-    "html": "I difetti della parete addominale anteriore si possono suddividere in difetti primitivi e difetti secondari."
+    "html": "I difetti della pa<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">rete</a> addominale anteriore si possono suddividere in difetti primitivi e difetti secondari."
    },
    {
     "type": "p",
@@ -36,7 +33,7 @@
    },
    {
     "type": "h2",
-    "text": "Difetti primitivi"
+    "text": "Quali sono i difetti primitivi della parete?"
    },
    {
     "type": "p",
@@ -80,15 +77,19 @@
    },
    {
     "type": "p",
-    "html": "<b>– La diastasi </b>di cui si parla  piu’ diffusamente nella pagina specifica"
+    "html": "<b>– La diastasi </b>di cui si parla piu’ diffusamente nella pagina specifica"
    },
    {
     "type": "h2",
-    "text": "I difetti secondari della Parete Addominale , o ernie incisionali o laparoceli, sono i difetti che occorrono su pregresse incisioni. Si formano quindi su pregresse cicatrici, vicino ad esse, o sono conseguenza di esse."
+    "text": "Che cosa cambia fra ernia primaria e laparocele?"
+   },
+   {
+    "type": "p",
+    "html": "I difetti secondari della parete addominale, o ernie incisionali o <a href=\"/articoli/laparocele-dopo-intervento-addominale-quando-operare\">laparoceli</a>, sono i difetti che occorrono su pregresse incisioni, o sono conseguenza di esse."
    },
    {
     "type": "h2",
-    "text": "CLASSIFICAZIONE DEI DIFETTI DELLA PARETE ADDOMINALE ANTERIORE"
+    "text": "Come si classificano i difetti della parete addominale?"
    },
    {
     "type": "p",
@@ -99,48 +100,60 @@
     "html": "La EHS , European Hernia Society classifica le <b>Ernie primitive della parete secondo dimensione e posizione</b>"
    },
    {
+    "type": "table",
+    "html": "<table><thead><tr><th>Sede</th><th>Sigla EHS</th><th>Definizione</th></tr></thead><tbody><tr><td>Sotto-xifoidea</td><td>M1</td><td>Dal processo xifoideo a 3 cm al di sotto di esso</td></tr><tr><td>Epigastrica</td><td>M2</td><td>Da 3 cm sotto lo xifoide a 3 cm sopra l’ombelico</td></tr><tr><td>Ombelicale</td><td>M3</td><td>Da 3 cm sopra a 3 cm sotto l’ombelico</td></tr><tr><td>Infraombelicale</td><td>M4</td><td>Da 3 cm sotto l’ombelico a 3 cm sopra il pube</td></tr><tr><td>Soprapubica</td><td>M5</td><td>Dal pube a 3 cm al di sopra di esso</td></tr><tr><td>Sottocostale</td><td>L1</td><td>Dal margine costale a 3 cm sopra l’ombelico, in laterale</td></tr><tr><td>Del fianco</td><td>L2</td><td>Laterale alla guaina dei retti, fra 3 cm sopra e 3 cm sotto l’ombelico</td></tr><tr><td>Iliaca</td><td>L3</td><td>Da 3 cm sotto l’ombelico alla regione inguinale</td></tr><tr><td>Lombare</td><td>L4</td><td>Latero-dorsale rispetto alla linea ascellare anteriore</td></tr></tbody></table><p class=\"pw-table-caption\">Classificazione EHS delle ernie della parete addominale per sede.</p><p class=\"pw-table-source\">Fonte: Muysoms F.E. et al., <i>Hernia</i>, 2009;13(4):407-414. DOI: 10.1007/s10029-009-0518-x</p>"
+   },
+   {
+    "type": "table",
+    "html": "<table><thead><tr><th>Dimensione del difetto</th><th>Ernia primaria</th><th>Ernia incisionale (laparocele)</th></tr></thead><tbody><tr><td>Piccola</td><td>&lt; 2 cm</td><td>W1: &lt; 4 cm</td></tr><tr><td>Media</td><td>2–4 cm</td><td>W2: 4–10 cm</td></tr><tr><td>Grande</td><td>&gt; 4 cm</td><td>W3: &gt; 10 cm</td></tr></tbody></table><p class=\"pw-table-caption\">Classificazione EHS per dimensione del difetto erniario.</p>"
+   },
+   {
     "type": "img",
     "src": "/api/media/european-hernia-society-hernia-classification.webp",
     "alt": "Tabella della EHS che classifica le ernie primitive della parete",
-    "caption": "",
+    "caption": "Tabella della EHS che classifica le ernie primitive della parete",
     "width": 753,
-    "height": 366
+    "height": 366,
+    "kind": "schema"
    },
    {
     "type": "img",
     "src": "/api/media/hernia-incisionali.webp",
     "alt": "Muscoli addominali",
-    "caption": "",
+    "caption": "Muscoli addominali",
     "width": 675,
-    "height": 676
+    "height": 676,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "Anche in relazione alle Ernie Incisionali la classificazione EHS viene in aiuto."
+    "text": "Come classifica la EHS le ernie incisionali?"
    },
    {
     "type": "img",
     "src": "/api/media/incisional-hernia-classification-ehs.webp",
     "alt": "Tabella della EHS che classifica le ernie incisionali della parete addominale",
-    "caption": "",
+    "caption": "Tabella della EHS che classifica le ernie incisionali della parete addominale",
     "width": 397,
-    "height": 713
+    "height": 713,
+    "kind": "schema"
    },
    {
     "type": "img",
     "src": "/api/media/hernia-defect.webp",
     "alt": "Difetti legati a ernie addominali",
-    "caption": "",
+    "caption": "Difetti legati a ernie addominali",
     "width": 518,
-    "height": 657
+    "height": 657,
+    "kind": "schema"
    },
    {
     "type": "h2",
-    "text": "I disastri di parete"
+    "text": "Che cos'è un disastro di parete?"
    },
    {
     "type": "p",
-    "html": "Un “disastro di parete” è un termine usato in campo medico per descrivere una condizione in cui vi è una grave compromissione della parete addominale. E che comporta problemi significativi.  La parete addominale è costituita da diversi strati di tessuti, tra cui muscoli, tessuto connettivo e pelle, che lavorano insieme per mantenere la stabilità e sostenere gli organi nella cavità addominale."
+    "html": "Un “disastro di parete” è un termine usato in campo medico per descrivere una condizione in cui vi è una grave compromissione della parete addominale. E che comporta problemi significativi. La parete addominale è costituita da diversi strati di tessuti, tra cui muscoli, tessuto connettivo e pelle, che lavorano insieme per mantenere la stabilità e sostenere gli organi nella cavità addominale."
    },
    {
     "type": "p",
@@ -152,7 +165,7 @@
    },
    {
     "type": "p",
-    "html": "La diagnosi e il trattamento di un disastro di parete richiedono spesso l’intervento di un chirurgo specializzato nella chirurgia della parete. Il trattamento può variare a seconda della gravità del danno e può includere la riparazione chirurgica della parete, l’utilizzo di materiali di sutura o reti per rinforzare i tessuti, o la ricostruzione complessa del muscolo addominale. Un disastro di parete può rappresentare una sfida significativa per il chirurgo, in quanto richiede  una pianificazione dettagliata e un approccio multidisciplinare per ottenere una riparazione efficace e una riduzione delle complicazioni future."
+    "html": "La diagnosi e il trattamento di un disastro di parete richiedono spesso l’<a href=\"/la-terapia-chirurgica/\">intervento</a> di un chirurgo specializzato nella chirurgia della parete. Il trattamento può variare a seconda della gravità del danno e può includere la riparazione chirurgica della parete, l’utilizzo di materiali di sutura o reti per rinforzare i tessuti, o la ricostruzione complessa del muscolo addominale. Un disastro di parete può rappresentare una sfida significativa per il chirurgo, in quanto richiede una pianificazione dettagliata e un approccio multidisciplinare per ottenere una riparazione efficace e una riduzione delle complicazioni future."
    }
   ],
   "kind": "classifications",
@@ -165,6 +178,20 @@
    {
     "q": "Che cosa misura la classificazione EHS?",
     "a": "Esistono numerose classificazioni dei difetti della parete addominale anteriore-Laterale. Le piu’ note ed utilizzate internazionalmente sono quelle proposte dalla EHS."
+   }
+  ],
+  "related": [
+   {
+    "label": "Anatomia della parete addominale",
+    "href": "/anatomia-della-parete-addominale-e-abdominal-core/"
+   },
+   {
+    "label": "Le protesi e il piano di posizionamento",
+    "href": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/"
+   },
+   {
+    "label": "Laparocele dopo un intervento addominale: quando operare (articolo)",
+    "href": "/articoli/laparocele-dopo-intervento-addominale-quando-operare"
    }
   ]
  },

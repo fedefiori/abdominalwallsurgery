@@ -8,15 +8,11 @@
   "blocks": [
    {
     "type": "h2",
-    "text": "Le complicanze Chirurgiche la VAC Therapy"
-   },
-   {
-    "type": "h2",
-    "text": "Le Complicanze in Chirurgia della Parete e la loro gestione"
+    "text": "Quali complicanze può avere la chirurgia della parete?"
    },
    {
     "type": "p",
-    "html": "La chirurgia della parete addominale anteriore può essere aperta , laparoscopica, endoscopica o robotica.<br/>Le complicanze variano in base al tipo di approccio e hanno globalmente una incidenza minore per le tecniche mininvasive.<br/>Vediamo in maniera riassuntiva quali sono quelle piu’ comuni ricordando che esistono differenze statistiche correlate al tipo di tecnica.<br/>Le complicanze in seguito a chirurgia della parete addominale possono essere suddivise in precoci (entro 30 giorni dall’intervento) e tardive (oltre 30 giorni dall’intervento)."
+    "html": "La chirurgia della parete addominale anteriore può essere aperta , laparoscopica, endoscopica o robotica.<br/>Le complicanze variano in base al tipo di approccio e hanno globalmente una incidenza minore per le tecniche mininvasive.<br/>Vediamo in maniera riassuntiva quali sono quelle piu’ comuni ricordando che esistono differenze statistiche correlate al tipo di tecnica.<br/>Le complicanze in seguito a chirurgia della parete addominale possono essere suddivise in precoci (entro 30 giorni dall’<a href=\"/sintomi-e-complicanze/\">intervento</a>) e tardive (oltre 30 giorni dall’intervento)."
    },
    {
     "type": "p",
@@ -27,7 +23,7 @@
     "ordered": true,
     "items": [
      "<b>Emorragia:</b> Può verificarsi subito dopo la chirurgia. L’incidenza varia a seconda del tipo di chirurgia e della tecnica utilizzata, ma è generalmente bassa.",
-     "<b>Infezione della ferita:</b> L’incidenza varia dal 1% al 10%, a seconda della tecnica chirurgica, delle condizioni del paziente e dell’ambiente. Possono richiedere trattamenti antibiotici e, in alcuni casi, la rimozione chirurgica dei tessuti infetti.",
+     "<b>Infezione della ferita:</b> L’incidenza varia dal 1% al 10%, a seconda della tecnica chirurgica, delle condizioni del Paziente e dell’ambiente. Possono richiedere trattamenti antibiotici e, in alcuni casi, la rimozione chirurgica dei tessuti infetti.",
      "<b>Seroma:</b> Accumulo di liquido nella zona operata. Può presentarsi nel 10-15% dei casi, a seconda del tipo di chirurgia. Può essere fastidioso , richiedere punture evcuative ripetute, in rari casi di persistenza a diversi mesi puo’ essere indicato un intervento chirurgico per asportazione della capsula.",
      "<b>Lesione viscerale:</b> È rara, ma può verificarsi, in particolare durante la chirurgia laparoscopica. L’incidenza è meno dell’1%.",
      "<b>Lesione vascolare:</b> Anche questa complicazione è rara, con un’incidenza di meno dell’1%."
@@ -35,7 +31,7 @@
    },
    {
     "type": "p",
-    "html": "<b>Complicanze di ferita:</b> Frequenti, e precoci. In certe casistiche raggiungono il 25-30 % per la chirurgia aperta. Guariscono in un tempo molto lungo e possono giovarsi di terapia con Vacuum."
+    "html": "<b>Complicanze di ferita:</b> Frequenti, e precoci. In certe casistiche raggiungono il 25-30 % per la chirurgia aperta. Guariscono in un tempo molto lungo e possono giovarsi di <a href=\"/la-terapia-chirurgica/\">terapia</a> con Vacuum."
    },
    {
     "type": "p",
@@ -46,7 +42,7 @@
     "ordered": true,
     "items": [
      "<b>Recidiva erniaria:</b> Recidiva vuol dire che siamo di fronte ad una ulteriore difetto erniario nella stessa zona operata. L’incidenza varia a seconda del tipo di chirurgia e della tecnica utilizzata, ma in media si aggira intorno al 5-10%.",
-     "<b>Dolore cronico:</b> Può variare, ma si stima che circa il 10% dei pazienti possa sperimentare un certo grado di dolore cronico post-operatorio.",
+     "<b>Dolore cronico:</b> Può variare, ma si stima che circa il 10% dei Pazienti possa sperimentare un certo grado di dolore cronico post-operatorio.",
      "<b>Aderenze:</b> Possono formarsi dopo un intervento chirurgico. Possono causare dolore e, in rari casi, ostruzione intestinale. L’incidenza specifica varia a seconda della chirurgia, ma è più comune dopo procedure aperte rispetto alla laparoscopia.",
      "<b>Atrofia o Ipotrofia muscolare:</b> Può accadere se vi è stato un lungo periodo di ipomobilità muscolare o in caso di lesioni nervose."
     ]
@@ -57,7 +53,7 @@
    },
    {
     "type": "p",
-    "html": "Bisogna sottolineare che le statistiche possono variare in base al tipo di chirurgia, alla tecnica chirurgica, alle condizioni del paziente, alle competenze del chirurgo e ad altri fattori."
+    "html": "Bisogna sottolineare che le statistiche possono variare in base al tipo di chirurgia, alla tecnica chirurgica, alle condizioni del Paziente, alle competenze del chirurgo e ad altri fattori."
    },
    {
     "type": "p",
@@ -65,7 +61,7 @@
    },
    {
     "type": "h2",
-    "text": "La VAC-Therapy"
+    "text": "Che cos'è la VAC therapy e quando si usa?"
    },
    {
     "type": "p",
@@ -121,23 +117,25 @@
    },
    {
     "type": "p",
-    "html": "Tuttavia, è importante sottolineare che l’utilizzo della Vacuum therapy deve essere valutato caso per caso e non è sempre indicato per tutte le ferite chirurgiche complesse. È fondamentale che un chirurgo specializzato e un team di supporto valutino  la ferita e determinino se la terapia con vacuum è appropriata e vantaggiosa per il paziente."
+    "html": "Tuttavia, è importante sottolineare che l’utilizzo della Vacuum therapy deve essere valutato caso per caso e non è sempre indicato per tutte le ferite chirurgiche complesse. È fondamentale che un chirurgo specializzato e un team di supporto valutino la ferita e determinino se la terapia con vacuum è appropriata e vantaggiosa per il Paziente."
    },
    {
     "type": "img",
     "src": "/api/media/vac-01.webp",
     "alt": "Medicazione VAC therapy su ferita chirurgica della parete addominale",
-    "caption": "",
+    "caption": "Medicazione VAC therapy su ferita chirurgica della parete addominale",
     "width": 800,
-    "height": 725
+    "height": 725,
+    "kind": "photo"
    },
    {
     "type": "img",
     "src": "/api/media/vac-02.webp",
     "alt": "Applicazione del sistema VAC therapy per complicanze della ferita addominale",
-    "caption": "",
+    "caption": "Applicazione del sistema VAC therapy per complicanze della ferita addominale",
     "width": 800,
-    "height": 490
+    "height": 490,
+    "kind": "photo"
    }
   ],
   "kind": "clinical",
@@ -150,6 +148,16 @@
    {
     "q": "Quali complicanze di ferita si possono verificare?",
     "a": "Complicanze di ferita: Frequenti, e precoci. In certe casistiche raggiungono il 25-30 % per la chirurgia aperta. Guariscono in un tempo molto lungo e possono giovarsi di terapia con Vacuum."
+   }
+  ],
+  "related": [
+   {
+    "label": "La terapia chirurgica",
+    "href": "/la-terapia-chirurgica/"
+   },
+   {
+    "label": "Sintomi e complicanze",
+    "href": "/sintomi-e-complicanze/"
    }
   ]
  },

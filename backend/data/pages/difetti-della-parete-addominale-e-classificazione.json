@@ -28,6 +28,15 @@
     "html": "I difetti della pa<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">rete</a> addominale anteriore si possono suddividere in difetti primitivi e difetti secondari."
    },
    {
+    "type": "img",
+    "src": "/api/media/sedi-dei-difetti.webp",
+    "alt": "Silhouette frontale schematica della parete addominale con anelli luminosi sottili sui punti deboli tipici: linea mediana, regione sovra-ombelicale e fianchi bassi",
+    "caption": "Le sedi tipiche dei difetti di parete: mediana, epigastrica, laterale.",
+    "kind": "schema",
+    "width": 1024,
+    "height": 1024
+   },
+   {
     "type": "p",
     "html": "<strong>I difetti primitivi</strong>, o ernie, della parete addominale anteriore sono:"
    },

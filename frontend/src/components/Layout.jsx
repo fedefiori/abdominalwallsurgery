@@ -50,7 +50,6 @@ export default function Layout({ children }) {
 
     const mainNav = [
         { to: '/', label: ui.nav_home },
-        ...(site?.nav || []).slice(0, 3),
         { to: site?.articlesIndex || '/articoli', label: ui.nav_articles },
         { to: '/chi-sono/', label: ui.nav_about },
         { to: '/contatti/', label: ui.nav_contacts },
@@ -87,6 +86,14 @@ export default function Layout({ children }) {
                     </div>
                     <style>{`@media (max-width: 980px) { .pw-burger { display: inline-flex !important; } .pw-header .pw-iconbtn[data-testid="theme-toggle"] { display: none; } }`}</style>
                 </div>
+                <nav className="pw-nav-strip pw-shell" aria-label="Tutti i contenuti" data-testid="nav-strip">
+                    {(site?.nav || []).map((item) => (
+                        <Link key={item.path} to={item.path}
+                            aria-current={location.pathname === item.path ? 'page' : undefined}>
+                            {item.label}
+                        </Link>
+                    ))}
+                </nav>
                 <AnimatePresence>
                     {open && (
                         <motion.nav
@@ -95,7 +102,7 @@ export default function Layout({ children }) {
                             exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: 'easeOut' }}
                         >
                             <div className="pw-shell" style={{ padding: '1rem 1.25rem 1.5rem' }}>
-                                {[...mainNav, ...(site?.nav || []).slice(3)].map((item) => (
+                                {[...mainNav, ...(site?.nav || [])].map((item) => (
                                     <Link key={item.to} to={item.to}>{item.label}</Link>
                                 ))}
                                 <div style={{ paddingTop: '1rem' }}><ThemeToggle /></div>

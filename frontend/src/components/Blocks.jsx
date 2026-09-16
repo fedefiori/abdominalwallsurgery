@@ -91,7 +91,7 @@ export function Blocks({ blocks }) {
 
     const out = [];
     sections.forEach((sec, s) => {
-        const band = s === 0 && sec[0].type !== 'h2' ? 0 : (s % 3 === 1 ? 1 : s % 3 === 2 ? 2 : 0);
+        const band = s === 0 && sec[0].type !== 'h2' ? 0 : ((s - 1) % 3) + 1;
         const children = [];
         for (let i = 0; i < sec.length; i += 1) {
             const b = sec[i];

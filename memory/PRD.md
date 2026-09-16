@@ -54,13 +54,24 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
 2. Asset video hero.
 3. Aggancio Worker + go-live dominio.
 
-## Figure generate con la ricetta hub (16/09/2026, notte)
-- Serie di 6 figure generate con gemini-3.1-flash-image-preview via EMERGENT_LLM_KEY
+## Figure generate con la ricetta hub (16/09/2026, notte)- Serie di 6 figure generate con gemini-3.1-flash-image-preview via EMERGENT_LLM_KEY
   (stile costante della ricetta hub, blu #0B81E1 su grigio acciaio, 1:1 o 4:3, <=150KB):
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
 - Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
+
+## Iterazione 17/09/2026
+- Figura sedi-dei-difetti (soggetto hub) generata e messa in apertura di /difetti-...-classificazione/.
+- Hero home: ritratto del Dottore con titoli sotto — PROVVISORIO: usa l'immagine identita'
+  ufficiale dell'hub (og-federico-fiori.jpg, card con testo); serve il file ritratto pulito
+  dal Dottore (l'hub non espone un ritratto fotografico puro, solo foto congressi e la card og).
+- chi-sono riscritta in TERZA PERSONA, tolto "Incarico di Alta Specializzazione" (superato
+  dalla Struttura Semplice di cui e' responsabile). ~740 parole totali.
+- Header: prima riga Home/Articoli/Chi sono/Contatti + striscia secondaria con tutti e 9 i
+  contenuti (scrollabile su schermi stretti, nel burger menu su mobile).
+- Sfondi: ciclo a 4 superfici (trasparente / surface / blu profondo / acciaio chiaro) con
+  margini asimmetrici e filetti laterali alternati.
 - Vecchie arte-* decorative cancellate (file e riferimenti); privacy e cookie SENZA immagini.
 - Kicker home: "A cura del Dottor Federico Fiori" + riga titoli dall'entity hub (jobTitle + ASST).
 - Sezioni contenuto con tre sfondi alternati (ink / surface / blu profondo #0E2A42),

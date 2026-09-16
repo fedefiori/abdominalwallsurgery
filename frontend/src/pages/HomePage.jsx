@@ -45,6 +45,25 @@ function splitLines(text) {
     return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
 }
 
+function Portrait() {
+    const { site } = useSite();
+    const src = 'https://www.federicofiori.com/media/og-federico-fiori.jpg?v=2';
+    return (
+        <motion.figure
+            className="pw-hero-portrait" data-testid="hero-portrait"
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+        >
+            <img src={src} alt="Il dott. Federico Fiori, chirurgo della parete addominale"
+                width="1200" height="630" fetchPriority="high" decoding="async" />
+            <figcaption>
+                <strong>Dott. Federico Fiori</strong>
+                <span>{site?.person?.jobTitle || 'Responsabile della Unità Operativa di Chirurgia della Parete Addominale'}</span>
+            </figcaption>
+        </motion.figure>
+    );
+}
+
 export default function HomePage() {
     const { site, ui } = useSite();
     const [page, setPage] = useState(null);
@@ -104,8 +123,7 @@ export default function HomePage() {
                             {ui.contact_cta}
                         </Link>
                     </motion.div>
-                    <WallArt />
-                    <div className="pw-scanline" aria-hidden="true" />
+                    <Portrait />
                 </div>
             </section>
 

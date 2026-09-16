@@ -64,17 +64,17 @@
     "text": "Che cos'è la VAC therapy e quando si usa?"
    },
    {
-    "type": "img",
-    "src": "/api/media/arte-vac-onde.webp",
-    "alt": "Schema stilizzato della pressione negativa della VAC therapy sulla ferita",
-    "caption": "La VAC therapy: la pressione negativa richiama i bordi della ferita e drena gli essudati.",
-    "kind": "schema",
-    "width": 1200,
-    "height": 675
-   },
-   {
     "type": "p",
     "html": "La terapia a pressione negativa, o Vacuum Assisted Closure (VAC), è una tecnica utilizzata per il trattamento delle ferite chirurgiche complesse. Il suo utilizzo è indicato per favorire la guarigione delle ferite difficili, ridurre l’infezione e accelerare il processo di cicatrizzazione. Ecco alcuni elementi del razionale di utilizzo della Vacuum therapy:"
+   },
+   {
+    "type": "img",
+    "src": "/api/media/vac-pressione-negativa.webp",
+    "alt": "Sezione schematica di una cavità di ferita sigillata da una membrana con trama di garza all’interno, linee di pressione convergenti e un sottile tubo di drenaggio che esce dal campo",
+    "caption": "La pressione negativa avvicina i margini e drena: la medicazione lavora in un sistema chiuso.",
+    "kind": "schema",
+    "width": 1024,
+    "height": 1024
    },
    {
     "type": "p",

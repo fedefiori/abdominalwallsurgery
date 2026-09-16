@@ -74,6 +74,15 @@ export default function HomePage() {
                     <div className="pw-hero-kicker">
                         <span className="pw-label" data-testid="home-kicker">{ui.home_kicker}</span>
                     </div>
+                    {site?.person?.jobTitle && (
+                        <motion.p
+                            className="pw-hero-titles" data-testid="hero-titles"
+                            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.35 }}
+                        >
+                            {site.person.jobTitle} — ASST Santi Paolo e Carlo, Milano
+                        </motion.p>
+                    )}
                     <MaskLines lines={splitLines(h1)} />
                     <motion.p
                         className="pw-hero-sub"

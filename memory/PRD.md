@@ -54,6 +54,18 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
 2. Asset video hero.
 3. Aggancio Worker + go-live dominio.
 
+## Figure generate con la ricetta hub (16/09/2026, notte)
+- Serie di 6 figure generate con gemini-3.1-flash-image-preview via EMERGENT_LLM_KEY
+  (stile costante della ricetta hub, blu #0B81E1 su grigio acciaio, 1:1 o 4:3, <=150KB):
+  strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
+  (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
+  respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+- Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
+- Vecchie arte-* decorative cancellate (file e riferimenti); privacy e cookie SENZA immagini.
+- Kicker home: "A cura del Dottor Federico Fiori" + riga titoli dall'entity hub (jobTitle + ASST).
+- Sezioni contenuto con tre sfondi alternati (ink / surface / blu profondo #0E2A42),
+  margini asimmetrici e filetti laterali alternati.
+
 ## Illustrazioni e ritmo visivo (16/09/2026, sera)
 - 10 illustrazioni stilizzate generate in stile hub (blu notte + linee luminose su reticolo,
   webp 5-38KB) in /app/backend/static/media/arte-*.webp, inserite come blocchi schema con

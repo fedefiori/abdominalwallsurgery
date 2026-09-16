@@ -15,15 +15,6 @@
     "text": "Cookie tecnici di piattaforma"
    },
    {
-    "type": "img",
-    "src": "/api/media/arte-cookie-radar.webp",
-    "alt": "Schema stilizzato di un radar, a rappresentare la distinzione delle sessioni di navigazione",
-    "caption": "I cookie tecnici distinguono le sessioni di navigazione, senza profilare.",
-    "kind": "schema",
-    "width": 1200,
-    "height": 675
-   },
-   {
     "type": "p",
     "html": "<strong>__emg_vid e __emg_sid</strong> — cookie tecnici di prima parte impiegati dalla piattaforma che ospita il sito per distinguere le sessioni e produrre statistiche aggregate di traffico. Non profilano e non vengono impiegati per finalità pubblicitarie. Durata: __emg_vid 12 mesi, __emg_sid fine sessione."
    },

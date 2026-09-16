@@ -180,6 +180,11 @@ async def get_site():
             'note': {'it': 'Visite su appuntamento', 'en': 'Visits by appointment'}[SITE['lang']],
         },
         'homeKicker': ui['home_kicker'],
+        'person': {
+            'name': (entity().get('person') or {}).get('name', 'Dott. Federico Fiori'),
+            'jobTitle': (entity().get('person') or {}).get('jobTitle', ''),
+            'org': ((entity().get('person') or {}).get('worksFor') or {}).get('name', ''),
+        },
     }
 
 

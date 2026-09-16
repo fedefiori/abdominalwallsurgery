@@ -48,12 +48,12 @@
    },
    {
     "type": "img",
-    "src": "/api/media/arte-parete-strati.webp",
-    "alt": "Schema stilizzato degli strati della parete addominale",
-    "caption": "Gli strati della parete addominale: cute, muscoli, fasce e peritoneo, in sintesi grafica.",
+    "src": "/api/media/strati-della-parete.webp",
+    "alt": "Schema esploso degli strati della parete addominale visti di lato: cute, grasso, fasce, muscoli retti e peritoneo come piani luminosi paralleli",
+    "caption": "Gli strati della parete addominale, dal piano superficiale al peritoneo.",
     "kind": "schema",
-    "width": 1200,
-    "height": 675
+    "width": 1024,
+    "height": 1024
    },
    {
     "type": "p",
@@ -99,12 +99,12 @@
    },
    {
     "type": "img",
-    "src": "/api/media/arte-preabilitazione-passi.webp",
-    "alt": "Schema dei passi del percorso verso l'intervento",
-    "caption": "Il percorso verso l’intervento in quattro passi: valutazione, imaging, pre-abilitazione, chirurgia.",
+    "src": "/api/media/gradini-preparazione.webp",
+    "alt": "Linea luminosa a gradini ascendenti da sinistra a destra in un campo vuoto, senza numeri",
+    "caption": "La preparazione procede a gradini: ogni tappa si conquista, non si salta.",
     "kind": "schema",
     "width": 1200,
-    "height": 675
+    "height": 896
    }
   ],
   "kind": "home",

@@ -173,6 +173,15 @@
     "html": "<b>La rete, o protesi, o mesh, puo’ essere posizionata in diversi piani rispetto ai differenti aspetti della parete muscolo fasciale.</b>"
    },
    {
+    "type": "img",
+    "src": "/api/media/piani-della-rete.webp",
+    "alt": "Quattro sezioni schematiche sovrapposte della parete, ciascuna con una sottile trama di rete a una profondità diversa, dalla più superficiale alla più profonda",
+    "caption": "Onlay, sublay, preperitoneale, intraperitoneale: cambia il piano, non solo il materiale.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 896
+   },
+   {
     "type": "p",
     "html": "La Classificazione validata dalla EHS prevede quanto segue riguardo al piano di posizionamento della protesi rispetto alla muscolatura e alle fasce:"
    },

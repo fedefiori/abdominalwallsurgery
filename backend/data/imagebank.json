@@ -1,0 +1,75 @@
+{
+ "style": "vedi /app/scripts/gen_figures.py (costante STILE, ricetta hub)",
+ "images": {
+  "strati-della-parete": {
+   "title": "Gli strati della parete addominale",
+   "subject": "exploded schematic of the layered abdominal wall seen from the side: skin, fat, anterior fascia, two rectus muscles, posterior fascia, peritoneum, as thin parallel luminous planes slightly offset",
+   "alt": "Schema esploso degli strati della parete addominale visti di lato: cute, grasso, fasce, muscoli retti e peritoneo come piani luminosi paralleli",
+   "caption": "Gli strati della parete addominale, dal piano superficiale al peritoneo.",
+   "tags": [
+    "anatomia",
+    "strati",
+    "fascia",
+    "retti"
+   ]
+  },
+  "difetto-e-pressione": {
+   "title": "Il difetto e la pressione interna",
+   "subject": "schematic side section of a layered abdominal wall with a small gap in the fascia and a soft rounded protrusion emerging outward through it, concentric pressure lines pushing from inside",
+   "alt": "Sezione schematica della parete con una breccia nella fascia, una sporgenza arrotondata che fuoriesce e linee di pressione concentriche che spingono dall’interno",
+   "caption": "Il rigonfiamento nasce dove la fascia cede e la pressione interna spinge.",
+   "tags": [
+    "ernia",
+    "difetto",
+    "pressione",
+    "sintomi"
+   ]
+  },
+  "piani-della-rete": {
+   "title": "I quattro piani della rete",
+   "subject": "four stacked schematic sections of a layered abdominal wall, each with a thin mesh lattice line at a different depth, from superficial to deep",
+   "alt": "Quattro sezioni schematiche sovrapposte della parete, ciascuna con una sottile trama di rete a una profondità diversa, dalla più superficiale alla più profonda",
+   "caption": "Onlay, sublay, preperitoneale, intraperitoneale: cambia il piano, non solo il materiale.",
+   "tags": [
+    "protesi",
+    "rete",
+    "piani",
+    "onlay",
+    "sublay"
+   ]
+  },
+  "vac-pressione-negativa": {
+   "title": "La pressione negativa della VAC",
+   "subject": "schematic section of a wound cavity sealed by a thin transparent membrane with a fine sponge lattice inside and converging inward pressure lines, one slim tube leaving the field",
+   "alt": "Sezione schematica di una cavità di ferita sigillata da una membrana con trama di garza all’interno, linee di pressione convergenti e un sottile tubo di drenaggio che esce dal campo",
+   "caption": "La pressione negativa avvicina i margini e drena: la medicazione lavora in un sistema chiuso.",
+   "tags": [
+    "vac",
+    "medicazione",
+    "pressione negativa"
+   ]
+  },
+  "gradini-preparazione": {
+   "title": "I gradini della preparazione",
+   "subject": "abstract ascending stepped line made of thin luminous segments rising left to right inside a wide empty field, no numbers",
+   "alt": "Linea luminosa a gradini ascendenti da sinistra a destra in un campo vuoto, senza numeri",
+   "caption": "La preparazione procede a gradini: ogni tappa si conquista, non si salta.",
+   "tags": [
+    "preabilitazione",
+    "percorso",
+    "gradini"
+   ]
+  },
+  "respiro-diaframma": {
+   "title": "Il diaframma e la pressione interna",
+   "subject": "abstract schematic of a dome-shaped diaphragm descending inside a torso outline, soft pressure gradient below",
+   "alt": "Schema astratto di un diaframma a cupola che discende dentro il profilo del torace, con un gradiente di pressione al di sotto",
+   "caption": "Il respiro governa la pressione interna: è il primo esercizio, non l’ultimo.",
+   "tags": [
+    "preabilitazione",
+    "diaframma",
+    "respiro"
+   ]
+  }
+ }
+}

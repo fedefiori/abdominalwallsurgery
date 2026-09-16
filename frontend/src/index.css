@@ -20,7 +20,7 @@
     --font-display: "Inter Tight", ui-sans-serif, sans-serif;
     --font-body: "Manrope", ui-sans-serif, sans-serif;
     --font-mono: "Azeret Mono", ui-monospace, monospace;
-    --band: #232E3A;
+    --band: #0E2A42;
     --noise-opacity: 0.05;
 }
 
@@ -324,10 +324,24 @@ h1, h2, h3, h4 {
 .pw-toc a.active { color: var(--accent-soft); border-left-color: var(--accent); }
 
 /* ---------------- sezioni alternate: nuance scura / chiara ---------------- */
-.pw-sect { border-radius: 14px; padding: 0.2rem 1.4rem; margin: 0 0 1.1rem; }
-.pw-sect-1 { background: var(--surface); border: 1px solid var(--line); }
-.pw-sect-2 { background: var(--band); border: 1px solid var(--line); }
+.pw-sect { border-radius: 14px; padding: 0.4rem 1.4rem; margin: 0 0 1.4rem; }
+.pw-sect-1 {
+    background: var(--surface); border: 1px solid var(--line);
+    margin-right: clamp(0px, 4vw, 52px);
+    border-left: 3px solid var(--line);
+}
+.pw-sect-2 {
+    background: var(--band); border: 1px solid var(--line);
+    margin-left: clamp(0px, 4vw, 52px);
+    border-right: 3px solid var(--accent);
+}
+.pw-hero-titles {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent-soft); margin: -1.2rem 0 2rem;
+}
 .pw-sect .pw-plainbox, .pw-sect .pw-probox, .pw-sect .pw-note { background: var(--deep); color: #EEF4FA; }
+[data-theme="light"] .pw-sect .pw-plainbox, [data-theme="light"] .pw-sect .pw-probox { background: #E9EFF5; color: var(--text); }
+[data-theme="light"] .pw-sect .pw-note { background: var(--deep); color: #EEF4FA; }
 
 .pw-content { max-width: 72ch; }
 .pw-content h2 { font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin: 2.75rem 0 .8rem; scroll-margin-top: 96px; }

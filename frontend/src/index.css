@@ -7,31 +7,154 @@
    Tema scuro base + tema chiaro ritarato. Punto 11 del contratto.
    ============================================================ */
 
-:root {
-    --ink: #070B0F;
-    --surface: #0E141A;
-    --line: #1E2A33;
-    --text: #F5F8FA;
-    --muted: #8FA3B2;
-    --accent: #E4762C;
-    --accent-ink: #0B0F13;
+/* ============================================================
+   CHIRURGIA DELLA PARETE — "acciaio e metallo caldo"
+   Font dell'hub federicofiori.com: Inter Tight / Manrope / Azeret Mono.
+   4 varianti colore selezionabili con ?v=1..4 (data-variant su <html>).
+   ============================================================ */
+
+:root,
+[data-variant="1"] {
+    /* Variante 1 — BRONZO: grafite caldo + bronzo, carta osso */
+    --ink: #0B0D10;
+    --surface: #14171C;
+    --line: #262B33;
+    --text: #F6F4EF;
+    --muted: #97A3AF;
+    --accent: #C08A45;
+    --accent-ink: #171208;
     --steel: #7FA8C9;
-    --font-display: "Space Grotesk", sans-serif;
-    --font-body: "Literata", Georgia, serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --paper: #F3EDE1;
+    --paper-text: #191408;
+    --paper-muted: #6B6050;
+    --paper-line: #DBD0BA;
+    --accent-soft: rgba(192, 138, 69, 0.12);
     --noise-opacity: 0.05;
 }
-
-[data-theme="light"] {
+[data-theme="light"][data-variant="1"], [data-theme="light"]:not([data-variant]) {
     --ink: #FFFFFF;
-    --surface: #F4F7FA;
-    --line: #D7DEE5;
+    --surface: #F5F7F9;
+    --line: #D9E0E7;
     --text: #0B1116;
-    --muted: #55636F;
+    --muted: #54626F;
+    --accent: #8A5A18;
+    --accent-ink: #FFFFFF;
+    --steel: #1F5C8B;
+    --paper: #F6F0E2;
+    --paper-text: #191408;
+    --paper-muted: #6B6050;
+    --paper-line: #DCD2BC;
+    --accent-soft: rgba(138, 90, 24, 0.10);
+    --noise-opacity: 0.03;
+}
+
+[data-variant="2"] {
+    /* Variante 2 — RAME CHIARO: grafite bluastro + rame luminoso, carta cipria */
+    --ink: #080D12;
+    --surface: #101820;
+    --line: #212D38;
+    --text: #F5F8FA;
+    --muted: #8FA3B2;
+    --accent: #E8935A;
+    --accent-ink: #1D0F04;
+    --steel: #82ACC9;
+    --paper: #F4EEE8;
+    --paper-text: #181210;
+    --paper-muted: #6E6157;
+    --paper-line: #DED4C8;
+    --accent-soft: rgba(232, 147, 90, 0.13);
+    --noise-opacity: 0.05;
+}
+[data-theme="light"][data-variant="2"] {
+    --ink: #FFFFFF;
+    --surface: #F5F7FA;
+    --line: #D9E0E7;
+    --text: #0B1116;
+    --muted: #54626F;
     --accent: #B85A18;
     --accent-ink: #FFFFFF;
     --steel: #1F5C8B;
+    --paper: #F7F1EA;
+    --paper-text: #181210;
+    --paper-muted: #6E6157;
+    --paper-line: #E0D6C9;
+    --accent-soft: rgba(184, 90, 24, 0.10);
     --noise-opacity: 0.03;
+}
+
+[data-variant="3"] {
+    /* Variante 3 — OTTONE E PETROLIO: verde petrolio scuro + ottone, carta salvia */
+    --ink: #071216;
+    --surface: #0D1D22;
+    --line: #1C3038;
+    --text: #F1F7F5;
+    --muted: #8CA6A6;
+    --accent: #D2A94E;
+    --accent-ink: #171003;
+    --steel: #8FB8DD;
+    --paper: #EFF0E4;
+    --paper-text: #121A12;
+    --paper-muted: #5E6C5E;
+    --paper-line: #D5D7C2;
+    --accent-soft: rgba(210, 169, 78, 0.13);
+    --noise-opacity: 0.05;
+}
+[data-theme="light"][data-variant="3"] {
+    --ink: #FDFDFB;
+    --surface: #F2F5F3;
+    --line: #D7DEDB;
+    --text: #0C1412;
+    --muted: #51655F;
+    --accent: #8F7714;
+    --accent-ink: #FFFFFF;
+    --steel: #1F5C8B;
+    --paper: #EFF0E4;
+    --paper-text: #121A12;
+    --paper-muted: #5E6C5E;
+    --paper-line: #D5D7C2;
+    --accent-soft: rgba(143, 119, 20, 0.10);
+    --noise-opacity: 0.03;
+}
+
+[data-variant="4"] {
+    /* Variante 4 — CARTA E RAME (chiaro di base): editoriale caldo, rame scuro */
+    --ink: #FAF5EC;
+    --surface: #F1EADA;
+    --line: #DCD1BB;
+    --text: #17110A;
+    --muted: #6E6151;
+    --accent: #A44A12;
+    --accent-ink: #FFFFFF;
+    --steel: #2C5F8A;
+    --paper: #17110A;
+    --paper-text: #F3EDE1;
+    --paper-muted: #A79A85;
+    --paper-line: #38301F;
+    --accent-soft: rgba(164, 74, 18, 0.10);
+    --noise-opacity: 0.03;
+}
+[data-theme="light"][data-variant="4"] {
+    /* nella variante carta, il tema "chiaro" e' quello scuro: inversione voluta */
+    --ink: #17110A;
+    --surface: #221B10;
+    --line: #3A3120;
+    --text: #F3EDE1;
+    --muted: #A79A85;
+    --accent: #E07B39;
+    --accent-ink: #1D0F04;
+    --steel: #8FB8DD;
+    --paper: #FAF5EC;
+    --paper-text: #17110A;
+    --paper-muted: #6E6151;
+    --paper-line: #DCD1BB;
+    --accent-soft: rgba(224, 123, 57, 0.14);
+    --noise-opacity: 0.05;
+}
+
+:root {
+    --font-display: "Inter Tight", ui-sans-serif, sans-serif;
+    --font-body: "Manrope", ui-sans-serif, sans-serif;
+    --font-mono: "Azeret Mono", ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -161,18 +284,37 @@ h1, h2, h3, h4 {
 .pw-btn-solid { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .pw-btn-solid:hover { background: color-mix(in srgb, var(--accent) 88%, white); color: var(--accent-ink); }
 
-/* ---------------- marquee ---------------- */
+/* ---------------- marquee: striscia piena di accento ---------------- */
 .pw-marquee {
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--accent);
     overflow: hidden; padding: 1.1rem 0; white-space: nowrap;
 }
 .pw-marquee-track { display: inline-flex; gap: 3.5rem; animation: pw-marquee 46s linear infinite; will-change: transform; }
 .pw-marquee span {
     font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: .04em;
-    text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 3.5rem;
+    text-transform: uppercase; color: var(--accent-ink); display: inline-flex; align-items: center; gap: 3.5rem;
 }
-.pw-marquee span::after { content: ""; width: 7px; height: 7px; background: var(--accent); }
+.pw-marquee span::after { content: ""; width: 7px; height: 7px; background: var(--accent-ink); opacity: .55; }
 @keyframes pw-marquee { to { transform: translateX(-50%); } }
+
+/* ---------------- banda carta: contrasto caldo ---------------- */
+.pw-band-paper {
+    background: var(--paper); color: var(--paper-text);
+    transition: background-color .35s ease, color .35s ease;
+}
+.pw-band-paper .pw-section-head h2 { color: var(--paper-text); }
+.pw-band-paper .pw-label { color: var(--accent); }
+.pw-band-paper .pw-chapters { border-top-color: var(--paper-line); }
+.pw-band-paper .pw-chapter { border-bottom-color: var(--paper-line); color: var(--paper-text); }
+.pw-band-paper .pw-chapter:hover { background: color-mix(in srgb, var(--paper-text) 5%, transparent); }
+.pw-band-paper .pw-chapter-desc { color: var(--paper-muted); }
+.pw-band-paper .pw-chapter-arrow { color: var(--paper-muted); }
+.pw-band-paper .pw-chapter:hover .pw-chapter-arrow { color: var(--accent); }
+.pw-band-paper .pw-article-list { border-top-color: var(--paper-line); }
+.pw-band-paper .pw-article-card { border-bottom-color: var(--paper-line); color: var(--paper-text); }
+.pw-band-paper .pw-article-card:hover { background: color-mix(in srgb, var(--paper-text) 5%, transparent); }
+.pw-band-paper .pw-article-card p { color: var(--paper-muted); }
+.pw-band-paper .pw-article-card img { border-color: var(--paper-line); }
 
 /* ---------------- capitoli home ---------------- */
 .pw-section { padding: clamp(3.5rem, 8vw, 7rem) 0; }
@@ -203,8 +345,8 @@ h1, h2, h3, h4 {
 .pw-h1 { font-size: clamp(2rem, 4vw, 3.25rem); margin: 0 0 1.4rem; max-width: 22ch; }
 
 .pw-answer {
-    border-left: 2px solid var(--accent);
-    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
     padding: 1.1rem 1.4rem;
     margin: 0 0 2.4rem;
     font-size: 17px;
@@ -286,6 +428,20 @@ h1, h2, h3, h4 {
 /* ---------------- 404 ---------------- */
 .pw-404 { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
 .pw-404-code { font-family: var(--font-display); font-weight: 700; font-size: clamp(5rem, 16vw, 11rem); line-height: 1; color: var(--accent); letter-spacing: -0.04em; }
+
+/* ---------------- selettore varianti (solo con ?v=) ---------------- */
+.pw-variant-picker {
+    position: fixed; left: 12px; bottom: 12px; z-index: 90;
+    display: flex; gap: 6px; padding: 6px; background: var(--surface);
+    border: 1px solid var(--line);
+}
+.pw-variant-picker a {
+    width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 12px; text-decoration: none;
+    border: 1px solid var(--line); color: var(--muted);
+    transition: border-color .2s ease, color .2s ease;
+}
+.pw-variant-picker a.on { border-color: var(--accent); color: var(--accent); }
 
 /* ---------------- motion helpers ---------------- */
 @media (prefers-reduced-motion: reduce) {

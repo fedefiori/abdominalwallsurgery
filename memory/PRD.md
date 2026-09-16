@@ -53,3 +53,15 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
 1. Traduzione EN delle pagine (chiavi en) — una passata sola.
 2. Asset video hero.
 3. Aggancio Worker + go-live dominio.
+4. Fissare la variante colore scelta dall'utente come default (attualmente default=1 Bronzo).
+
+## Design refresh (16/09/2026)
+- Font dell'hub: Inter Tight (titoli), Manrope (testo), Azeret Mono (etichette) — sostituiscono Space Grotesk/Literata/IBM Plex Mono.
+- H1 home: "Chirurgia della Parete Addominale" (maiuscolo).
+- Contrasto: striscia marquee piena in colore accento, banda "carta" calda per capitoli e articoli home, blocco risposta diretta con fondo tinta rame.
+- 4 varianti colore selezionabili con ?v=1..4 (persistenza localStorage, picker visibile solo con ?v=):
+  1 Bronzo (grafite caldo #C08A45 / carta osso) — default
+  2 Rame chiaro (#E8935A / carta cipria)
+  3 Ottone e petrolio (#D2A94E su verde petrolio #071216 / carta salvia)
+  4 Carta e rame (base editoriale chiara #FAF5EC, banda cioccolato, rame scuro #A44A12)
+- Screenshot varianti in /tmp/v1_bronzo.png, v2_rame_chiaro.png (+hero), v3_ottone_petrolio.png, v4_carta_rame.png (+hero).

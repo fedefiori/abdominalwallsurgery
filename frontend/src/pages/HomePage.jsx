@@ -101,6 +101,7 @@ export default function HomePage() {
                 </div>
             </div>
 
+            <div className="pw-band-paper" data-testid="paper-band">
             <section className="pw-section">
                 <div className="pw-shell">
                     <Reveal>
@@ -151,6 +152,7 @@ export default function HomePage() {
                     </div>
                 </section>
             )}
+            </div>
         </div>
     );
 }

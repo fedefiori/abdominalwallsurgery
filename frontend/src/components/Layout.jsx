@@ -21,7 +21,7 @@ function ThemeToggle() {
 }
 
 export default function Layout({ children }) {
-    const { site, ui } = useSite();
+    const { site, ui, variant, setVariant, showPicker } = useSite();
     const [open, setOpen] = useState(false);
     const location = useLocation();
 
@@ -84,6 +84,17 @@ export default function Layout({ children }) {
                 </AnimatePresence>
             </header>
             <main>{children}</main>
+            {showPicker && (
+                <nav className="pw-variant-picker" data-testid="variant-picker" aria-label="Varianti colore">
+                    {['1', '2', '3', '4'].map((v) => (
+                        <a key={v} href={`?v=${v}`} className={variant === v ? 'on' : ''}
+                            data-testid={`variant-${v}`}
+                            onClick={(e) => { e.preventDefault(); setVariant(v); }}>
+                            {v}
+                        </a>
+                    ))}
+                </nav>
+            )}
             <footer className="pw-footer" data-testid="site-footer">
                 <div className="pw-shell">
                     <p className="pw-label">{ui.network_title}</p>

@@ -3,7 +3,7 @@ import { Link, useParams, useLocation, Navigate } from 'react-router-dom';
 import { useSite } from '../lib/SiteContext';
 import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
-import { Blocks, tocOf } from '../components/Blocks';
+import { Blocks, tocOf, Related } from '../components/Blocks';
 import { Reveal } from '../components/Reveal';
 import { FaqView } from '../components/FaqView';
 
@@ -84,6 +84,10 @@ export default function ArticlePage() {
                             </figure>
                         )}
                         <Blocks blocks={post.sections || []} />
+                        <Related items={post.siteRelated} title="Su questo sito" />
+                        <p style={{ marginTop: '1rem' }}>
+                            <Link to={site.articlesIndex} data-testid="article-back-index">← {ui.breadcrumb_articles}</Link>
+                        </p>
                         {post.tags?.length > 0 && (
                             <div className="pw-tags" data-testid="article-tags">
                                 <span className="pw-label" style={{ alignSelf: 'center' }}>{ui.tags_label}</span>

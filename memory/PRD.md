@@ -61,7 +61,18 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
 - Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
 
-## Iterazione 17/09/2026
+## Iterazione 18/09/2026 (giro hub 2)
+- Recapiti unificati (no tiscali; +39 02 76021568; info@fimulticare.it; info@federicofiori.com).
+- Risposte dirette riscritte ovunque (mai uguali al corpo). Titoli in minuscolo di rete.
+- Studio = nodo condiviso hub (clinicId federicofiori.com/contatti#fi-multicare; fallback finche
+  /api/seo/entity non espone clinic/clinicId).
+- Radiologia: via 2 diapositive lilla, frase sobria operatore-dipendente. Percentuali senza fonte
+  riformulate in preabilitazione (elenco fonti da chiedere: 24% / 7% / 10-60%).
+- Qualifica "Unità Operativa" ovunque. H2-domande completati (>=70% ovunque, di solito 100%).
+- Articoli: blocco "Su questo sito" (3 link + indice); indice con sintesi 12-18 parole + link pagina.
+- Diastasi 313 parole. Font: set concordato (Space Grotesk/Literata 18/1.75/IBM Plex Mono).
+- Ritratto ufficiale in duotone acciaio (home + chi-sono). Sfondi a 4 superfici + 3 toni chiari.
+- Bug risolto: crash Related su tuple (articoli).
 - Figura sedi-dei-difetti (soggetto hub) generata e messa in apertura di /difetti-...-classificazione/.
 - Hero home: ritratto del Dottore con titoli sotto — PROVVISORIO: usa l'immagine identita'
   ufficiale dell'hub (og-federico-fiori.jpg, card con testo); serve il file ritratto pulito

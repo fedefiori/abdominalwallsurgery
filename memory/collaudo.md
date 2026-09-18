@@ -1,3 +1,89 @@
+# COLLAUDO 3 — giro hub 2 (18/09/2026)
+Host: https://chirurgia-test.preview.emergentagent.com
+
+## Punto 1 — recapiti
+grep -ri tiscali su tutti i contenuti e il codice: 0 occorrenze.
+Telefono ovunque "+39 02 76021568" (link tel:+390276021568), e-mail studio info@fimulticare.it,
+contatto diretto rete info@federicofiori.com. Indirizzo identico nelle tre occorrenze:
+"Galleria del Corso 4, 20122 Milano".
+
+## Punto 2 — risposte dirette riscritte (diverse dal corpo, 40-70 parole)
+- /radiologia/ (testo fornito dall'hub): "Nella chirurgia della parete l'imaging serve a due cose:
+  misurare il difetto prima di operare e riconoscere le complicanze dopo. L'ecografia è l'esame di
+  primo livello, disponibile e ripetibile; la TC serve quando il difetto è ampio o recidivo e va
+  pianificato; la risonanza si riserva ai casi in cui contano i tessuti molli."
+- /preabilitazione…/: "La pre-abilitazione è la preparazione clinica delle settimane che precedono
+  l'intervento sulla parete: peso, glicemia, fumo, nutrizione ed esercizio fisico. Serve perché la
+  recidiva resta il problema principale di questa chirurgia, e arrivare all'operazione nelle migliori
+  condizioni riduce le complicanze e migliora la guarigione."
+- /la-diastasi…/: "In chirurgia della parete la diastasi dei retti conta perché spesso si associa a
+  un'ernia ombelicale: allora non basta chiudere il difetto, va ricostruita la linea mediana. Questa
+  pagina spiega solo che cosa cambia nell'indicazione chirurgica; il percorso completo è su
+  diastasiedintorni.it."
+Riscritte di conseguenza anche anatomia, terapia, protesi, VAC, sintomi, difetti, contatti (prima
+ripetevano il primo paragrafo).
+
+## Punto 3 — titoli in minuscolo di rete
+I due title contesi cambiati come richiesto ("Sintomi dei difetti di parete: riferimento clinico",
+"Classificazione EHS dei difetti di parete: sedi, sigle e misure", "Diastasi dei retti associata a
+ernia: cosa cambia in chirurgia", "Chi sono | dott. Federico Fiori, chirurgo della parete"); tutte
+le pagine passate alla forma minuscola. Le due lunghezze >60 (63 e 62) sono i title esatti dell'hub.
+
+## Punto 4 — studio nodo condiviso
+Il JSON-LD di /contatti/ incorpora il MedicalClinic con @id dell'hub
+(https://www.federicofiori.com/contatti#fi-multicare), Person.workLocation -> quell'@id.
+Nota: /api/seo/entity dell'hub oggi NON espone ancora clinicId/clinic (verificato 18/09): il blocco
+e' costruito con i dati dichiarati nel brief e con l'@id definitivo; appena l'endpoint li espone,
+il sito li prende cosi' come arrivano senza riscrivere nulla (fallback automatico gia' predisposto).
+
+## Punto 5 — diapositive lilla
+Radiologia: rimosse ecografia-parete-addominale.webp e tc-e-rm-nella-valutazione-della-parete-addominale.webp
+(9 -> 7 immagini), tabella esame/mostra/quando gia' presente, aggiunta la frase sobria
+"L'affidabilità dell'ecografia dipende dall'operatore: va eseguita da chi conosce la parete addominale."
+Screenshot: /tmp/i_radiologia.png.
+
+## Punto 6 — refusi
+superpecialistica->superspecialistica, affontare->affrontare, "ernie ,valutando" corretta,
+spazi prima della punteggiatura rimossi, nbsp/doppi spazi, maiuscole enfatiche (anatomia,
+fisiopatologia) in minuscolo. Applicato a tutte e 14 le pagine.
+
+## Punto 7 — percentuali senza fonte
+Rimosse da /preabilitazione…/ e riformulate con la frase dell'hub. CIFRE PER CUI SERVE LA FONTE
+(da chiedere al Dottore): recidiva difetto primitivo senza mesh ~24%, con mesh oltre 7%, ernia
+incisionale tra 10 e 60% a 2 anni.
+
+## Punto 8 — qualifica
+"Unità Operativa" ovunque: footer, hero, chi-sono, jobTitle (dall'entity hub), meta description.
+Zero occorrenze di "Struttura Semplice".
+
+## Punto 9 — H2 domande
+Anatomia 13/13, terapia 14/14, difetti 6/6, sintomi 4/4, protesi 4/4, chi-sono 5/5, diastasi 4/4,
+contatti 2/2, radiologia 2/2, VAC 2/2, preabilitazione 2/2, home 2/2, /articoli 2 (in pagina).
+
+## Punto 10 — link
+Ogni pagina: 3+ link interni con ancore descrittive (le ancore di una parola sono state riscritte)
++ "Leggi anche". Ogni articolo: blocco "Su questo sito" con 3 link alle pagine affini + ritorno
+all'indice (screenshot /tmp/i_articolo_rel.png). /articoli: sotto ogni voce sintesi 12-18 parole
++ link alla pagina del sito collegata. /contatti/: link a pre-abilitazione, terapia, chi sono.
+
+## Punto 11 — diastasi
+313 parole totali (corpo 268, nel range 250-350 richiesto), definizione non ripetuta, primo link
+del testo a diastasiedintorni.it. FAQ rimosse dalla pagina per restare nel range.
+
+## Punto 12 — tipografia
+Corpo ripristinato a Literata 18px/1.75, misura 68-72ch; titoli Space Grotesk, etichette IBM Plex
+Mono (il set concordato del contratto). Tema chiaro: link #0A63AE (5,9:1), didascalie #55636F.
+
+## Extra utente (stesso turno)
+- Ritratto ufficiale del Dottore caricato: editato in bianco e nero con virata blu-acciaio
+  (duotone coerente con la palette), 820x1000, 29KB, in home e in chi-sono.
+- Sfondi piu' contrastati: ciclo a 4 superfici (grafite / acciaio / blu profondo / acciaio chiaro);
+  tema chiaro con tre toni diversi (bianco / azzurro tenue / caldo tenue).
+
+## Bug trovato e risolto in questa verifica
+Articolo: crash "startsWith of undefined" sul blocco Su questo sito (formato tupla vs oggetto):
+normalizzato in Related. Riverificato in browser: blocco presente, 0 errori console.
+
 # COLLAUDO 2 — giro di correzioni hub (16/09/2026, ore 20)
 Host: https://chirurgia-test.preview.emergentagent.com (noindex attivo fuori dominio)
 

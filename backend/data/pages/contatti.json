@@ -3,24 +3,24 @@
  "path": "/contatti/",
  "it": {
   "h1": "Contatti",
-  "metaTitle": "Contatti | Chirurgia della Parete Addominale a Milano",
-  "metaDescription": "Come contattare il dott. Federico Fiori per una valutazione dei difetti della parete addominale: studio in Galleria del Corso 4 a Milano, telefono ed e-mail.",
+  "metaTitle": "Contatti | chirurgia della parete addominale a Milano",
+  "metaDescription": "Il dott. Federico Fiori riceve presso Fi Multicare, Galleria del Corso 4, 20122 Milano: telefono +39 02 76021568, e-mail info@fimulticare.it, su appuntamento.",
   "blocks": [
    {
     "type": "h2",
-    "text": "Richiedi maggiori informazioni"
+    "text": "Come richiedere maggiori informazioni?"
    },
    {
     "type": "p",
-    "html": "Gli eventuali dati personali forniti saranno acquisiti dal Titolare del trattamento che li tratterà, secondo la legge sulla privacy, al solo scopo di rispondere alla richiesta di contatto. I dati non saranno ceduti a terzi al di fuori del titolare del trattamento e sua organizzazione. L’accesso, modifica e cancellazione potrà essere richiesta in ogni momento inviando una comunicazione a <a href=\"mailto:fedefiori@tiscali.it\">fedefiori@tiscali.it</a>"
+    "html": "Gli eventuali dati personali forniti saranno acquisiti dal Titolare del trattamento che li tratterà, secondo la legge sulla privacy, al solo scopo di rispondere alla richiesta di contatto. I dati non saranno ceduti a terzi al di fuori del titolare del trattamento e sua organizzazione. L’accesso, modifica e cancellazione potrà essere richiesta in ogni momento inviando una comunicazione a <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a>"
    },
    {
     "type": "p",
     "html": ""
    },
    {
-    "type": "h2",
-    "text": "Indirizzo"
+    "type": "p",
+    "html": "<strong>Indirizzo</strong>"
    },
    {
     "type": "p",
@@ -31,20 +31,20 @@
     "html": ""
    },
    {
-    "type": "h2",
-    "text": "E-mail"
+    "type": "p",
+    "html": "<strong>E-mail</strong>"
    },
    {
     "type": "p",
-    "html": "fedefiori@tiscali.it"
+    "html": "info@fimulticare.it"
    },
    {
     "type": "p",
     "html": ""
    },
    {
-    "type": "h2",
-    "text": "Telefono"
+    "type": "p",
+    "html": "<strong>Telefono</strong>"
    },
    {
     "type": "p",
@@ -55,16 +55,16 @@
     "html": ""
    },
    {
-    "type": "h2",
-    "text": "Seguici su Facebook"
+    "type": "p",
+    "html": "<strong>Seguici su Facebook</strong>"
    },
    {
     "type": "p",
     "html": ""
    },
    {
-    "type": "h2",
-    "text": "Seguici su Youtube"
+    "type": "p",
+    "html": "<strong>Seguici su Youtube</strong>"
    },
    {
     "type": "h3",
@@ -72,7 +72,7 @@
    },
    {
     "type": "h2",
-    "text": "Dove riceve"
+    "text": "Dove si trova lo studio?"
    },
    {
     "type": "p",
@@ -80,7 +80,7 @@
    },
    {
     "type": "p",
-    "html": "Telefono <a href=\"tel:+390276021568\">02 7602 1568</a> · E-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a> · Sito del centro: <a href=\"https://www.fimulticare.it/\">fimulticare.it</a>"
+    "html": "Telefono <a href=\"tel:+390276021568\">+39 02 76021568</a> · E-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a> · Sito del centro: <a href=\"https://www.fimulticare.it/\">fimulticare.it</a>"
    },
    {
     "type": "img",
@@ -90,14 +90,18 @@
     "kind": "schema",
     "width": 1200,
     "height": 675
+   },
+   {
+    "type": "p",
+    "html": "Prima della visita può essere utile leggere come funziona la <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione prima dell’intervento</a>, la descrizione della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica della parete</a> e il profilo del <a href=\"/chi-sono/\">dott. Federico Fiori</a>."
    }
   ],
   "kind": "contact",
-  "answer": "Per contattare il dott. Federico Fiori, chirurgo della parete addominale: sede in Galleria del Corso 4, 20122 Milano; telefono 02 76021568; e-mail fedefiori@tiscali.it. È possibile richiedere una valutazione per ernie, laparoceli e altri difetti della parete.",
+  "answer": "Il dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano: telefono +39 02 76021568, e-mail info@fimulticare.it. Per il contatto diretto della rete: info@federicofiori.com. La valutazione riguarda ernie, laparoceli e gli altri difetti della parete.",
   "faq": [
    {
     "q": "Come si prenota una visita?",
-    "a": "La visita si prenota contattando Fi Multicare — Centro Medico Multidisciplinare: telefono 02 7602 1568 oppure e-mail info@fimulticare.it. Le visite sono su appuntamento; la sede è in Galleria del Corso 4, 20122 Milano."
+    "a": "La visita si prenota contattando Fi Multicare — Centro Medico Multidisciplinare: telefono +39 02 76021568 oppure e-mail info@fimulticare.it. Le visite sono su appuntamento; la sede è in Galleria del Corso 4, 20122 Milano."
    },
    {
     "q": "Dove si trova lo studio?",

@@ -3,17 +3,17 @@
  "path": "/chi-sono/",
  "it": {
   "h1": "Dott. Federico Fiori — chirurgo della parete addominale",
-  "metaTitle": "Chi Sono | Dott. Federico Fiori, Chirurgo della Parete",
-  "metaDescription": "Il dott. Federico Fiori, responsabile dell'Unità Operativa di Chirurgia della Parete Addominale ad ASST Santi Paolo e Carlo: attività clinica e ambito a Milano.",
+  "metaTitle": "Chi sono | dott. Federico Fiori, chirurgo della parete",
+  "metaDescription": "Il dott. Federico Fiori, chirurgo generale a Milano, responsabile della Unità Operativa di Chirurgia della Parete Addominale di ASST Santi Paolo e Carlo.",
   "blocks": [
    {
     "type": "img",
-    "src": "https://www.federicofiori.com/media/og-federico-fiori.jpg?v=2",
-    "alt": "Il dott. Federico Fiori, chirurgo della parete addominale",
-    "caption": "Il dott. Federico Fiori, responsabile della Chirurgia della Parete Addominale a Milano.",
+    "src": "/api/media/ritratto-dottor-fiori.webp",
+    "alt": "Il dott. Federico Fiori in camice operatorio, ritratto ufficiale",
+    "caption": "Il dott. Federico Fiori, responsabile della Unità Operativa di Chirurgia della Parete Addominale a Milano.",
     "kind": "photo",
-    "width": 1200,
-    "height": 630
+    "width": 820,
+    "height": 1000
    },
    {
     "type": "h2",
@@ -25,7 +25,7 @@
    },
    {
     "type": "p",
-    "html": "È Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano, dove è responsabile della Struttura Semplice di Chirurgia della Parete Addominale, ed è esperto di chirurgia mininvasiva e robotica della parete addominale: alla chirurgia addominale si dedica da oltre vent'anni, con centinaia di interventi laparoscopici all'attivo. Dal 1996 si occupa anche di chirurgia plastica ricostruttiva del tronco, competenza che impiega nel ripristino funzionale ed estetico della parete."
+    "html": "È Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano, dove è responsabile della Unità Operativa di Chirurgia della Parete Addominale, ed è esperto di chirurgia mininvasiva e robotica della parete addominale: alla chirurgia addominale si dedica da oltre vent'anni, con centinaia di interventi laparoscopici all'attivo. Dal 1996 si occupa anche di chirurgia plastica ricostruttiva del tronco, competenza che impiega nel ripristino funzionale ed estetico della parete."
    },
    {
     "type": "p",
@@ -41,7 +41,7 @@
    },
    {
     "type": "p",
-    "html": "Riceve su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano. Telefono <a href=\"tel:+390276021568\">02 7602 1568</a>, e-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a>. Tutti i riferimenti sono nella <a href=\"/contatti/\">pagina dei contatti</a>."
+    "html": "Riceve su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano. Telefono <a href=\"tel:+390276021568\">+39 02 76021568</a>, e-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a>. Tutti i riferimenti sono nella <a href=\"/contatti/\">pagina dei contatti</a>."
    },
    {
     "type": "h2",
@@ -77,15 +77,15 @@
    }
   ],
   "kind": "profile",
-  "answer": "Il dott. Federico Fiori è un chirurgo generale che si occupa in modo specifico dei difetti della parete addominale: ernie, laparoceli e diastasi dei muscoli retti. È responsabile della Struttura Semplice di Chirurgia della Parete Addominale dell'ASST Santi Paolo e Carlo di Milano e riceve su appuntamento presso Fi Multicare, in Galleria del Corso 4 a Milano.",
+  "answer": "Il dott. Federico Fiori è un chirurgo generale che si occupa in modo specifico dei difetti della parete addominale: ernie, laparoceli e diastasi dei muscoli retti. È responsabile della Unità Operativa di Chirurgia della Parete Addominale dell'ASST Santi Paolo e Carlo di Milano e riceve su appuntamento presso Fi Multicare, in Galleria del Corso 4 a Milano.",
   "faq": [
    {
     "q": "Chi è il dott. Federico Fiori?",
-    "a": "Il dott. Federico Fiori è un chirurgo generale, Dirigente Medico presso l'ASST Santi Paolo e Carlo di Milano, dove è responsabile della Struttura Semplice di Chirurgia della Parete Addominale. Si occupa di ernie, laparoceli e diastasi dei muscoli retti con tecniche aperte, laparoscopiche, robotiche ed endoscopiche."
+    "a": "Il dott. Federico Fiori è un chirurgo generale, Dirigente Medico presso l'ASST Santi Paolo e Carlo di Milano, dove è responsabile della Unità Operativa di Chirurgia della Parete Addominale. Si occupa di ernie, laparoceli e diastasi dei muscoli retti con tecniche aperte, laparoscopiche, robotiche ed endoscopiche."
    },
    {
     "q": "Dove riceve il dott. Federico Fiori?",
-    "a": "Il dott. Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano. Per prenotare: telefono 02 7602 1568, e-mail info@fimulticare.it."
+    "a": "Il dott. Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano. Per prenotare: telefono +39 02 76021568, e-mail info@fimulticare.it."
    },
    {
     "q": "Che cos'è la tecnica TESAR?",

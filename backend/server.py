@@ -174,8 +174,9 @@ async def get_site():
         'clinic': {
             'name': 'Fi Multicare — Centro Medico Multidisciplinare',
             'address': 'Galleria del Corso 4, 20122 Milano',
-            'telLabel': '02 7602 1568', 'telHref': 'tel:+390276021568',
+            'telLabel': '+39 02 76021568', 'telHref': 'tel:+390276021568',
             'email': 'info@fimulticare.it',
+            'networkEmail': 'info@federicofiori.com',
             'url': 'https://www.fimulticare.it/',
             'note': {'it': 'Visite su appuntamento', 'en': 'Visits by appointment'}[SITE['lang']],
         },
@@ -213,11 +214,18 @@ async def get_page(slug: str):
 @api_router.get('/blog/articles')
 async def list_articles():
     arts = await db.articles.find({'site': SITE['key']}).sort('publishedAt', -1).to_list(500)
+    def trim_words(s, lo=12, hi=18):
+        w = (s or '').split()
+        if len(w) <= hi:
+            return s or ''
+        return ' '.join(w[:hi]) + '…'
     return {
         'site': SITE['key'], 'lang': SITE['lang'], 'articlePath': SITE['articlePath'],
         'total': len(arts),
         'items': [{
             'slug': a['slug'], 'title': a.get('title'), 'excerpt': a.get('excerpt'),
+            'summary': trim_words(a.get('excerpt')),
+            'siteLink': (seo_render.ARTICLE_RELATED.get(a['slug']) or [None])[0],
             'tags': a.get('tags', []), 'categoryLabel': a.get('categoryLabel'),
             'coverUrl': a.get('coverUrl'), 'canonical': a.get('canonical'),
             'metaTitle': a.get('metaTitle'), 'metaDescription': a.get('metaDescription'),
@@ -234,7 +242,9 @@ async def probe_post(lang: str, slug: str):
     a = await db.articles.find_one({'site': SITE['key'], 'slug': slug, 'lang': lang})
     if not a:
         raise HTTPException(404, 'articolo non trovato')
-    return JSONResponse({'post': clean_article(a)}, media_type='application/json')
+    post = clean_article(a)
+    post['siteRelated'] = seo_render.ARTICLE_RELATED.get(slug, [])
+    return JSONResponse({'post': post}, media_type='application/json')
 
 
 @api_router.post('/blog/sync')

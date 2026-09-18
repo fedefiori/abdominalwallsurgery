@@ -124,11 +124,12 @@ export function Blocks({ blocks }) {
 
 export function Related({ items, title = 'Leggi anche' }) {
     if (!items?.length) return null;
+    const norm = items.map((r) => (Array.isArray(r) ? { label: r[0], href: r[1] } : r));
     return (
         <nav className="pw-related" data-testid="related-block" aria-label={title}>
             <span className="pw-label">{title}</span>
             <ul>
-                {items.map((r) => (
+                {norm.map((r) => (
                     <li key={r.href}>
                         <a href={r.href} {...(r.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
                             {r.label}<span aria-hidden="true">→</span>

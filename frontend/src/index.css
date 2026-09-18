@@ -17,11 +17,11 @@
     --accent-soft: #4FB0F5;
     --deep: #08243B;
     --accent-ink: #04121D;
-    --font-display: "Inter Tight", ui-sans-serif, sans-serif;
-    --font-body: "Manrope", ui-sans-serif, sans-serif;
-    --font-mono: "Azeret Mono", ui-monospace, monospace;
+    --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "Literata", Georgia, serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
     --band: #0E2A42;
-    --band-light: #242F3B;
+    --band-light: #2A3644;
     --noise-opacity: 0.05;
 }
 
@@ -35,8 +35,8 @@
     --accent-soft: #0A63AE;
     --deep: #08243B;
     --accent-ink: #FFFFFF;
-    --band: #E9EFF5;
-    --band-light: #FFFFFF;
+    --band: #E8F0F8;
+    --band-light: #FBF3E9;
     --noise-opacity: 0.028;
 }
 
@@ -467,6 +467,9 @@ h1, h2, h3, h4 {
 .pw-faq-q:hover { color: var(--accent-soft); }
 .pw-faq-a { overflow: hidden; color: var(--muted); font-size: 16px; }
 .pw-faq-a > div { padding: 0 0 1.3rem; max-width: 64ch; }
+
+.pw-card-sitelink { font-size: 13px; color: var(--muted); margin: -.8rem 0 0; padding-bottom: 1.2rem; }
+.pw-card-sitelink a { font-size: 13px; }
 
 /* ---------------- articoli ---------------- */
 .pw-article-list { border-top: 1px solid var(--line); margin-top: 2.5rem; }

@@ -3,7 +3,7 @@
  "path": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/",
  "it": {
   "h1": "Le protesi in Chirurgia della Parete e il piano di posizionamento della protesi",
-  "metaTitle": "Protesi in Chirurgia della Parete e Piano di Posizionamento",
+  "metaTitle": "Protesi in chirurgia della parete e piano di posizionamento",
   "metaDescription": "Tipi di protesi per ernie e laparoceli e i piani di posizionamento: sottocutaneo onlay, retromuscolare sublay, preperitoneale e intraperitoneale IPOM.",
   "blocks": [
    {
@@ -74,11 +74,11 @@
    },
    {
     "type": "p",
-    "html": "Il propilene deriva dal gas propano mediante una tecnica introdotta dallo scienziato italiano Giulio Natta . Utilizzando un misuratore di regolazione, il polimero liquido viene estruso come monofilamento di larghezza e resistenza predeterminate. Il Polipropilene è modellato intrecciando i filamenti per formare fibre, che vengono poi lavorate insieme per creare una rete idrofila. Si possono creare diverse forme di cambiando le dimensioni delle fibre e il design del lavoro a maglia. Le protesi in Polipropilene sono sen’altro le protesi oggi le pi’ diffuse."
+    "html": "Il propilene deriva dal gas propano mediante una tecnica introdotta dallo scienziato italiano Giulio Natta. Utilizzando un misuratore di regolazione, il polimero liquido viene estruso come monofilamento di larghezza e resistenza predeterminate. Il Polipropilene è modellato intrecciando i filamenti per formare fibre, che vengono poi lavorate insieme per creare una rete idrofila. Si possono creare diverse forme di cambiando le dimensioni delle fibre e il design del lavoro a maglia. Le protesi in Polipropilene sono sen’altro le protesi oggi le pi’ diffuse."
    },
    {
     "type": "p",
-    "html": "Meno diffuse le protesi in e PTFE, mentre le protesi in PVDF , un fluoropolimero non assorbibile, sono sempre piu’ utilizzate. Le suture in PVDF sono state ampiamente utilizzate sia nella chirurgia cardiotoracica che nella ortopedica . Si è osservato che il processo infiammatorio è stato meno intenso con PVDF rispetto al PPM leggero macroporoso. La capsula di collagene è piu’ limitata e non produce come per altri materiali una una piastra cicatriziale che incorpora l’intera mesh. Ad oggi questo materiale raccoglie grande consenso tra tutti i Chirurghi"
+    "html": "Meno diffuse le protesi in e PTFE, mentre le protesi in PVDF, un fluoropolimero non assorbibile, sono sempre piu’ utilizzate. Le suture in PVDF sono state ampiamente utilizzate sia nella chirurgia cardiotoracica che nella ortopedica. Si è osservato che il processo infiammatorio è stato meno intenso con PVDF rispetto al PPM leggero macroporoso. La capsula di collagene è piu’ limitata e non produce come per altri materiali una una piastra cicatriziale che incorpora l’intera mesh. Ad oggi questo materiale raccoglie grande consenso tra tutti i Chirurghi"
    },
    {
     "type": "p",
@@ -135,7 +135,7 @@
    },
    {
     "type": "p",
-    "html": "Il sistema di <a href=\"/difetti-della-parete-addominale-e-classificazione/\">classificazione</a> della mesh piu’ utilizzato è stato creato da Amid nel 1997 sulla base della porosità della mesh ."
+    "html": "Il sistema di <a href=\"/difetti-della-parete-addominale-e-classificazione/\">classificazione</a> della mesh piu’ utilizzato è stato creato da Amid nel 1997 sulla base della porosità della mesh."
    },
    {
     "type": "p",
@@ -153,7 +153,7 @@
    },
    {
     "type": "p",
-    "html": "Un’altra utile suddivisione è stata proposta da Coda , con un sistema di classificazione basato sulla definizione del peso: Ultraleggero ≤35 g/m2 2. Leggero C 35-70 g/m2 3. Standard C 70–140 g/m2 4. Pesante C ≥140 g/m2"
+    "html": "Un’altra utile suddivisione è stata proposta da Coda, con un sistema di classificazione basato sulla definizione del peso: Ultraleggero ≤35 g/m2 2. Leggero C 35-70 g/m2 3. Standard C 70–140 g/m2 4. Pesante C ≥140 g/m2"
    },
    {
     "type": "img",
@@ -224,7 +224,7 @@
    }
   ],
   "kind": "clinical-procedure",
-  "answer": "La conoscenza delle basi biologiche dello sviluppo dell’ernia è progredita rapidamente e come conseguenza sia le tecniche chirurgiche che l’utilizzo di protesi per la riparazione chirurgica hanno subito un’evoluzione altrettanto rapida. Ogni anno oltre 20 milioni di mesh vengono impiantate con l’obiettivo di ridurre il tasso di recidiva in confronto alla riparazione con sola sutura. E riguardo a tale obiettivo oggi l’efficacia della protesi non è in discussione.",
+  "answer": "La protesi è una rete che rinforza la parete addominale dopo la chiusura del difetto. Il risultato dipende dal materiale, ma ancora di più dal piano di posizionamento: onlay sopra la fascia, sublay dietro i muscoli, preperitoneale o intraperitoneale. Questa pagina descrive materiali e piani.",
   "faq": [
    {
     "q": "Che cos'è una protesi in chirurgia della parete?",

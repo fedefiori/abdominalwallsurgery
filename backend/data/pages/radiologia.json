@@ -3,7 +3,7 @@
  "path": "/radiologia/",
  "it": {
   "h1": "Radiologia",
-  "metaTitle": "Radiologia della Parete Addominale: Ecografia, TC e RM",
+  "metaTitle": "Radiologia della parete addominale: ecografia, TC e RM",
   "metaDescription": "Ecografia, TC e risonanza magnetica nella valutazione dei difetti della parete addominale: che cosa mostra ciascun esame, i limiti e quando è indispensabile.",
   "blocks": [
    {
@@ -32,15 +32,6 @@
    },
    {
     "type": "img",
-    "src": "/api/media/ecografia-parete-addominale.webp",
-    "alt": "Ecografia della parete addominale in ambulatorio",
-    "caption": "Ecografia della parete addominale in ambulatorio",
-    "width": 800,
-    "height": 548,
-    "kind": "photo"
-   },
-   {
-    "type": "img",
     "src": "/api/media/ecografia-addominale.webp",
     "alt": "Esame ecografico dell'addome per lo studio della parete",
     "caption": "Esame ecografico dell'addome per lo studio della parete",
@@ -54,7 +45,7 @@
    },
    {
     "type": "p",
-    "html": "Pertanto l’ecografia risulta ad oggi la metodica più largamente disponibile nella valutazione della parete addominale e si offre come esame di primo livello per la diagnosi strumentale per i <a href=\"/difetti-della-parete-addominale-e-classificazione/\">difetti</a> di parete (diastasi, ernie, laparoceli )."
+    "html": "Pertanto l’ecografia risulta ad oggi la metodica più largamente disponibile nella valutazione della parete addominale e si offre come esame di primo livello per la diagnosi strumentale per i <a href=\"/difetti-della-parete-addominale-e-classificazione/\">la classificazione dei difetti di parete</a> di parete (diastasi, ernie, laparoceli )."
    },
    {
     "type": "p",
@@ -75,6 +66,10 @@
    {
     "type": "p",
     "html": "In primo luogo, l’essere <b>operatore-dipendente</b> con conseguente possibilità di variabilità di risultato tra operatori diversi. In questo senso gioca un ruolo fondamentale l’esperienza dell’operatore da cui nasce una maggior affidabilità e riproducibilità della metodica con misurazioni sovrapponibili a TC ed RM."
+   },
+   {
+    "type": "p",
+    "html": "L'affidabilità dell'ecografia dipende dall'operatore: va eseguita da chi conosce la parete addominale."
    },
    {
     "type": "img",
@@ -150,7 +145,7 @@
    },
    {
     "type": "p",
-    "html": "Ecograficamente è possibile la valutazione dei muscoli della parete addominale (muscolo retto e muscoli larghi: oblliquo esterno, interno e trasverso): si potranno evidenziare eventuali asimmetrie o lesioni muscolari ma soprattutto stimare il trofismo della parete, dato che si dimostra importante ai fini della pianificazione <a href=\"/la-terapia-chirurgica/\">chirurgica</a> e della comprensione del concetto fisiopatologia di parete addominale come organo."
+    "html": "Ecograficamente è possibile la valutazione dei muscoli della parete addominale (muscolo retto e muscoli larghi: oblliquo esterno, interno e trasverso): si potranno evidenziare eventuali asimmetrie o lesioni muscolari ma soprattutto stimare il trofismo della parete, dato che si dimostra importante ai fini della pianificazione <a href=\"/la-terapia-chirurgica/\">la terapia chirurgica della parete</a> e della comprensione del concetto fisiopatologia di parete addominale come organo."
    },
    {
     "type": "p",
@@ -163,15 +158,6 @@
    {
     "type": "p",
     "html": "Le metodiche di II livello per lo studio della parete sono la TC e la RM.<br/>Metodiche che utilizzano macchine pesanti e che pertanto hanno costi superiori e minore<br/>disponibilità sul territorio.<br/>Metodiche che solitamente si riservano allo studio del contenuto dell’addome e quindi alle<br/>patologie più “nobili”."
-   },
-   {
-    "type": "img",
-    "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale.webp",
-    "alt": "TC della parete addominale per la valutazione dei difetti",
-    "caption": "TC della parete addominale per la valutazione dei difetti",
-    "width": 800,
-    "height": 366,
-    "kind": "photo"
    },
    {
     "type": "img",
@@ -196,7 +182,7 @@
    },
    {
     "type": "p",
-    "html": "Per tutto quanto si è detto risulta ragionevole concludere che l’indicazione a TC/RM debba rimanere di competenza specialistica : sarà il chirurgo a decidere la necessità e scegliere il momento. Al contrario per l’ecografia vale anche l’autoprescrizione (nel senso che è sufficiente il sospetto di diastasi per decidere di fare l’esame) purché si abbia l’accortezza di scegliere un centro competente per fare una buona ecografia!"
+    "html": "Per tutto quanto si è detto risulta ragionevole concludere che l’indicazione a TC/RM debba rimanere di competenza specialistica: sarà il chirurgo a decidere la necessità e scegliere il momento. Al contrario per l’ecografia vale anche l’autoprescrizione (nel senso che è sufficiente il sospetto di diastasi per decidere di fare l’esame) purché si abbia l’accortezza di scegliere un centro competente per fare una buona ecografia!"
    },
    {
     "type": "img",
@@ -209,7 +195,7 @@
    }
   ],
   "kind": "clinical",
-  "answer": "La diagnostica per immagini nella valutazione della parete addominale ha assunto rilevanza sempre maggiore negli ultimi anni e si stanno ampliando le indicazioni e le metodiche disponibili per fornire al clinico il massimo delle informazioni per una sempre più dettagliata pianificazione terapeutica.",
+  "answer": "Nella chirurgia della parete l'imaging serve a due cose: misurare il difetto prima di operare e riconoscere le complicanze dopo. L'ecografia è l'esame di primo livello, disponibile e ripetibile; la TC serve quando il difetto è ampio o recidivo e va pianificato; la risonanza si riserva ai casi in cui contano i tessuti molli.",
   "faq": [
    {
     "q": "A che cosa serve l'ecografia della parete addominale?",

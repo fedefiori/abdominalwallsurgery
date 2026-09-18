@@ -42,21 +42,49 @@ export default function ArticlesPage() {
                 <div className="pw-article-list" data-testid="article-list">
                     {(data?.items || []).map((a, i) => (
                         <Reveal key={a.slug} delay={i * 0.06}>
-                            <Link className="pw-article-card" to={`${site?.articlesIndex || '/articoli'}/${a.slug}`} data-testid={`article-card-${a.slug}`}>
-                                {a.coverUrl
-                                    ? <img src={a.coverUrl} alt={a.title} width="1200" height="675" loading="lazy" decoding="async" />
-                                    : <span />}
-                                <span>
-                                    {a.categoryLabel && <span className="pw-label">{a.categoryLabel}</span>}
-                                    <h2>{a.title}</h2>
-                                    <p>{a.excerpt}</p>
-                                </span>
-                            </Link>
+                            <div>
+                                <Link className="pw-article-card" to={`${site?.articlesIndex || '/articoli'}/${a.slug}`} data-testid={`article-card-${a.slug}`}>
+                                    {a.coverUrl
+                                        ? <img src={a.coverUrl} alt={a.title} width="1200" height="675" loading="lazy" decoding="async" />
+                                        : <span />}
+                                    <span>
+                                        {a.categoryLabel && <span className="pw-label">{a.categoryLabel}</span>}
+                                        <h2>{a.title}</h2>
+                                        <p>{a.summary || a.excerpt}</p>
+                                    </span>
+                                </Link>
+                                {a.siteLink && (
+                                    <p className="pw-card-sitelink" data-testid={`article-sitelink-${a.slug}`}>
+                                        Pagina del sito collegata: <Link to={a.siteLink[1]}>{a.siteLink[0]}</Link>
+                                    </p>
+                                )}
+                            </div>
                         </Reveal>
                     ))}
                     {data && data.items.length === 0 && (
                         <p style={{ color: 'var(--muted)' }} data-testid="articles-empty">—</p>
                     )}
+                </div>
+                <div className="pw-content" style={{ marginTop: '3.5rem' }}>
+                    <section className="pw-sect pw-sect-1">
+                        <h2>Che cosa trovo in questi articoli?</h2>
+                        <p>
+                            Gli articoli di questo indice sono i testi divulgativi scritti e approvati nell’area
+                            editoriale di federicofiori.com e serviti qui per i lettori di questo sito: spiegano in
+                            parole semplici argomenti che le pagine cliniche trattano in modo tecnico, dalla tecnica
+                            TESAR alla prevenzione delle recidive dell’ernia ombelicale.
+                        </p>
+                    </section>
+                    <section className="pw-sect pw-sect-2">
+                        <h2>Dove sono pubblicati gli altri approfondimenti?</h2>
+                        <p>
+                            Il piano editoriale completo vive sull’hub <a href="https://www.federicofiori.com">federicofiori.com</a>:
+                            lì si trovano il glossario degli acronimi, la tecnica TESAR, la tecnica MILA e la galleria
+                            dei risultati. Le pagine cliniche di riferimento restano su questo sito: per orientarsi si
+                            parte dalla <Link to="/difetti-della-parete-addominale-e-classificazione/">classificazione dei difetti di parete</Link> e
+                            dalla <Link to="/la-terapia-chirurgica/">terapia chirurgica</Link>.
+                        </p>
+                    </section>
                 </div>
             </div>
         </div>

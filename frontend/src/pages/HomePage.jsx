@@ -47,15 +47,15 @@ function splitLines(text) {
 
 function Portrait() {
     const { site } = useSite();
-    const src = 'https://www.federicofiori.com/media/og-federico-fiori.jpg?v=2';
+    const src = `${process.env.REACT_APP_BACKEND_URL}/api/media/ritratto-dottor-fiori.webp`;
     return (
         <motion.figure
             className="pw-hero-portrait" data-testid="hero-portrait"
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
         >
-            <img src={src} alt="Il dott. Federico Fiori, chirurgo della parete addominale"
-                width="1200" height="630" fetchPriority="high" decoding="async" />
+            <img src={src} alt="Il dott. Federico Fiori in camice operatorio, ritratto ufficiale"
+                width="820" height="1000" fetchPriority="high" decoding="async" />
             <figcaption>
                 <strong>Dott. Federico Fiori</strong>
                 <span>{site?.person?.jobTitle || 'Responsabile della Unità Operativa di Chirurgia della Parete Addominale'}</span>
@@ -99,7 +99,7 @@ export default function HomePage() {
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.35 }}
                         >
-                            {site.person.jobTitle} — ASST Santi Paolo e Carlo, Milano
+                            {site.person.jobTitle} — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano
                         </motion.p>
                     )}
                     <MaskLines lines={splitLines(h1)} />

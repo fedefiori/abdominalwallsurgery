@@ -118,14 +118,15 @@ export default function Layout({ children }) {
                         <section data-testid="footer-chi-opera">
                             <h3>Chi opera</h3>
                             <p><strong>Dott. Federico Fiori</strong> — Chirurgo</p>
-                            <p>Responsabile della Chirurgia della Parete Addominale</p>
+                            <p>Responsabile della Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</p>
+                            <p>Contatto diretto della rete: <a href="mailto:info@federicofiori.com">info@federicofiori.com</a></p>
                             <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo sull’hub</a></p>
                         </section>
                         <section data-testid="footer-dove-riceve">
                             <h3>Dove riceve</h3>
                             <p><strong>Fi Multicare</strong> — Centro Medico Multidisciplinare</p>
                             <p>Galleria del Corso 4, 20122 Milano</p>
-                            <p>Telefono <a href={site?.clinic?.telHref || 'tel:+390276021568'}>02 7602 1568</a><br />
+                            <p>Telefono <a href={site?.clinic?.telHref || 'tel:+390276021568'}>{site?.clinic?.telLabel || '+39 02 76021568'}</a><br />
                                 E-mail <a href="mailto:info@fimulticare.it">info@fimulticare.it</a></p>
                             <p>Visite su appuntamento</p>
                             <p><a href="https://www.fimulticare.it/" target="_blank" rel="noopener">fimulticare.it</a></p>

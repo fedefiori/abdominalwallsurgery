@@ -2,9 +2,9 @@
  "slug": "difetti-della-parete-addominale-e-classificazione",
  "path": "/difetti-della-parete-addominale-e-classificazione/",
  "it": {
-  "h1": "Difetti della parete addominale e Classificazione",
-  "metaTitle": "Difetti della Parete Addominale e Classificazione EHS",
-  "metaDescription": "Classificazione delle ernie della parete addominale secondo l'European Hernia Society: sedi anatomiche, dimensioni del difetto, definizioni cliniche e tabelle.",
+  "h1": "Difetti della parete addominale e classificazione",
+  "metaTitle": "Classificazione EHS dei difetti di parete: sedi, sigle e misure",
+  "metaDescription": "La classificazione della European Hernia Society per le ernie della parete addominale: sedi anatomiche M1-L4, dimensioni del difetto e definizioni cliniche.",
   "blocks": [
    {
     "type": "plainBox",
@@ -25,7 +25,7 @@
    },
    {
     "type": "p",
-    "html": "I difetti della pa<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">rete</a> addominale anteriore si possono suddividere in difetti primitivi e difetti secondari."
+    "html": "I difetti della pa<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">la rete protesica e il suo piano</a> addominale anteriore si possono suddividere in difetti primitivi e difetti secondari."
    },
    {
     "type": "img",
@@ -106,7 +106,7 @@
    },
    {
     "type": "p",
-    "html": "La EHS , European Hernia Society classifica le <b>Ernie primitive della parete secondo dimensione e posizione</b>"
+    "html": "La EHS, European Hernia Society classifica le <b>Ernie primitive della parete secondo dimensione e posizione</b>"
    },
    {
     "type": "table",
@@ -174,11 +174,11 @@
    },
    {
     "type": "p",
-    "html": "La diagnosi e il trattamento di un disastro di parete richiedono spesso l’<a href=\"/la-terapia-chirurgica/\">intervento</a> di un chirurgo specializzato nella chirurgia della parete. Il trattamento può variare a seconda della gravità del danno e può includere la riparazione chirurgica della parete, l’utilizzo di materiali di sutura o reti per rinforzare i tessuti, o la ricostruzione complessa del muscolo addominale. Un disastro di parete può rappresentare una sfida significativa per il chirurgo, in quanto richiede una pianificazione dettagliata e un approccio multidisciplinare per ottenere una riparazione efficace e una riduzione delle complicazioni future."
+    "html": "La diagnosi e il trattamento di un disastro di parete richiedono spesso l’<a href=\"/la-terapia-chirurgica/\">l'intervento di riparazione</a> di un chirurgo specializzato nella chirurgia della parete. Il trattamento può variare a seconda della gravità del danno e può includere la riparazione chirurgica della parete, l’utilizzo di materiali di sutura o reti per rinforzare i tessuti, o la ricostruzione complessa del muscolo addominale. Un disastro di parete può rappresentare una sfida significativa per il chirurgo, in quanto richiede una pianificazione dettagliata e un approccio multidisciplinare per ottenere una riparazione efficace e una riduzione delle complicazioni future."
    }
   ],
   "kind": "classifications",
-  "answer": "L’ernia epigastrica è una forma di ernia ventrale che si sviluppa nella regione epigastrica, ovvero nella parte superiore dell’addome. In questo tipo di ernia, una porzione di tessuto, come il grasso o l’intestino, sporge attraverso un difetto nella fascia muscolare della parete addominale.",
+  "answer": "I difetti della parete addominale si classificano per sede, dimensione e origine: primitivi se nascono su una parete integra, incisionali (laparoceli) se compaiono su una cicatrice. La classificazione EHS assegna a ogni ernia una sigla di zona e una classe di misura e guida la scelta tecnica.",
   "faq": [
    {
     "q": "Come si classificano le ernie della parete addominale?",

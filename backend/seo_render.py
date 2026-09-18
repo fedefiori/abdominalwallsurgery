@@ -91,26 +91,51 @@ def org_ld(entity, domain, lang):
     return org
 
 
-CLINIC_ID = 'https://www.chirurgiadellaparete.it/contatti/#clinic'
+HUB_CLINIC_ID = 'https://www.federicofiori.com/contatti#fi-multicare'
+
+# Mappa articolo -> pagine affini del sito (blocco "Su questo sito")
+ARTICLE_RELATED = {
+    'tecnica-tesar-riparazione-endoscopica-sublay-anteriore': [
+        ('La terapia chirurgica dei difetti della parete', '/la-terapia-chirurgica/'),
+        ('Le protesi e il piano di posizionamento', '/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/'),
+        ("La pre-abilitazione prima dell'intervento", '/preabilitazione-dei-pazienti-all-intervento-chirurgico/')],
+    'laparocele-dopo-intervento-addominale-quando-operare': [
+        ('La classificazione dei difetti di parete', '/difetti-della-parete-addominale-e-classificazione/'),
+        ('Sintomi e complicanze dei difetti', '/sintomi-e-complicanze/'),
+        ('La terapia chirurgica', '/la-terapia-chirurgica/')],
+    'ernia-ombelicale-recidiva-come-prevenirla': [
+        ('Sintomi e complicanze dei difetti', '/sintomi-e-complicanze/'),
+        ('Le protesi e il piano di posizionamento', '/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/'),
+        ('Contatti e valutazione specialistica', '/contatti/')],
+}
+
+CLINIC_FALLBACK = {
+    '@type': 'MedicalClinic',
+    '@id': HUB_CLINIC_ID,
+    'name': 'Fi Multicare — Centro Medico Multidisciplinare',
+    'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Galleria del Corso 4',
+        'postalCode': '20122',
+        'addressLocality': 'Milano',
+        'addressCountry': 'IT',
+    },
+    'telephone': '+390276021568',
+    'email': 'info@fimulticare.it',
+    'sameAs': ['https://www.fimulticare.it/'],
+}
 
 
-def clinic_ld(domain):
-    """Fi Multicare: dichiarata UNA VOLTA SOLA, in /contatti/, richiamata per @id."""
-    return {
-        '@type': 'MedicalClinic',
-        '@id': f'{domain}/contatti/#clinic',
-        'name': 'Fi Multicare — Centro Medico Multidisciplinare',
-        'address': {
-            '@type': 'PostalAddress',
-            'streetAddress': 'Galleria del Corso 4',
-            'postalCode': '20122',
-            'addressLocality': 'Milano',
-            'addressCountry': 'IT',
-        },
-        'telephone': '+390276021568',
-        'email': 'info@fimulticare.it',
-        'sameAs': ['https://www.fimulticare.it/'],
-    }
+def clinic_ld(domain, entity=None):
+    """Lo studio e' un nodo condiviso dell'hub: si incorpora cosi' come arriva,
+    in /contatti/ soltanto; altrove si richiama per @id."""
+    clinic = (entity or {}).get('clinic')
+    if clinic:
+        c = dict(clinic)
+        c.pop('@context', None)
+        c.setdefault('@id', (entity or {}).get('clinicId', HUB_CLINIC_ID))
+        return c
+    return dict(CLINIC_FALLBACK)
 
 
 def person_ld(entity):
@@ -184,13 +209,14 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
         }, person] if person else graphs
     elif kind == 'contact':
         person_node = person_ld(entity)
+        clinic = clinic_ld(site['domain'], entity)
         if person_node:
-            person_node['workLocation'] = {'@id': f"{site['domain']}/contatti/#clinic"}
+            person_node['workLocation'] = {'@id': clinic['@id']}
             person_node['affiliation'] = {
                 '@type': 'Hospital',
                 'name': "Divisione di Chirurgia d'Urgenza – Chirurgia Generale e Robotica – ASST Santi Paolo e Carlo – PO San Carlo Borromeo, Milano",
             }
-        graphs.append(clinic_ld(site['domain']))
+        graphs.append(clinic)
         if person_node:
             graphs.append(person_node)
     if breadcrumb_items:
@@ -357,6 +383,12 @@ def prerender_article(article, site, entity, absolute, noindex):
         faq_html = f'<section class="pw-faq"><h2>{esc(u["faq_title"])}</h2>{items}</section>'
     ld = article_jsonld(article, site, entity, canonical, crumb_items)
     robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+    rel = ARTICLE_RELATED.get(article.get('slug'), [])
+    rel_html = ''
+    if rel:
+        lis = ''.join(f'<li><a href="{esc(domain + h)}">{esc(l)}</a></li>' for l, h in rel)
+        lis += f'<li><a href="{esc(domain + site["articlesIndex"])}">{esc(u["breadcrumb_articles"])}</a></li>'
+        rel_html = f'<nav class="pw-rel" aria-label="Su questo sito"><strong>Su questo sito</strong><ul>{lis}</ul></nav>'
     hreflang = ''
     tr = article.get('translation')
     if tr and tr.get('url'):
@@ -384,6 +416,7 @@ def prerender_article(article, site, entity, absolute, noindex):
 {cover}
 {body}
 {faq_html}
+{rel_html}
 {network_html(site)}
 </main>
 </body>

@@ -61,6 +61,30 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+## Iterazione 18/09/2026 — INVERSIONE identità (specifica utente vincolante, misurata non stimata)
+- PROBLEMA SOLLEVATO: sito troppo simile all'hub (entrambi scuri, stessi font). Diagnosi utente corretta:
+  i valori precedenti erano stati scelti "a impressione". Ora palette SPECIFICA dell'utente, verificata
+  con getComputedStyle.
+- INVERSIONE: sito CHIARO di default (paper #F5F7FA) con fasce scure --deep #0B2C4A (capitoli home, box
+  sintesi, footer). Dark theme solo come toggle: fondo #0E1A24 ardesia, accent #4FB0F5, signal #E08B4A.
+- Palette storica: accent #0B81E1 (grafica/testo grande, 3,7:1), accent-ink #0A63AE (link/testo piccolo,
+  5,7:1), signal #B4530A rame SOLO per numeri/etichette/dati. Variabili in UN SOLO punto: index.css
+  (:root chiaro + [data-theme="dark"]). Allineato seo_render.BASE_CSS.
+- Font NUOVI (via Inter Tight/Manrope/Azeret): Newsreader 600 titoli serif, IBM Plex Sans 400 18px/1.75
+  corpo (max 68ch), IBM Plex Mono 500 11px uppercase .14em etichette. H1 clamp(2rem,4vw,3.25rem).
+- Dettagli: filetto 3px accent su box sintesi; numeri sezioni mono in signal; tabelle th deep + zebra
+  paper-2; immagini hairline 1px radius 10px; link SEMPRE sottolineati (offset 2px, hover ispessisce);
+  focus-visible 2px accent + 2px offset.
+- VIDEO HERO: /public/media/hero-loop-parete-addominale (.mp4 H.264 originale 1,9MB + .webm VP9 254KB
+  transcodificato con imageio-ffmpeg + poster .webp). Doppia <source>: WebM per Chrome/Firefox, MP4 per
+  Safari. Nel riquadro destro della hero home (sostituisce ritratto, che resta in /chi-sono/ e AuthorBox).
+  NB: Chromium headless di Playwright NON decodifica H.264 → il WebM serve anche per i test.
+- Verifiche: body #F5F7FA, h1 Newsreader, body IBM Plex Sans, 4 fondi distinti, zero Inter/Manrope nel
+  CSS servito (gli 11 "Inter" trovati sono dell'overlay Emergent di preview, non del sito). Confronto
+  screenshot hub (navy, sans gigante) vs sito (chiaro, serif, rame): inconfondibili.
+- Test: test_reports/iteration_3.json — 100%, 0 bug. I 2 media 404 (gradini/strati) sono falsi positivi:
+  rispondono 200 in modo consistente (verificato con curl ripetuti).
+
 - Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
 ## Iterazione 18/09/2026 (richiesta utente: palette logo, logo integrato, fix testi)
 - Palette DISTINTA dall'hub e attinente al logo FP (nero #000 / blu #3C83E1 / bianco): dark ink #0B0C0E

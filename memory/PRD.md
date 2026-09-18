@@ -17,9 +17,10 @@ inglese (abdominalwallsurgery.com) cambiando SOLO SITE_KEY, SITE_LANG, SITE_DOMA
   - `GET /api/media/{file}.webp` (49 immagini ricompresse ≤150KB, cache immutable).
 - Frontend React (`/app/frontend/src`): SPA con le 14 rotte ereditate + `/articoli` + `/articoli/:slug` + `/404`.
   Crawler serviti dal Worker via prerender; il client imposta title/description/canonical/noindex.
-  Design blu #0B81E1 su grigio acciaio: tema scuro base + chiaro, font identici all'hub
-  (Inter Tight titoli / Manrope corpo / Azeret Mono etichette), aurora animata di sfondo,
-  framer-motion, lenis, hero con masked line reveal, marquee, indice appiccicoso, grana, data-testid ovunque.
+  Design palette logo (nero/carbone + blu logo #3C83E1, distinta dal navy hub): tema scuro base + chiaro,
+  font identici all'hub (Inter Tight titoli / Manrope corpo / Azeret Mono etichette), logo FP in header e
+  favicon, aurora animata di sfondo, framer-motion, lenis, hero con masked line reveal, marquee,
+  indice appiccicoso, grana, data-testid ovunque.
 - DB MongoDB: `articles`, `pageviews`, `retired_redirects`.
 
 ## User personas
@@ -61,6 +62,20 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
 - Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
+## Iterazione 18/09/2026 (richiesta utente: palette logo, logo integrato, fix testi)
+- Palette DISTINTA dall'hub e attinente al logo FP (nero #000 / blu #3C83E1 / bianco): dark ink #0B0C0E
+  (nero neutro, non navy), surface #14161A, band #10203A, band-light #22272E, accent #3C83E1; light theme
+  ritarato (accent #2F6FC9). Secondo colore di alternazione: --silver #C3CCD6 (sostituisce il teal).
+  Allineato anche seo_render.BASE_CSS. Logo analizzato via PIL dai colori esatti dell'allegato.
+- Logo integrato: /app/backend/static/media/logo-chirurgia-della-parete.webp servito via /api/media;
+  img 30px in header ([data-testid='brand-logo'], sostituisce il quadratino blu) + favicon
+  /logo-chirurgia-della-parete.png (192px) in public/index.html; theme-color #0B0C0E.
+- Testi: preabilitazione — "La corretta preparazione alla terapia chirurgica della parete addominale deve
+  prevedere" (link interno preservato) e FAQ "ad un" → "a un"; siteconfig articles_title IT "Articoli di
+  approfondimento" / EN "In-depth articles" (home: kicker "Dalla redazione" + h2 nuovo; /articoli/ H1+title).
+- Test: test_reports/iteration_2.json — 100%, 0 errori console. I 2 media 404 segnalati erano transienti
+  del restart: gradini-preparazione.webp e strati-della-parete.webp rispondono 200.
+
 ## Iterazione 18/09/2026 (richiesta utente: font hub, sfondi dinamici, chi-sono terza persona)
 - Font pareggiati all'hub federicofiori.com (verificati dal bundle CSS hub): corpo Literata → Manrope
   400/500/600/700; Inter Tight e Azeret Mono confermati. Link Google Fonts in public/index.html aggiornato;

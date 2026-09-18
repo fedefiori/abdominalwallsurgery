@@ -45,29 +45,21 @@ function splitLines(text) {
     return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
 }
 
-function HeroVideo() {
+function HeroMedia() {
     const [reduced] = useState(() =>
         typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
     );
     return (
-        <motion.figure
-            className="pw-hero-portrait pw-hero-video" data-testid="hero-video"
-            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-        >
+        <div className="pw-hero-media" aria-hidden="true">
             <video
+                data-testid="hero-video"
                 autoPlay={!reduced} muted loop playsInline preload="metadata"
                 poster="/media/hero-loop-parete-addominale.webp"
-                aria-label="Animazione 3D della parete addominale: muscoli retti e linea alba"
             >
                 <source src="/media/hero-loop-parete-addominale.webm" type="video/webm" />
                 <source src="/media/hero-loop-parete-addominale.mp4" type="video/mp4" />
             </video>
-            <figcaption>
-                <strong>Parete addominale</strong>
-                <span>Loop 3D · muscoli retti e linea alba</span>
-            </figcaption>
-        </motion.figure>
+        </div>
     );
 }
 
@@ -94,6 +86,7 @@ export default function HomePage() {
     return (
         <div data-testid="home-page">
             <section className="pw-hero">
+                <HeroMedia />
                 <div className="pw-hero-ghost" aria-hidden="true">PARETE</div>
                 <div className="pw-shell" style={{ position: 'relative' }}>
                     <div className="pw-ticks" aria-hidden="true"><i /><i /><i /><i /></div>
@@ -130,7 +123,6 @@ export default function HomePage() {
                             {ui.contact_cta}
                         </Link>
                     </motion.div>
-                    <HeroVideo />
                 </div>
             </section>
 

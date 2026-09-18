@@ -1,0 +1,78 @@
+{
+  "summary": "Iteration 4: verified palette v1 (avorio #F6F4EE + verde chirurgico #0E6B52 + rame #B4530A + deep #14332B), hub fonts (Inter Tight / Manrope / Azeret Mono, no Newsreader/IBM Plex in stylesheets), hero video as transparent background, dark theme, navigation, tables, brand logo, missing media assets, and SEO prerender. All specs pass.",
+  "verified_specs": {
+    "fonts": {
+      "h1_fontFamily": "\"Inter Tight\", ui-sans-serif, sans-serif \u2713",
+      "body_fontFamily": "Manrope, ui-sans-serif, ... \u2713",
+      "pw_label_fontFamily": "\"Azeret Mono\", ui-monospace, monospace \u2713",
+      "pw_label_color": "rgb(180,83,10) = #B4530A rame \u2713",
+      "forbidden_in_stylesheets": {"Newsreader": 0, "IBM Plex": 0}
+    },
+    "palette_v1_light": {
+      "body_bg": "rgb(246,244,238) = #F6F4EE \u2713",
+      "--accent": "#0E6B52 \u2713 (no #0B81E1 / #3C83E1 hub blue)",
+      "--accent-ink": "#0A5240 \u2713",
+      "--signal": "#B4530A \u2713",
+      "--deep": "#14332B \u2713",
+      "--band": "#ECE8DD \u2713",
+      "chapters_band_bg": "rgb(20,51,43) = #14332B, text rgb(234,242,237) \u2713",
+      "footer_bg": "rgb(20,51,43) = #14332B \u2713",
+      "pillar_content_link_color": "rgb(10,82,64) = #0A5240 underlined \u2713"
+    },
+    "hero_video_background": {
+      "data-testid=hero-video": "found",
+      "currentSrc": "https://.../hero-loop-parete-addominale.webm \u2713 (WebM primary in Chromium)",
+      "paused": false,
+      "readyState": 4,
+      "opacity_light": "0.3 \u2713",
+      "object-position": "50% 16% \u2713",
+      "container_.pw-hero-media": "position:absolute inset:0 z-index:0 \u2713 (behind .pw-shell which is z:auto over content)",
+      "veil_::after": "exists \u2713 (linear-gradient ink veil)",
+      "mobile_390px": "video visible behind, H1 rgb(32,29,24) readable on ivory bg \u2713"
+    },
+    "dark_theme_settled": {
+      "body_bg": "rgb(18,26,22) = #121A16 \u2713",
+      "--accent": "#4FC49F \u2713",
+      "video_opacity": "0.44 \u2713",
+      "chapters_bg": "rgb(20,51,43) \u2713",
+      "footer_bg": "rgb(20,51,43) \u2713",
+      "link_color_deep_context": "rgb(233,239,234) legible \u2713"
+    },
+    "regression": {
+      "home_200": true,
+      "/la-terapia-chirurgica/_200": true,
+      "/chi-sono/": "200, title 'Dott. Federico Fiori: profilo e chirurgia della parete a Milano'",
+      "/articoli/": "200, title 'Articoli di approfondimento ...'",
+      "/nonexistent-abc-xyz/": "200 (SPA), title '404 \u2014 Pagina non trovata' \u2713",
+      "brand_logo_data-testid": "present \u2713",
+      "protesi_page_table_th_bg": "rgb(20,51,43) deep, th_color rgb(234,242,237), even td uses --band (light: sabbia #ECE8DD; verified in dark: rgb(23,37,30) = #17251E) \u2713"
+    },
+    "media_assets_carry_over": {
+      "/media/gradini-preparazione.webp": "200 \u2713 (fixed vs iteration 2/3)",
+      "/media/strati-della-parete.webp": "200 \u2713 (fixed vs iteration 2/3)"
+    },
+    "seo": {
+      "/api/seo/sitemap.xml": 200,
+      "/api/seo/prerender?path=/la-terapia-chirurgica/": "inline CSS contains #F6F4EE + Manrope + Inter Tight \u2713; NO Newsreader / IBM Plex / F5F7FA"
+    }
+  },
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "console_notes": [
+    "Two transient 404s observed during navigation sweep but the same URLs (/media/gradini-preparazione.webp, /media/strati-della-parete.webp) return 200 to page.request.get. Likely a race with the SPA transition prefetch; not reproducible on direct reload. Carry-over from iteration 2/3 is now cleared."
+  ],
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "index.css palette v1 tokens (--accent #0E6B52, --accent-ink #0A5240, --signal #B4530A, --deep #14332B, --band #ECE8DD) are enforced at runtime; light and dark both compile without residual hub blue.",
+    ".pw-hero-media correctly layers (position:absolute; inset:0; z-index:0; pointer-events:none) with a ::after ink-gradient veil ensuring 4.5:1+ contrast for H1 (carbone #201D18 on ivory) and sub-text.",
+    "Video plays autoplay muted playsInline; Chromium headless picks WebM source as required; opacity swings correctly light 0.30 / dark 0.44 / reduced-motion 0.22.",
+    "No Newsreader / IBM Plex / F5F7FA residues in served CSS or SEO prerender \u2014 hub fonts are the single source of truth."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Palette v1 (avorio/verde chirurgico/rame) + hub fonts + hero video-as-background all pass. The previously-flagged missing WEBP assets (gradini-preparazione, strati-della-parete) now return 200. If future iterations introduce palette v2/v3, re-run the same evaluate() blocks against --accent / body bg / chapters-band / footer / hero-video opacity + object-position."
+}

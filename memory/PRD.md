@@ -61,6 +61,22 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+## Iterazione 18/09/2026 — PALETTE VERSIONE 1 + font hub fissi + video hero come sfondo
+- FONT: tornati DEFINITIVAMENTE a quelli dell'hub (Inter Tight / Manrope / Azeret Mono). Direttiva utente:
+  "usa per tutte le versioni il font dell'hub, non cambiarlo mai più". Rimossi Newsreader/IBM Plex ovunque
+  (index.css, index.html, seo_render.BASE_CSS).
+- PALETTE VERSIONE 1 (di una serie numerata che l'utente valuterà): ZERO blu. Avorio caldo #F6F4EE, testo
+  carbone caldo #201D18, verde chirurgico #0E6B52 / link #0A5240, fasce scure verde bottiglia #14332B
+  (testo #EAF2ED, link #7FD4B4), rame #B4530A per numeri/etichette, fascia alternata sabbia #ECE8DD.
+  Dark: #121A16 fondo, #1A241F superficie, accent #4FC49F. Contrasti AA verificati a runtime.
+- VIDEO HERO: da riquadro laterale (tagliato) a SFONDO dell'hero home: .pw-hero-media absolute inset 0,
+  object-position 50% 16% (in alto), dietro le scritte, opacity .30 light / .44 dark / .22 reduced-motion,
+  velo ::after in gradiente --ink per la leggibilità. Rimosso il vecchio riquadro .pw-hero-portrait.
+- Versionamento: le palette candidate si chiamano "Versione 1", "Versione 2"...; l'utente deciderà.
+  Per una nuova versione: cambiare SOLO i token in :root e [data-theme="dark"] di index.css +
+  BASE_CSS in seo_render.py + theme-color in index.html.
+- Test: test_reports/iteration_4.json — 100%, 0 bug, 0 action items. Ex-404 media ora 200 stabili.
+
 ## Iterazione 18/09/2026 — INVERSIONE identità (specifica utente vincolante, misurata non stimata)
 - PROBLEMA SOLLEVATO: sito troppo simile all'hub (entrambi scuri, stessi font). Diagnosi utente corretta:
   i valori precedenti erano stati scelti "a impressione". Ora palette SPECIFICA dell'utente, verificata

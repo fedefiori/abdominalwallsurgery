@@ -4,7 +4,7 @@
 
 /* ============================================================
    CHIRURGIA DELLA PARETE — blu #0B81E1 su grigio acciaio.
-   Tipografia: Space Grotesk / Literata / IBM Plex Mono.
+   Tipografia identica all'hub: Inter Tight / Manrope / Azeret Mono.
    ============================================================ */
 
 :root {
@@ -18,10 +18,11 @@
     --deep: #08243B;
     --accent-ink: #04121D;
     --font-display: "Inter Tight", ui-sans-serif, sans-serif;
-    --font-body: "Literata", Georgia, serif;
+    --font-body: "Manrope", ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
     --font-mono: "Azeret Mono", ui-monospace, monospace;
+    --teal: #35A89B;
     --band: #0E2A42;
-    --band-light: #2E3D4D;
+    --band-light: #303D4C;
     --noise-opacity: 0.05;
 }
 
@@ -36,7 +37,7 @@
     --deep: #08243B;
     --accent-ink: #FFFFFF;
     --band: #E8F0F8;
-    --band-light: #FBF3E9;
+    --band-light: #E6ECF2;
     --noise-opacity: 0.028;
 }
 
@@ -49,12 +50,49 @@ body {
     background: var(--ink);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 16.5px;
     line-height: 1.75;
+    letter-spacing: -0.004em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color .35s ease, color .35s ease;
 }
+
+/* sfondo dinamico: aurora blu/acciaio che deriva lentamente */
+.pw-aurora {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.pw-aurora i {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+}
+.pw-aurora i:nth-child(1) {
+    width: 58vw; height: 58vw; min-width: 480px; min-height: 480px;
+    top: -22%; left: -14%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 17%, transparent) 0%, transparent 62%);
+    animation: pw-drift-a 52s ease-in-out infinite alternate;
+}
+.pw-aurora i:nth-child(2) {
+    width: 46vw; height: 46vw; min-width: 380px; min-height: 380px;
+    bottom: -20%; right: -12%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--teal) 13%, transparent) 0%, transparent 62%);
+    animation: pw-drift-b 64s ease-in-out infinite alternate;
+}
+.pw-aurora i:nth-child(3) {
+    width: 34vw; height: 34vw; min-width: 300px; min-height: 300px;
+    top: 34%; left: 58%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-soft) 11%, transparent) 0%, transparent 60%);
+    animation: pw-drift-c 44s ease-in-out infinite alternate;
+}
+[data-theme="light"] .pw-aurora i { opacity: .55; }
+@keyframes pw-drift-a { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(10vw, 8vh, 0) scale(1.14); } }
+@keyframes pw-drift-b { from { transform: translate3d(0, 0, 0) scale(1.05); } to { transform: translate3d(-9vw, -7vh, 0) scale(0.94); } }
+@keyframes pw-drift-c { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-7vw, 9vh, 0) scale(1.18); } }
 
 /* strato 1: alone blu radiale, mosso di pochi pixel dallo scroll (JS) */
 .pw-halo {
@@ -170,6 +208,16 @@ h1, h2, h3, h4 {
 /* ---------------- hero home ---------------- */
 .pw-hero { position: relative; padding: clamp(4rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem); overflow: hidden; }
 
+/* alone azzurro più presente nell'hero, in deriva lenta */
+.pw-hero::before {
+    content: "";
+    position: absolute; inset: -12% -6% auto; height: 78%;
+    background: radial-gradient(ellipse 58% 82% at 76% 18%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%);
+    animation: pw-drift-c 36s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+.pw-hero > * { position: relative; }
+
 .pw-hero-ghost {
     position: absolute; right: -1.5vw; top: 50%; transform: translateY(-50%) rotate(180deg);
     writing-mode: vertical-rl;
@@ -188,7 +236,7 @@ h1, h2, h3, h4 {
 }
 .pw-hero .mask-line { display: block; overflow: hidden; }
 .pw-hero .mask-line > span { display: block; will-change: transform; }
-.pw-hero-sub { max-width: 52ch; color: var(--muted); font-size: 19px; }
+.pw-hero-sub { max-width: 52ch; color: var(--muted); font-size: 17px; }
 .pw-hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; }
 .pw-hero-art { position: absolute; right: -4vw; top: 50%; width: min(44vw, 600px); transform: translateY(-50%); pointer-events: none; }
 @media (max-width: 900px) { .pw-hero-art { position: static; transform: none; width: 100%; margin-top: 2rem; opacity: .6; } }
@@ -303,7 +351,9 @@ h1, h2, h3, h4 {
     color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--accent-soft) 65%, transparent);
     transition: color .3s ease, -webkit-text-stroke-color .3s ease, transform .3s ease;
 }
+.pw-chapter:nth-child(even) .pw-chapter-num { -webkit-text-stroke-color: color-mix(in srgb, var(--teal) 75%, transparent); }
 .pw-chapter:hover .pw-chapter-num { color: var(--accent); -webkit-text-stroke-color: var(--accent); transform: translateX(4px); }
+.pw-chapter:nth-child(even):hover .pw-chapter-num { color: var(--teal); -webkit-text-stroke-color: var(--teal); }
 .pw-chapter-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2.2vw, 1.6rem); letter-spacing: -0.01em; }
 .pw-chapter-desc { color: var(--muted); font-size: 14px; margin-top: .25rem; max-width: 62ch; }
 .pw-chapter-arrow { color: var(--muted); transition: color .25s ease, transform .25s ease; }
@@ -425,6 +475,31 @@ h1, h2, h3, h4 {
 .pw-content p { margin: 0 0 1.15rem; }
 .pw-content ul, .pw-content ol { margin: 0 0 1.15rem 1.3rem; }
 .pw-content li { margin-bottom: .45rem; }
+
+/* elenchi numerati: contatori a pillola, colori alternati blu/teal */
+.pw-content ol { list-style: none; counter-reset: pw-ol; margin-left: 0; }
+.pw-content ol > li {
+    counter-increment: pw-ol;
+    position: relative;
+    padding-left: 2.7rem;
+    margin-bottom: .85rem;
+}
+.pw-content ol > li::before {
+    content: counter(pw-ol, decimal-leading-zero);
+    position: absolute; left: 0; top: .02em;
+    width: 1.9rem; height: 1.9rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+    color: var(--accent-soft);
+    background: color-mix(in srgb, var(--accent) 13%, transparent);
+}
+.pw-content ol > li:nth-child(even)::before {
+    border-color: color-mix(in srgb, var(--teal) 55%, transparent);
+    color: var(--teal);
+    background: color-mix(in srgb, var(--teal) 13%, transparent);
+}
 
 /* ---------------- immagini: FOTO vs SCHEMI ---------------- */
 .pw-content figure { margin: 1.8rem 0; }
@@ -555,7 +630,7 @@ h1, h2, h3, h4 {
 
 /* ---------------- motion helpers ---------------- */
 @media (prefers-reduced-motion: reduce) {
-    .pw-marquee-track, .pw-scanline { animation: none; }
+    .pw-marquee-track, .pw-scanline, .pw-aurora i, .pw-hero::before { animation: none; }
     .pw-scanline, .pw-halo { display: none; }
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }

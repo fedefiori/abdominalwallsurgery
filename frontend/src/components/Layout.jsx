@@ -25,6 +25,14 @@ function Halo() {
     return <div className="pw-halo" ref={ref} aria-hidden="true" />;
 }
 
+function Aurora() {
+    return (
+        <div className="pw-aurora" aria-hidden="true" data-testid="bg-aurora">
+            <i /><i /><i />
+        </div>
+    );
+}
+
 function Progress() {
     const ref = useRef(null);
     useEffect(() => {
@@ -77,6 +85,7 @@ export default function Layout({ children }) {
     return (
         <>
             <Halo />
+            <Aurora />
             <Progress />
             <header className="pw-header" data-testid="site-header">
                 <div className="pw-shell pw-header-inner">

@@ -25,7 +25,7 @@ export function AuthorBox({ updated }) {
                 <span className="pw-authorbox-links">
                     <a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo</a>
                     <span aria-hidden="true"> · </span>
-                    <Link to="/contatti/">Dove ricevo</Link>
+                    <Link to="/contatti/">Dove riceve</Link>
                 </span>
                 {data && <small className="pw-authorbox-date">Pagina aggiornata il {data}</small>}
             </div>

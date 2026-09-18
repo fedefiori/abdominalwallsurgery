@@ -17,7 +17,8 @@ inglese (abdominalwallsurgery.com) cambiando SOLO SITE_KEY, SITE_LANG, SITE_DOMA
   - `GET /api/media/{file}.webp` (49 immagini ricompresse ≤150KB, cache immutable).
 - Frontend React (`/app/frontend/src`): SPA con le 14 rotte ereditate + `/articoli` + `/articoli/:slug` + `/404`.
   Crawler serviti dal Worker via prerender; il client imposta title/description/canonical/noindex.
-  Design "acciaio e rame" punto 11: tema scuro base + chiaro ritarato, Space Grotesk/Literata/IBM Plex Mono,
+  Design blu #0B81E1 su grigio acciaio: tema scuro base + chiaro, font identici all'hub
+  (Inter Tight titoli / Manrope corpo / Azeret Mono etichette), aurora animata di sfondo,
   framer-motion, lenis, hero con masked line reveal, marquee, indice appiccicoso, grana, data-testid ovunque.
 - DB MongoDB: `articles`, `pageviews`, `retired_redirects`.
 
@@ -60,6 +61,24 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
 - Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
+## Iterazione 18/09/2026 (richiesta utente: font hub, sfondi dinamici, chi-sono terza persona)
+- Font pareggiati all'hub federicofiori.com (verificati dal bundle CSS hub): corpo Literata → Manrope
+  400/500/600/700; Inter Tight e Azeret Mono confermati. Link Google Fonts in public/index.html aggiornato;
+  fallback del prerender (seo_render.BASE_CSS) da Georgia serif a Manrope/sans. Body 16.5px.
+- Sfondo dinamico discreto: componente Aurora (3 blob radiali blu/teal/acciaio, position fixed, deriva in
+  loop 44-64s, opacity ridotta in light theme) + alone rinforzato nell'hero; tutto spento con
+  prefers-reduced-motion. data-testid="bg-aurora".
+- Sezioni alternate più distinte: ciclo trasparente/surface/blu profondo/acciaio chiaro (--band-light
+  #303D4C dark, #E6ECF2 light — tolta la nuance crema fuori palette).
+- Numerazioni colorate alternate: contatori a pillola per gli elenchi numerati (azure dispari / teal pari,
+  --teal #35A89B) e numerali ghost dei capitoli home alternati azure/teal.
+- /chi-sono/ riscritta in TERZA PERSONA (scelta utente): H1 "Il dott. Federico Fiori: profilo e chirurgia
+  della parete addominale", H2-domande in terza persona, answer/meta aggiornati, tolte quantificazioni
+  enfatiche ("centinaia di interventi", "originale"). Nav: "Chi sono" → "Il dott. Fiori". AuthorBox:
+  "Dove ricevo" → "Dove riceve". Nessun testo autocelebrativo residuo (scansione su tutti i JSON).
+- Test: test_reports/iteration_1.json — 100% backend/frontend, 0 bug, 0 errori console.
+- NOTA preview URL valido: https://chirurgia-test.preview.emergentagent.com (da REACT_APP_BACKEND_URL).
+
 
 ## Iterazione 18/09/2026 (giro hub 3: punti 13-14)
 - /chi-sono/ ritarghettizzata: "come opero" (title/H1/H2 come da hub, 705 parole, definizione

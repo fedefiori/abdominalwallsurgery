@@ -45,20 +45,27 @@ function splitLines(text) {
     return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
 }
 
-function Portrait() {
-    const { site } = useSite();
-    const src = `${process.env.REACT_APP_BACKEND_URL}/api/media/ritratto-dottor-fiori.webp`;
+function HeroVideo() {
+    const [reduced] = useState(() =>
+        typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
     return (
         <motion.figure
-            className="pw-hero-portrait" data-testid="hero-portrait"
+            className="pw-hero-portrait pw-hero-video" data-testid="hero-video"
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
         >
-            <img src={src} alt="Il dott. Federico Fiori in camice operatorio, ritratto ufficiale"
-                width="820" height="1000" fetchPriority="high" decoding="async" />
+            <video
+                autoPlay={!reduced} muted loop playsInline preload="metadata"
+                poster="/media/hero-loop-parete-addominale.webp"
+                aria-label="Animazione 3D della parete addominale: muscoli retti e linea alba"
+            >
+                <source src="/media/hero-loop-parete-addominale.webm" type="video/webm" />
+                <source src="/media/hero-loop-parete-addominale.mp4" type="video/mp4" />
+            </video>
             <figcaption>
-                <strong>Dott. Federico Fiori</strong>
-                <span>{site?.person?.jobTitle || 'Responsabile della Unità Operativa di Chirurgia della Parete Addominale'}</span>
+                <strong>Parete addominale</strong>
+                <span>Loop 3D · muscoli retti e linea alba</span>
             </figcaption>
         </motion.figure>
     );
@@ -123,7 +130,7 @@ export default function HomePage() {
                             {ui.contact_cta}
                         </Link>
                     </motion.div>
-                    <Portrait />
+                    <HeroVideo />
                 </div>
             </section>
 

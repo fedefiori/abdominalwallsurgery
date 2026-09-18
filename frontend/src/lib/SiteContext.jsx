@@ -6,7 +6,7 @@ const SiteCtx = createContext(null);
 export function SiteProvider({ children }) {
     const [site, setSite] = useState(null);
     const [theme, setThemeState] = useState(() => {
-        try { return localStorage.getItem('pw-theme') || 'dark'; } catch { return 'dark'; }
+        try { return localStorage.getItem('pw-theme') || 'light'; } catch { return 'light'; }
     });
 
     useEffect(() => {

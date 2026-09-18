@@ -313,25 +313,30 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
 
 
 BASE_CSS = """
-:root{--ink:#0B0C0E;--surface:#14161A;--line:#262B32;--text:#F2F5F8;--muted:#9BA2AC;--accent:#3C83E1;--accent-soft:#6FA5EC;--deep:#0E1B2E}
+:root{--ink:#F5F7FA;--surface:#FFFFFF;--line:#D3DCE5;--text:#0A2136;--muted:#4A5B6B;--accent:#0B81E1;--accent-ink:#0A63AE;--signal:#B4530A;--deep:#0B2C4A;--deep-text:#EAF2F9;--on-deep:#8FC1F4}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--ink);color:var(--text);font-family:Manrope,ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.75;font-size:16.5px}
+body{background:var(--ink);color:var(--text);font-family:"IBM Plex Sans",ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.75;font-size:18px}
 main{max-width:44em;margin:0 auto;padding:2rem 1.25rem}
+h1,h2,h3{font-family:"Newsreader",Georgia,serif;font-weight:600;letter-spacing:-0.01em}
 h1{font-size:2.2rem;line-height:1.2;margin-bottom:1rem}
 h2{font-size:1.5rem;margin:2.75rem 0 .8rem}
 h3{font-size:1.2rem;margin:2.2rem 0 .75rem}
-p{margin-bottom:1rem}
+p{margin-bottom:1rem;max-width:68ch}
 ul,ol{margin:0 0 1rem 1.4rem}
-a{color:var(--accent-soft)}
+a{color:var(--accent-ink);text-underline-offset:2px}
 figure{margin:1.4rem 0}
-img{max-width:100%;height:auto;border-radius:10px}
+img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
 figcaption{color:var(--muted);font-size:12.5px;margin-top:.5rem}
-.pw-answer{border-left:3px solid var(--accent);padding:.8rem 1.1rem;background:var(--deep);margin:1.2rem 0}
+.pw-answer{border-left:3px solid var(--accent);padding:.8rem 1.1rem;background:var(--deep);color:var(--deep-text);margin:1.2rem 0}
+.pw-answer a{color:var(--on-deep)}
 .pw-plainbox,.pw-note{border:1px solid var(--line);padding:1rem 1.2rem;background:var(--surface);margin:1.4rem 0}
+.pw-note{background:var(--deep);color:var(--deep-text);border-left:3px solid var(--accent)}
+.pw-note a{color:var(--on-deep)}
 .pw-table{overflow-x:auto}
 table{border-collapse:collapse;width:100%;min-width:520px}
 td,th{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}
-th{background:var(--deep)}
+th{background:var(--deep);color:var(--deep-text)}
+tr:nth-child(even) td{background:#E7ECF2}
 .pw-crumbs{font-size:.8rem;color:var(--muted);margin-bottom:1.4rem}
 .pw-crumbs a{color:var(--muted)}
 .pw-faq details{border-top:1px solid var(--line);padding:.8rem 0}

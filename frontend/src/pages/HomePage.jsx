@@ -171,8 +171,8 @@ export default function HomePage() {
                     <div className="pw-shell">
                         <Reveal>
                             <div className="pw-section-head">
-                                <span className="pw-label">{ui.articles_title}</span>
-                                <h2>{site?.lang === 'en' ? 'Latest from the editorial desk' : 'Ultimi articoli dalla redazione'}</h2>
+                                <span className="pw-label">{site?.lang === 'en' ? 'From the editorial desk' : 'Dalla redazione'}</span>
+                                <h2>{ui.articles_title}</h2>
                             </div>
                         </Reveal>
                         <div className="pw-article-list" data-testid="home-articles">

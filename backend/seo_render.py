@@ -313,7 +313,7 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
 
 
 BASE_CSS = """
-:root{--ink:#161B21;--surface:#1E252D;--line:#2C3742;--text:#EEF4FA;--muted:#9BAAB9;--accent:#0B81E1;--accent-soft:#4FB0F5;--deep:#08243B}
+:root{--ink:#0B0C0E;--surface:#14161A;--line:#262B32;--text:#F2F5F8;--muted:#9BA2AC;--accent:#3C83E1;--accent-soft:#6FA5EC;--deep:#0E1B2E}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--ink);color:var(--text);font-family:Manrope,ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.75;font-size:16.5px}
 main{max-width:44em;margin:0 auto;padding:2rem 1.25rem}

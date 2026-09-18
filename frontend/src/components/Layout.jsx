@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useSite } from '../lib/SiteContext';
-import { track } from '../lib/api';
+import { track, API } from '../lib/api';
 
 function Halo() {
     const ref = useRef(null);
@@ -90,7 +90,8 @@ export default function Layout({ children }) {
             <header className="pw-header" data-testid="site-header">
                 <div className="pw-shell pw-header-inner">
                     <Link to="/" className="pw-brand" data-testid="brand-link">
-                        <span className="pw-brand-mark" aria-hidden="true" />
+                        <img className="pw-brand-logo" src={`${API}/api/media/logo-chirurgia-della-parete.webp`}
+                            alt="Logo Chirurgia della Parete" width="30" height="30" data-testid="brand-logo" />
                         <span className="pw-brand-name">{ui.site_name}</span>
                         <span className="pw-brand-sub">Dott. Federico Fiori</span>
                     </Link>

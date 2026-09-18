@@ -3,41 +3,42 @@
 @tailwind utilities;
 
 /* ============================================================
-   CHIRURGIA DELLA PARETE — blu #0B81E1 su grigio acciaio.
+   CHIRURGIA DELLA PARETE — blu logo #3C83E1 su nero/carbone.
+   Palette volutamente distinta dal navy dell'hub federicofiori.com.
    Tipografia identica all'hub: Inter Tight / Manrope / Azeret Mono.
    ============================================================ */
 
 :root {
-    --ink: #161B21;
-    --surface: #1E252D;
-    --line: #2C3742;
-    --text: #EEF4FA;
-    --muted: #9BAAB9;
-    --accent: #0B81E1;
-    --accent-soft: #4FB0F5;
-    --deep: #08243B;
-    --accent-ink: #04121D;
+    --ink: #0B0C0E;
+    --surface: #14161A;
+    --line: #262B32;
+    --text: #F2F5F8;
+    --muted: #9BA2AC;
+    --accent: #3C83E1;
+    --accent-soft: #6FA5EC;
+    --deep: #0E1B2E;
+    --accent-ink: #04090F;
     --font-display: "Inter Tight", ui-sans-serif, sans-serif;
     --font-body: "Manrope", ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
     --font-mono: "Azeret Mono", ui-monospace, monospace;
-    --teal: #35A89B;
-    --band: #0E2A42;
-    --band-light: #303D4C;
+    --silver: #C3CCD6;
+    --band: #10203A;
+    --band-light: #22272E;
     --noise-opacity: 0.05;
 }
 
 [data-theme="light"] {
-    --ink: #F2F5F8;
+    --ink: #F3F4F6;
     --surface: #FFFFFF;
-    --line: #D5DEE7;
-    --text: #0C161F;
-    --muted: #55636F;
-    --accent: #0A63AE;
-    --accent-soft: #0A63AE;
-    --deep: #08243B;
+    --line: #D9DEE4;
+    --text: #111417;
+    --muted: #59616B;
+    --accent: #2F6FC9;
+    --accent-soft: #2F6FC9;
+    --deep: #0E1B2E;
     --accent-ink: #FFFFFF;
-    --band: #E8F0F8;
-    --band-light: #E6ECF2;
+    --band: #E6EEF9;
+    --band-light: #ECEEF1;
     --noise-opacity: 0.028;
 }
 
@@ -80,7 +81,7 @@ body {
 .pw-aurora i:nth-child(2) {
     width: 46vw; height: 46vw; min-width: 380px; min-height: 380px;
     bottom: -20%; right: -12%;
-    background: radial-gradient(circle, color-mix(in srgb, var(--teal) 13%, transparent) 0%, transparent 62%);
+    background: radial-gradient(circle, color-mix(in srgb, var(--silver) 13%, transparent) 0%, transparent 62%);
     animation: pw-drift-b 64s ease-in-out infinite alternate;
 }
 .pw-aurora i:nth-child(3) {
@@ -172,7 +173,7 @@ h1, h2, h3, h4 {
 }
 .pw-header-inner { display: flex; align-items: center; gap: 2rem; height: 68px; }
 .pw-brand { display: flex; align-items: baseline; gap: .65rem; text-decoration: none; color: var(--text); }
-.pw-brand-mark { width: 10px; height: 10px; background: var(--accent); align-self: center; flex: none; }
+.pw-brand-logo { width: 30px; height: 30px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); align-self: center; flex: none; display: block; }
 .pw-brand-name { font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; }
 .pw-brand-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 @media (max-width: 760px) { .pw-brand-sub { display: none; } }
@@ -351,9 +352,9 @@ h1, h2, h3, h4 {
     color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--accent-soft) 65%, transparent);
     transition: color .3s ease, -webkit-text-stroke-color .3s ease, transform .3s ease;
 }
-.pw-chapter:nth-child(even) .pw-chapter-num { -webkit-text-stroke-color: color-mix(in srgb, var(--teal) 75%, transparent); }
+.pw-chapter:nth-child(even) .pw-chapter-num { -webkit-text-stroke-color: color-mix(in srgb, var(--silver) 75%, transparent); }
 .pw-chapter:hover .pw-chapter-num { color: var(--accent); -webkit-text-stroke-color: var(--accent); transform: translateX(4px); }
-.pw-chapter:nth-child(even):hover .pw-chapter-num { color: var(--teal); -webkit-text-stroke-color: var(--teal); }
+.pw-chapter:nth-child(even):hover .pw-chapter-num { color: var(--silver); -webkit-text-stroke-color: var(--silver); }
 .pw-chapter-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2.2vw, 1.6rem); letter-spacing: -0.01em; }
 .pw-chapter-desc { color: var(--muted); font-size: 14px; margin-top: .25rem; max-width: 62ch; }
 .pw-chapter-arrow { color: var(--muted); transition: color .25s ease, transform .25s ease; }
@@ -476,7 +477,7 @@ h1, h2, h3, h4 {
 .pw-content ul, .pw-content ol { margin: 0 0 1.15rem 1.3rem; }
 .pw-content li { margin-bottom: .45rem; }
 
-/* elenchi numerati: contatori a pillola, colori alternati blu/teal */
+/* elenchi numerati: contatori a pillola, colori alternati blu/argento */
 .pw-content ol { list-style: none; counter-reset: pw-ol; margin-left: 0; }
 .pw-content ol > li {
     counter-increment: pw-ol;
@@ -496,9 +497,9 @@ h1, h2, h3, h4 {
     background: color-mix(in srgb, var(--accent) 13%, transparent);
 }
 .pw-content ol > li:nth-child(even)::before {
-    border-color: color-mix(in srgb, var(--teal) 55%, transparent);
-    color: var(--teal);
-    background: color-mix(in srgb, var(--teal) 13%, transparent);
+    border-color: color-mix(in srgb, var(--silver) 55%, transparent);
+    color: var(--silver);
+    background: color-mix(in srgb, var(--silver) 13%, transparent);
 }
 
 /* ---------------- immagini: FOTO vs SCHEMI ---------------- */

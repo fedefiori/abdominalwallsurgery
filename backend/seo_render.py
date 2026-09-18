@@ -142,7 +142,41 @@ def person_ld(entity):
     person = (entity or {}).get('person') or {}
     p = dict(person)
     p.pop('@context', None)
+    if p:
+        # regola di rete: qualifica + ruolo, in quest'ordine (lista ammessa da schema.org)
+        if not isinstance(p.get('jobTitle'), list):
+            p['jobTitle'] = [
+                'Medico Chirurgo - Specialista in Chirurgia Generale',
+                'Responsabile della Unità Operativa di Chirurgia della Parete Addominale',
+            ]
     return p
+
+
+PERSON_REF_ID = 'https://www.federicofiori.com/curriculum#federico-fiori'
+
+
+def author_box_html(domain, person, updated_iso, lang):
+    """Riquadro d'autore in coda alle pagine cliniche e agli articoli (prerender)."""
+    nome = person.get('name', 'Dott. Federico Fiori')
+    data = (updated_iso or '')[:10]
+    try:
+        from datetime import date
+        y, m, d = data.split('-')
+        data = f'{d}/{m}/{y}'
+    except Exception:
+        pass
+    img = f'{domain}/api/media/ritratto-dottor-fiori.webp'
+    return f'''<aside class="pw-authorbox" aria-label="Autore">
+<img src="{esc(img)}" alt="Ritratto del dott. Federico Fiori" width="72" height="72" loading="lazy" decoding="async" />
+<div>
+<strong>{esc(nome)}</strong><br />
+<span>Medico Chirurgo - Specialista in Chirurgia Generale</span><br />
+<span>Responsabile della Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span><br />
+<span>Scrive e revisiona i contenuti di questo sito.</span><br />
+<a href="https://www.federicofiori.com/curriculum">Curriculum completo</a> · <a href="{domain}/contatti/">Dove ricevo</a>
+{f'<br /><small>Pagina aggiornata il {esc(data)}</small>' if data else ''}
+</div>
+</aside>'''
 
 
 def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
@@ -160,6 +194,8 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
         'inLanguage': site['lang'],
         'isPartOf': {'@id': f"{site['domain']}/#website"},
         'about': {'@id': person.get('@id')} if person.get('@id') else None,
+        'author': {'@id': PERSON_REF_ID},
+        'reviewedBy': {'@id': PERSON_REF_ID},
         'speakable': {
             '@type': 'SpeakableSpecification',
             'cssSelector': ['h1', '.pw-answer'],
@@ -248,7 +284,8 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
             'dateModified': article.get('updatedAt') or article.get('publishedAt'),
             'inLanguage': article.get('lang', site['lang']),
             'mainEntityOfPage': canonical,
-            'author': person if person else {'@type': 'Person', 'name': 'Dott. Federico Fiori'},
+            'author': person if person else {'@id': PERSON_REF_ID},
+            'reviewedBy': {'@id': PERSON_REF_ID},
             'isPartOf': {'@id': f"{site['domain']}/#website"},
         },
         {
@@ -302,6 +339,9 @@ th{background:var(--deep)}
 .pw-net{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;color:var(--muted);font-size:.9rem}
 .pw-rel{border:1px solid var(--line);background:var(--surface);padding:1rem 1.2rem;margin-top:2.4rem;font-size:.95rem}
 .pw-rel li{margin:.3rem 0}
+.pw-authorbox{border:1px solid var(--line);background:var(--surface);padding:1rem 1.2rem;margin-top:2.4rem;font-size:.9rem;display:flex;gap:1rem;align-items:flex-start}
+.pw-authorbox img{border-radius:50%;width:72px;height:72px;object-fit:cover}
+.pw-authorbox span{color:var(--muted)}
 """
 
 
@@ -327,6 +367,10 @@ def prerender_page(page, content, site, entity, absolute, noindex):
     ld = page_jsonld(page, content, site, entity, canonical, crumb_items)
     robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
     net = network_html(site)
+    kind = (page.get('it') or {}).get('kind', 'clinical')
+    abox = ''
+    if kind not in ('home', 'legal', 'contact'):
+        abox = author_box_html(site['domain'], (entity or {}).get('person') or {}, page.get('modified', ''), site['lang'])
     rel = content.get('related') or []
     rel_html = ''
     if rel:
@@ -351,6 +395,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
 {f'<p class="pw-answer">{esc(answer)}</p>' if answer else ''}
 {body}
 {faq_html}
+{abox}
 {rel_html}
 {net}
 </main>
@@ -384,6 +429,8 @@ def prerender_article(article, site, entity, absolute, noindex):
     ld = article_jsonld(article, site, entity, canonical, crumb_items)
     robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
     rel = ARTICLE_RELATED.get(article.get('slug'), [])
+    abox = author_box_html(site['domain'], (entity or {}).get('person') or {},
+                           article.get('updatedAt') or article.get('publishedAt') or '', site['lang'])
     rel_html = ''
     if rel:
         lis = ''.join(f'<li><a href="{esc(domain + h)}">{esc(l)}</a></li>' for l, h in rel)
@@ -416,6 +463,7 @@ def prerender_article(article, site, entity, absolute, noindex):
 {cover}
 {body}
 {faq_html}
+{abox}
 {rel_html}
 {network_html(site)}
 </main>

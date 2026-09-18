@@ -4,6 +4,7 @@ import { useSite } from '../lib/SiteContext';
 import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
 import { Blocks, tocOf, Related } from '../components/Blocks';
+import { AuthorBox } from '../components/AuthorBox';
 import { Reveal } from '../components/Reveal';
 import { FaqView } from '../components/FaqView';
 
@@ -84,6 +85,7 @@ export default function ArticlePage() {
                             </figure>
                         )}
                         <Blocks blocks={post.sections || []} />
+                        <AuthorBox updated={post.updatedAt || post.publishedAt} />
                         <Related items={post.siteRelated} title="Su questo sito" />
                         <p style={{ marginTop: '1rem' }}>
                             <Link to={site.articlesIndex} data-testid="article-back-index">← {ui.breadcrumb_articles}</Link>

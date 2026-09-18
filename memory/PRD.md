@@ -61,6 +61,14 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
 - Banca immagini: /app/backend/data/imagebank.json (titolo, soggetto, didascalia, alt, tag).
 
+## Iterazione 18/09/2026 (giro hub 3: punti 13-14)
+- /chi-sono/ ritarghettizzata: "come opero" (title/H1/H2 come da hub, 705 parole, definizione
+  ufficiale del Dottore, niente "chirurgo della parete" per la persona).
+- AuthorBox (componente) su pagine cliniche e articoli + nel prerender; author/reviewedBy = @id hub;
+  Person.jobTitle come lista [qualifica, ruolo].
+- Design: corpo Literata, titoli Inter Tight + etichette Azeret Mono (hub); bande a contrasto
+  maggiore; schemi a lato del testo alternati dx/sx; barra di progresso; micro-motion sulle figure.
+
 ## Iterazione 18/09/2026 (giro hub 2)
 - Recapiti unificati (no tiscali; +39 02 76021568; info@fimulticare.it; info@federicofiori.com).
 - Risposte dirette riscritte ovunque (mai uguali al corpo). Titoli in minuscolo di rete.

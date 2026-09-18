@@ -2,86 +2,82 @@
  "slug": "chi-sono",
  "path": "/chi-sono/",
  "it": {
-  "h1": "Dott. Federico Fiori — chirurgo della parete addominale",
-  "metaTitle": "Chi sono | dott. Federico Fiori, chirurgo della parete",
-  "metaDescription": "Il dott. Federico Fiori, chirurgo generale a Milano, responsabile della Unità Operativa di Chirurgia della Parete Addominale di ASST Santi Paolo e Carlo.",
+  "h1": "Come opero i difetti della parete addominale",
+  "metaTitle": "Chirurgia della parete addominale a Milano: come opero",
+  "metaDescription": "Come affronto ernie, laparoceli e difetti complessi della parete addominale: criteri di scelta della tecnica, dove opero e dove ricevo a Milano.",
   "blocks": [
    {
     "type": "img",
     "src": "/api/media/ritratto-dottor-fiori.webp",
     "alt": "Il dott. Federico Fiori in camice operatorio, ritratto ufficiale",
-    "caption": "Il dott. Federico Fiori, responsabile della Unità Operativa di Chirurgia della Parete Addominale a Milano.",
+    "caption": "Il dott. Federico Fiori, Responsabile della Unità Operativa di Chirurgia della Parete Addominale, a Milano.",
     "kind": "photo",
     "width": 820,
     "height": 1000
    },
    {
     "type": "h2",
-    "text": "Di che cosa si occupa il dott. Fiori in chirurgia della parete?"
+    "text": "Di che cosa mi occupo in chirurgia della parete?"
    },
    {
     "type": "p",
-    "html": "Il dott. Federico Fiori si occupa dei difetti della parete addominale anteriore: ernie primitive, ernie incisionali (laparoceli) e diastasi dei muscoli retti, con particolare attenzione alle riparazioni complesse, ai disastri di parete e alle recidive dopo precedenti interventi."
+    "html": "Mi occupo dei difetti della parete addominale anteriore: ernie primitive, ernie incisionali (laparoceli) e diastasi dei muscoli retti, con particolare attenzione alle riparazioni complesse, ai disastri di parete e alle recidive dopo precedenti interventi."
    },
    {
     "type": "p",
-    "html": "È Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano, dove è responsabile della Unità Operativa di Chirurgia della Parete Addominale, ed è esperto di chirurgia mininvasiva e robotica della parete addominale: alla chirurgia addominale si dedica da oltre vent'anni, con centinaia di interventi laparoscopici all'attivo. Dal 1996 si occupa anche di chirurgia plastica ricostruttiva del tronco, competenza che impiega nel ripristino funzionale ed estetico della parete."
+    "html": "Sono Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano e ricopro il ruolo di Responsabile della Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Alla chirurgia addominale mi dedico da oltre vent'anni, con centinaia di interventi laparoscopici all'attivo; dal 1996 mi occupo anche di chirurgia plastica ricostruttiva del tronco, che impiega ogni giorno nel ripristino funzionale ed estetico della parete."
    },
    {
     "type": "p",
-    "html": "È titolare dell'ambulatorio di Chirurgia della Parete. Nel gennaio 2019 ha pubblicato sul <i>Journal of Laparoendoscopic &amp; Advanced Surgical Techniques</i> la TESAR, una tecnica endoscopica originale per il trattamento mininvasivo dei laparoceli e delle ernie ventrali (J Laparoendosc Adv Surg Tech A. 2019. DOI: 10.1089/lap.2018.0807. PMID: 30807248)."
+    "html": "Sono titolare dell'ambulatorio di Chirurgia della Parete. Nel gennaio 2019 ho pubblicato sul <i>Journal of Laparoendoscopic &amp; Advanced Surgical Techniques</i> la TESAR, una tecnica endoscopica originale per il trattamento mininvasivo dei laparoceli e delle ernie ventrali (J Laparoendosc Adv Surg Tech A. 2019. DOI: 10.1089/lap.2018.0807. PMID: 30807248)."
    },
    {
     "type": "h2",
-    "text": "Dove opera e dove riceve?"
+    "text": "Come scelgo la tecnica per ogni Paziente?"
    },
    {
     "type": "p",
-    "html": "Opera presso la Divisione di Chirurgia d'Urgenza – Chirurgia Generale e Robotica dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano, dove da oltre quindici anni svolge funzione di Capoturno Chirurgo con ruolo di Trauma Leader e autonomia gestionale e chirurgica nei casi di politrauma maggiore."
+    "html": "Scelgo la tecnica sul singolo Paziente, non sull'abitudine: contano la sede e la dimensione del difetto, la qualità della linea alba e dei muscoli, la storia chirurgica precedente e le condizioni generali. Per questo la valutazione in ambulatorio comprende sempre l'esame clinico e, quando serve, la <a href=\"/radiologia/\">diagnostica per immagini della parete addominale</a>."
    },
    {
     "type": "p",
-    "html": "Riceve su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano. Telefono <a href=\"tel:+390276021568\">+39 02 76021568</a>, e-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a>. Tutti i riferimenti sono nella <a href=\"/contatti/\">pagina dei contatti</a>."
+    "html": "A seconda del quadro, la scelta ricade sulla via aperta, laparoscopica, robotica o endoscopica, con la protesi e il <a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">piano di posizionamento della rete</a> più adatti al caso: le tecniche sono descritte nella pagina della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica della parete</a>. Quando il quadro clinico lo richiede, il percorso inizia con la <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione prima dell'intervento</a>."
    },
    {
     "type": "h2",
-    "text": "Come viene scelta la tecnica per ogni Paziente?"
+    "text": "Dove opero e dove ricevo?"
    },
    {
     "type": "p",
-    "html": "La tecnica si sceglie sul singolo Paziente, non sull'abitudine: contano la sede e la dimensione del difetto, la qualità della linea alba e dei muscoli, la storia chirurgica precedente e le condizioni generali. Per questo la valutazione in ambulatorio comprende sempre l'esame clinico e, quando serve, la <a href=\"/radiologia/\">diagnostica per immagini della parete</a>."
+    "html": "Opero presso la Divisione di Chirurgia d'Urgenza – Chirurgia Generale e Robotica dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano, dove da oltre quindici anni svolgo funzione di Capoturno Chirurgo con ruolo di Trauma Leader."
    },
    {
     "type": "p",
-    "html": "A seconda del quadro, la scelta ricade sulla via aperta, laparoscopica, robotica o endoscopica, con la protesi e il <a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">piano di posizionamento</a> più adatti al caso: le tecniche sono descritte nella pagina della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica</a>. Quando il quadro clinico lo richiede, il percorso inizia con la <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione</a>."
+    "html": "Ricevo su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano. Telefono <a href=\"tel:+390276021568\">+39 02 76021568</a>, e-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a>. Tutti i riferimenti sono nella <a href=\"/contatti/\">pagina dei contatti dello studio</a>."
    },
    {
     "type": "h2",
-    "text": "Che cosa insegna e dove?"
+    "text": "Che cosa insegno e dove?"
    },
    {
     "type": "p",
-    "html": "La tecnica TESAR e i suoi risultati sono stati presentati come relatore a congressi nazionali e internazionali di chirurgia della parete — fra cui EHS, ACOI, ISHAWS e AWR Europe — e in videocorsi dedicati alla riparazione dei difetti della linea mediana. La formazione continua fa parte del lavoro: i congressi si inseguono, la casistica cresce e la tecnica si aggiorna."
-   },
-   {
-    "type": "p",
-    "html": "Le pubblicazioni principali sulla parete addominale: <i>Totally Endoscopic Sublay Anterior Repair for Ventral and Incisional Hernias</i>, J Laparoendosc Adv Surg Tech A, 2019, DOI: 10.1089/lap.2018.0807, PMID: 30807248; <i>Surgical treatment of diastasis recti: the importance of an overall view of the problem</i>, Hernia, 2020, DOI: 10.1007/s10029-020-02252-0, PMID: 32564225."
+    "html": "Ho presentato la tecnica TESAR e i suoi risultati come relatore a congressi nazionali e internazionali di chirurgia della parete — fra cui EHS, ACOI, ISHAWS e AWR Europe — e in videocorsi dedicati alla riparazione dei difetti della linea mediana."
    },
    {
     "type": "h2",
-    "text": "Dove trovare il curriculum completo?"
+    "text": "Dove trovo il curriculum completo?"
    },
    {
     "type": "p",
-    "html": "Curriculum completo, titoli, congressi, pubblicazioni e galleria dei risultati non si duplicano su questo sito: sono pubblicati sull'hub della rete, alla pagina <a href=\"https://www.federicofiori.com/curriculum\">curriculum del dott. Federico Fiori su federicofiori.com</a>."
+    "html": "Curriculum completo, titoli, congressi, pubblicazioni e galleria dei risultati non si duplicano su questo sito: sono pubblicati sull'hub della rete, alla pagina <a href=\"https://www.federicofiori.com/curriculum\">curriculum completo del dott. Federico Fiori</a>. Chi sono, nel senso anagrafico e professionale, lo racconta l'hub; qui racconto come opero."
    }
   ],
   "kind": "profile",
-  "answer": "Il dott. Federico Fiori è un chirurgo generale che si occupa in modo specifico dei difetti della parete addominale: ernie, laparoceli e diastasi dei muscoli retti. È responsabile della Unità Operativa di Chirurgia della Parete Addominale dell'ASST Santi Paolo e Carlo di Milano e riceve su appuntamento presso Fi Multicare, in Galleria del Corso 4 a Milano.",
+  "answer": "Sono il dott. Federico Fiori, Medico Chirurgo - Specialista in Chirurgia Generale, con alta specializzazione in chirurgia della parete addominale e in chirurgia plastica. In questa pagina racconto come opero i difetti della parete addominale: i criteri con cui scelgo la tecnica per ogni Paziente, dove opero in ASST a Milano e dove ricevo, presso Fi Multicare in Galleria del Corso 4.",
   "faq": [
    {
     "q": "Chi è il dott. Federico Fiori?",
-    "a": "Il dott. Federico Fiori è un chirurgo generale, Dirigente Medico presso l'ASST Santi Paolo e Carlo di Milano, dove è responsabile della Unità Operativa di Chirurgia della Parete Addominale. Si occupa di ernie, laparoceli e diastasi dei muscoli retti con tecniche aperte, laparoscopiche, robotiche ed endoscopiche."
+    "a": "Il dott. Federico Fiori è Medico Chirurgo - Specialista in Chirurgia Generale, con alta specializzazione in chirurgia della parete addominale e in chirurgia plastica. È Responsabile della Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di ernie, laparoceli e diastasi dei muscoli retti con tecniche aperte, laparoscopiche, robotiche ed endoscopiche."
    },
    {
     "q": "Dove riceve il dott. Federico Fiori?",

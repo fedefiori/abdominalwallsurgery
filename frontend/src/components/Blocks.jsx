@@ -13,12 +13,12 @@ function imgSrc(src) {
     return `${API}${src}`;
 }
 
-function Figure({ b, first }) {
+function Figure({ b, first, side }) {
     const open = useLightbox();
     const kind = b.kind === 'schema' ? 'schema' : 'photo';
     const src = imgSrc(b.src);
     return (
-        <figure className={`pw-img-${kind}`} data-testid={`page-figure-${kind}`}>
+        <figure className={`pw-img-${kind}${side ? ` pw-fig-side-${side}` : ''}`} data-testid={`page-figure-${kind}`}>
             <img
                 src={src}
                 alt={b.alt || ''}
@@ -93,9 +93,21 @@ export function Blocks({ blocks }) {
     sections.forEach((sec, s) => {
         const band = s === 0 && sec[0].type !== 'h2' ? 0 : ((s - 1) % 3) + 1;
         const children = [];
+        let sectionImgDone = false;
         for (let i = 0; i < sec.length; i += 1) {
             const b = sec[i];
             if (b.type === 'img') {
+                // primo schema della sezione: a lato del testo, lato alternato
+                let side = null;
+                if (!sectionImgDone && b.kind === 'schema') {
+                    side = s % 2 === 0 ? 'r' : 'l';
+                    sectionImgDone = true;
+                }
+                if (side) {
+                    imgIndex += 1;
+                    children.push(<Figure key={`side-${i}`} b={b} first={imgIndex === 1} side={side} />);
+                    continue;
+                }
                 const duo = [];
                 while (i < sec.length && sec[i].type === 'img' && duo.length < 2) {
                     duo.push(sec[i]);

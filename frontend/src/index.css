@@ -17,11 +17,11 @@
     --accent-soft: #4FB0F5;
     --deep: #08243B;
     --accent-ink: #04121D;
-    --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-display: "Inter Tight", ui-sans-serif, sans-serif;
     --font-body: "Literata", Georgia, serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    --font-mono: "Azeret Mono", ui-monospace, monospace;
     --band: #0E2A42;
-    --band-light: #2A3644;
+    --band-light: #2E3D4D;
     --noise-opacity: 0.05;
 }
 
@@ -357,11 +357,11 @@ h1, h2, h3, h4 {
 .pw-toc a.active { color: var(--accent-soft); border-left-color: var(--accent); }
 
 /* ---------------- sezioni alternate: tre nuance + trasparente ---------------- */
-.pw-sect { border-radius: 14px; padding: 0.4rem 1.4rem; margin: 0 0 1.4rem; }
+.pw-sect { border-radius: 14px; padding: 0.6rem 1.4rem; margin: 0 0 1.4rem; overflow: hidden; }
 .pw-sect-1 {
     background: var(--surface); border: 1px solid var(--line);
     margin-right: clamp(0px, 4vw, 52px);
-    border-left: 3px solid var(--line);
+    border-left: 3px solid var(--accent-soft);
 }
 .pw-sect-2 {
     background: var(--band); border: 1px solid var(--line);
@@ -371,7 +371,43 @@ h1, h2, h3, h4 {
 .pw-sect-3 {
     background: var(--band-light); border: 1px solid var(--line);
     margin-right: clamp(0px, 3vw, 36px);
-    border-left: 3px solid var(--accent-soft);
+    border-left: 3px solid var(--muted);
+}
+
+/* figure a lato del testo (schemi): alternano destra e sinistra */
+@media (min-width: 860px) {
+    .pw-fig-side-r { float: right; width: min(40%, 340px); margin: .4rem 0 1rem 1.6rem; }
+    .pw-fig-side-l { float: left; width: min(40%, 340px); margin: .4rem 1.6rem 1rem 0; }
+    .pw-fig-side-r img, .pw-fig-side-l img { max-height: 300px; width: 100%; }
+}
+.pw-sect::after { content: ""; display: block; clear: both; }
+
+/* riquadro d'autore */
+.pw-authorbox {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    border: 1px solid var(--line); background: var(--surface);
+    border-radius: 14px; padding: 1.4rem 1.5rem; margin-top: 3rem;
+}
+.pw-authorbox img {
+    width: 72px; height: 72px; border-radius: 50%; object-fit: cover;
+    border: 1px solid var(--line); flex: none;
+}
+.pw-authorbox-body { display: flex; flex-direction: column; gap: .2rem; font-size: 14.5px; line-height: 1.55; }
+.pw-authorbox-body strong { font-family: var(--font-display); font-size: 16px; }
+.pw-authorbox-body span { color: var(--muted); }
+.pw-authorbox-review { font-style: italic; }
+.pw-authorbox-links { margin-top: .3rem; }
+.pw-authorbox-date { color: var(--muted); margin-top: .3rem; font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; }
+
+/* micro-movimento sulle figure */
+.pw-content figure img { transition: transform .45s cubic-bezier(.22, 1, .36, 1), border-color .3s ease; }
+.pw-content figure:hover img { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent-soft) 55%, transparent); }
+
+/* barra di progresso di lettura */
+.pw-progress {
+    position: fixed; top: 0; left: 0; height: 2px; z-index: 60;
+    background: var(--accent); width: 0;
+    transition: width .1s linear;
 }
 .pw-hero-titles {
     font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em;

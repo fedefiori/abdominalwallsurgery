@@ -25,6 +25,25 @@ function Halo() {
     return <div className="pw-halo" ref={ref} aria-hidden="true" />;
 }
 
+function Progress() {
+    const ref = useRef(null);
+    useEffect(() => {
+        let raf = 0;
+        const onScroll = () => {
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                if (ref.current) {
+                    ref.current.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+                }
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+    }, []);
+    return <div className="pw-progress" ref={ref} aria-hidden="true" />;
+}
+
 function ThemeToggle() {
     const { theme, setTheme, ui } = useSite();
     const next = theme === 'dark' ? 'light' : 'dark';
@@ -58,6 +77,7 @@ export default function Layout({ children }) {
     return (
         <>
             <Halo />
+            <Progress />
             <header className="pw-header" data-testid="site-header">
                 <div className="pw-shell pw-header-inner">
                     <Link to="/" className="pw-brand" data-testid="brand-link">

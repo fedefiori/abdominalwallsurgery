@@ -1,3 +1,39 @@
+# COLLAUDO 4 — punti 13-14 hub + design (18/09/2026, pomeriggio)
+
+## Punto 13 — /chi-sono/ cambia bersaglio
+- title: "Chirurgia della parete addominale a Milano: come opero" (54)
+- description: "Come affronto ernie, laparoceli e difetti complessi della parete addominale:
+  criteri di scelta della tecnica, dove opero e dove ricevo a Milano." (144, testo esatto dell'hub)
+- H1: "Come opero i difetti della parete addominale" (nome NON nell'H1)
+- H2 (domande, come prescritto): Di che cosa mi occupo in chirurgia della parete? /
+  Come scelgo la tecnica per ogni Paziente? / Dove opero e dove ricevo? / Che cosa insegno e dove? /
+  Dove trovo il curriculum completo?
+- 705 parole (600-800 richieste). Formula di definizione del Dottore applicata:
+  "Medico Chirurgo - Specialista in Chirurgia Generale, con alta specializzazione in chirurgia
+  della parete addominale e in chirurgia plastica". Zero occorrenze di "chirurgo della parete"
+  riferite alla persona. "chi sono" assente da title/description/H1.
+
+## Punto 14 — riquadro d'autore
+Componente AuthorBox su tutte le pagine cliniche e tutti gli articoli, prima di "Leggi anche":
+ritratto 72px circolare, nome, qualifica, ruolo esteso, "Scrive e revisiona i contenuti di questo
+sito.", link Curriculum hub + Dove ricevo, data di ultima modifica del contenuto. Presente anche
+nel prerender dei crawler. JSON-LD: author e reviewedBy = @id hub su pagine e articoli;
+Person.jobTitle come lista [qualifica, ruolo] (regola punto 8). Screenshot: /tmp/j_authorbox.png
+(pagina clinica), /tmp/j_articolo_box.png (articolo).
+
+## jobTitle punto 8
+Person.jobTitle nel JSON-LD: ["Medico Chirurgo - Specialista in Chirurgia Generale",
+"Responsabile della Unità Operativa di Chirurgia della Parete Addominale"].
+
+## Design (richiesta utente, stesso turno)
+- Font: corpo Literata 18px/1.75 (contratto), titoli Inter Tight e etichette Azeret Mono (hub).
+- Sfondi piu' dinamici: ciclo a 4 superfici con contrasto maggiore (grafite / acciaio / blu
+  profondo / acciaio chiaro), filetti laterali alternati, figure degli schemi a lato del testo
+  (destra/sinistra alternate) su desktop, barra di progresso di lettura in alto, micro-movimento
+  sulle figure al passaggio del mouse, alone in parallasse. Tutto sospeso con prefers-reduced-motion.
+- Verifiche browser: chi-sono, terapia (author box + figure laterali), articolo (author box +
+  Su questo sito), zero errori console.
+
 # COLLAUDO 3 — giro hub 2 (18/09/2026)
 Host: https://chirurgia-test.preview.emergentagent.com
 

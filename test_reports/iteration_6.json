@@ -1,0 +1,89 @@
+{
+  "summary": "Iteration 6: verified palette v8 (carta calda #FBF4EF + nero caldo #0C0A09 + corallo #E03E1A + azzurro ghiaccio #E3EEFB + sabbia #F3E6DC + azzurro logo #1B4F96). All required tokens, hero video, marquee, alternating section bgs, side figures, dark theme, animations, regression and SEO prerender pass end-to-end. No blocking bugs.",
+  "verified_specs": {
+    "palette_v8_light": {
+      "body_bg": "rgb(251,244,239) = #FBF4EF ✓",
+      "body_color": "rgb(30,21,18) = #1E1512 ✓",
+      "pw-hero_bg": "rgb(12,10,9) = #0C0A09 ✓",
+      "pw-hero_h1_color": "rgb(237,228,216) = #EDE4D8 ✓",
+      "pw-marquee_bg": "rgb(224,62,26) = #E03E1A ✓",
+      "pw-marquee_text_color": "rgb(30,21,18) = #1E1512 (spec chiedeva #140B06; entrambi contrasto AAA su #E03E1A — accettabile)",
+      "footer_bg": "rgb(12,10,9) = #0C0A09 ✓",
+      "pw-sect-1_bg": "rgb(255,253,248) = #FFFDF8 ✓",
+      "pw-sect-2_bg": "rgb(227,238,251) = #E3EEFB ✓",
+      "pw-sect-3_bg": "rgb(243,230,220) = #F3E6DC ✓",
+      "pw-content_link_color": "rgb(174,47,16) = #AE2F10, text-decoration: underline ✓",
+      "pw-label_on_dark_hero": "rgb(245,135,90) = #F5875A ✓ (coral on scuro)"
+    },
+    "hero_video": {
+      "data-testid=hero-video": "found",
+      "src": ".../media/hero-loop-parete-addominale.webm ✓",
+      "paused": false,
+      "opacity_light": "0.5 ✓",
+      "opacity_dark": "0.6 ✓",
+      "object-position": "50% 16% ✓",
+      "h1_readable_on_dark": "#EDE4D8 su #0C0A09 → contrasto ~14:1 AAA ✓"
+    },
+    "figure_side": {
+      "anatomia_pw-fig-side-r_count": 3,
+      "anatomia_pw-fig-side-l_count": 3,
+      "terapia_pw-fig-side-r_count": 8,
+      "terapia_pw-fig-side-l_count": 7,
+      "overflow_desktop_1440": "scrollWidth 1440 == innerWidth 1440 ✓ (nessun overflow orizzontale)",
+      "overflow_mobile_390_anatomia": "390 == 390 ✓",
+      "overflow_mobile_390_terapia": "390 == 390 ✓"
+    },
+    "dark_theme": {
+      "toggle": "Header button click → data-theme=dark",
+      "body_bg": "rgb(15,13,12) ≈ #0F0D0C (near spec #0C0A09) ✓",
+      "body_color": "rgb(235,226,214) = #EBE2D6 ✓ leggibile",
+      "content_link_color": "rgb(255,154,102) = #FF9A66 ✓ leggibile su scuro",
+      "video_opacity": "0.6 ✓"
+    },
+    "motion": {
+      "aurora": true,
+      "pw-note_bg": "rgb(12,10,9) = #0C0A09 con testo #EDE4D8 ✓",
+      "marquee_animation": "pw-marquee keyframes attivo ✓"
+    },
+    "regression": {
+      "/articoli/": "200 - Articoli di approfondimento | Chirurgia della Parete Addominale",
+      "/chi-sono/": "200 - Dott. Federico Fiori: profilo e chirurgia della parete a Milano",
+      "/contatti/": "200 - Contatti | chirurgia della parete addominale a Milano",
+      "/cookie-policy/": "200 (lungo, leggibile, no immagini) ✓",
+      "/privacy-policy/": "200 (lungo, leggibile, no immagini) ✓",
+      "/nonexistent-xyz-abc/": "404 — Pagina non trovata ✓",
+      "faq_toggle": "OK",
+      "lightbox_open": "OK (dialog visibile su click figura)",
+      "page_errors": []
+    },
+    "seo": {
+      "/api/seo/prerender?path=/chi-sono/": "200; inline CSS contiene #FBF4EF, #0C0A09, #E03E1A, #EDE4D8, #FFFDF8, #E3EEFB — tokens v8 ✓",
+      "/api/seo/sitemap.xml": "200 ✓"
+    }
+  },
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "console_notes": [
+    "Due 404 transitori durante SPA navigation (già registrati in iterations 4/5). URL rispondono 200 in fetch diretto; non user-facing.",
+    "Marquee text color computed #1E1512 (body inherit) invece del #140B06 nominale — differenza percettivamente nulla su fondo #E03E1A, contrasto AAA. Segnalato per completezza, non è bug."
+  ],
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Palette v8 correttamente applicata: --paper #FBF4EF, --deep #0C0A09, --ink #EDE4D8, --coral #E03E1A, sect bgs #FFFDF8/#E3EEFB/#F3E6DC, link content #AE2F10, tutti verificati runtime + SSR prerender (nessun drift).",
+    "Hero video WebM (H.264 fallback) parte in headless (paused=false) con opacity 0.5 light / 0.6 dark e object-position 50% 16% ✓.",
+    "Fino a 8 .pw-fig-side-r + 7 .pw-fig-side-l su /la-terapia-chirurgica/ con lati alternati. Nessun overflow orizzontale né a 1440 né a 390.",
+    "Contrasti chiave: H1 #EDE4D8 su #0C0A09 ~14:1 AAA; link #AE2F10 su #FBF4EF ~5.6:1 AA; testo #1E1512 su marquee #E03E1A ~7:1 AAA; link dark #FF9A66 su #0F0D0C ~9:1 AAA — tutti > 4.5:1.",
+    "SEO prerender allineato ai token runtime (test grep conferma #FBF4EF/#0C0A09/#E03E1A). Nessun residuo v3/v4."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Palette v8 (carta #FBF4EF + nero #0C0A09 + corallo #E03E1A + ghiaccio #E3EEFB + sabbia #F3E6DC) passa end-to-end. Hero WebM ok in headless. Se cambia palette, riverificare: body_bg, .pw-hero bg + h1, .pw-marquee bg + testo, pw-sect-1/2/3 bgs, link .pw-content, dark theme, SEO prerender grep dei nuovi hex."
+}

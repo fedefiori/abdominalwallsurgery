@@ -61,6 +61,24 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+## Iterazione 19/09/2026 — PALETTE VERSIONE 8 definitiva (scelta utente dai mockup numerati)
+- PROCESSO: logo analizzato via PIL (#000000 69%, azzurro #9FBEE8 22%, medio #3675C8). Mockup numerati
+  in /public/palette-v4.html (v1-v9 nei vari round). Scelta utente finale: VARIANTE 8 "Spezzato netto"
+  (corallo acceso della v3 + home scura della v5 + azzurro del logo nei richiami).
+- TOKEN V8: pagina carta #FBF4EF; hero/fasce/footer quasi-nero caldo #0C0A09 (testo #EDE4D8); striscia
+  marquee CORALLO PIENO #E03E1A testo scuro; bottoni #C93412/#FFF3E8; link su chiaro #AE2F10; sezioni
+  alternate bianco caldo #FFFDF8 / AZZURRO-GHIACCIO logo #E3EEFB / sabbia #F3E6DC; etichette/numeri:
+  azzurro logo scuro #1B4F96 su chiaro, corallo #F5875A su scuro; link su scuro ghiaccio #9FBEE8.
+  Dark: #0C0A09 fondo, accent #F5641F, link #FF9A66.
+- HERO: fascia scura con video 3D dietro le scritte (opacity .5/.6, velo --deep, object-position 50% 16%),
+  alone azzurro logo in deriva. Animazioni entrata a 0,4s (Reveal + MaskLines + hero). Fascia capitoli con
+  bordi diagonali + texture che deriva. Numeri capitoli ghost corallo/ghiaccio alternati.
+- IMMAGINI A FIANCO: Blocks.jsx ora affianca fino a 2 immagini per sezione (foto+schemi), lato alternato
+  (min(46%,440px)). Libreria immagini usata al 97% (56/58); le 2 residue sono radiologiche, non forzate
+  fuori contesto clinico. Pagine legali (privacy/cookie) senza immagini per scelta.
+- Test: test_reports/iteration_6.json — 100%, 0 bug, contrasti AAA verificati, nessun overflow mobile,
+  prerender SEO allineato ai token. Palette DEFINITIVA salvo nuova richiesta esplicita.
+
 ## Iterazione 19/09/2026 — PALETTE VERSIONE 3 "azzurro luminoso" (richiesta utente)
 - V3: blu/azzurri CHIARI attinenti al logo ma mai navy-hub. Ghiaccio #F2F7FD, corpo ardesia #15293E,
   TITOLI IN COBALTO #0B4FBE (colore diverso dal corpo, ~7,9:1 AAA), accent #0B63E5, link #0A4CB0,

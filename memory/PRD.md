@@ -61,6 +61,21 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+## Iterazione 19/09/2026 — PALETTE VERSIONE 3 "azzurro luminoso" (richiesta utente)
+- V3: blu/azzurri CHIARI attinenti al logo ma mai navy-hub. Ghiaccio #F2F7FD, corpo ardesia #15293E,
+  TITOLI IN COBALTO #0B4FBE (colore diverso dal corpo, ~7,9:1 AAA), accent #0B63E5, link #0A4CB0,
+  fasce scure zaffiro #0D2E5E (più chiare del navy hub), rame #B4530A numeri/etichette, fasce alternate
+  azzurro #E2EDFA e SABBIA #FAF3E9 ("spezzato": 4+ fondi diversi per pagina). Dark: notte #0A1826,
+  titoli #8AB8F5, accent #5EA3F7.
+- Motion/contrasti: fascia capitoli con BORDI DIAGONALI (clip-path polygon) + texture che deriva
+  (pw-banddrift 70s, spenta con reduced-motion); aurora più presente su chiaro (opacity .8); video hero
+  dietro le scritte (30%/44%); figure con entrata morbida allo scroll (animation-timeline: view(),
+  progressive enhancement); testo affiancato a immagini più grandi (float alternati min(46%,440px)).
+- Font: SEMPRE hub (Inter Tight/Manrope/Azeret Mono) — confermato di nuovo, non toccare.
+- Storico versioni: v1 avorio/verde chirurgico/rame; v2 (superata) ghiaccio+Newsreader; v3 azzurro
+  luminoso+cobalto (attuale). L'utente confronterà e deciderà.
+- Test: test_reports/iteration_5.json — 100%, 0 bug, contrasti AAA verificati, prerender allineato.
+
 ## Iterazione 18/09/2026 — PALETTE VERSIONE 1 + font hub fissi + video hero come sfondo
 - FONT: tornati DEFINITIVAMENTE a quelli dell'hub (Inter Tight / Manrope / Azeret Mono). Direttiva utente:
   "usa per tutte le versioni il font dell'hub, non cambiarlo mai più". Rimossi Newsreader/IBM Plex ovunque

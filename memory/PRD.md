@@ -61,6 +61,31 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+## Iterazione 19/09/2026 — COLLAUDO HUB (palette/font CONGELATI, solo struttura/SEO/tecnica)
+- B1 JSON-LD nel DOM vivo: hook useJsonLd (Layout) -> GET /api/seo/jsonld?path= (server.py, stessi builder
+  del prerender). Un solo script @graph per pagina: WebSite(+publisher), Person (@id autorevole hub
+  /curriculum#federico-fiori, jobTitle=solo qualifica, hasOccupation=ruolo ASST con "dell'Unità",
+  worksFor=#fi-multicare), MedicalClinic (#fi-multicare, geo verificate Nominatim 45.4645,9.1951) SOLO
+  su /contatti/, MedicalWebPage (ABOUT_MAP per slug, primaryImageOfPage, lastReviewed=modified),
+  FAQPage, BreadcrumbList; articoli: Article+publisher+isBasedOn (hubUrl vuoto nei 3 articoli: campo
+  pronto, si popola quando l'hub lo fornisce).
+- B2 FAQ: FaqView condiviso, risposte SEMPRE nel DOM, chiusura via CSS grid 0fr/1fr.
+- B3 file reali in frontend/public: robots.txt (Sitemap -> /sitemap.xml), sitemap.xml (18 URL, www,
+  barra sulle pagine, lastmod reali), llms.txt. Script rigenerabile: scripts/gen_static_seo.py.
+- B4: 301 /slug -> /slug/ via middleware in craco.config.js (preview); produzione = Worker su
+  /api/seo/routes. Link interni normalizzati con barra in tutti i JSON (scripts/collaudo19.py).
+- B5: OG completi + twitter card ovunque (useSEO esteso + prerender og_meta); og-fallback.jpg (crema+
+  logo+corallo) e og-home.jpg (poster hero) 1200x630 in public/og/.
+- ALTI 7-14: hero/footer/AuthorBox con qualifica+ruolo e "dell'Unità"; card home h2->h3; firma+ultima
+  revisione (rel=author, time datetime) sulle cliniche; blocco Fonti (link verificati: PMID 19495920,
+  29330835, 37862616, 30807248, EHS, ISHAWS) su 5 pilastri; contatti riscritta (CTA tel/mailto,
+  contactList lucide, Google Maps, via privacy-paragraph e mappa scura); video hero: muted via ref,
+  mp4 134KB (era 1,86MB), source media min-width 768px; overflow 390px azzerato (halo/ticks off,
+  aurora contenuta); safety net reduced-motion/no-JS.
+- MEDI: nav una riga + dropdown Capitoli (9 voci, 12px); theme-color doppio light/dark; via riquadro WP
+  in home + maiuscole normalizzate; nessun colore/font toccato (verificato in regressione).
+- Test: test_reports/iteration_7.json — 100%, 0 bug. Note aperte: isBasedOn in attesa di hubUrl dall'hub.
+
 ## Iterazione 19/09/2026 — PALETTE VERSIONE 8 definitiva (scelta utente dai mockup numerati)
 - PROCESSO: logo analizzato via PIL (#000000 69%, azzurro #9FBEE8 22%, medio #3675C8). Mockup numerati
   in /public/palette-v4.html (v1-v9 nei vari round). Scelta utente finale: VARIANTE 8 "Spezzato netto"

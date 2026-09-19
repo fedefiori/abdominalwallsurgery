@@ -1,0 +1,57 @@
+{
+  "summary": "Iteration 7 (collaudo hub 19/06/2026): B1 JSON-LD (Person con @id/jobTitle/hasOccupation dell'Unità, WebSite publisher, MedicalClinic con geo solo su /contatti/, Article con publisher #website), B2 FAQ sempre nel DOM con toggle aria-expanded, B3 robots/sitemap/llms + og/ 200, B4 301 /slug -> /slug/ + articoli senza barra 200 + link interni home tutti con barra, B5 OG completi + twitter card + og-home.jpg/og-fallback.jpg, ALTI (hero titles, apostrofo dell'Unità, h3 nelle card, AuthorBox+rel=author+Ultima revisione, Fonti pubmed/EHS/ISHAWS su 5 pillar, contatti 2 CTA + gmap + zero PUA + no Titolare, video muted attr + mp4 134KB + media 768px + poster su mobile, overflow mobile 0), MEDI (nav 4 voci + Capitoli dropdown 9, 2 theme-color light/dark, niente riquadro WP in home, niente 'La Chirurgia della Parete' maiuscolo). Regressione palette/font invariata. NESSUN blocco.",
+  "verified_specs": {
+    "B1_jsonld_dom": {
+      "home": {"scripts": 1, "types": ["WebPage","WebSite","MedicalBusiness","FAQPage","Person"], "personId": "https://www.federicofiori.com/curriculum#federico-fiori", "jobTitle": "Medico Chirurgo — Specialista in Chirurgia Generale (no 'Responsabile')", "hasOccupation.name": "Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale"},
+      "la-terapia-chirurgica": {"scripts": 1, "types": ["MedicalWebPage","WebSite","MedicalBusiness","MedicalProcedure","BreadcrumbList","FAQPage","Person"]},
+      "contatti": {"scripts": 1, "types_includes_MedicalClinic": true, "clinicId": "https://www.federicofiori.com/#fi-multicare", "hasGeo": true},
+      "articolo_tesar": {"scripts": 1, "types": ["Article","WebSite","MedicalWebPage","BreadcrumbList","FAQPage","Person"], "Article.publisher.@id": "https://www.chirurgiadellaparete.it/#website"},
+      "spa_nav": "1 solo script che si aggiorna cambiando pagina ✓"
+    },
+    "B2_faq": {"chi-sono": {"items": 4, ".pw-faq-item p": 4, "initial_aria": ["false","false","false","false"], "after_click_first": "true"}},
+    "B3_files": {"/robots.txt": "200 text/plain con 'Sitemap: https://www.chirurgiadellaparete.it/sitemap.xml'", "/sitemap.xml": "200 application/xml, 18 URL, www + trailing slash su pagine, articoli senza slash, lastmod presenti", "/llms.txt": "200 text/plain (6011B)", "/og/og-fallback.jpg": "200 image/jpeg 29408B", "/og/og-home.jpg": "200 image/jpeg 57814B"},
+    "B4_redirects": {"/contatti -> /contatti/": "301 ✓", "/radiologia -> /radiologia/": "301 ✓", "/contatti/": "200", "/articoli/tecnica-tesar...": "200 senza barra ✓", "home_internal_links_all_trailing_slash": true},
+    "B5_og_meta": {"home og:image": "https://www.chirurgiadellaparete.it/og/og-home.jpg", "articolo_meta": {"og:type": "article", "og:url": "assoluto canonico", "og:site_name": "Chirurgia della Parete Addominale", "og:locale": "it_IT", "og:image_alt": "presente", "twitter:card": "summary_large_image", "twitter:title/desc/image": "presenti"}, "theme-color_meta": [{"media": "(prefers-color-scheme: light)", "content": "#FBF4EF"}, {"media": "(prefers-color-scheme: dark)", "content": "#0C0A09"}]},
+    "ALTI": {
+      "hero_home": "eyebrow 'MEDICO CHIRURGO — SPECIALISTA IN CHIRURGIA GENERALE' + riga più piccola 'RESPONSABILE DELL'UNITÀ OPERATIVA DI CHIRURGIA DELLA PARETE ADDOMINALE — ASST SANTI PAOLO E CARLO...' ✓",
+      "no_della_Unita_visible": "true (nessuna occorrenza di 'della Unità' su home/chi-sono/footer/contatti)",
+      "cards_home_h3": "['H3','H3','H3'] — nessun h2 nelle card ✓",
+      "AuthorBox_5_pillar": "Scritto e rivisto + Ultima revisione + rel=author su anatomia/difetti/terapia/protesi/complicanze ✓",
+      "Fonti_5_pillar": "Fonti presenti con link pubmed(203)/EHS(200)/ISHAWS(200) su tutte e 5 le pagine ✓",
+      "contatti": "tel:+390276021568 ✓, mailto:info@fimulticare.it ✓, link Google Maps ✓, 'Titolare del trattamento' non presente ✓, zero glifi PUA ✓",
+      "video_hero": {"mutedAttr_in_DOM": true, "mp4_size": "137585B (~134KB, <700KB)", "sources_media": "(min-width: 768px)", "mobile_390_currentSrc": "'' (nessuna sorgente caricata, solo poster) ✓"},
+      "mobile_390_overflow": "0 elementi sforano innerWidth ✓ (scrollWidth 390 == innerWidth 390)"
+    },
+    "MEDI": {
+      "nav_desktop": "['Home','Articoli','Il dott. Fiori','Contatti'] + bottone Capitoli con dropdown 9 voci (Anatomia..Diastasi)",
+      "nav_fontSize": "18px (>=12px richiesto)",
+      "theme-color_duo": "2 meta con media light/dark ✓",
+      "home_no_wp_box": "'Dott. Federico Fiori: Chirurgia della parete' non presente ✓",
+      "home_no_maiuscola": "'La Chirurgia della Parete' non presente ✓"
+    },
+    "REGRESSIONE": "prerender /api/seo/prerender?path=/la-terapia-chirurgica/ contiene og:, twitter:, application/ld+json, Person, federicofiori.com/curriculum#federico-fiori ✓ — palette/font invariati (iterazione 6 già verificati)."
+  },
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "console_notes": [
+    "Article JSON-LD non contiene isBasedOn (spec: 'Article con publisher/isBasedOn'). publisher #website è presente correttamente; isBasedOn è opzionale a livello di validator, ma se il richiedente lo vuole strict, va aggiunto sull'articolo (es. reference a mainEntityOfPage o a un DOI/fonte). Segnalazione informativa, non blocca il collaudo.",
+    "sitemap.xml: la voce indice /articoli è senza trailing slash (spec 'senza barra sugli articoli' applicata anche all'index). Coerente con il conteggio di 18 URL. Se l'hub considera /articoli come 'pagina', valutare l'aggiunta della barra; ora è coerente con gli articoli figli."
+  ],
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "JSON-LD: singolo tag <script type=application/ld+json> per pagina, aggiornato dinamicamente su SPA route change (verificato su 4 rotte). Nessun duplicato.",
+    "Person node completo: @id autorevole, jobTitle senza 'Responsabile', hasOccupation.name con apostrofo tipografico 'dell'Unità', worksFor -> #fi-multicare. hasOccupation.occupationLocation punta ad ASST Santi Paolo/Carlo — coerente.",
+    "MedicalClinic con geo (45.4644978, 9.1951134) presente SOLO su /contatti/ come da spec.",
+    "Article publisher usa @id #website (isBasedOn opzionale non impostato — vedi console_notes).",
+    "OG home usa og-home.jpg, articoli usano cover federicofiori.com. Twitter card summary_large_image + immagini duplicate ok.",
+    "Video hero: attributo muted nel DOM, 2 <source> gated con media='(min-width: 768px)', a 390px currentSrc vuoto (solo poster). mp4 137KB.",
+    "Fonti su tutte le 5 pillar con link PubMed/EHS/ISHAWS raggiungibili (200/203). AuthorBox con Scritto/Ultima revisione + rel=author."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Iterazione 7 collaudo hub 19/06 completo. Tutti i BLOCCANTI B1..B5, gli ALTI (7-14) e i MEDI (a-e) verificati end-to-end. Uniche note minori: Article senza isBasedOn (opzionale); /articoli index nella sitemap senza trailing slash (scelta coerente con gli articoli figli). Palette v8 e font congelati come iter 6. Nessuna modifica ai file."
+}

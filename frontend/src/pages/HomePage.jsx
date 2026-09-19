@@ -150,7 +150,7 @@ export default function HomePage() {
                     <Reveal>
                         <div className="pw-section-head">
                             <span className="pw-label">{ui.index_title}</span>
-                            <h2>{site?.lang === 'en' ? 'The chapters of the abdominal wall' : 'I capitoli della parete addominale'}</h2>
+                            <h2>{site?.lang === 'en' ? 'The chapters' : 'I capitoli'}</h2>
                         </div>
                     </Reveal>
                     <div className="pw-chapters" data-testid="home-chapters">

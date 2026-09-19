@@ -49,9 +49,9 @@
    },
    {
     "type": "img",
-    "src": "/api/media/gradini-preparazione.webp",
-    "alt": "Linea luminosa a gradini ascendenti da sinistra a destra in un campo vuoto, senza numeri",
-    "caption": "La preparazione procede a gradini: ogni tappa si conquista, non si salta.",
+    "src": "/api/media/preabilitazione-parete.webp",
+    "alt": "Schema frontale della parete addominale con i muscoli retti e la linea alba, illustrazione schematica",
+    "caption": "La parete addominale: la struttura che la pre-abilitazione prepara all'intervento.",
     "kind": "schema",
     "width": 1200,
     "height": 896
@@ -114,11 +114,11 @@
    },
    {
     "q": "Come incide il peso sull'esito della chirurgia della parete?",
-    "a": "Controllo dell’peso – Obesità"
+    "a": "Sottoporre ad Intervento un Paziente con BMI>50 comporta un tasso di recidiva del 100%. Pertanto il controllo del peso preoperatorio è mandatorio per ottenere un outcome favorevole."
    },
    {
-    "q": "Perché si prepara il paziente prima dell'intervento?",
-    "a": "La corretta preparazione a un intervento chirurgico di riparazione della parete addominale deve prevedere:"
+    "q": "Perché si prepara il Paziente prima dell'intervento?",
+    "a": "Questi elementi sono trattabili, o comunque sono aspetti che è indicato provare a migliorare dal punto di vista clinico. In questo modo si ottimizzano le possibilità del Paziente di avere un percorso chirurgico libero da complicanze e quindi abbattendo il tasso di recidiva."
    }
   ],
   "related": [
@@ -133,5 +133,5 @@
   ]
  },
  "en": null,
- "modified": "2023-11-07T16:43:56"
+ "modified": "2026-09-19T15:00:00"
 }

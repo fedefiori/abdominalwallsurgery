@@ -290,6 +290,7 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
             'inLanguage': site['lang'],
             'mainEntity': person,
             'isPartOf': {'@id': f"{site['domain']}/#website"},
+            'lastReviewed': page.get('modified', '')[:10] or None,
         }, person] if person else graphs
     elif kind == 'contact':
         person_node = person_ld(entity)
@@ -627,13 +628,15 @@ def llms_txt(site, pages, articles, entity):
     lang = site['lang']
     domain = site['domain']
     person = (entity or {}).get('person', {})
+    # riga identita': l'incarico e' "dell'Unita'", mai "della Unita'" (refuso hub)
+    ruolo = (person.get('jobTitle', '') or '').replace('della Unità', "dell'Unità")
     lines = [
         f"# {site['ui']['site_name']}",
         '',
         f"> Sito verticale italiano sulla chirurgia della parete addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
         '',
         '## Chi',
-        f"- {person.get('name', 'Dott. Federico Fiori')}, {person.get('jobTitle', '')}",
+        f"- {person.get('name', 'Dott. Federico Fiori')}, {ruolo}",
         f"- Sede: Galleria del Corso 4, 20122 Milano. Telefono: +39 02 76021568",
         f"- Hub: https://www.federicofiori.com (curriculum, TESAR, MILA, glossario, galleria risultati)",
         f"- Identità: {person.get('@id', '')}",

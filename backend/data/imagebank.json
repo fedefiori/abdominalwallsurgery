@@ -49,17 +49,6 @@
     "pressione negativa"
    ]
   },
-  "gradini-preparazione": {
-   "title": "I gradini della preparazione",
-   "subject": "abstract ascending stepped line made of thin luminous segments rising left to right inside a wide empty field, no numbers",
-   "alt": "Linea luminosa a gradini ascendenti da sinistra a destra in un campo vuoto, senza numeri",
-   "caption": "La preparazione procede a gradini: ogni tappa si conquista, non si salta.",
-   "tags": [
-    "preabilitazione",
-    "percorso",
-    "gradini"
-   ]
-  },
   "respiro-diaframma": {
    "title": "Il diaframma e la pressione interna",
    "subject": "abstract schematic of a dome-shaped diaphragm descending inside a torso outline, soft pressure gradient below",
@@ -80,6 +69,30 @@
     "classificazione",
     "sedi",
     "ernie"
+   ]
+  },
+  "chirurgo-sala-operatoria": {
+   "title": "Il chirurgo in sala operatoria",
+   "subject": "abstract schematic of a surgeon at work in an operating room: a standing figure in surgical gown and cap, seen from the side, leaning over an operating table, gloved hands above a softly highlighted abdominal field traced in luminous lines, a slim overhead surgical light",
+   "alt": "Chirurgo in sala operatoria durante un intervento sulla parete addominale, illustrazione schematica",
+   "caption": "L'intervento è pianificato sul singolo Paziente, dalla valutazione alla sala operatoria.",
+   "tags": [
+    "chirurgo",
+    "sala operatoria",
+    "intervento",
+    "parete"
+   ]
+  },
+  "preabilitazione-parete": {
+   "title": "La parete addominale in preparazione",
+   "subject": "front schematic view of the human abdominal wall: two rectus muscles drawn as luminous parallel bands, the vertical linea alba as a bright central line, subtle ascending stepped motif along one side suggesting gradual preparation, faint concentric support lines",
+   "alt": "Schema frontale della parete addominale con i muscoli retti e la linea alba, illustrazione schematica",
+   "caption": "La parete addominale: la struttura che la pre-abilitazione prepara all'intervento.",
+   "tags": [
+    "parete",
+    "preabilitazione",
+    "retti",
+    "linea alba"
    ]
   }
  }

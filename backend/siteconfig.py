@@ -60,7 +60,7 @@ UI = {
     'it': {
         'site_name': 'Chirurgia della parete addominale',
         'site_baseline': 'Ernie, laparoceli e ricostruzione della parete addominale',
-        'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il dott. Fiori',
+        'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il dott. Federico Fiori',
         'nav_chapters': 'Capitoli',
         'index_title': 'Indice dei contenuti', 'on_this_page': 'In questa pagina',
         'faq_title': 'Domande frequenti', 'network_title': 'La rete',
@@ -82,7 +82,7 @@ UI = {
     'en': {
         'site_name': 'Abdominal Wall Surgery',
         'site_baseline': 'Hernias, incisional hernias and abdominal wall reconstruction',
-        'nav_home': 'Home', 'nav_articles': 'Articles', 'nav_contacts': 'Contact', 'nav_about': 'About',
+        'nav_home': 'Home', 'nav_articles': 'Articles', 'nav_contacts': 'Contact', 'nav_about': 'Dr. Federico Fiori',
         'nav_chapters': 'Chapters',
         'index_title': 'Table of contents', 'on_this_page': 'On this page',
         'faq_title': 'Frequently asked questions', 'network_title': 'The network',

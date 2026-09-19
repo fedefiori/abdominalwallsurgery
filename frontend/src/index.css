@@ -259,7 +259,7 @@ h1, h2, h3, h4 { color: var(--title); }
     font-size: clamp(2.4rem, 5.5vw, 4.75rem);
     line-height: 1.04; margin: 0 0 1.6rem; max-width: 16ch;
 }
-.pw-hero .mask-line { display: block; overflow: hidden; }
+.pw-hero .mask-line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
 .pw-hero .mask-line > span { display: block; will-change: transform; }
 .pw-hero-sub { max-width: 52ch; color: var(--muted); font-size: 17px; }
 .pw-hero-cta { display: flex; gap: 1rem; margin-top: 2.4rem; flex-wrap: wrap; }

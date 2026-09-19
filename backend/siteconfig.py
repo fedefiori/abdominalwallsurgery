@@ -58,7 +58,7 @@ NETWORK_ECOSYSTEM = [
 # Stringhe di interfaccia (non contenuti clinici), per lingua.
 UI = {
     'it': {
-        'site_name': 'Chirurgia della Parete Addominale',
+        'site_name': 'Chirurgia della parete addominale',
         'site_baseline': 'Ernie, laparoceli e ricostruzione della parete addominale',
         'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il dott. Fiori',
         'nav_chapters': 'Capitoli',

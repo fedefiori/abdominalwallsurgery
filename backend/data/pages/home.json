@@ -16,26 +16,22 @@
     "kind": "schema"
    },
    {
-    "type": "note",
-    "html": "Dott. Federico Fiori:<br/>Chirurgia della parete"
+    "type": "p",
+    "html": "La chirurgia della parete è oramai una branca superspecialistica della chirurgia generale. La conoscenza approfondita dell’anatomia e la precisa comprensione della fisiopatologia consentono oggi di affrontare questo tipo di chirurgia, molto eterogenea, con differenti tecniche operative utili a massimizzare il risultato per il paziente. Esistono difetti di vario tipo, dalle piccole ernie ombelicali ai disastri di parete, ed esistono tecniche di chirurgia open, laparoscopica ed endoscopica, fino all’approccio robotico. Come sempre è la corretta indicazione a fare il buon chirurgo e a determinare il risultato."
    },
    {
     "type": "p",
-    "html": "La Chirurgia della Parete è oramai una branca superspecialistica della Chirurgia Generale. La conoscenza approfondita dell’Anatomia e la precisa comprensione della fisiopatologia consentono oggi di affrontare questo tipo di chirurgia molto eterogenea con differenti tecniche operative utili a massimizzare il risultato per il Paziente. Esistono difetti di vario tipo, dalle piccole ernie ombelicali ai disastri di parete, ed esistono tecniche di Chirurgia Open, di Chirurgia Laparoscopica, Endoscopica, fino all’approccio Robotico. Come sempre è la corretta indicazione a fare un buon Chirurgo e a determinare il risultato."
-   },
-   {
-    "type": "p",
-    "html": "Per questo è utile ribadire quali siano i difetti della parete addominale, quale sia l’importanza delle diagnostica, quali le possibili varianti di trattamento chirurgico, le finalità e l’importanza della pre e riabilitazione e i possibili trattamenti correlati per migliorare l’outcome complessivo. L’attenzione di questo sito web si rivolge alla PARETE ADDOMINALE ANTERIORE, tralasciando quanto correlato alla regione inguino-crurale per cui esistono realtà specifiche già presenti sul web, sconfinando eventualmente solo per quanto concerne la presentazione di alcune tecniche mininvasive."
+    "html": "Per questo è utile ribadire quali siano i difetti della parete addominale, quale sia l’importanza della diagnostica, quali le possibili varianti di trattamento chirurgico, le finalità e l’importanza della pre e riabilitazione e i possibili trattamenti correlati per migliorare l’outcome complessivo. L’attenzione di questo sito web si rivolge alla parete addominale anteriore, tralasciando quanto correlato alla regione inguino-crurale per cui esistono realtà specifiche già presenti sul web, sconfinando eventualmente solo per quanto concerne la presentazione di alcune tecniche mininvasive."
    },
    {
     "type": "ul",
     "ordered": false,
     "items": [
-     "<a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico\">Pre-abilitazione dei Pazienti all’intervento chirurgico</a>",
-     "<a href=\"/la-terapia-chirurgica\">La terapia chirurgica</a>",
-     "<a href=\"/la-diastasi-dei-muscoli-retti\">La diastasi dei muscoli retti</a>",
-     "<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi\">Le protesi in chirurgia della parete e il piano di posizionamento della protesi</a>",
-     "<a href=\"/le-complicanze-chirurgiche-la-vac-therapy\">Le complicanze chirurgiche, la VAC Therapy</a>"
+     "<a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">Pre-abilitazione dei Pazienti all’intervento chirurgico</a>",
+     "<a href=\"/la-terapia-chirurgica/\">La terapia chirurgica</a>",
+     "<a href=\"/la-diastasi-dei-muscoli-retti/\">La diastasi dei muscoli retti</a>",
+     "<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">Le protesi in chirurgia della parete e il piano di posizionamento della protesi</a>",
+     "<a href=\"/le-complicanze-chirurgiche-la-vac-therapy/\">Le complicanze chirurgiche, la VAC Therapy</a>"
     ]
    },
    {
@@ -116,7 +112,7 @@
    },
    {
     "q": "Chi è il dott. Federico Fiori?",
-    "a": "Il dott. Federico Fiori è un chirurgo generale, responsabile della Unità Operativa di Chirurgia della Parete Addominale dell'ASST Santi Paolo e Carlo di Milano. Il profilo completo è nella pagina Chi sono; il curriculum è sull'hub federicofiori.com."
+    "a": "Il dott. Federico Fiori è un chirurgo generale, responsabile dell'Unità Operativa di Chirurgia della Parete Addominale dell'ASST Santi Paolo e Carlo di Milano. Il profilo completo è nella pagina Chi sono; il curriculum è sull'hub federicofiori.com."
    },
    {
     "q": "Dove si riceve?",
@@ -129,5 +125,5 @@
   ]
  },
  "en": null,
- "modified": "2023-11-07T16:17:09"
+ "modified": "2026-09-19T10:00:00"
 }

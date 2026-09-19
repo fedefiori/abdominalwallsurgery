@@ -252,8 +252,22 @@
     "label": "Le complicanze chirurgiche e la VAC therapy",
     "href": "/le-complicanze-chirurgiche-la-vac-therapy/"
    }
+  ],
+  "fonti": [
+   {
+    "label": "European Hernia Society — linee guida",
+    "href": "https://europeanherniasociety.eu/about-ehs/guidelines/"
+   },
+   {
+    "label": "Aggiornamento 2023 delle linee guida internazionali HerniaSurge",
+    "href": "https://pubmed.ncbi.nlm.nih.gov/37862616/"
+   },
+   {
+    "label": "European Hernia Society — classificazione delle ernie primarie e incisionali della parete (Muysoms et al., Hernia 2009)",
+    "href": "https://pubmed.ncbi.nlm.nih.gov/19495920/"
+   }
   ]
  },
  "en": null,
- "modified": "2023-11-07T16:53:44"
+ "modified": "2026-09-19T10:00:00"
 }

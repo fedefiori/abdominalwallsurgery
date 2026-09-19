@@ -546,8 +546,26 @@
     "label": "La tecnica TESAR sull’hub",
     "href": "https://www.federicofiori.com/tecnica-tesar"
    }
+  ],
+  "fonti": [
+   {
+    "label": "Fiori F. — TESAR: Totally Endoscopic Sublay Anterior Repair (J Laparoendosc Adv Surg Tech A, 2019)",
+    "href": "https://pubmed.ncbi.nlm.nih.gov/30807248/"
+   },
+   {
+    "label": "HerniaSurge Group — linee guida internazionali per l’ernia inguinale (2018)",
+    "href": "https://pubmed.ncbi.nlm.nih.gov/29330835/"
+   },
+   {
+    "label": "Aggiornamento 2023 delle linee guida internazionali HerniaSurge",
+    "href": "https://pubmed.ncbi.nlm.nih.gov/37862616/"
+   },
+   {
+    "label": "European Hernia Society — linee guida",
+    "href": "https://europeanherniasociety.eu/about-ehs/guidelines/"
+   }
   ]
  },
  "en": null,
- "modified": "2023-11-07T16:47:42"
+ "modified": "2026-09-19T10:00:00"
 }

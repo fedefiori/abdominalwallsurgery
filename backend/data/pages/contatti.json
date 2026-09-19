@@ -7,68 +7,19 @@
   "metaDescription": "Il dott. Federico Fiori riceve presso Fi Multicare, Galleria del Corso 4, 20122 Milano: telefono +39 02 76021568, e-mail info@fimulticare.it, su appuntamento.",
   "blocks": [
    {
-    "type": "h2",
-    "text": "Come richiedere maggiori informazioni?"
-   },
-   {
-    "type": "p",
-    "html": "Gli eventuali dati personali forniti saranno acquisiti dal Titolare del trattamento che li tratterà, secondo la legge sulla privacy, al solo scopo di rispondere alla richiesta di contatto. I dati non saranno ceduti a terzi al di fuori del titolare del trattamento e sua organizzazione. L’accesso, modifica e cancellazione potrà essere richiesta in ogni momento inviando una comunicazione a <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a>"
-   },
-   {
-    "type": "p",
-    "html": ""
-   },
-   {
-    "type": "p",
-    "html": "<strong>Indirizzo</strong>"
-   },
-   {
-    "type": "p",
-    "html": "Galleria del corso 4<br/>CAP: 20122 – Milano"
-   },
-   {
-    "type": "p",
-    "html": ""
-   },
-   {
-    "type": "p",
-    "html": "<strong>E-mail</strong>"
-   },
-   {
-    "type": "p",
-    "html": "info@fimulticare.it"
-   },
-   {
-    "type": "p",
-    "html": ""
-   },
-   {
-    "type": "p",
-    "html": "<strong>Telefono</strong>"
-   },
-   {
-    "type": "p",
-    "html": "0276021568"
-   },
-   {
-    "type": "p",
-    "html": ""
-   },
-   {
-    "type": "p",
-    "html": "<strong>Seguici su Facebook</strong>"
-   },
-   {
-    "type": "p",
-    "html": ""
-   },
-   {
-    "type": "p",
-    "html": "<strong>Seguici su Youtube</strong>"
-   },
-   {
-    "type": "h3",
-    "text": "Chirurgia della parete"
+    "type": "ctaRow",
+    "items": [
+     {
+      "icon": "phone",
+      "label": "Chiama +39 02 76021568",
+      "href": "tel:+390276021568"
+     },
+     {
+      "icon": "mail",
+      "label": "Scrivi a info@fimulticare.it",
+      "href": "mailto:info@fimulticare.it"
+     }
+    ]
    },
    {
     "type": "h2",
@@ -76,20 +27,37 @@
    },
    {
     "type": "p",
-    "html": "Il dott. Federico Fiori riceve presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano. Le visite sono su appuntamento."
+    "html": "Il dott. Federico Fiori riceve presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila. Le visite sono su appuntamento."
    },
    {
-    "type": "p",
-    "html": "Telefono <a href=\"tel:+390276021568\">+39 02 76021568</a> · E-mail <a href=\"mailto:info@fimulticare.it\">info@fimulticare.it</a> · Sito del centro: <a href=\"https://www.fimulticare.it/\">fimulticare.it</a>"
-   },
-   {
-    "type": "img",
-    "src": "/api/media/mappa-fi-multicare.webp",
-    "alt": "Mappa schematica della zona di Galleria del Corso 4 a Milano, sede di Fi Multicare",
-    "caption": "Fi Multicare, Galleria del Corso 4, 20122 Milano — posizione indicativa.",
-    "kind": "schema",
-    "width": 1200,
-    "height": 675
+    "type": "contactList",
+    "items": [
+     {
+      "icon": "map-pin",
+      "label": "Indirizzo",
+      "value": "Galleria del Corso 4, 20122 Milano",
+      "href": "https://www.google.com/maps/search/?api=1&query=Galleria+del+Corso+4,+20122+Milano",
+      "hrefLabel": "Apri in Google Maps"
+     },
+     {
+      "icon": "phone",
+      "label": "Telefono",
+      "value": "+39 02 76021568",
+      "href": "tel:+390276021568"
+     },
+     {
+      "icon": "mail",
+      "label": "E-mail",
+      "value": "info@fimulticare.it",
+      "href": "mailto:info@fimulticare.it"
+     },
+     {
+      "icon": "globe",
+      "label": "Sito del centro",
+      "value": "fimulticare.it",
+      "href": "https://www.fimulticare.it/"
+     }
+    ]
    },
    {
     "type": "p",
@@ -128,5 +96,5 @@
   ]
  },
  "en": null,
- "modified": "2023-11-13T20:05:34"
+ "modified": "2026-09-19T10:00:00"
 }

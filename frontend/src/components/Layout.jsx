@@ -1,9 +1,45 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Sun, Moon, Menu, X, ChevronDown } from 'lucide-react';
 import { useSite } from '../lib/SiteContext';
 import { track, API } from '../lib/api';
+import { useJsonLd } from '../hooks/useSEO';
+
+/** Menu «Capitoli»: i 9 capitoli in tendina, una sola riga di navigazione. */
+function ChaptersDropdown({ items, label }) {
+    const [open, setOpen] = useState(false);
+    const ref = useRef(null);
+    const location = useLocation();
+    useEffect(() => { setOpen(false); }, [location.pathname]);
+    useEffect(() => {
+        const close = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+        document.addEventListener('click', close);
+        return () => document.removeEventListener('click', close);
+    }, []);
+    if (!items?.length) return null;
+    return (
+        <div className="pw-dropdown" ref={ref}>
+            <button type="button" className="pw-dropdown-btn" data-testid="chapters-menu-toggle"
+                aria-expanded={open} aria-haspopup="true" onClick={() => setOpen(!open)}>
+                {label}
+                <ChevronDown size={14} aria-hidden="true" style={{
+                    transition: 'transform .25s ease', transform: open ? 'rotate(180deg)' : 'none',
+                }} />
+            </button>
+            {open && (
+                <div className="pw-dropdown-panel" data-testid="chapters-menu" role="menu">
+                    {items.map((item) => (
+                        <Link key={item.path} to={item.path} role="menuitem"
+                            aria-current={location.pathname === item.path ? 'page' : undefined}>
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
 
 function Halo() {
     const ref = useRef(null);
@@ -74,6 +110,7 @@ export default function Layout({ children }) {
 
     useEffect(() => { setOpen(false); }, [location.pathname]);
     useEffect(() => { track(location.pathname); }, [location.pathname]);
+    useJsonLd(location.pathname);
 
     const mainNav = [
         { to: '/', label: ui.nav_home },
@@ -96,7 +133,9 @@ export default function Layout({ children }) {
                         <span className="pw-brand-sub">Dott. Federico Fiori</span>
                     </Link>
                     <nav className="pw-nav" aria-label="Navigazione principale" data-testid="main-nav">
-                        {mainNav.map((item) => (
+                        <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined}>{ui.nav_home}</Link>
+                        <ChaptersDropdown items={site?.nav} label={ui.nav_chapters || 'Capitoli'} />
+                        {mainNav.slice(1).map((item) => (
                             <Link key={item.to} to={item.to}
                                 aria-current={location.pathname === item.to ? 'page' : undefined}>
                                 {item.label}
@@ -116,14 +155,6 @@ export default function Layout({ children }) {
                     </div>
                     <style>{`@media (max-width: 980px) { .pw-burger { display: inline-flex !important; } .pw-header .pw-iconbtn[data-testid="theme-toggle"] { display: none; } }`}</style>
                 </div>
-                <nav className="pw-nav-strip pw-shell" aria-label="Tutti i contenuti" data-testid="nav-strip">
-                    {(site?.nav || []).map((item) => (
-                        <Link key={item.path} to={item.path}
-                            aria-current={location.pathname === item.path ? 'page' : undefined}>
-                            {item.label}
-                        </Link>
-                    ))}
-                </nav>
                 <AnimatePresence>
                     {open && (
                         <motion.nav
@@ -147,8 +178,9 @@ export default function Layout({ children }) {
                     <div className="pw-footer-grid">
                         <section data-testid="footer-chi-opera">
                             <h3>Chi opera</h3>
-                            <p><strong>Dott. Federico Fiori</strong> — Chirurgo</p>
-                            <p>Responsabile della Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</p>
+                            <p><strong>Dott. Federico Fiori</strong></p>
+                            <p>Medico Chirurgo — Specialista in Chirurgia Generale</p>
+                            <p className="pw-footer-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</p>
                             <p>Contatto diretto della rete: <a href="mailto:info@federicofiori.com">info@federicofiori.com</a></p>
                             <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo sull’hub</a></p>
                         </section>
@@ -177,7 +209,7 @@ export default function Layout({ children }) {
                             <ul>
                                 <li><Link to="/privacy-policy/">Privacy policy</Link></li>
                                 <li><Link to="/cookie-policy/">Cookie policy</Link></li>
-                                <li><a href="/api/seo/sitemap.xml">Sitemap</a></li>
+                                <li><a href="/sitemap.xml">Sitemap</a></li>
                                 <li>
                                     <button
                                         className="pw-footer-toplink"

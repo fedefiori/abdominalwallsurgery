@@ -205,7 +205,7 @@ async def get_page(slug: str):
         'h1': content.get('h1'), 'metaTitle': content.get('metaTitle'),
         'metaDescription': content.get('metaDescription'), 'kind': content.get('kind'),
         'answer': content.get('answer'), 'faq': content.get('faq') or [],
-        'related': content.get('related') or [],
+        'related': content.get('related') or [], 'fonti': content.get('fonti') or [],
         'blocks': content.get('blocks') or [],
     }
 
@@ -311,6 +311,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
 <title>{seo_render.esc(ui['articles_title'])} | {seo_render.esc(ui['site_name'])}</title>
 <meta name="description" content="{seo_render.esc(ui['articles_sub'])}" />
 <link rel="canonical" href="{seo_render.esc(domain + SITE['articlesIndex'])}" />{robots}
+{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui['articles_sub'], domain + SITE['articlesIndex'], domain + '/og/og-fallback.jpg', ui['articles_title'])}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{seo_render.BASE_CSS}</style></head><body><main>
 <nav class="pw-crumbs"><a href="{domain}/">{seo_render.esc(ui['breadcrumb_home'])}</a> / <span>{seo_render.esc(ui['breadcrumb_articles'])}</span></nav>
@@ -324,6 +325,49 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
     if not content:
         raise HTTPException(404, 'pagina non disponibile in questa lingua')
     return HTMLResponse(seo_render.prerender_page(page, content, SITE, entity(), absolute, noindex))
+
+
+@api_router.get('/seo/jsonld')
+async def seo_jsonld(path: str = Query('/')):
+    """Lo stesso @graph del prerender, servito come JSON per l'iniezione client-side."""
+    pages = load_pages()
+    apath = SITE['articlePath']
+    domain = SITE['domain']
+    ui = SITE['ui']
+    if path.startswith(apath) and path != SITE['articlesIndex']:
+        slug = path[len(apath):].strip('/')
+        a = await db.articles.find_one({'site': SITE['key'], 'slug': slug})
+        if not a:
+            raise HTTPException(404, 'articolo non trovato')
+        art = clean_article(a)
+        canonical = art.get('canonical') or (domain + apath + slug)
+        crumbs = [(ui['breadcrumb_home'], domain + '/'),
+                  (ui['breadcrumb_articles'], domain + SITE['articlesIndex']),
+                  (art.get('title', ''), canonical)]
+        return seo_render.article_jsonld(art, SITE, entity(), canonical, crumbs)
+    if path.rstrip('/') == SITE['articlesIndex']:
+        return {'@context': 'https://schema.org', '@graph': [
+            {'@type': 'CollectionPage', '@id': domain + SITE['articlesIndex'],
+             'url': domain + SITE['articlesIndex'], 'name': ui['articles_title'],
+             'inLanguage': SITE['lang'], 'isPartOf': {'@id': f'{domain}/#website'}},
+            {'@type': 'WebSite', '@id': f'{domain}/#website', 'url': domain,
+             'name': ui['site_name'], 'inLanguage': SITE['lang'],
+             'publisher': {'@id': seo_render.PERSON_REF_ID}},
+            seo_render.breadcrumb_ld([(ui['breadcrumb_home'], domain + '/'),
+                                      (ui['breadcrumb_articles'], domain + SITE['articlesIndex'])]),
+        ]}
+    slug = 'home' if path in ('/', '') else path.strip('/').split('/')[0]
+    page = pages.get(slug)
+    if not page:
+        raise HTTPException(404, 'pagina non trovata')
+    content = page_content(page)
+    if not content:
+        raise HTTPException(404, 'pagina non disponibile in questa lingua')
+    canonical = domain + page['path']
+    crumbs = None if page['path'] == '/' else [
+        (ui['breadcrumb_home'], domain + '/'), (content.get('h1', ''), canonical)]
+    return seo_render.page_jsonld(page, content, SITE, entity(), canonical, crumbs)
+
 
 
 @api_router.get('/seo/sitemap.xml')

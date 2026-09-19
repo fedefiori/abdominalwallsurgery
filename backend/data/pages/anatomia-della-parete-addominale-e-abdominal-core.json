@@ -626,8 +626,22 @@
     "label": "Le protesi e il piano di posizionamento",
     "href": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/"
    }
+  ],
+  "fonti": [
+   {
+    "label": "European Hernia Society — classificazione delle ernie primarie e incisionali della parete (Muysoms et al., Hernia 2009)",
+    "href": "https://pubmed.ncbi.nlm.nih.gov/19495920/"
+   },
+   {
+    "label": "European Hernia Society (EHS)",
+    "href": "https://europeanherniasociety.eu/"
+   },
+   {
+    "label": "ISHAWS — Italian Society of Hernia and Abdominal Wall Surgery",
+    "href": "https://www.ishaws.it/"
+   }
   ]
  },
  "en": null,
- "modified": "2023-11-07T16:34:24"
+ "modified": "2026-09-19T10:00:00"
 }

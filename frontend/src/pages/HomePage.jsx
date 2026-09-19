@@ -53,11 +53,12 @@ function HeroMedia() {
         <div className="pw-hero-media" aria-hidden="true">
             <video
                 data-testid="hero-video"
-                autoPlay={!reduced} muted loop playsInline preload="metadata"
+                ref={(el) => { if (el) { el.muted = true; el.setAttribute('muted', ''); } }}
+                autoPlay={!reduced} loop playsInline preload="metadata"
                 poster="/media/hero-loop-parete-addominale.webp"
             >
-                <source src="/media/hero-loop-parete-addominale.webm" type="video/webm" />
-                <source src="/media/hero-loop-parete-addominale.mp4" type="video/mp4" />
+                <source src="/media/hero-loop-parete-addominale.webm" type="video/webm" media="(min-width: 768px)" />
+                <source src="/media/hero-loop-parete-addominale.mp4" type="video/mp4" media="(min-width: 768px)" />
             </video>
         </div>
     );
@@ -78,6 +79,10 @@ export default function HomePage() {
         description: page?.metaDescription,
         canonical: site ? `${site.domain}/` : undefined,
         domain: site?.domain,
+        siteName: ui?.site_name,
+        lang: site?.lang,
+        image: site ? `${site.domain}/og/og-home.jpg` : undefined,
+        imageAlt: page?.h1 || ui.site_name,
     });
 
     const chapters = site?.nav || [];
@@ -93,15 +98,14 @@ export default function HomePage() {
                     <div className="pw-hero-kicker">
                         <span className="pw-label" data-testid="home-kicker">{ui.home_kicker}</span>
                     </div>
-                    {site?.person?.jobTitle && (
-                        <motion.p
-                            className="pw-hero-titles" data-testid="hero-titles"
-                            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                            transition={{ duration: 0.4, delay: 0.2 }}
-                        >
-                            {site.person.jobTitle} — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano
-                        </motion.p>
-                    )}
+                    <motion.div
+                        className="pw-hero-titles" data-testid="hero-titles"
+                        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                    >
+                        <span className="pw-hero-titles-main">Medico Chirurgo — Specialista in Chirurgia Generale</span>
+                        <span className="pw-hero-titles-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span>
+                    </motion.div>
                     <MaskLines lines={splitLines(h1)} />
                     <motion.p
                         className="pw-hero-sub"
@@ -181,7 +185,7 @@ export default function HomePage() {
                                         {a.coverUrl && <img src={a.coverUrl} alt={a.title} width="1200" height="675" loading="lazy" decoding="async" />}
                                         <span>
                                             {a.categoryLabel && <span className="pw-label">{a.categoryLabel}</span>}
-                                            <h2>{a.title}</h2>
+                                            <h3>{a.title}</h3>
                                             <p>{a.excerpt}</p>
                                         </span>
                                     </Link>

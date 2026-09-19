@@ -1,5 +1,49 @@
 import { API } from '../lib/api';
 import { useLightbox } from './Lightbox';
+import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+
+const CONTACT_ICONS = { phone: Phone, mail: Mail, 'map-pin': MapPin, globe: Globe };
+
+/** Riga di due grandi CTA (contatti) e lista contatti con icone lucide. */
+function CtaRow({ b }) {
+    return (
+        <div className="pw-ctarow" data-testid="contact-ctas">
+            {b.items.map((it, i) => {
+                const Icon = CONTACT_ICONS[it.icon] || Phone;
+                return (
+                    <a key={i} className={`pw-cta${i === 0 ? ' solid' : ''}`} href={it.href}
+                        data-testid={`contact-cta-${it.icon}`}>
+                        <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
+                        <span>{it.label}</span>
+                    </a>
+                );
+            })}
+        </div>
+    );
+}
+
+function ContactList({ b }) {
+    return (
+        <div className="pw-contactlist" data-testid="contact-list">
+            {b.items.map((it, i) => {
+                const Icon = CONTACT_ICONS[it.icon] || Globe;
+                const ext = it.href?.startsWith('http');
+                return (
+                    <div className="pw-contactrow" key={i}>
+                        <span className="pw-contactrow-icon"><Icon size={18} strokeWidth={1.8} aria-hidden="true" /></span>
+                        <span className="pw-contactrow-label">{it.label}</span>
+                        <span className="pw-contactrow-value">
+                            {it.href
+                                ? <a href={it.href} {...(ext ? { target: '_blank', rel: 'noopener' } : {})}>{it.value}</a>
+                                : it.value}
+                            {it.hrefLabel && <> — <a href={it.href} target="_blank" rel="noopener">{it.hrefLabel}</a></>}
+                        </span>
+                    </div>
+                );
+            })}
+        </div>
+    );
+}
 
 export function anchorOf(text) {
     return (text || '').toLowerCase()
@@ -84,6 +128,10 @@ export function Blocks({ blocks }) {
                 );
             case 'table':
                 return <div key={i} className="pw-table" data-testid="content-table" dangerouslySetInnerHTML={{ __html: b.html }} />;
+            case 'ctaRow':
+                return <CtaRow key={i} b={b} />;
+            case 'contactList':
+                return <ContactList key={i} b={b} />;
             default:
                 return null;
         }

@@ -168,8 +168,22 @@
     "label": "Sintomi e complicanze",
     "href": "/sintomi-e-complicanze/"
    }
+  ],
+  "fonti": [
+   {
+    "label": "European Hernia Society — linee guida",
+    "href": "https://europeanherniasociety.eu/about-ehs/guidelines/"
+   },
+   {
+    "label": "European Hernia Society (EHS)",
+    "href": "https://europeanherniasociety.eu/"
+   },
+   {
+    "label": "ISHAWS — Italian Society of Hernia and Abdominal Wall Surgery",
+    "href": "https://www.ishaws.it/"
+   }
   ]
  },
  "en": null,
- "modified": "2023-11-07T16:55:22"
+ "modified": "2026-09-19T10:00:00"
 }

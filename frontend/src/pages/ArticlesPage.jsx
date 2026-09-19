@@ -19,6 +19,8 @@ export default function ArticlesPage() {
         description: ui.articles_sub,
         canonical: site ? `${site.domain}${site.articlesIndex}` : undefined,
         domain: site?.domain,
+        siteName: ui?.site_name,
+        lang: site?.lang,
     });
 
     if (location.pathname !== (site?.articlesIndex || '/articoli')) {

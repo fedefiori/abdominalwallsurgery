@@ -10,7 +10,7 @@
     "type": "img",
     "src": "/api/media/ritratto-dottor-fiori.webp",
     "alt": "Il dott. Federico Fiori in camice operatorio, ritratto ufficiale",
-    "caption": "Il dott. Federico Fiori, Responsabile della Unità Operativa di Chirurgia della Parete Addominale, a Milano.",
+    "caption": "Il dott. Federico Fiori, Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale, a Milano.",
     "kind": "photo",
     "width": 820,
     "height": 1000
@@ -25,7 +25,7 @@
    },
    {
     "type": "p",
-    "html": "Il dott. Fiori è Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano ed è Responsabile della Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di chirurgia addominale da oltre vent'anni e dal 1996 anche di chirurgia plastica ricostruttiva del tronco, impiegata nel ripristino funzionale ed estetico della parete."
+    "html": "Il dott. Fiori è Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano ed è Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di chirurgia addominale da oltre vent'anni e dal 1996 anche di chirurgia plastica ricostruttiva del tronco, impiegata nel ripristino funzionale ed estetico della parete."
    },
    {
     "type": "p",
@@ -77,7 +77,7 @@
   "faq": [
    {
     "q": "Chi è il dott. Federico Fiori?",
-    "a": "Il dott. Federico Fiori è Medico Chirurgo - Specialista in Chirurgia Generale, con alta specializzazione in chirurgia della parete addominale e in chirurgia plastica. È Responsabile della Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di ernie, laparoceli e diastasi dei muscoli retti con tecniche aperte, laparoscopiche, robotiche ed endoscopiche."
+    "a": "Il dott. Federico Fiori è Medico Chirurgo - Specialista in Chirurgia Generale, con alta specializzazione in chirurgia della parete addominale e in chirurgia plastica. È Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di ernie, laparoceli e diastasi dei muscoli retti con tecniche aperte, laparoscopiche, robotiche ed endoscopiche."
    },
    {
     "q": "Dove riceve il dott. Federico Fiori?",
@@ -108,5 +108,5 @@
   ]
  },
  "en": null,
- "modified": "2026-07-08T09:00:00"
+ "modified": "2026-09-19T10:00:00"
 }

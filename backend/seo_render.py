@@ -59,6 +59,22 @@ def render_blocks(blocks, domain, lang, lazy_from=1):
             out.append(f'<ul class="pw-keypoints">{items}</ul>')
         elif t == 'table':
             out.append(f'<div class="pw-table">{b.get("html", "")}</div>')
+        elif t == 'ctaRow':
+            btns = ''.join(f'<p><a class="pw-cta" href="{esc(i.get("href", ""))}">{esc(i.get("label", ""))}</a></p>'
+                           for i in b.get('items', []))
+            out.append(f'<div class="pw-ctarow">{btns}</div>')
+        elif t == 'contactList':
+            rows = []
+            for it in b.get('items', []):
+                row = f'<p><strong>{esc(it.get("label", ""))}</strong>: '
+                if it.get('href'):
+                    row += f'<a href="{esc(it["href"])}">{esc(it.get("value", ""))}</a>'
+                else:
+                    row += esc(it.get('value', ''))
+                if it.get('hrefLabel'):
+                    row += f' — <a href="{esc(it["href"])}" target="_blank" rel="noopener">{esc(it["hrefLabel"])}</a>'
+                rows.append(row + '</p>')
+            out.append('\n'.join(rows))
     return '\n'.join(out)
 
 
@@ -91,7 +107,10 @@ def org_ld(entity, domain, lang):
     return org
 
 
-HUB_CLINIC_ID = 'https://www.federicofiori.com/contatti#fi-multicare'
+HUB_CLINIC_ID = 'https://www.federicofiori.com/#fi-multicare'
+HUB_HOSPITAL_ID = 'https://www.federicofiori.com/#asst-santi-paolo-carlo'
+# @id autorevole della persona, dall'endpoint hub /api/seo/entity: mai cambiarlo.
+PERSON_REF_ID = 'https://www.federicofiori.com/curriculum#federico-fiori'
 
 # Mappa articolo -> pagine affini del sito (blocco "Su questo sito")
 ARTICLE_RELATED = {
@@ -122,6 +141,9 @@ CLINIC_FALLBACK = {
     },
     'telephone': '+390276021568',
     'email': 'info@fimulticare.it',
+    'url': 'https://www.fimulticare.it',
+    'geo': {'@type': 'GeoCoordinates', 'latitude': 45.4644978, 'longitude': 9.1951134},
+    'physician': {'@id': PERSON_REF_ID},
     'sameAs': ['https://www.fimulticare.it/'],
 }
 
@@ -143,40 +165,61 @@ def person_ld(entity):
     p = dict(person)
     p.pop('@context', None)
     if p:
-        # regola di rete: qualifica + ruolo, in quest'ordine (lista ammessa da schema.org)
-        if not isinstance(p.get('jobTitle'), list):
-            p['jobTitle'] = [
-                'Medico Chirurgo - Specialista in Chirurgia Generale',
-                'Responsabile della Unità Operativa di Chirurgia della Parete Addominale',
-            ]
+        # regola di rete (collaudo 19/06): jobTitle e' SOLO la qualifica;
+        # il ruolo in ASST e' un incarico -> hasOccupation. Apostrofo: dell'Unita'.
+        p['jobTitle'] = 'Medico Chirurgo — Specialista in Chirurgia Generale'
+        p['hasOccupation'] = {
+            '@type': 'Occupation',
+            'name': "Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale",
+            'occupationLocation': {'@id': HUB_HOSPITAL_ID},
+        }
+        p['worksFor'] = {'@id': HUB_CLINIC_ID}
+        p['url'] = 'https://www.federicofiori.com/'
     return p
 
 
-PERSON_REF_ID = 'https://www.federicofiori.com/curriculum#federico-fiori'
-
-
 def author_box_html(domain, person, updated_iso, lang):
-    """Riquadro d'autore in coda alle pagine cliniche e agli articoli (prerender)."""
-    nome = person.get('name', 'Dott. Federico Fiori')
+    """Firma e revisione in coda alle pagine cliniche e agli articoli (prerender)."""
     data = (updated_iso or '')[:10]
     try:
-        from datetime import date
         y, m, d = data.split('-')
         data = f'{d}/{m}/{y}'
     except Exception:
         pass
     img = f'{domain}/api/media/ritratto-dottor-fiori.webp'
-    return f'''<aside class="pw-authorbox" aria-label="Autore">
+    return f'''<aside class="pw-authorbox" aria-label="Autore e revisione">
 <img src="{esc(img)}" alt="Ritratto del dott. Federico Fiori" width="72" height="72" loading="lazy" decoding="async" />
 <div>
-<strong>{esc(nome)}</strong><br />
-<span>Medico Chirurgo - Specialista in Chirurgia Generale</span><br />
-<span>Responsabile della Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span><br />
-<span>Scrive e revisiona i contenuti di questo sito.</span><br />
-<a href="https://www.federicofiori.com/curriculum">Curriculum completo</a> · <a href="{domain}/contatti/">Dove ricevo</a>
-{f'<br /><small>Pagina aggiornata il {esc(data)}</small>' if data else ''}
+<strong>Dott. Federico Fiori</strong><br />
+<span>Medico Chirurgo — Specialista in Chirurgia Generale</span><br />
+<span>Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span><br />
+<span>Scritto e rivisto dal dott. Federico Fiori.{f' Ultima revisione: {esc(data)}.' if data else ''}</span><br />
+<a rel="author" href="https://www.federicofiori.com/curriculum">Curriculum completo</a> · <a href="{domain}/contatti/">Dove riceve</a>
 </div>
 </aside>'''
+
+
+# about per slug: condizione o procedura clinica della pagina (mai generico)
+ABOUT_MAP = {
+    'anatomia-della-parete-addominale-e-abdominal-core':
+        {'@type': 'AnatomicalStructure', 'name': 'Parete addominale anteriore'},
+    'la-diastasi-dei-muscoli-retti':
+        {'@type': 'MedicalCondition', 'name': 'Diastasi dei muscoli retti'},
+    'difetti-della-parete-addominale-e-classificazione':
+        {'@type': 'MedicalCondition', 'name': 'Ernia della parete addominale'},
+    'sintomi-e-complicanze':
+        {'@type': 'MedicalCondition', 'name': 'Ernia e laparocele'},
+    'la-terapia-chirurgica':
+        {'@type': 'MedicalProcedure', 'name': 'Rives-Stoppa, TAR e TESAR per la riparazione della parete addominale'},
+    'le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi':
+        {'@type': 'MedicalProcedure', 'name': 'Riparazione protesica della parete addominale'},
+    'preabilitazione-dei-pazienti-all-intervento-chirurgico':
+        {'@type': 'MedicalProcedure', 'name': 'Pre-abilitazione alla chirurgia della parete addominale'},
+    'le-complicanze-chirurgiche-la-vac-therapy':
+        {'@type': 'MedicalProcedure', 'name': 'Terapia a pressione negativa (VAC therapy)'},
+    'radiologia':
+        {'@type': 'MedicalProcedure', 'name': 'Diagnostica per immagini della parete addominale'},
+}
 
 
 def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
@@ -185,15 +228,16 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
     graphs = []
     person = person_ld(entity)
     org = org_ld(entity, site['domain'], site['lang'])
+    web_type = 'WebPage' if kind in ('home', 'legal') else 'MedicalWebPage'
     web = {
-        '@type': 'MedicalWebPage',
+        '@type': web_type,
         '@id': canonical,
         'url': canonical,
         'name': content.get('metaTitle') or content.get('h1'),
         'description': content.get('metaDescription'),
         'inLanguage': site['lang'],
         'isPartOf': {'@id': f"{site['domain']}/#website"},
-        'about': {'@id': person.get('@id')} if person.get('@id') else None,
+        'about': ABOUT_MAP.get(page.get('slug')) or ({'@id': person.get('@id')} if person.get('@id') else None),
         'author': {'@id': PERSON_REF_ID},
         'reviewedBy': {'@id': PERSON_REF_ID},
         'speakable': {
@@ -202,10 +246,14 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
         },
         'lastReviewed': page.get('modified', '')[:10] or None,
     }
+    first_img = next((b for b in (content.get('blocks') or []) if b.get('type') == 'img'), None)
+    if first_img and first_img.get('src'):
+        web['primaryImageOfPage'] = abs_url(site['domain'], first_img['src'])
     web = {k: v for k, v in web.items() if v is not None}
     graphs.append(web)
     graphs.append({'@type': 'WebSite', '@id': f"{site['domain']}/#website",
-                   'url': site['domain'], 'name': site['ui']['site_name'], 'inLanguage': site['lang']})
+                   'url': site['domain'], 'name': site['ui']['site_name'],
+                   'inLanguage': site['lang'], 'publisher': {'@id': PERSON_REF_ID}})
     graphs.append(org)
 
     if kind == 'clinical-condition':
@@ -267,15 +315,17 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
                 for f in faq
             ],
         })
+    # il nodo Person c'e' su OGNI pagina (collaudo 19/06): mai duplicarlo se gia' presente
+    if person and not any(g.get('@type') == 'Person' for g in graphs):
+        graphs.append(person)
     return {'@context': 'https://schema.org', '@graph': graphs}
 
 
 def article_jsonld(article, site, entity, canonical, breadcrumb_items):
-    person = person_ld(entity)
     faq = article.get('faq') or []
     graphs = [
         {
-            '@type': 'BlogPosting',
+            '@type': 'Article',
             '@id': f'{canonical}#post',
             'headline': article.get('title'),
             'description': article.get('metaDescription') or article.get('excerpt'),
@@ -284,9 +334,16 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
             'dateModified': article.get('updatedAt') or article.get('publishedAt'),
             'inLanguage': article.get('lang', site['lang']),
             'mainEntityOfPage': canonical,
-            'author': person if person else {'@id': PERSON_REF_ID},
+            'isBasedOn': article.get('hubUrl') or None,
+            'author': {'@id': PERSON_REF_ID},
             'reviewedBy': {'@id': PERSON_REF_ID},
+            'publisher': {'@id': f"{site['domain']}/#website"},
             'isPartOf': {'@id': f"{site['domain']}/#website"},
+        },
+        {
+            '@type': 'WebSite', '@id': f"{site['domain']}/#website",
+            'url': site['domain'], 'name': site['ui']['site_name'],
+            'inLanguage': site['lang'], 'publisher': {'@id': PERSON_REF_ID},
         },
         {
             '@type': 'MedicalWebPage',
@@ -300,6 +357,7 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
         },
         breadcrumb_ld(breadcrumb_items),
     ]
+    graphs[0] = {k: v for k, v in graphs[0].items() if v is not None}
     if faq:
         graphs.append({
             '@type': 'FAQPage',
@@ -309,6 +367,9 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
                 for f in faq
             ],
         })
+    person = person_ld(entity)
+    if person:
+        graphs.append(person)
     return {'@context': 'https://schema.org', '@graph': graphs}
 
 
@@ -350,6 +411,25 @@ tr:nth-child(even) td{background:#E3EEFB}
 """
 
 
+def og_meta(site, title, description, canonical, image, image_alt):
+    """Set completo Open Graph + Twitter card (collaudo 19/06)."""
+    locale = 'it_IT' if site['lang'] == 'it' else 'en_US'
+    return f'''<meta property="og:type" content="website" />
+<meta property="og:url" content="{esc(canonical)}" />
+<meta property="og:site_name" content="{esc(site['ui']['site_name'])}" />
+<meta property="og:locale" content="{locale}" />
+<meta property="og:title" content="{esc(title)}" />
+<meta property="og:description" content="{esc(description)}" />
+<meta property="og:image" content="{esc(image)}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="{esc(image_alt)}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{esc(title)}" />
+<meta name="twitter:description" content="{esc(description)}" />
+<meta name="twitter:image" content="{esc(image)}" />'''
+
+
 def prerender_page(page, content, site, entity, absolute, noindex):
     domain = site['domain']
     path = page['path']
@@ -381,6 +461,15 @@ def prerender_page(page, content, site, entity, absolute, noindex):
     if rel:
         lis = ''.join(f'<li><a href="{esc(r["href"] if r["href"].startswith("http") else domain + r["href"])}">{esc(r["label"])}</a></li>' for r in rel)
         rel_html = f'<nav class="pw-rel" aria-label="Leggi anche"><strong>Leggi anche</strong><ul>{lis}</ul></nav>'
+    fonti = content.get('fonti') or []
+    fonti_html = ''
+    if fonti:
+        lis = ''.join(f'<li><a href="{esc(x["href"])}" target="_blank" rel="noopener">{esc(x["label"])}</a></li>' for x in fonti)
+        fonti_html = f'<section class="pw-rel" aria-label="Fonti"><strong>Fonti</strong><ul>{lis}</ul></section>'
+    first_img = next((b for b in (content.get('blocks') or []) if b.get('type') == 'img'), None)
+    og_image = abs_url(domain, first_img['src']) if first_img else f'{domain}/og/og-fallback.jpg'
+    og = og_meta(site, content.get('metaTitle') or h1, content.get('metaDescription', ''),
+                 canonical, og_image, h1)
     return f"""<!DOCTYPE html>
 <html lang="{site['lang']}">
 <head>
@@ -389,6 +478,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
 <title>{esc(content.get('metaTitle') or h1)}</title>
 <meta name="description" content="{esc(content.get('metaDescription', ''))}" />
 <link rel="canonical" href="{esc(canonical)}" />
+{og}
 {robots}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{BASE_CSS}</style>
@@ -402,6 +492,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
 {faq_html}
 {abox}
 {rel_html}
+{fonti_html}
 {net}
 </main>
 </body>
@@ -433,6 +524,10 @@ def prerender_article(article, site, entity, absolute, noindex):
         faq_html = f'<section class="pw-faq"><h2>{esc(u["faq_title"])}</h2>{items}</section>'
     ld = article_jsonld(article, site, entity, canonical, crumb_items)
     robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+    og = og_meta(site, article.get('metaTitle') or article.get('title', ''),
+                 article.get('metaDescription') or article.get('excerpt') or '',
+                 canonical, article.get('coverUrl') or f'{domain}/og/og-fallback.jpg',
+                 article.get('title', ''))
     rel = ARTICLE_RELATED.get(article.get('slug'), [])
     abox = author_box_html(site['domain'], (entity or {}).get('person') or {},
                            article.get('updatedAt') or article.get('publishedAt') or '', site['lang'])
@@ -456,6 +551,7 @@ def prerender_article(article, site, entity, absolute, noindex):
 <meta name="description" content="{esc(article.get('metaDescription') or article.get('excerpt') or '')}" />
 <link rel="canonical" href="{esc(canonical)}" />
 {hreflang}
+{og}
 {robots}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{BASE_CSS}</style>

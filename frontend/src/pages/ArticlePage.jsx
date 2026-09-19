@@ -36,6 +36,11 @@ export default function ArticlePage() {
         description: post ? (post.metaDescription || post.excerpt) : undefined,
         canonical: post?.canonical,
         domain: site?.domain,
+        siteName: ui?.site_name,
+        lang: site?.lang,
+        image: post?.coverUrl,
+        imageAlt: post?.title,
+        ogType: 'article',
     });
 
     if (!site) return null;

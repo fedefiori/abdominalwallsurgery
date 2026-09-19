@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
 import { useSite } from '../lib/SiteContext';
 import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
 import { Blocks, tocOf, Related } from '../components/Blocks';
 import { AuthorBox } from '../components/AuthorBox';
+import { FaqView } from '../components/FaqView';
 import { Reveal } from '../components/Reveal';
+import { ExternalLink } from 'lucide-react';
 
 export const KNOWN_SLUGS = [
     'anatomia-della-parete-addominale-e-abdominal-core',
@@ -43,41 +43,20 @@ function Toc({ items }) {
     );
 }
 
-function Faq({ faq, title }) {
-    const [openIdx, setOpenIdx] = useState(-1);
-    if (!faq?.length) return null;
+function FontiView({ fonti }) {
+    if (!fonti?.length) return null;
     return (
-        <section className="pw-faq" data-testid="faq-section">
-            <h2>{title}</h2>
-            {faq.map((f, i) => (
-                <div className="pw-faq-item" key={i}>
-                    <button
-                        className="pw-faq-q"
-                        data-testid={`faq-question-${i}`}
-                        aria-expanded={openIdx === i}
-                        onClick={() => setOpenIdx(openIdx === i ? -1 : i)}
-                    >
-                        {f.q}
-                        <ChevronDown size={16} style={{
-                            flex: 'none', transition: 'transform .3s ease',
-                            transform: openIdx === i ? 'rotate(180deg)' : 'none',
-                        }} />
-                    </button>
-                    <AnimatePresence initial={false}>
-                        {openIdx === i && (
-                            <motion.div
-                                className="pw-faq-a"
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.32, ease: 'easeOut' }}
-                            >
-                                <div data-testid={`faq-answer-${i}`}>{f.a}</div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
-            ))}
+        <section className="pw-fonti" data-testid="fonti-section" aria-label="Fonti">
+            <h2>Fonti</h2>
+            <ul>
+                {fonti.map((f, i) => (
+                    <li key={i}>
+                        <a href={f.href} target="_blank" rel="noopener">
+                            {f.label} <ExternalLink size={13} style={{ display: 'inline', verticalAlign: '-2px' }} />
+                        </a>
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 }
@@ -98,6 +77,11 @@ export default function PillarPage() {
         description: page?.metaDescription,
         canonical: site && page ? `${site.domain}${page.path}` : undefined,
         domain: site?.domain,
+        siteName: ui?.site_name,
+        lang: site?.lang,
+        image: page?.blocks?.find((b) => b.type === 'img')?.src
+            ? `${site?.domain}${page.blocks.find((b) => b.type === 'img').src}` : undefined,
+        imageAlt: page?.h1,
     });
 
     if (missing) return <Navigate to="/404" replace />;
@@ -129,10 +113,11 @@ export default function PillarPage() {
                             </Reveal>
                         )}
                         <Blocks blocks={page.blocks} />
-                        <Faq faq={page.faq} title={ui.faq_title} />
+                        <FaqView faq={page.faq} title={ui.faq_title} />
                         {!['legal', 'contact', 'home'].includes(page.kind) && (
                             <AuthorBox updated={page.modified} />
                         )}
+                        <FontiView fonti={page.fonti} />
                         <Related items={page.related} />
                     </article>
                     <Toc items={toc} />

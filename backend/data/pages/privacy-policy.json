@@ -131,7 +131,7 @@
    },
    {
     "type": "p",
-    "html": "Questo Sito Web fa utilizzo di Strumenti di Tracciamento. Per saperne di più, gli Utenti possono consultare la <a href=\"/cookie-policy\">Cookie Policy</a>."
+    "html": "Questo Sito Web fa utilizzo di Strumenti di Tracciamento. Per saperne di più, gli Utenti possono consultare la <a href=\"/cookie-policy/\">Cookie Policy</a>."
    },
    {
     "type": "h2",
@@ -392,5 +392,5 @@
   "faq": []
  },
  "en": null,
- "modified": "2023-11-07T16:18:53"
+ "modified": "2026-09-19T10:00:00"
 }

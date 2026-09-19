@@ -226,4 +226,35 @@ const configureDevServer = webpackConfig.devServer;
 webpackConfig.devServer = (devServerConfig) =>
   makeDevServerV5Compatible(configureDevServer(devServerConfig));
 
+// ---- 301 canonicali (collaudo 19/06): /pagina -> /pagina/ in anteprima.
+// In produzione gli stessi redirect li applica il Worker da /api/seo/routes.
+const fs = require("fs");
+const PAGE_PATHS = fs
+  .readdirSync("/app/backend/data/pages")
+  .filter((f) => f.endsWith(".json"))
+  .map((f) => "/" + f.replace(".json", ""))
+  .concat(["/home"]);
+const baseDevServer = webpackConfig.devServer;
+webpackConfig.devServer = (devServerConfig) => {
+  devServerConfig = baseDevServer(devServerConfig);
+  const prev = devServerConfig.setupMiddlewares;
+  devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+    middlewares = prev ? prev(middlewares, devServer) : middlewares;
+    middlewares.unshift({
+      name: "slash-301",
+      middleware: (req, res, next) => {
+        const p = (req.path || "").replace(/\/+$/, "") || "/";
+        if (req.path && req.path !== "/" && !req.path.endsWith("/") && PAGE_PATHS.includes(p)) {
+          res.writeHead(301, { Location: p + "/" });
+          res.end();
+          return;
+        }
+        next();
+      },
+    });
+    return middlewares;
+  };
+  return devServerConfig;
+};
+
 module.exports = webpackConfig;

@@ -1,0 +1,77 @@
+{
+  "summary": "Iterazione 9 — verifica delle 12 richieste utente (riscrittura /chi-sono/, nuovo H2 home, nuovo H2 la-terapia, correzioni frasi, titolo 'I capitoli', FAQ 'Dove riceve?', immagini sostituite, curve banda, llms.txt, menu, dott./Dottor). 32/32 test backend PASS. 4 pagine verificate live su preview: tutto conforme. Nessuna regressione.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [
+    "/app/backend/tests/test_iteration9.py",
+    "/app/test_reports/pytest/iter9.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Osservazione (non blocker): eyebrow hero home mostra 'A CURA DEL DOTTOR FEDERICO FIORI' — la regola utente 'mai Dottor nel corpo' è formalmente applicata alla pagina la-terapia (Carrara/Costa/Manetti/Ramirez → tutti corretti). Se l'intento è estendere la regola a tutte le pagine, verificare siteconfig ui.hero_eyebrow/label."
+  ],
+  "updated_files": ["/app/backend/tests/test_iteration9.py"],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "verification_details": {
+    "chi_sono_prerender": {
+      "title": "Dott. Federico Fiori - Chirurgia Generale e della parete | Milano OK",
+      "meta_description": "OK",
+      "og_twitter_title": "OK",
+      "breadcrumb_new_h1": "OK",
+      "profilepage_lastReviewed_2026-09-19": "OK",
+      "jobTitle": "Medico Chirurgo — Specialista in Chirurgia Generale OK",
+      "faq_count": 4,
+      "h1": "Il dott. Federico Fiori: profilo e attività clinica OK",
+      "five_h2": "OK (Di che cosa si occupa / Come viene scelta / Dove opera e dove riceve / Dove è stata presentata TESAR / Dove si trova curriculum)",
+      "pmid_link": "target=_blank rel=noopener, no nofollow OK",
+      "morfo_funzionale_occurrences_in_body": 1,
+      "ambulatorio_phrase_removed": "OK",
+      "trentanni_present": "OK (no 'vent'anni')",
+      "in_sintesi_speakable": "OK (pw-answer + label 'IN SINTESI' client-side)"
+    },
+    "home": {
+      "menu_label": "IL DOTT. FEDERICO FIORI OK",
+      "h2_order": "['Di che cosa si occupa questo sito?', 'Come si arriva all\\'intervento?', 'Perché la parete si valuta insieme alla forma dell\\'addome?', 'I capitoli', 'Articoli di approfondimento', 'Domande frequenti'] — nuovo blocco dopo 'Come si arriva' e prima di 'I capitoli' OK",
+      "capitoli_title": "'I capitoli' (senza 'della parete addominale') OK",
+      "faq_dove_riceve": "'Dove riceve?' presente, 'Dove si riceve?' assente OK",
+      "new_image": "chirurgo-sala-operatoria.webp presente, gradini assente OK",
+      "banda_curve": "elemento .pw-band-deep presente",
+      "mobile_390_overflow": "no"
+    },
+    "la_terapia": {
+      "new_block": "'La tecnica basta a definire il risultato?' prima di 'Domande frequenti' OK",
+      "hub_links": "approccio-morfo-funzionale + tecnica-mila-lipoabdominoplastica-mininvasiva OK",
+      "3_corrections": "difetti della parete addominale anteriore / senza protesi / ogni tipo di intervento chirurgico — tutte presenti OK",
+      "dott_lowercase": "Carrara/Costa/Manetti/Ramirez tutti con 'dott.' — nessun 'Dottor' OK"
+    },
+    "preabilitazione": {
+      "new_image": "preabilitazione-parete.webp OK, gradini rimossa",
+      "caption": "'La parete addominale: la struttura che la pre-abilitazione prepara all'intervento.' OK"
+    },
+    "llms_txt": {
+      "chi_sono_title_new": "OK",
+      "identity_dellUnita": "OK (nessun 'della Unità')"
+    },
+    "sitemap_lastmod_2026-09-19": {
+      "/chi-sono/": "OK",
+      "/": "OK",
+      "/la-terapia-chirurgica/": "OK",
+      "/preabilitazione-dei-pazienti-all-intervento-chirurgico/": "OK"
+    },
+    "media": {
+      "chirurgo-sala-operatoria.webp": "200",
+      "preabilitazione-parete.webp": "200"
+    },
+    "regression_pages_200": [
+      "/anatomia-della-parete-addominale-e-abdominal-core/",
+      "/contatti/",
+      "/difetti-della-parete-addominale-e-classificazione/"
+    ],
+    "console_errors": 0
+  },
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Iterazione 9 verde end-to-end. Test file /app/backend/tests/test_iteration9.py (32 test) copre prerender chi-sono, llms.txt, sitemap, media, regression + home/terapia/preab live. Notare che 'In sintesi' label e titolo H2 'I capitoli' sono renderizzati SOLO client-side (React), non in prerender: i test lato server verificano gli equivalenti (pw-answer / testo del blocco). Il prerender di preview ha correttamente <meta robots noindex,nofollow> (voluto, non è un bug). Palette e font non toccati.",
+  "rca of the issue": "N/A — nessun bug rilevato in questa iterazione."
+}

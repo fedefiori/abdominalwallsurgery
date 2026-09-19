@@ -267,3 +267,28 @@ Collaudo completo: /app/memory/collaudo.md.
 - DOPO il confronto varianti l'utente ha scelto la PALETTE ORIGINALE del contratto (rame #E4762C / grafite #070B0F / acciaio #7FA8C9): varianti ?v= rimosse, niente bande chiare.
 - Grafica "profonda": reticolo tecnico fisso sul fondo, grana, spotlight radiale rame nell'hero, parola fantasma PARETE outline verticale, segni di taglio agli angoli, scanline animata sull'anatomia SVG, marquee pieno rame, banda capitoli con contorni topografici e numerali ghost outline 01-09 (hover = riempimento rame), testata delle pagine interne con cornice tecnica + barra rame + spotlight, 404 con numerale outline.
 - Screenshot finali: /tmp/new_hero.png, new_chapters.png, new_pillar.png, new_mobile.png.
+
+## Interventi contenuto 19/09/2026 (testo approvato utente) — CHIUSO, test iterazione_9 verde 32/32
+- /chi-sono/ riscritta integralmente: H1 "Il dott. Federico Fiori: profilo e attività clinica",
+  title "Dott. Federico Fiori - Chirurgia Generale e della parete | Milano", nuova meta description,
+  "In sintesi" speakable, 5 H2, PMID 30807248 linkato (noopener, no nofollow), UNA sola menzione
+  "approccio morfo-funzionale" come link hub; rimossa frase ambulatorio; "oltre trent'anni".
+- Home: nuovo H2 "Perché la parete si valuta insieme alla forma dell'addome?" dopo
+  "Come si arriva all'intervento?" e prima dei capitoli; titolo indice -> "I capitoli";
+  FAQ "Dove si riceve?" -> "Dove riceve?"; FAQ allineate verbatim al testo pagina.
+- /la-terapia-chirurgica/: nuovo H2 "La tecnica basta a definire il risultato?" prima delle FAQ
+  (link hub approccio morfo-funzionale + MILA); corrette le 3 frasi corrotte dettate; FAQ verbatim;
+  "Dottor" -> "dott." (Carrara, Costa, Manetti, Ramirez), discipline in minuscolo.
+- Frasi corrotte trovate e corrette sulle altre pagine (stesso criterio ancora-su-parole-esistenti):
+  difetti (2), le-complicanze (2). Report all'utente nel riepilogo.
+- Immagini: gradini-preparazione.webp sostituita. Home -> chirurgo-sala-operatoria.webp;
+  preabilitazione -> preabilitazione-parete.webp (entrambe AI Nano Banana, ricetta hub invariata,
+  script /app/scripts/gen_two_images.py, registrate in imagebank.json).
+- FAQ preabilitazione corrotte/troncate riscritte verbatim; "il paziente" -> "il Paziente".
+- Curve banda capitoli piu' evidenti: .pw-band-deep::before stroke-opacity 0.07 -> 0.22, width 1.4
+  (colori invariati). Menu: nav_about "Il dott. Federico Fiori". Kicker: "A cura del dott. Federico Fiori".
+- llms.txt: riga /chi-sono/ aggiornata (automatica dai JSON) + identita' "dell'Unità" (replace in
+  seo_render.llms_txt). ProfilePage: aggiunto lastReviewed. Sitemap lastmod: solo pagine toccate.
+- H1 le-protesi: "chirurgia della parete" minuscolo (regola stile discipline).
+- Nota nota: FAQ home "Dove riceve?" ha risposta contatti Fi Multicare non-verbatim dalla home
+  (domanda mantenuta per richiesta esplicita utente).

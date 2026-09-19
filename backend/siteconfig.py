@@ -74,7 +74,7 @@ UI = {
         'notfound_cta': 'Torna alla home', 'theme_light': 'Tema chiaro', 'theme_dark': 'Tema scuro',
         'menu_open': 'Apri il menu', 'menu_close': 'Chiudi il menu',
         'contact_cta': 'Richiedi una valutazione',
-        'home_kicker': 'A cura del Dottor Federico Fiori',
+        'home_kicker': 'A cura del dott. Federico Fiori',
         'hero_answer_label': 'In sintesi',
         'figures_disclaimer': 'Immagini cliniche a scopo illustrativo.',
         'tags_label': 'Argomenti',

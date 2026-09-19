@@ -313,11 +313,11 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
 
 
 BASE_CSS = """
-:root{--ink:#F6F4EE;--surface:#FFFFFF;--line:#DCD6C8;--text:#201D18;--muted:#5F594D;--accent:#0E6B52;--accent-ink:#0A5240;--signal:#B4530A;--deep:#14332B;--deep-text:#EAF2ED;--on-deep:#7FD4B4}
+:root{--ink:#F2F7FD;--surface:#FFFFFF;--line:#CCDDEE;--text:#15293E;--muted:#51677E;--title:#0B4FBE;--accent:#0B63E5;--accent-ink:#0A4CB0;--signal:#B4530A;--deep:#0D2E5E;--deep-text:#E9F2FC;--on-deep:#8AB8F5}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--ink);color:var(--text);font-family:Manrope,ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.75;font-size:18px}
 main{max-width:44em;margin:0 auto;padding:2rem 1.25rem}
-h1,h2,h3{font-family:"Inter Tight",ui-sans-serif,sans-serif;font-weight:600;letter-spacing:-0.02em}
+h1,h2,h3{font-family:"Inter Tight",ui-sans-serif,sans-serif;font-weight:600;letter-spacing:-0.02em;color:var(--title)}
 h1{font-size:2.2rem;line-height:1.2;margin-bottom:1rem}
 h2{font-size:1.5rem;margin:2.75rem 0 .8rem}
 h3{font-size:1.2rem;margin:2.2rem 0 .75rem}
@@ -336,7 +336,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:.5rem}
 table{border-collapse:collapse;width:100%;min-width:520px}
 td,th{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}
 th{background:var(--deep);color:var(--deep-text)}
-tr:nth-child(even) td{background:#ECE8DD}
+tr:nth-child(even) td{background:#E2EDFA}
 .pw-crumbs{font-size:.8rem;color:var(--muted);margin-bottom:1.4rem}
 .pw-crumbs a{color:var(--muted)}
 .pw-faq details{border-top:1px solid var(--line);padding:.8rem 0}

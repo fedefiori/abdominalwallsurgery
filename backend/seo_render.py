@@ -313,7 +313,7 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
 
 
 BASE_CSS = """
-:root{--ink:#F2F7FD;--surface:#FFFFFF;--line:#CCDDEE;--text:#15293E;--muted:#51677E;--title:#0B4FBE;--accent:#0B63E5;--accent-ink:#0A4CB0;--signal:#B4530A;--deep:#0D2E5E;--deep-text:#E9F2FC;--on-deep:#8AB8F5}
+:root{--ink:#FBF4EF;--surface:#FFFDF8;--line:#E3D5C6;--text:#1E1512;--muted:#6E5D52;--title:#0F1B2A;--accent:#E03E1A;--accent-ink:#AE2F10;--signal:#1B4F96;--deep:#0C0A09;--deep-text:#EDE4D8;--on-deep:#9FBEE8}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--ink);color:var(--text);font-family:Manrope,ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.75;font-size:18px}
 main{max-width:44em;margin:0 auto;padding:2rem 1.25rem}
@@ -336,7 +336,7 @@ figcaption{color:var(--muted);font-size:12.5px;margin-top:.5rem}
 table{border-collapse:collapse;width:100%;min-width:520px}
 td,th{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}
 th{background:var(--deep);color:var(--deep-text)}
-tr:nth-child(even) td{background:#E2EDFA}
+tr:nth-child(even) td{background:#E3EEFB}
 .pw-crumbs{font-size:.8rem;color:var(--muted);margin-bottom:1.4rem}
 .pw-crumbs a{color:var(--muted)}
 .pw-faq details{border-top:1px solid var(--line);padding:.8rem 0}

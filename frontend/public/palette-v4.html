@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Palette V4 — Round 2: varianti 6, 7, 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Azeret+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #191919; font-family: Manrope, sans-serif; }
+.guide { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 1rem; color: #EDEDED; }
+.guide h1 { font-family: "Inter Tight", sans-serif; font-size: 2rem; letter-spacing: -0.02em; }
+.guide p { color: #B9B9B9; margin-top: .6rem; max-width: 75ch; font-size: 15px; }
+.guide b { color: #fff; }
+.variant { margin: 3rem 0 5rem; border: 1px solid #333; }
+.vhead { display: flex; align-items: baseline; gap: 1.2rem; padding: 1.2rem 1.6rem; background: #111; color: #EDEDED; border-bottom: 1px solid #333; }
+.vnum { font-family: "Azeret Mono", monospace; font-size: 2.2rem; font-weight: 500; color: #fff; }
+.vname { font-family: "Azeret Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #999; }
+.vswatches { margin-left: auto; display: flex; gap: .5rem; }
+.vswatches i { width: 34px; height: 34px; border-radius: 6px; border: 1px solid rgba(255,255,255,.18); display: block; }
+
+.m-head { display: flex; align-items: center; gap: .7rem; padding: .8rem 1.6rem; background: var(--hero); border-bottom: 1px solid var(--line); }
+.m-head img { width: 26px; height: 26px; border-radius: 5px; }
+.m-brand { font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 15px; color: var(--herotext); letter-spacing: -0.01em; }
+.m-nav { margin-left: auto; display: flex; gap: 1.4rem; font-family: "Azeret Mono", monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--heromute); }
+.m-hero { background: var(--hero); padding: 3.4rem 1.6rem 3.2rem; position: relative; overflow: hidden; }
+.m-hero::after { content: ""; position: absolute; right: -6%; top: -30%; width: 46%; height: 130%; background: radial-gradient(circle, var(--heroglow) 0%, transparent 62%); pointer-events: none; }
+.m-label { font-family: "Azeret Mono", monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--label); margin-bottom: 1rem; display: block; position: relative; }
+.m-hero h2 { font-family: "Inter Tight", sans-serif; font-weight: 600; letter-spacing: -0.02em; font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.05; color: var(--herotitle); max-width: 16ch; position: relative; }
+.m-hero h2 em { font-style: normal; color: var(--herokw); }
+.m-hero p { color: var(--herotext); font-size: 15.5px; line-height: 1.7; max-width: 52ch; margin-top: 1.2rem; position: relative; }
+.m-hero p b { color: var(--herokw); font-weight: 600; }
+.m-cta { display: flex; gap: .9rem; margin-top: 1.8rem; flex-wrap: wrap; position: relative; }
+.m-btn { font-family: "Azeret Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; padding: .85rem 1.4rem; background: var(--btnbg); color: var(--btntext); border: 1px solid var(--btnbg); font-weight: 500; }
+.m-btn2 { font-family: "Azeret Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; padding: .85rem 1.4rem; background: transparent; color: var(--herotext); border: 1px solid var(--heroline); }
+.m-strip { background: var(--strip); color: var(--striptext); overflow: hidden; white-space: nowrap; padding: .85rem 0; }
+.m-strip span { font-family: "Azeret Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; margin: 0 1.6rem; font-weight: 500; }
+.m-band { background: var(--band); color: var(--bandtext); padding: 2.6rem 1.6rem; }
+.m-band h3 { font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 1.6rem; letter-spacing: -0.02em; color: var(--bandtitle); margin-bottom: 1.4rem; }
+.m-row { display: flex; align-items: center; gap: 1.4rem; padding: .9rem 0; border-top: 1px solid var(--bandline); }
+.m-row:last-child { border-bottom: 1px solid var(--bandline); }
+.m-n { font-family: "Azeret Mono", monospace; font-size: 1.1rem; color: var(--bandnum); }
+.m-t { font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 1.15rem; letter-spacing: -0.01em; }
+.m-a { margin-left: auto; color: var(--bandnum); font-family: "Azeret Mono", monospace; }
+.m-light { background: var(--light1); padding: 2.6rem 1.6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+.m-light h3 { font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em; color: var(--lighttitle); }
+.m-light p { color: var(--lighttext); font-size: 14.5px; line-height: 1.7; margin-top: .8rem; }
+.m-light a { color: var(--lightlink); text-underline-offset: 2px; }
+.m-img { background: var(--imgbg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid var(--imgline); }
+.m-img span { font-family: "Azeret Mono", monospace; font-size: 10px; letter-spacing: .14em; color: var(--imgtext); text-transform: uppercase; }
+.m-light2 { background: var(--light2); padding: 2rem 1.6rem; }
+.m-light2 h3 { font-family: "Inter Tight", sans-serif; font-weight: 600; font-size: 1.35rem; color: var(--lighttitle); letter-spacing: -0.01em; }
+.m-chips { display: flex; gap: .6rem; margin-top: 1rem; flex-wrap: wrap; }
+.m-chips span { font-family: "Azeret Mono", monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--chipline); color: var(--chip); padding: .35rem .7rem; }
+.m-foot { background: var(--hero); color: var(--herotext); padding: 1.6rem; font-family: "Azeret Mono", monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; border-top: 3px solid var(--strip); display: flex; justify-content: space-between; }
+.m-foot i { color: var(--label); font-style: normal; }
+</style>
+</head>
+<body>
+<div class="guide">
+    <h1>Round 3 — variante 9: grafite scuro + azzurro ghiaccio del logo</h1>
+    <p>Struttura della 6 (apertura scura, richiami d'azzurro nei dettagli) ma con l'<b>azzurro ghiaccio del logo #9FBEE8</b> come accento principale al posto del corallo, e fondo <b>grigio scuro grafite #1B1F25</b> invece del quasi-nero. Striscia a tutta larghezza in azzurro pieno con testo grafite.</p>
+</div>
+<div id="variants"></div>
+<script>
+const LOGO = 'https://chirurgia-test.preview.emergentagent.com/api/media/logo-chirurgia-della-parete.webp';
+const V = {
+  9: {
+    name: 'Grafite + ghiaccio logo',
+    hero:'#1B1F25', herotext:'#E6E2D9', heromute:'#9AA0A8', herotitle:'#F4F6F8', herokw:'#9FBEE8', heroglow:'rgba(54,117,200,.28)', heroline:'#39404A',
+    label:'#9FBEE8', strip:'#9FBEE8', striptext:'#10161E', btnbg:'#9FBEE8', btntext:'#10161E',
+    band:'#161A20', bandtext:'#E6E2D9', bandtitle:'#F4F6F8', bandnum:'#9FBEE8', bandline:'rgba(230,226,217,.14)',
+    light1:'#FBF4EF', light2:'#F3E6DC', lighttitle:'#141210', lighttext:'#1E1512', lightlink:'#2F5E9E',
+    imgbg:'#161A20', imgline:'#161A20', imgtext:'#9FBEE8', chip:'#2F5E9E', chipline:'#D8C5B4'
+  }
+};
+const html = (i) => `
+<div class="variant">
+  <div class="vhead"><span class="vnum">${i}</span><span class="vname">${V[i].name}</span><span class="vswatches" data-for="${i}"></span></div>
+  <div class="mini" id="v${i}">
+    <div class="m-head">
+      <img src="${LOGO}" alt="logo" />
+      <span class="m-brand">Chirurgia della Parete Addominale</span>
+      <span class="m-nav"><span>Home</span><span>Articoli</span><span>Il dott. Fiori</span><span>Contatti</span></span>
+    </div>
+    <div class="m-hero">
+      <span class="m-label">A cura del dottor Federico Fiori</span>
+      <h2>Chirurgia della <em>Parete Addominale</em></h2>
+      <p>La chirurgia della parete addominale ripara i <b>difetti della parete</b>: ernie, laparoceli e diastasi dei muscoli retti. Anatomia, classificazioni, sintomi, esami e tecniche di riparazione.</p>
+      <div class="m-cta"><span class="m-btn">La terapia chirurgica</span><span class="m-btn2">Richiedi una valutazione</span></div>
+    </div>
+    <div class="m-strip"><span>Ernia ombelicale</span><span>Laparocele</span><span>Diastasi dei retti</span><span>Rives-Stoppa</span><span>TAR</span><span>Chirurgia robotica</span><span>Preabilitazione</span></div>
+    <div class="m-band">
+      <h3>I capitoli della parete addominale</h3>
+      <div class="m-row"><span class="m-n">01</span><span class="m-t">Anatomia</span><span class="m-a">↗</span></div>
+      <div class="m-row"><span class="m-n">02</span><span class="m-t">Difetti e classificazione</span><span class="m-a">↗</span></div>
+      <div class="m-row"><span class="m-n">03</span><span class="m-t">Terapia chirurgica</span><span class="m-a">↗</span></div>
+    </div>
+    <div class="m-light">
+      <div>
+        <h3>Come si arriva all'intervento?</h3>
+        <p>La valutazione in ambulatorio, gli esami strumentali, la <a href="#">pre-abilitazione</a> se il quadro lo richiede, e infine l'intervento con la tecnica scelta sul singolo Paziente.</p>
+      </div>
+      <div class="m-img"><span>immagine / schema</span></div>
+    </div>
+    <div class="m-light2">
+      <h3>Articoli di approfondimento</h3>
+      <div class="m-chips"><span>Tecnica TESAR</span><span>Robottica</span><span>VAC therapy</span><span>Linea alba</span></div>
+    </div>
+    <div class="m-foot"><span>Chirurgia della parete</span><i>Milano · ASST Santi Paolo e Carlo</i></div>
+  </div>
+</div>`;
+document.getElementById('variants').innerHTML = [9].map(html).join('');
+Object.keys(V).forEach((i) => {
+    const el = document.getElementById('v' + i);
+    Object.entries(V[i]).forEach(([k, val]) => {
+        if (k !== 'name') el.style.setProperty('--' + k, val);
+    });
+});
+document.querySelectorAll('.vswatches').forEach((el) => {
+    const v = document.getElementById('v' + el.dataset.for);
+    const cs = getComputedStyle(v);
+    ['--hero','--strip','--band','--light1','--light2'].forEach((k) => {
+        const i = document.createElement('i');
+        i.style.background = cs.getPropertyValue(k).trim();
+        el.appendChild(i);
+    });
+});
+</script>
+</body>
+</html>

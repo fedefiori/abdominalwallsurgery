@@ -93,15 +93,15 @@ export function Blocks({ blocks }) {
     sections.forEach((sec, s) => {
         const band = s === 0 && sec[0].type !== 'h2' ? 0 : ((s - 1) % 3) + 1;
         const children = [];
-        let sectionImgDone = false;
+        let sideCount = 0;
         for (let i = 0; i < sec.length; i += 1) {
             const b = sec[i];
             if (b.type === 'img') {
-                // primo schema della sezione: a lato del testo, lato alternato
+                // fino a 2 immagini per sezione a lato del testo, lato alternato
                 let side = null;
-                if (!sectionImgDone && b.kind === 'schema') {
-                    side = s % 2 === 0 ? 'r' : 'l';
-                    sectionImgDone = true;
+                if (sideCount < 2 && (b.kind === 'schema' || b.kind === 'photo')) {
+                    side = (s + sideCount) % 2 === 0 ? 'r' : 'l';
+                    sideCount += 1;
                 }
                 if (side) {
                     imgIndex += 1;

@@ -6,7 +6,7 @@ export function Reveal({ children, delay = 0, y = 28, ...rest }) {
             initial={{ opacity: 0, y }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }}
             {...rest}
         >
             {children}
@@ -22,7 +22,7 @@ export function MaskLines({ lines, as: Tag = 'h1', className = '' }) {
                     <motion.span
                         initial={{ y: '112%' }}
                         animate={{ y: 0 }}
-                        transition={{ duration: 0.9, delay: 0.12 + i * 0.11, ease: [0.22, 1, 0.36, 1] }}
+                        transition={{ duration: 0.4, delay: 0.08 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                     >
                         {line}{i < lines.length - 1 ? ' ' : ''}
                     </motion.span>

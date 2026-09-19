@@ -97,7 +97,7 @@ export default function HomePage() {
                         <motion.p
                             className="pw-hero-titles" data-testid="hero-titles"
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.35 }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
                         >
                             {site.person.jobTitle} — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano
                         </motion.p>
@@ -106,14 +106,14 @@ export default function HomePage() {
                     <motion.p
                         className="pw-hero-sub"
                         initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.55 }}
+                        transition={{ duration: 0.4, delay: 0.3 }}
                     >
                         {page?.answer || ui.site_baseline}
                     </motion.p>
                     <motion.div
                         className="pw-hero-cta"
                         initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7, delay: 0.7 }}
+                        transition={{ duration: 0.4, delay: 0.38 }}
                     >
                         <Link className="pw-btn pw-btn-solid" data-testid="hero-cta-therapy" to="/la-terapia-chirurgica/">
                             {site?.lang === 'en' ? 'Surgical treatment' : 'La terapia chirurgica'}

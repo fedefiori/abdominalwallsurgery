@@ -3,52 +3,54 @@
 @tailwind utilities;
 
 /* ============================================================
-   CHIRURGIA DELLA PARETE — VERSIONE 3: AZZURRO LUMINOSO.
-   Blu/azzurri chiari attinenti al logo, MAI il navy scuro dell'hub.
-   Titoli in cobalto, corpo ardesia, rame per numeri/etichette.
-   Sfondo spezzato: ghiaccio, bianco, azzurro, sabbia, zaffiro.
+   CHIRURGIA DELLA PARETE — VERSIONE 8 "Spezzato netto".
+   Dai colori del logo: quasi-nero caldo in apertura, striscia
+   corallo piena, sezioni azzurro-ghiaccio (diluizione del logo)
+   e carta calda. Azzurro logo #9FBEE8 / #1B4F96 come richiamo.
    Font FISSI (hub, non cambiarli mai): Inter Tight / Manrope / Azeret Mono.
    ============================================================ */
 
 :root {
-    --ink: #F2F7FD;            /* azzurro ghiaccio luminoso */
-    --surface: #FFFFFF;
-    --line: #CCDDEE;
-    --text: #15293E;           /* ardesia-blu scuro */
-    --muted: #51677E;
-    --title: #0B4FBE;          /* TITOLI in cobalto: colore diverso dal corpo */
-    --accent: #0B63E5;         /* cobalto vivo: grafica e testo grande */
-    --accent-soft: #4D94F0;
-    --accent-ink: #0A4CB0;     /* link e testo piccolo: ~7:1 su ghiaccio */
-    --signal: #B4530A;         /* rame: SOLO numeri, etichette, dati */
-    --signal-on-deep: #F09B55;
-    --deep: #0D2E5E;           /* fasce scure: zaffiro, più chiaro del navy hub */
-    --deep-text: #E9F2FC;
-    --on-deep: #8AB8F5;
-    --steel: #A3BBD4;
+    --ink: #FBF4EF;            /* carta calda */
+    --surface: #FFFDF8;        /* bianco caldo, NON bianco puro */
+    --line: #E3D5C6;
+    --text: #1E1512;
+    --muted: #6E5D52;
+    --title: #0F1B2A;          /* titoli: quasi-nero freddo */
+    --accent: #E03E1A;         /* corallo saturo: grafica, striscia, testo grande */
+    --accent-soft: #F5875A;
+    --accent-btn: #C93412;     /* bottoni: AA con testo avorio */
+    --accent-ink: #AE2F10;     /* link su chiaro: ~5,9:1 */
+    --signal: #1B4F96;         /* azzurro logo (scuro): etichette/numeri su chiaro */
+    --signal-on-deep: #F5875A; /* corallo chiaro: etichette/numeri su scuro */
+    --deep: #0C0A09;           /* quasi-nero caldo: hero, fasce, footer */
+    --deep-text: #EDE4D8;
+    --on-deep: #9FBEE8;        /* azzurro ghiaccio logo su scuro */
+    --steel: #9FBEE8;
     --font-display: "Inter Tight", ui-sans-serif, sans-serif;
     --font-body: "Manrope", ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
     --font-mono: "Azeret Mono", ui-monospace, monospace;
-    --band: #E2EDFA;           /* fascia azzurra chiara */
-    --band-light: #FAF3E9;     /* fascia sabbia caldissima: spezza l'azzurro */
+    --band: #E3EEFB;           /* azzurro-ghiaccio: diluizione del logo */
+    --band-light: #F3E6DC;     /* sabbia calda */
     --noise-opacity: 0.028;
 }
 
 [data-theme="dark"] {
-    --ink: #0A1826;            /* notte azzurra */
-    --surface: #10233A;
-    --line: #23405E;
-    --text: #E6F0FA;
-    --muted: #8FA6BE;
-    --title: #8AB8F5;
-    --accent: #5EA3F7;
-    --accent-soft: #5EA3F7;
-    --accent-ink: #7FB4F8;
-    --signal: #E08B4A;
-    --deep: #0D2E5E;
-    --steel: #33506F;
-    --band: #0E2136;
-    --band-light: #15253C;
+    --ink: #0C0A09;            /* quasi-nero caldo ovunque */
+    --surface: #171310;
+    --line: #2E2620;
+    --text: #EDE4D8;
+    --muted: #A08F7E;
+    --title: #F7EFE8;
+    --accent: #F5641F;
+    --accent-soft: #F5875A;
+    --accent-btn: #F5641F;
+    --accent-ink: #FF9A66;
+    --signal: #F5875A;
+    --deep: #080604;
+    --steel: #4A5A6E;
+    --band: #12100D;
+    --band-light: #151A22;     /* notte azzurrata per spezzare */
     --noise-opacity: 0.05;
 }
 
@@ -222,14 +224,20 @@ h1, h2, h3, h4 { color: var(--title); }
     color: var(--text); text-decoration: none; font-family: var(--font-display); font-size: 17px;
 }
 
-/* ---------------- hero home ---------------- */
-.pw-hero { position: relative; padding: clamp(4rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem); overflow: hidden; }
+/* ---------------- hero home: fascia quasi-nera con video dietro ---------------- */
+.pw-hero { position: relative; padding: clamp(4rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem); overflow: hidden; background: var(--deep); color: var(--deep-text); }
+.pw-hero h1 { color: var(--deep-text); }
+.pw-hero .pw-label { color: var(--signal-on-deep); }
+.pw-hero .pw-hero-titles { color: var(--signal-on-deep); }
+.pw-hero-sub { color: rgba(237, 228, 216, .80); }
+.pw-hero .pw-btn { color: var(--deep-text); border-color: rgba(237, 228, 216, .35); }
+.pw-hero .pw-btn:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
 
-/* alone azzurro più presente nell'hero, in deriva lenta */
+/* alone azzurro logo più presente nell'hero, in deriva lenta */
 .pw-hero::before {
     content: "";
     position: absolute; inset: -12% -6% auto; height: 78%;
-    background: radial-gradient(ellipse 58% 82% at 76% 18%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 70%);
+    background: radial-gradient(ellipse 58% 82% at 76% 18%, rgba(54, 117, 200, .22), transparent 70%);
     animation: pw-drift-c 36s ease-in-out infinite alternate;
     pointer-events: none;
 }
@@ -259,20 +267,20 @@ h1, h2, h3, h4 { color: var(--title); }
 @media (max-width: 900px) { .pw-hero-art { position: static; transform: none; width: 100%; margin-top: 2rem; opacity: .6; } }
 
 /* video hero: loop 3D a piena larghezza, in alto, dietro le scritte.
-   Velo in --ink per mantenere il testo leggibile; opacità valutata per tema. */
+   Velo in --deep (l'hero è una fascia scura) per la leggibilità. */
 .pw-hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .pw-hero-media video {
     width: 100%; height: 100%; object-fit: cover; object-position: center 16%;
-    opacity: .30; display: block;
+    opacity: .5; display: block;
 }
 .pw-hero-media::after {
     content: ""; position: absolute; inset: 0;
     background:
-        linear-gradient(102deg, var(--ink) 16%, color-mix(in srgb, var(--ink) 62%, transparent) 52%, color-mix(in srgb, var(--ink) 10%, transparent) 100%),
-        linear-gradient(to top, var(--ink) 2%, transparent 36%);
+        linear-gradient(102deg, var(--deep) 16%, color-mix(in srgb, var(--deep) 58%, transparent) 52%, color-mix(in srgb, var(--deep) 8%, transparent) 100%),
+        linear-gradient(to top, var(--deep) 2%, transparent 36%);
 }
-[data-theme="dark"] .pw-hero-media video { opacity: .44; }
-@media (prefers-reduced-motion: reduce) { .pw-hero-media video { opacity: .22; } }
+[data-theme="dark"] .pw-hero-media video { opacity: .6; }
+@media (prefers-reduced-motion: reduce) { .pw-hero-media video { opacity: .3; } }
 
 /* striscia secondaria: tutti i contenuti */
 .pw-nav-strip {
@@ -316,23 +324,21 @@ h1, h2, h3, h4 { color: var(--title); }
     transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
 }
 .pw-btn:hover { border-color: var(--accent); color: var(--accent-ink); transform: translateY(-2px); }
-.pw-btn-solid { background: var(--accent-ink); border-color: var(--accent-ink); color: #fff; }
-.pw-btn-solid:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-[data-theme="dark"] .pw-btn-solid { color: #0A1A2E; }
-[data-theme="dark"] .pw-btn-solid:hover { color: #0A1A2E; }
+.pw-btn-solid { background: var(--accent-btn); border-color: var(--accent-btn); color: #FFF3E8; }
+.pw-btn-solid:hover { background: var(--accent); border-color: var(--accent); color: #FFF3E8; }
+[data-theme="dark"] .pw-btn-solid, [data-theme="dark"] .pw-btn-solid:hover { color: #140B06; }
 
-/* ---------------- marquee: striscia tecnica, accento solo nei dettagli ---------------- */
+/* ---------------- marquee: striscia corallo piena, firma del sito ---------------- */
 .pw-marquee {
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    background: var(--surface);
+    background: var(--accent);
     overflow: hidden; padding: 1.05rem 0; white-space: nowrap;
 }
 .pw-marquee-track { display: inline-flex; gap: 3.5rem; animation: pw-marquee 46s linear infinite; will-change: transform; }
 .pw-marquee span {
-    font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: .04em;
-    text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 3.5rem;
+    font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .14em;
+    text-transform: uppercase; color: #140B06; display: inline-flex; align-items: center; gap: 3.5rem;
 }
-.pw-marquee span::after { content: ""; width: 7px; height: 7px; background: var(--accent); }
+.pw-marquee span::after { content: ""; width: 7px; height: 7px; background: #140B06; opacity: .55; }
 @keyframes pw-marquee { to { transform: translateX(-50%); } }
 
 /* ---------------- sezioni ---------------- */
@@ -446,12 +452,12 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-sect-2 {
     background: var(--band); border: 1px solid var(--line);
     margin-left: clamp(0px, 4vw, 52px);
-    border-right: 3px solid var(--accent);
+    border-right: 3px solid var(--signal);
 }
 .pw-sect-3 {
     background: var(--band-light); border: 1px solid var(--line);
     margin-right: clamp(0px, 3vw, 36px);
-    border-left: 3px solid var(--muted);
+    border-left: 3px solid var(--accent-soft);
 }
 
 /* figure a lato del testo (schemi): alternano destra e sinistra, più grandi */
@@ -524,7 +530,7 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-content ul, .pw-content ol { margin: 0 0 1.15rem 1.3rem; }
 .pw-content li { margin-bottom: .45rem; }
 
-/* elenchi numerati: contatori a pillola Azeret Mono, rame/verde alternati */
+/* elenchi numerati: contatori a pillola Azeret Mono, corallo/azzurro logo alternati */
 .pw-content ol { list-style: none; counter-reset: pw-ol; margin-left: 0; }
 .pw-content ol > li {
     counter-increment: pw-ol;
@@ -539,14 +545,14 @@ h1, h2, h3, h4 { color: var(--title); }
     display: inline-flex; align-items: center; justify-content: center;
     font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .04em;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--signal) 55%, transparent);
-    color: var(--signal);
-    background: color-mix(in srgb, var(--signal) 9%, transparent);
-}
-.pw-content ol > li:nth-child(even)::before {
-    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
     color: var(--accent-ink);
     background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.pw-content ol > li:nth-child(even)::before {
+    border-color: color-mix(in srgb, var(--signal) 55%, transparent);
+    color: var(--signal);
+    background: color-mix(in srgb, var(--signal) 10%, transparent);
 }
 
 /* ---------------- immagini: FOTO vs SCHEMI ---------------- */

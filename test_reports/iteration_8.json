@@ -1,0 +1,52 @@
+{
+  "summary": "Iterazione 8 — verifica dei due bug segnalati (discendente 'g' clippato + maiuscole errate). Entrambi fissati e verificati sul preview. Nessuna regressione su palette/font congelati, video hero, navigazione, FAQ, prerender.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/test_reports/hero_title.png"],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "verification_details": {
+    "bug1_descender": {
+      "status": "FIXED",
+      "evidence": ".pw-hero .mask-line -> padding-bottom 9.12px, margin-bottom -9.12px, overflow hidden; scrollHeight (88) == clientHeight (88) per entrambe le righe H1; screenshot hero_title.png mostra 'g' di Chirurgia e 'p' di parete con discendenti INTERI, non clippati."
+    },
+    "bug2_lowercase": {
+      "status": "FIXED",
+      "checks": {
+        "home_h1": "Chirurgia della\\nparete addominale (solo prima maiuscola)",
+        "brand_header": "Chirurgia della parete addominale",
+        "meta_title_home": "Chirurgia della parete addominale | dott. Federico Fiori",
+        "prerender_title": "Chirurgia della parete addominale | dott. Federico Fiori (via /api/seo/prerender?path=/)",
+        "anatomia_body_ParA_count": 1,
+        "anatomia_body_CoreA_count": 0,
+        "sintomi_body_ParA_count": 1,
+        "sintomi_body_CoreA_count": 0,
+        "proper_name_UO_preserved": true,
+        "note": "Le uniche occorrenze residue di 'Parete Addominale' su anatomia e sintomi appartengono al nome proprio 'Unità Operativa di Chirurgia della Parete Addominale' (grep sul filesystem conferma: zero occorrenze non-UO)."
+      }
+    },
+    "faq_home_link": {
+      "old_text_present": false,
+      "new_text_present": true,
+      "note": "'nella pagina Il dott. Fiori' presente; 'nella pagina Chi sono' assente."
+    },
+    "no_regressions": {
+      "body_bg": "rgb(251, 244, 239)",
+      "hero_bg": "rgb(12, 10, 9)",
+      "marquee_bg": "rgb(224, 62, 26)",
+      "h1_font": "Inter Tight",
+      "body_font": "Manrope",
+      "label_font": "Azeret Mono",
+      "hero_video": "in playback (readyState 4, paused=false, src=hero-loop-parete-addominale.webm)",
+      "navigation": "/ -> /la-terapia-chirurgica/ -> /contatti/ tutte 200",
+      "faq_open": "prima FAQ apre correttamente (.pw-faq-item.open)",
+      "console_errors": 0
+    }
+  },
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Iterazione 8 = collaudo dei due bug (discendente H1 + minuscole). Tutto verde. Screenshot hero salvato in /app/test_reports/hero_title.png mostra chiaramente i discendenti di g/p integri. Nessun file di codice modificato durante il test."
+}

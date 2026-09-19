@@ -61,6 +61,15 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   strati-della-parete (home+anatomia), difetto-e-pressione (sintomi), piani-della-rete
   (protesi), vac-pressione-negativa (vac), gradini-preparazione (home+preabilitazione),
   respiro-diaframma (preabilitazione). Nessun testo/lettera nelle immagini (verificato a vista).
+## Iterazione 19/09/2026 — fix bug utente (discendente "g" + maiuscole ereditate)
+- H1 hero: la "g" di "Chirurgia" era clippata dal reveal (.mask-line overflow hidden): fix strutturale
+  padding-bottom .12em + margin-bottom -.12em (spaziatura identica, discendenti interi).
+- Maiuscole: h1 home e site_name ora "Chirurgia della parete addominale" (minuscolo normale);
+  normalizzate le occorrenze generiche ereditate ("della Parete Addominale", "Core Addominale") in
+  anatomia/sintomi; PRESERVATO il nome proprio "Unità Operativa di Chirurgia della Parete Addominale";
+  FAQ home: "pagina Chi sono" -> "pagina Il dott. Fiori" (label nav aggiornata).
+- Test: test_reports/iteration_8.json — entrambi i bug FIXED, 0 regressioni (palette/font congelati ok).
+
 ## Iterazione 19/09/2026 — COLLAUDO HUB (palette/font CONGELATI, solo struttura/SEO/tecnica)
 - B1 JSON-LD nel DOM vivo: hook useJsonLd (Layout) -> GET /api/seo/jsonld?path= (server.py, stessi builder
   del prerender). Un solo script @graph per pagina: WebSite(+publisher), Person (@id autorevole hub

@@ -48,7 +48,7 @@ NETWORK_ECOSYSTEM = [
               'en': 'The Italian site on hernias, incisional hernias and prehabilitation.'}},
     {'url': 'https://www.abdominalwallsurgery.com', 'label': {'it': 'abdominalwallsurgery.com', 'en': 'abdominalwallsurgery.com'},
      'live': False,
-     'desc': {'it': 'Il verticale inglese su ernie, laparoceli e Chirurgia della Parete addominale.',
+     'desc': {'it': 'Il verticale inglese su ernie, laparoceli e Chirurgia della Parete Addominale.',
               'en': 'The English vertical on hernias, incisional hernias and abdominal wall surgery.'}},
     {'url': 'https://www.federico-fiori.it', 'label': {'it': 'federico-fiori.it', 'en': 'federico-fiori.it'},
      'desc': {'it': 'La chirurgia plastica del Dott. Federico Fiori: la forma.',
@@ -58,7 +58,7 @@ NETWORK_ECOSYSTEM = [
 # Stringhe di interfaccia (non contenuti clinici), per lingua.
 UI = {
     'it': {
-        'site_name': 'Chirurgia della Parete addominale',
+        'site_name': 'Chirurgia della Parete Addominale',
         'site_baseline': 'Ernie, laparoceli e ricostruzione della parete addominale',
         'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il Dott. Federico Fiori',
         'nav_chapters': 'Capitoli',

@@ -99,10 +99,10 @@ def org_ld(entity, domain, lang):
     org = {
         '@type': 'MedicalBusiness',
         '@id': f'{domain}/#organization',
-        'name': 'Chirurgia della Parete addominale - Dott. Federico Fiori',
+        'name': 'Chirurgia della Parete Addominale - Dott. Federico Fiori',
         'url': domain,
         'sameAs': same,
-        'medicalSpecialty': 'Chirurgia della Parete addominale',
+        'medicalSpecialty': 'Chirurgia della Parete Addominale',
     }
     return org
 
@@ -214,7 +214,7 @@ ABOUT_MAP = {
     'le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi':
         {'@type': 'MedicalProcedure', 'name': 'Riparazione protesica della parete addominale'},
     'preabilitazione-dei-pazienti-all-intervento-chirurgico':
-        {'@type': 'MedicalProcedure', 'name': 'Pre-abilitazione alla Chirurgia della Parete addominale'},
+        {'@type': 'MedicalProcedure', 'name': 'Pre-abilitazione alla Chirurgia della Parete Addominale'},
     'le-complicanze-chirurgiche-la-vac-therapy':
         {'@type': 'MedicalProcedure', 'name': 'Terapia a pressione negativa (VAC therapy)'},
     'radiologia':
@@ -633,7 +633,7 @@ def llms_txt(site, pages, articles, entity):
     lines = [
         f"# {site['ui']['site_name']}",
         '',
-        f"> Sito verticale italiano sulla Chirurgia della Parete addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
+        f"> Sito verticale italiano sulla Chirurgia della Parete Addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
         '',
         '## Chi',
         f"- {person.get('name', 'Dott. Federico Fiori')}, {ruolo}",

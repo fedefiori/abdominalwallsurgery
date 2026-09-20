@@ -316,3 +316,11 @@ Collaudo completo: /app/memory/collaudo.md.
   "Unità Operativa di Chirurgia della Parete Addominale" (reparto, maiuscole ufficiali).
 - Non toccati: hub_entity.json (cache hub), wp_pages_raw.json (dump), articoli sindacati dall'hub.
 - FAQ verbatim re-verificate dopo la trasformazione: coerenza mantenuta su tutte le pagine.
+
+## Rettifica maiuscole (19/09/2026, sera 4) — CHIUSO
+- Correzione utente: la forma corretta e' "Chirurgia della Parete Addominale" (A maiuscola).
+  33 occorrenze aggiornate. La shorthand "Chirurgia della Parete" resta con C/P maiuscole.
+- REGOLE STILE VIGENTI (finali): "Chirurgia della Parete Addominale" / "Chirurgia della Parete"
+  maiuscole; "Dott."/"Dottor" sempre maiuscolo; "Chirurgia Generale" sempre maiuscolo;
+  uso anatomico "parete addominale" (es. "difetti della parete addominale") resta minuscolo;
+  "Paziente" maiuscolo; nome reparto "Unità Operativa di Chirurgia della Parete Addominale".

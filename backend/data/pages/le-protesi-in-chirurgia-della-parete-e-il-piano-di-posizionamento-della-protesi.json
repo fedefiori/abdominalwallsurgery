@@ -46,8 +46,8 @@
    {
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-04.webp",
-    "alt": "Protesi biologica utilizzata nella Chirurgia della Parete addominale",
-    "caption": "Protesi biologica utilizzata nella Chirurgia della Parete addominale",
+    "alt": "Protesi biologica utilizzata nella Chirurgia della Parete Addominale",
+    "caption": "Protesi biologica utilizzata nella Chirurgia della Parete Addominale",
     "width": 800,
     "height": 800,
     "kind": "photo"
@@ -95,8 +95,8 @@
    {
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-02.webp",
-    "alt": "Dettaglio di una protesi per Chirurgia della Parete addominale",
-    "caption": "Dettaglio di una protesi per Chirurgia della Parete addominale",
+    "alt": "Dettaglio di una protesi per Chirurgia della Parete Addominale",
+    "caption": "Dettaglio di una protesi per Chirurgia della Parete Addominale",
     "width": 800,
     "height": 800,
     "kind": "photo"
@@ -127,7 +127,7 @@
    },
    {
     "type": "table",
-    "html": "<table><thead><tr><th>Materiale</th><th>Tipo</th><th>Caratteristica</th></tr></thead><tbody><tr><td>Polipropilene (PPM)</td><td>Sintetico non assorbibile</td><td>La protesi più utilizzata nella Chirurgia della Parete</td></tr><tr><td>Poliestere</td><td>Sintetico non assorbibile</td><td>Alternativa storica al polipropilene</td></tr><tr><td>ePTFE / cPTFE</td><td>Sintetico non assorbibile</td><td>Superficie adatta al contatto viscerale</td></tr><tr><td>PVDF</td><td>Fluoropolimero non assorbibile</td><td>Uso crescente nelle riparazioni della parete</td></tr><tr><td>Reti biosintetiche</td><td>Riassorbibili a lento assorbimento</td><td>Combinano vantaggi di reti sintetiche e biologiche</td></tr><tr><td>Protesi composite / dual mesh</td><td>Ibride</td><td>Più materiali per il contatto con i visceri</td></tr></tbody></table><p class=\"pw-table-caption\">Materiali delle protesi per la Chirurgia della Parete addominale.</p>"
+    "html": "<table><thead><tr><th>Materiale</th><th>Tipo</th><th>Caratteristica</th></tr></thead><tbody><tr><td>Polipropilene (PPM)</td><td>Sintetico non assorbibile</td><td>La protesi più utilizzata nella Chirurgia della Parete</td></tr><tr><td>Poliestere</td><td>Sintetico non assorbibile</td><td>Alternativa storica al polipropilene</td></tr><tr><td>ePTFE / cPTFE</td><td>Sintetico non assorbibile</td><td>Superficie adatta al contatto viscerale</td></tr><tr><td>PVDF</td><td>Fluoropolimero non assorbibile</td><td>Uso crescente nelle riparazioni della parete</td></tr><tr><td>Reti biosintetiche</td><td>Riassorbibili a lento assorbimento</td><td>Combinano vantaggi di reti sintetiche e biologiche</td></tr><tr><td>Protesi composite / dual mesh</td><td>Ibride</td><td>Più materiali per il contatto con i visceri</td></tr></tbody></table><p class=\"pw-table-caption\">Materiali delle protesi per la Chirurgia della Parete Addominale.</p>"
    },
    {
     "type": "h2",

@@ -348,3 +348,22 @@ Extra: nodo Person (e WebSite nel prerender) aggiunto all'indice /articoli (manc
   verificata coerenza lastmod = lastReviewed schema = data blocco firma (stesso campo modified).
 - REGOLA RITIRATA dall'hub: "Dott."/"Chirurgia Generale"/"Chirurgia Plastica" maiuscoli sono
   la convenzione di rete (misurata su hub e diastasiedintorni.it): NON tornare mai indietro.
+
+## Statistiche di rete (20/09/2026) — CHIUSO
+- POST /api/stats/hit: sempre 202, filtro bot su user-agent (+ nessuna riga senza UA),
+  scarta /api /admin /404 e percorsi con estensione; sid pseudonimo client (sessionStorage,
+  TTL 30 min); ref classificato (diretto/interno/ricerca/social/AI/altri siti) e scartato;
+  mai IP. Click tracciati con ev=click + label (contatti-telefono/email/whatsapp/menu/link
+  via listener delegato). Una riga per pagina vista: guardia lastPath in lib/stats.js +
+  timer 800ms con cleanup in StatsTracker (App.js). Vecchio /stats/track (hash IP) RIMOSSO,
+  collection pageviews eliminata, Layout.jsx ripulito.
+- GET /api/stats/summary?days=N: solo token di rete (X-Network-Token o ?token=), 401 altrimenti,
+  rotta indipendente (nessuna area admin esiste). Campi esatti del contratto (site, days,
+  from/to ISO con fuso, visits, people, prevVisits, prevPeople, today, pages top10, articles
+  per slug hub, clicks con byLabel e contact=*, sources). Cache in memoria 5 min per il
+  timeout di 8s dell'hub. Fix: datetime naive da pymongo normalizzati a UTC; classificatore
+  per etichette di dominio (bug 't.co' vs 'chatgpt.com' risolto); 'interno' riconosce anche
+  l'host di anteprima.
+- NETWORK_STATS_TOKEN di rete in backend/.env (valore hub). stats_hits azzerata per il go-live.
+- Collaudo: hit 202 / summary 401 senza token / 200 con token (header e query). Beacon
+  verificato in browser reale: sid stabile, ref interno, titolo aggiornato, 1 hit per vista.

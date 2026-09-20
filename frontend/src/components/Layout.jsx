@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X, ChevronDown } from 'lucide-react';
 import { useSite } from '../lib/SiteContext';
-import { track, API } from '../lib/api';
+import { API } from '../lib/api';
 import { useJsonLd } from '../hooks/useSEO';
 
 /** Menu «Capitoli»: i 9 capitoli in tendina, una sola riga di navigazione. */
@@ -109,7 +109,6 @@ export default function Layout({ children }) {
     const location = useLocation();
 
     useEffect(() => { setOpen(false); }, [location.pathname]);
-    useEffect(() => { track(location.pathname); }, [location.pathname]);
     useJsonLd(location.pathname);
 
     const mainNav = [

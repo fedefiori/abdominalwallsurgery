@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import Lenis from 'lenis';
 import { SiteProvider } from './lib/SiteContext';
 import { LightboxProvider } from './components/Lightbox';
+import { trackPageview, initStatsClicks } from './lib/stats';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import PillarPage, { KNOWN_SLUGS } from './pages/PillarPage';
@@ -27,6 +28,17 @@ function ScrollTop() {
     return null;
 }
 
+function StatsTracker() {
+    const { pathname } = useLocation();
+    // il titolo della scheda arriva dopo il fetch dei contenuti
+    useEffect(() => {
+        const t = setTimeout(() => trackPageview(pathname), 800);
+        return () => clearTimeout(t);
+    }, [pathname]);
+    useEffect(() => { initStatsClicks(); }, []);
+    return null;
+}
+
 function SlugRedirect() {
     const { pathname } = useLocation();
     const slug = pathname.replace(/^\//, '');
@@ -41,6 +53,7 @@ export default function App() {
             <LightboxProvider>
             <BrowserRouter>
                 <ScrollTop />
+                <StatsTracker />
                 <Layout>
                     <Routes>
                         <Route path="/" element={<HomePage />} />

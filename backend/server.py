@@ -2,10 +2,11 @@
 Identita' da variabili d'ambiente (SITE_KEY, SITE_LANG, SITE_DOMAIN):
 la stessa app diventa il gemello inglese cambiando solo quelle tre variabili."""
 import asyncio
-import hashlib
 import json
 import logging
 import os
+import re
+import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
@@ -130,6 +131,179 @@ async def startup():
     await refresh_entity()
     await sync_articles()
     asyncio.create_task(sync_loop())
+    asyncio.create_task(sync_loop())
+    await db.stats_hits.create_index('ts')
+
+
+# ---------------------------------------------------------------- statistiche di rete
+# Contatore di prima parte: nessun IP, nessun cookie, nessun referrer completo,
+# mai un identificativo che riconduca a una persona (per questo la rete non ha
+# banner di consenso). Contratto condiviso con l'hub federicofiori.com.
+BOT_RE = re.compile(r'bot|crawler|spider|slurp|bingpreview|headless|lighthouse|'
+                    r'gptbot|claudebot|perplexity|ahrefs|semrush', re.I)
+STATS_SKIP = ('/api', '/admin', '/_next', '/static', '/404')
+_stats_cache = {}
+
+
+def _classify_source(ref, own_host=''):
+    """Classifica la provenienza dal referrer, che poi viene scartato.
+    Match per etichette di dominio, mai per sottostringa ('t.co' non deve
+    catturare 'chatgpt.com')."""
+    if not ref:
+        return 'diretto'
+    try:
+        h = urlparse(ref).netloc.lower()
+    except Exception:
+        return 'altri siti'
+    if not h:
+        return 'diretto'
+    own = urlparse(SITE['domain']).netloc.lower()
+    if h == own or h == own_host.lower() or h.endswith('.chirurgiadellaparete.it'):
+        return 'interno'
+    labels = set(h.split('.'))
+    if labels & {'google', 'bing', 'duckduckgo', 'yahoo', 'ecosia', 'qwant', 'yandex'}:
+        return 'ricerca'
+    if labels & {'facebook', 'instagram', 'linkedin', 'twitter', 'youtube', 'tiktok'} \
+            or h == 't.co' or h.endswith('.t.co') or h == 'x.com' or h.endswith('.x.com'):
+        return 'social'
+    if labels & {'chatgpt', 'openai', 'perplexity', 'claude', 'copilot', 'gemini', 'bard'}:
+        return 'AI'
+    return 'altri siti'
+
+
+@api_router.post('/stats/hit')
+async def stats_hit(request: Request):
+    """Una riga per pagina vista (o per click tracciato). Silenzioso: sempre 202,
+    mai un errore visibile. I bot restano fuori; nessuna riga senza user-agent."""
+    try:
+        ua = request.headers.get('user-agent', '')
+        if not ua or BOT_RE.search(ua):
+            return JSONResponse({}, status_code=202)
+        body = await request.json()
+        path = str(body.get('path') or '').split('?')[0].split('#')[0][:200]
+        if not path.startswith('/') or path.startswith(STATS_SKIP) or '.' in path.rsplit('/', 1)[-1]:
+            return JSONResponse({}, status_code=202)
+        sid = re.sub(r'[^A-Za-z0-9_-]', '', str(body.get('sid') or ''))[:64]
+        if not sid:
+            return JSONResponse({}, status_code=202)
+        doc = {
+            'ts': datetime.now(timezone.utc),
+            'path': path,
+            'title': str(body.get('title') or '')[:200],
+            'sid': sid,
+            'lang': str(body.get('lang') or SITE['lang'])[:8],
+        }
+        if body.get('ev') == 'click':
+            label = re.sub(r'[^a-z0-9-]', '', str(body.get('label') or '').lower())[:60]
+            if not label:
+                return JSONResponse({}, status_code=202)
+            doc['kind'] = 'click'
+            doc['label'] = label
+        else:
+            doc['kind'] = 'view'
+            doc['src'] = _classify_source(str(body.get('ref') or '')[:500],
+                                          request.headers.get('host', ''))
+        await db.stats_hits.insert_one(doc)
+    except Exception:
+        pass
+    return JSONResponse({}, status_code=202)
+
+
+def _agg(rows):
+    """visits + people (sid distinti) di un insieme di righe."""
+    return len(rows), len({r['sid'] for r in rows})
+
+
+@api_router.get('/stats/summary')
+async def stats_summary(request: Request, days: int = 30, token: str = Query('')):
+    """Sola lettura, solo aggregati. Accesso SOLO col token di rete
+    (X-Network-Token o ?token=): nessuna altra autenticazione coinvolta."""
+    expected = os.environ.get('NETWORK_STATS_TOKEN', '')
+    provided = request.headers.get('x-network-token') or token
+    if not expected or provided != expected:
+        raise HTTPException(401, 'unauthorized')
+    days = max(1, min(int(days or 30), 365))
+    hit = _stats_cache.get(days)
+    if hit and hit[0] > datetime.now(timezone.utc):
+        return hit[1]
+
+    now = datetime.now(timezone.utc)
+    today0 = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    frm = today0 - timedelta(days=days - 1)
+    prev_frm = frm - timedelta(days=days)
+    rows = await db.stats_hits.find(
+        {'ts': {'$gte': prev_frm}},
+        {'_id': 0, 'ts': 1, 'path': 1, 'title': 1, 'sid': 1, 'kind': 1, 'label': 1, 'src': 1},
+    ).to_list(200000)
+    for r in rows:  # pymongo restituisce datetime naive: sono UTC
+        if r['ts'].tzinfo is None:
+            r['ts'] = r['ts'].replace(tzinfo=timezone.utc)
+    views = [r for r in rows if r.get('kind') == 'view']
+    clicks = [r for r in rows if r.get('kind') == 'click']
+    cur_v = [r for r in views if r['ts'] >= frm]
+    prev_v = [r for r in views if frm > r['ts'] >= prev_frm]
+    today_v = [r for r in views if r['ts'] >= today0]
+    cur_c = [r for r in clicks if r['ts'] >= frm]
+    prev_c = [r for r in clicks if frm > r['ts'] >= prev_frm]
+    today_c = [r for r in clicks if r['ts'] >= today0]
+    visits, people = _agg(cur_v)
+    prev_visits, prev_people = _agg(prev_v)
+    apath = SITE['articlePath']
+
+    by_path = {}
+    for r in cur_v:
+        by_path.setdefault(r['path'], []).append(r)
+    pages_out = []
+    articles_out = []
+    for p, rs in by_path.items():
+        v, pe = _agg(rs)
+        title = next((x['title'] for x in reversed(rs) if x.get('title')), '')
+        if p.startswith(apath):
+            articles_out.append({'slug': p[len(apath):].strip('/'), 'lang': SITE['lang'],
+                                 'visits': v, 'people': pe})
+        else:
+            pages_out.append({'path': p, 'title': title, 'visits': v, 'people': pe})
+    pages_out.sort(key=lambda x: -x['visits'])
+    articles_out.sort(key=lambda x: -x['visits'])
+
+    def contact(rs):
+        return [r for r in rs if (r.get('label') or '').startswith('contatti')]
+
+    labels = {}
+    for r in cur_c:
+        labels[r['label']] = labels.get(r['label'], 0) + 1
+    by_label = [{'key': k, 'clicks': n} for k, n in sorted(labels.items(), key=lambda x: -x[1])]
+
+    by_src = {}
+    for r in cur_v:
+        by_src.setdefault(r.get('src') or 'diretto', []).append(r)
+    sources = [{'key': k, 'visits': len(rs), 'people': len({x['sid'] for x in rs})}
+               for k, rs in sorted(by_src.items(), key=lambda x: -len(x[1]))]
+
+    out = {
+        'site': urlparse(SITE['domain']).netloc.replace('www.', ''),
+        'days': days,
+        'from': frm.isoformat(),
+        'to': now.isoformat(),
+        'visits': visits,
+        'people': people,
+        'prevVisits': prev_visits,
+        'prevPeople': prev_people,
+        'today': len(today_v),
+        'pages': pages_out[:10],
+        'articles': articles_out,
+        'clicks': {
+            'total': len(cur_c),
+            'prev': len(prev_c),
+            'contact': len(contact(cur_c)),
+            'prevContact': len(contact(prev_c)),
+            'contactToday': len(contact(today_c)),
+            'byLabel': by_label,
+        },
+        'sources': sources,
+    }
+    _stats_cache[days] = (now + timedelta(minutes=5), out)
+    return out
 
 
 # ---------------------------------------------------------------- helpers
@@ -146,20 +320,6 @@ def clean_article(a):
 def is_final_host(request: Request):
     host = urlparse(SITE['domain']).netloc
     return request.headers.get('host', '') == host
-
-
-def source_name(ref: str):
-    if not ref:
-        return 'diretto'
-    h = urlparse(ref).netloc.lower()
-    if not h or urlparse(SITE['domain']).netloc in h:
-        return 'interno'
-    for key, name in [('google', 'Google'), ('bing', 'Bing'), ('duckduckgo', 'DuckDuckGo'),
-                      ('chatgpt', 'ChatGPT'), ('perplexity', 'Perplexity'), ('claude', 'Claude'),
-                      ('facebook', 'Facebook'), ('instagram', 'Instagram'), ('youtube', 'YouTube')]:
-        if key in h:
-            return name
-    return h
 
 
 # ---------------------------------------------------------------- API sito
@@ -407,58 +567,6 @@ async def seo_llms():
     pages.sort(key=lambda p: p['path'])
     arts = [clean_article(a) for a in await db.articles.find({'site': SITE['key']}).to_list(500)]
     return PlainTextResponse(seo_render.llms_txt(SITE, pages, arts, entity()))
-
-
-# ---------------------------------------------------------------- statistiche
-@api_router.post('/stats/track')
-async def stats_track(request: Request):
-    try:
-        payload = await request.json()
-    except Exception:
-        payload = {}
-    path = str(payload.get('path', '/'))[:300]
-    ref = str(payload.get('referrer', ''))[:500]
-    ip = request.client.host if request.client else ''
-    ua = request.headers.get('user-agent', '')
-    day = datetime.now(timezone.utc).date().isoformat()
-    vid = hashlib.sha256(f'{ip}|{ua}|{day}'.encode()).hexdigest()[:24]
-    kind = 'article' if path.startswith(SITE['articlePath']) else 'page'
-    slug = path[len(SITE['articlePath']):].strip('/') if kind == 'article' else None
-    await db.pageviews.insert_one({
-        'path': path, 'ts': datetime.now(timezone.utc).isoformat(),
-        'day': day, 'vid': vid, 'src': source_name(ref), 'kind': kind, 'slug': slug,
-    })
-    return {'ok': True}
-
-
-@api_router.get('/stats/summary')
-async def stats_summary(request: Request, days: int = Query(30, ge=1, le=365), token: str = ''):
-    provided = request.headers.get('x-network-token') or token
-    if not siteconfig.NETWORK_STATS_TOKEN or provided != siteconfig.NETWORK_STATS_TOKEN:
-        raise HTTPException(401, 'token di rete mancante o non valido')
-    since = (datetime.now(timezone.utc) - timedelta(days=days)).date().isoformat()
-    rows = await db.pageviews.find({'day': {'$gte': since}}, {'_id': 0}).to_list(100000)
-    pageviews = len(rows)
-    visitors = len({r['vid'] for r in rows})
-    visits = len({(r['vid'], r['day']) for r in rows})
-    top_pages, top_articles, sources = {}, {}, {}
-    titles = {a['slug']: a.get('title') for a in await db.articles.find({'site': SITE['key']}).to_list(500)}
-    for r in rows:
-        if r['kind'] == 'article' and r.get('slug'):
-            top_articles[r['slug']] = top_articles.get(r['slug'], 0) + 1
-        else:
-            top_pages[r['path']] = top_pages.get(r['path'], 0) + 1
-        sources[r['src']] = sources.get(r['src'], 0) + 1
-    return {
-        'site': urlparse(SITE['domain']).netloc, 'days': days,
-        'visits': visits, 'visitors': visitors, 'pageviews': pageviews,
-        'topPages': [{'path': k, 'views': v} for k, v in
-                     sorted(top_pages.items(), key=lambda x: -x[1])[:15]],
-        'topArticles': [{'slug': k, 'title': titles.get(k, k), 'views': v} for k, v in
-                        sorted(top_articles.items(), key=lambda x: -x[1])[:15]],
-        'sources': [{'name': k, 'visits': v} for k, v in
-                    sorted(sources.items(), key=lambda x: -x[1])[:15]],
-    }
 
 
 # ---------------------------------------------------------------- media

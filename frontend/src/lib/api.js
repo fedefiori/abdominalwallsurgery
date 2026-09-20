@@ -17,13 +17,4 @@ export const api = {
     article: (lang, slug) => get(`/blog/posts/${lang}/${slug}`),
 };
 
-export function track(path) {
-    try {
-        const blob = new Blob(
-            [JSON.stringify({ path, referrer: document.referrer || '' })],
-            { type: 'application/json' });
-        navigator.sendBeacon(`${API}/api/stats/track`, blob);
-    } catch { /* beacon best-effort */ }
-}
-
 export { API };

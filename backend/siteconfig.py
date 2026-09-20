@@ -10,7 +10,6 @@ SITE_KEY = os.environ.get('SITE_KEY', '')
 SITE_LANG = os.environ.get('SITE_LANG', '')
 SITE_DOMAIN = os.environ.get('SITE_DOMAIN', '').rstrip('/')
 HUB_URL = os.environ.get('HUB_URL', 'https://www.federicofiori.com').rstrip('/')
-NETWORK_STATS_TOKEN = os.environ.get('NETWORK_STATS_TOKEN', '')
 
 # La mappa di rete deriva da SITE_KEY: nessuna altra variabile necessaria.
 NETWORK_SITES = {

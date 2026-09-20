@@ -298,3 +298,11 @@ Collaudo completo: /app/memory/collaudo.md.
   istituzionale ASST + attivita' libero-professionale presso Cliniche private in Milano;
   "Riceve appuntamento presso Fi Multicare..." (rimossi Capoturno/Trauma Leader).
 - FAQ "Dove riceve il dott. Federico Fiori?" riallineata parola per parola al nuovo testo.
+
+## Fix refuso + contatti gemelli (19/09/2026, sera 2) — CHIUSO
+- /chi-sono/: "Riceve appuntamento" -> "Riceve su appuntamento" (blocco + FAQ).
+- /contatti/: paragrafo studio allineato ("riceve su appuntamento presso Fi Multicare...") e
+  aggiunto paragrafo con distinzione attivita' istituzionale ASST / libero-professionale presso
+  Cliniche private in Milano (testo identico a /chi-sono/). FAQ riorganizzate:
+  "Dove si trova lo studio e come si prenota?" (verbatim), "Dove opera il dott. Fiori?" (nuova,
+  verbatim), documenti invariata. Voce related "Chi sono" -> "Il profilo del dott. Federico Fiori".

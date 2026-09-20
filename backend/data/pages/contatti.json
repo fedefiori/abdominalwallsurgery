@@ -27,7 +27,11 @@
    },
    {
     "type": "p",
-    "html": "Il dott. Federico Fiori riceve presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila. Le visite sono su appuntamento."
+    "html": "Il dott. Federico Fiori riceve su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila."
+   },
+   {
+    "type": "p",
+    "html": "L'attività chirurgica istituzionale si svolge presso la Divisione di Chirurgia d'Urgenza - Chirurgia Generale e Robotica - dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano. L'attività chirurgica in regime libero-professionale viene effettuata presso Cliniche private in Milano."
    },
    {
     "type": "contactList",
@@ -68,12 +72,12 @@
   "answer": "Il dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano: telefono +39 02 76021568, e-mail info@fimulticare.it. Per il contatto diretto della rete: info@federicofiori.com. La valutazione riguarda ernie, laparoceli e gli altri difetti della parete.",
   "faq": [
    {
-    "q": "Come si prenota una visita?",
-    "a": "La visita si prenota contattando Fi Multicare — Centro Medico Multidisciplinare: telefono +39 02 76021568 oppure e-mail info@fimulticare.it. Le visite sono su appuntamento; la sede è in Galleria del Corso 4, 20122 Milano."
+    "q": "Dove si trova lo studio e come si prenota?",
+    "a": "Il dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila. Telefono +39 02 76021568, e-mail info@fimulticare.it."
    },
    {
-    "q": "Dove si trova lo studio?",
-    "a": "Lo studio è presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano, in pieno centro, a pochi passi da Piazza San Babila."
+    "q": "Dove opera il dott. Fiori?",
+    "a": "L'attività chirurgica istituzionale si svolge presso la Divisione di Chirurgia d'Urgenza - Chirurgia Generale e Robotica - dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano. L'attività chirurgica in regime libero-professionale viene effettuata presso Cliniche private in Milano."
    },
    {
     "q": "Quali documenti portare alla prima visita?",
@@ -82,7 +86,7 @@
   ],
   "related": [
    {
-    "label": "Chi sono",
+    "label": "Il profilo del dott. Federico Fiori",
     "href": "/chi-sono/"
    },
    {
@@ -96,5 +100,5 @@
   ]
  },
  "en": null,
- "modified": "2026-09-19T10:00:00"
+ "modified": "2026-09-19T16:00:00"
 }

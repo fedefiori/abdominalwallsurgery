@@ -324,3 +324,18 @@ Collaudo completo: /app/memory/collaudo.md.
   maiuscole; "Dott."/"Dottor" sempre maiuscolo; "Chirurgia Generale" sempre maiuscolo;
   uso anatomico "parete addominale" (es. "difetti della parete addominale") resta minuscolo;
   "Paziente" maiuscolo; nome reparto "Unità Operativa di Chirurgia della Parete Addominale".
+
+## Giro 5 hub — 7 punti SEO/entita' (20/09/2026) — CHIUSO (18/18 rotte verificate)
+1. @id centro: HUB_CLINIC_ID -> https://www.federicofiori.com/contatti#fi-multicare (fallback,
+   worksFor, ogni riferimento). Cache hub_entity.json riallineata all'endpoint (deploy confermato).
+2. Person: person_ld ora copia il nodo COSI' COM'E' dall'endpoint hub, cambia solo inLanguage.
+   Rimossi override manuali (jobTitle/hasOccupation/worksFor/url e il branch contact). jobTitle
+   ora e' la lista di due voci dell'hub. Rimossa costante HUB_HOSPITAL_ID inutilizzata.
+3. llms.txt identita': qualifica + riga Incarico (dell'Unita') + riga Centro col nuovo @id.
+4. Publisher: MedicalBusiness -> Organization, tolto medicalSpecialty, sameAs invariato.
+5. Article: isBasedOn = URL articolo hub (/articoli/{slug}); cover .png -> .webp in clean_article
+   (JSON-LD, og:image e frontend ereditano).
+6. Firma in home: AuthorBox client (HomePage.jsx dopo FAQ) + prerender (esclusione 'home' rimossa).
+7. Sitemap lastmod reali: diastasi 19/09 (link aggiunto), sintomi/radiologia/cookie 16/09
+   (giro H2/FAQ/cookie), le altre gia' 19/09 per edit reali.
+Extra: nodo Person (e WebSite nel prerender) aggiunto all'indice /articoli (mancava).

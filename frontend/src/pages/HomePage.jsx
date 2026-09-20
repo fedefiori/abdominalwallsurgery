@@ -8,6 +8,7 @@ import useSEO from '../hooks/useSEO';
 import { MaskLines, Reveal } from '../components/Reveal';
 import { Blocks } from '../components/Blocks';
 import { FaqView } from '../components/FaqView';
+import { AuthorBox } from '../components/AuthorBox';
 import { useState } from 'react';
 
 const MARQUEE = [
@@ -201,6 +202,14 @@ export default function HomePage() {
                 <section className="pw-section" data-testid="home-faq-section">
                     <div className="pw-shell" style={{ maxWidth: '820px' }}>
                         <FaqView faq={page.faq} title={ui.faq_title} />
+                    </div>
+                </section>
+            )}
+
+            {page?.modified && (
+                <section className="pw-section" style={{ paddingTop: 0 }} data-testid="home-author-section">
+                    <div className="pw-shell" style={{ maxWidth: '820px' }}>
+                        <AuthorBox updated={page.modified} />
                     </div>
                 </section>
             )}

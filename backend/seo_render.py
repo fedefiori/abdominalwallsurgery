@@ -97,18 +97,17 @@ def org_ld(entity, domain, lang):
         'https://www.chirurgiadellaparete.it',
     ]
     org = {
-        '@type': 'MedicalBusiness',
+        '@type': 'Organization',
         '@id': f'{domain}/#organization',
         'name': 'Chirurgia della Parete Addominale - Dott. Federico Fiori',
         'url': domain,
         'sameAs': same,
-        'medicalSpecialty': 'Chirurgia della Parete Addominale',
     }
     return org
 
 
-HUB_CLINIC_ID = 'https://www.federicofiori.com/#fi-multicare'
-HUB_HOSPITAL_ID = 'https://www.federicofiori.com/#asst-santi-paolo-carlo'
+# @id autorevole del centro, dall'hub: vive sotto /contatti, mai alla radice.
+HUB_CLINIC_ID = 'https://www.federicofiori.com/contatti#fi-multicare'
 # @id autorevole della persona, dall'endpoint hub /api/seo/entity: mai cambiarlo.
 PERSON_REF_ID = 'https://www.federicofiori.com/curriculum#federico-fiori'
 
@@ -160,21 +159,15 @@ def clinic_ld(domain, entity=None):
     return dict(CLINIC_FALLBACK)
 
 
-def person_ld(entity):
+def person_ld(entity, lang='it'):
+    """Il nodo Person si copia COSI' COM'E' dall'endpoint hub /api/seo/entity
+    (regola di rete, giro 5): nessuna riscrittura, nessun campo aggiunto.
+    Unica modifica consentita: inLanguage."""
     person = (entity or {}).get('person') or {}
     p = dict(person)
     p.pop('@context', None)
     if p:
-        # regola di rete (collaudo 19/06): jobTitle e' SOLO la qualifica;
-        # il ruolo in ASST e' un incarico -> hasOccupation. Apostrofo: dell'Unita'.
-        p['jobTitle'] = 'Medico Chirurgo — Specialista in Chirurgia Generale'
-        p['hasOccupation'] = {
-            '@type': 'Occupation',
-            'name': "Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale",
-            'occupationLocation': {'@id': HUB_HOSPITAL_ID},
-        }
-        p['worksFor'] = {'@id': HUB_CLINIC_ID}
-        p['url'] = 'https://www.federicofiori.com/'
+        p['inLanguage'] = lang
     return p
 
 
@@ -226,7 +219,7 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
     """JSON-LD per le 14 pagine ereditate, in base al kind."""
     kind = page.get('it', {}).get('kind', 'clinical') if page.get('it') else 'clinical'
     graphs = []
-    person = person_ld(entity)
+    person = person_ld(entity, site['lang'])
     org = org_ld(entity, site['domain'], site['lang'])
     web_type = 'WebPage' if kind in ('home', 'legal') else 'MedicalWebPage'
     web = {
@@ -293,14 +286,8 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
             'lastReviewed': page.get('modified', '')[:10] or None,
         }, person] if person else graphs
     elif kind == 'contact':
-        person_node = person_ld(entity)
+        person_node = person_ld(entity, site['lang'])
         clinic = clinic_ld(site['domain'], entity)
-        if person_node:
-            person_node['workLocation'] = {'@id': clinic['@id']}
-            person_node['affiliation'] = {
-                '@type': 'Hospital',
-                'name': "Divisione di Chirurgia d'Urgenza – Chirurgia Generale e Robotica – ASST Santi Paolo e Carlo – PO San Carlo Borromeo, Milano",
-            }
         graphs.append(clinic)
         if person_node:
             graphs.append(person_node)
@@ -335,7 +322,7 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
             'dateModified': article.get('updatedAt') or article.get('publishedAt'),
             'inLanguage': article.get('lang', site['lang']),
             'mainEntityOfPage': canonical,
-            'isBasedOn': article.get('hubUrl') or None,
+            'isBasedOn': article.get('hubUrl') or f"https://www.federicofiori.com/articoli/{article.get('slug')}",
             'author': {'@id': PERSON_REF_ID},
             'reviewedBy': {'@id': PERSON_REF_ID},
             'publisher': {'@id': f"{site['domain']}/#website"},
@@ -368,7 +355,7 @@ def article_jsonld(article, site, entity, canonical, breadcrumb_items):
                 for f in faq
             ],
         })
-    person = person_ld(entity)
+    person = person_ld(entity, article.get('lang', site['lang']))
     if person:
         graphs.append(person)
     return {'@context': 'https://schema.org', '@graph': graphs}
@@ -455,7 +442,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
     net = network_html(site)
     kind = (page.get('it') or {}).get('kind', 'clinical')
     abox = ''
-    if kind not in ('home', 'legal', 'contact'):
+    if kind not in ('legal', 'contact'):
         abox = author_box_html(site['domain'], (entity or {}).get('person') or {}, page.get('modified', ''), site['lang'])
     rel = content.get('related') or []
     rel_html = ''
@@ -628,15 +615,15 @@ def llms_txt(site, pages, articles, entity):
     lang = site['lang']
     domain = site['domain']
     person = (entity or {}).get('person', {})
-    # riga identita': l'incarico e' "dell'Unita'", mai "della Unita'" (refuso hub)
-    ruolo = (person.get('jobTitle', '') or '').replace('della Unità', "dell'Unità")
     lines = [
         f"# {site['ui']['site_name']}",
         '',
         f"> Sito verticale italiano sulla Chirurgia della Parete Addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
         '',
         '## Chi',
-        f"- {person.get('name', 'Dott. Federico Fiori')}, {ruolo}",
+        f"- {person.get('name', 'Dott. Federico Fiori')}, Medico Chirurgo - Specialista in Chirurgia Generale",
+        "- Incarico: Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale, ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano",
+        f"- Centro: {HUB_CLINIC_ID}",
         f"- Sede: Galleria del Corso 4, 20122 Milano. Telefono: +39 02 76021568",
         f"- Hub: https://www.federicofiori.com (curriculum, TESAR, MILA, glossario, galleria risultati)",
         f"- Identità: {person.get('@id', '')}",

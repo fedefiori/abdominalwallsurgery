@@ -136,6 +136,10 @@ async def startup():
 def clean_article(a):
     a = dict(a)
     a.pop('_id', None)
+    # cover hub: la variante .webp e' generata al volo dall'hub (stesso percorso)
+    cov = a.get('coverUrl') or ''
+    if cov.startswith('https://www.federicofiori.com/') and cov.endswith('.png'):
+        a['coverUrl'] = cov[:-4] + '.webp'
     return a
 
 
@@ -302,6 +306,10 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
             {'@type': 'CollectionPage', '@id': domain + SITE['articlesIndex'],
              'url': domain + SITE['articlesIndex'], 'name': ui['articles_title'],
              'inLanguage': SITE['lang'], 'isPartOf': {'@id': f'{domain}/#website'}},
+            {'@type': 'WebSite', '@id': f'{domain}/#website', 'url': domain,
+             'name': ui['site_name'], 'inLanguage': SITE['lang'],
+             'publisher': {'@id': seo_render.PERSON_REF_ID}},
+            seo_render.person_ld(entity(), SITE['lang']),
             seo_render.breadcrumb_ld([(ui['breadcrumb_home'], domain + '/'),
                                       (ui['breadcrumb_articles'], domain + SITE['articlesIndex'])]),
         ]}
@@ -353,6 +361,7 @@ async def seo_jsonld(path: str = Query('/')):
             {'@type': 'WebSite', '@id': f'{domain}/#website', 'url': domain,
              'name': ui['site_name'], 'inLanguage': SITE['lang'],
              'publisher': {'@id': seo_render.PERSON_REF_ID}},
+            seo_render.person_ld(entity(), SITE['lang']),
             seo_render.breadcrumb_ld([(ui['breadcrumb_home'], domain + '/'),
                                       (ui['breadcrumb_articles'], domain + SITE['articlesIndex'])]),
         ]}

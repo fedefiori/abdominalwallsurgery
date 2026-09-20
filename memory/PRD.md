@@ -339,3 +339,12 @@ Collaudo completo: /app/memory/collaudo.md.
 7. Sitemap lastmod reali: diastasi 19/09 (link aggiunto), sintomi/radiologia/cookie 16/09
    (giro H2/FAQ/cookie), le altre gia' 19/09 per edit reali.
 Extra: nodo Person (e WebSite nel prerender) aggiunto all'indice /articoli (mancava).
+
+## Giro 6 hub — 2 rilievi (20/09/2026) — GIA' CHIUSI nel giro 5, dimostrato con output
+- llms.txt: identita' e riga chi-sono risultavano vecchie al hub -> era una lettura in cache;
+  l'output corrente e' gia' conforme (qualifica + Incarico + Centro; chi-sono col titolo nuovo;
+  zero occorrenze "della Unita'"/titolo vecchio).
+- Sitemap: le 5 pagine con lastmod 2023 erano gia' state riallineate (16/09 o 19/09);
+  verificata coerenza lastmod = lastReviewed schema = data blocco firma (stesso campo modified).
+- REGOLA RITIRATA dall'hub: "Dott."/"Chirurgia Generale"/"Chirurgia Plastica" maiuscoli sono
+  la convenzione di rete (misurata su hub e diastasiedintorni.it): NON tornare mai indietro.

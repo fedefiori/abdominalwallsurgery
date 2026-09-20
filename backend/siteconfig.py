@@ -35,7 +35,7 @@ NETWORK_SITES = {
 # Ecosistema (GEO): i siti della rete, con descrizione per lingua.
 NETWORK_ECOSYSTEM = [
     {'url': HUB_URL, 'label': {'it': 'federicofiori.com', 'en': 'federicofiori.com'},
-     'desc': {'it': "L'hub: identità, curriculum, tecnica TESAR, tecnica MILA, glossario e galleria dei risultati del dott. Federico Fiori.",
+     'desc': {'it': "L'hub: identità, curriculum, tecnica TESAR, tecnica MILA, glossario e galleria dei risultati del Dott. Federico Fiori.",
               'en': 'The hub: identity, curriculum, TESAR and MILA techniques, glossary and results gallery of Dr. Federico Fiori.'}},
     {'url': 'https://www.diastasiedintorni.it', 'label': {'it': 'diastasiedintorni.it', 'en': 'diastasiedintorni.it'},
      'desc': {'it': 'Il verticale italiano sulla diastasi dei muscoli retti: sintomi, misurazione, riabilitazione e intervento.',
@@ -48,23 +48,23 @@ NETWORK_ECOSYSTEM = [
               'en': 'The Italian site on hernias, incisional hernias and prehabilitation.'}},
     {'url': 'https://www.abdominalwallsurgery.com', 'label': {'it': 'abdominalwallsurgery.com', 'en': 'abdominalwallsurgery.com'},
      'live': False,
-     'desc': {'it': 'Il verticale inglese su ernie, laparoceli e chirurgia della parete addominale.',
+     'desc': {'it': 'Il verticale inglese su ernie, laparoceli e Chirurgia della Parete addominale.',
               'en': 'The English vertical on hernias, incisional hernias and abdominal wall surgery.'}},
     {'url': 'https://www.federico-fiori.it', 'label': {'it': 'federico-fiori.it', 'en': 'federico-fiori.it'},
-     'desc': {'it': 'La chirurgia plastica del dott. Federico Fiori: la forma.',
+     'desc': {'it': 'La chirurgia plastica del Dott. Federico Fiori: la forma.',
               'en': 'Dr. Federico Fiori’s plastic surgery practice: the form.'}},
 ]
 
 # Stringhe di interfaccia (non contenuti clinici), per lingua.
 UI = {
     'it': {
-        'site_name': 'Chirurgia della parete addominale',
+        'site_name': 'Chirurgia della Parete addominale',
         'site_baseline': 'Ernie, laparoceli e ricostruzione della parete addominale',
-        'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il dott. Federico Fiori',
+        'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il Dott. Federico Fiori',
         'nav_chapters': 'Capitoli',
         'index_title': 'Indice dei contenuti', 'on_this_page': 'In questa pagina',
         'faq_title': 'Domande frequenti', 'network_title': 'La rete',
-        'network_intro': 'Questo sito fa parte della rete editoriale del dott. Federico Fiori: ogni argomento ha un sito di riferimento.',
+        'network_intro': 'Questo sito fa parte della rete editoriale del Dott. Federico Fiori: ogni argomento ha un sito di riferimento.',
         'articles_title': 'Articoli di approfondimento',
         'articles_sub': 'Gli articoli divulgativi scritti e approvati nell’area editoriale di federicofiori.com, serviti qui per i lettori di questo sito.',
         'read_article': 'Leggi l’articolo', 'updated': 'Aggiornato il', 'published': 'Pubblicato il',
@@ -74,7 +74,7 @@ UI = {
         'notfound_cta': 'Torna alla home', 'theme_light': 'Tema chiaro', 'theme_dark': 'Tema scuro',
         'menu_open': 'Apri il menu', 'menu_close': 'Chiudi il menu',
         'contact_cta': 'Richiedi una valutazione',
-        'home_kicker': 'A cura del dott. Federico Fiori',
+        'home_kicker': 'A cura del Dott. Federico Fiori',
         'hero_answer_label': 'In sintesi',
         'figures_disclaimer': 'Immagini cliniche a scopo illustrativo.',
         'tags_label': 'Argomenti',

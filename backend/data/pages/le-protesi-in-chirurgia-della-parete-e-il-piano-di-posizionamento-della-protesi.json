@@ -2,8 +2,8 @@
  "slug": "le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi",
  "path": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/",
  "it": {
-  "h1": "Le protesi in chirurgia della parete e il piano di posizionamento della protesi",
-  "metaTitle": "Protesi in chirurgia della parete e piano di posizionamento",
+  "h1": "Le protesi in Chirurgia della Parete e il piano di posizionamento della protesi",
+  "metaTitle": "Protesi in Chirurgia della Parete e piano di posizionamento",
   "metaDescription": "Tipi di protesi per ernie e laparoceli e i piani di posizionamento: sottocutaneo onlay, retromuscolare sublay, preperitoneale e intraperitoneale IPOM.",
   "blocks": [
    {
@@ -46,8 +46,8 @@
    {
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-04.webp",
-    "alt": "Protesi biologica utilizzata nella chirurgia della parete addominale",
-    "caption": "Protesi biologica utilizzata nella chirurgia della parete addominale",
+    "alt": "Protesi biologica utilizzata nella Chirurgia della Parete addominale",
+    "caption": "Protesi biologica utilizzata nella Chirurgia della Parete addominale",
     "width": 800,
     "height": 800,
     "kind": "photo"
@@ -95,8 +95,8 @@
    {
     "type": "img",
     "src": "/api/media/protesi-chirurgia-della-parete-02.webp",
-    "alt": "Dettaglio di una protesi per chirurgia della parete addominale",
-    "caption": "Dettaglio di una protesi per chirurgia della parete addominale",
+    "alt": "Dettaglio di una protesi per Chirurgia della Parete addominale",
+    "caption": "Dettaglio di una protesi per Chirurgia della Parete addominale",
     "width": 800,
     "height": 800,
     "kind": "photo"
@@ -127,7 +127,7 @@
    },
    {
     "type": "table",
-    "html": "<table><thead><tr><th>Materiale</th><th>Tipo</th><th>Caratteristica</th></tr></thead><tbody><tr><td>Polipropilene (PPM)</td><td>Sintetico non assorbibile</td><td>La protesi più utilizzata nella chirurgia della parete</td></tr><tr><td>Poliestere</td><td>Sintetico non assorbibile</td><td>Alternativa storica al polipropilene</td></tr><tr><td>ePTFE / cPTFE</td><td>Sintetico non assorbibile</td><td>Superficie adatta al contatto viscerale</td></tr><tr><td>PVDF</td><td>Fluoropolimero non assorbibile</td><td>Uso crescente nelle riparazioni della parete</td></tr><tr><td>Reti biosintetiche</td><td>Riassorbibili a lento assorbimento</td><td>Combinano vantaggi di reti sintetiche e biologiche</td></tr><tr><td>Protesi composite / dual mesh</td><td>Ibride</td><td>Più materiali per il contatto con i visceri</td></tr></tbody></table><p class=\"pw-table-caption\">Materiali delle protesi per la chirurgia della parete addominale.</p>"
+    "html": "<table><thead><tr><th>Materiale</th><th>Tipo</th><th>Caratteristica</th></tr></thead><tbody><tr><td>Polipropilene (PPM)</td><td>Sintetico non assorbibile</td><td>La protesi più utilizzata nella Chirurgia della Parete</td></tr><tr><td>Poliestere</td><td>Sintetico non assorbibile</td><td>Alternativa storica al polipropilene</td></tr><tr><td>ePTFE / cPTFE</td><td>Sintetico non assorbibile</td><td>Superficie adatta al contatto viscerale</td></tr><tr><td>PVDF</td><td>Fluoropolimero non assorbibile</td><td>Uso crescente nelle riparazioni della parete</td></tr><tr><td>Reti biosintetiche</td><td>Riassorbibili a lento assorbimento</td><td>Combinano vantaggi di reti sintetiche e biologiche</td></tr><tr><td>Protesi composite / dual mesh</td><td>Ibride</td><td>Più materiali per il contatto con i visceri</td></tr></tbody></table><p class=\"pw-table-caption\">Materiali delle protesi per la Chirurgia della Parete addominale.</p>"
    },
    {
     "type": "h2",
@@ -227,7 +227,7 @@
   "answer": "La protesi è una rete che rinforza la parete addominale dopo la chiusura del difetto. Il risultato dipende dal materiale, ma ancora di più dal piano di posizionamento: onlay sopra la fascia, sublay dietro i muscoli, preperitoneale o intraperitoneale. Questa pagina descrive materiali e piani.",
   "faq": [
    {
-    "q": "Che cos'è una protesi in chirurgia della parete?",
+    "q": "Che cos'è una protesi in Chirurgia della Parete?",
     "a": "Queste protesi sono costituite da piu’ materiali di vario tipo sintetici/biologici al fine di renderle idonee all’utilizzo e al piano di posizionamento per cui sono indicate. Le reti Dual Mesh sono state sviluppate per poter essere posizionate all’interno della cavità peritoneale. La tecnica IPOM o IPUM prevede la riparazione con protesi posizionate in cavità fissate in vario modo a ricoprire il difetto. Queste mesh devono essere costruite con materiale opportuno sul lato rivolto all’interno della cavità per evitare la formazione di aderenze con i visceri, che potrebbero causare complicanze importanti."
    },
    {

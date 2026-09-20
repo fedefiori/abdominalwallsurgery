@@ -2,30 +2,30 @@
  "slug": "chi-sono",
  "path": "/chi-sono/",
  "it": {
-  "h1": "Il dott. Federico Fiori: profilo e attività clinica",
+  "h1": "Il Dott. Federico Fiori: profilo e attività clinica",
   "metaTitle": "Dott. Federico Fiori - Chirurgia Generale e della parete | Milano",
-  "metaDescription": "Chi è il dott. Federico Fiori: Medico Chirurgo, Specialista in Chirurgia Generale. Chirurgia laparoscopica, robotica e della parete addominale a Milano.",
+  "metaDescription": "Chi è il Dott. Federico Fiori: Medico Chirurgo, Specialista in Chirurgia Generale. Chirurgia laparoscopica, robotica e della parete addominale a Milano.",
   "blocks": [
    {
     "type": "img",
     "src": "/api/media/ritratto-dottor-fiori.webp",
-    "alt": "Il dott. Federico Fiori in camice operatorio, ritratto ufficiale",
-    "caption": "Il dott. Federico Fiori, Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale, a Milano.",
+    "alt": "Il Dott. Federico Fiori in camice operatorio, ritratto ufficiale",
+    "caption": "Il Dott. Federico Fiori, Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale, a Milano.",
     "kind": "photo",
     "width": 820,
     "height": 1000
    },
    {
     "type": "h2",
-    "text": "Di che cosa si occupa il dott. Fiori?"
+    "text": "Di che cosa si occupa il Dott. Fiori?"
    },
    {
     "type": "p",
-    "html": "L'attività del dott. Fiori comprende l'intera chirurgia generale, con un campo specifico di interesse e di ricerca nei difetti della parete addominale: ernie primitive, ernie incisionali (laparoceli) e diastasi dei muscoli retti, con particolare attenzione alle riparazioni complesse, ai disastri di parete e alle recidive dopo precedenti interventi. La competenza in chirurgia plastica consente un <a href=\"https://www.federicofiori.com/approccio-morfo-funzionale\">approccio morfo-funzionale</a>, volto al miglior risultato complessivo per il Paziente."
+    "html": "L'attività del Dott. Fiori comprende l'intera Chirurgia Generale, con un campo specifico di interesse e di ricerca nei difetti della parete addominale: ernie primitive, ernie incisionali (laparoceli) e diastasi dei muscoli retti, con particolare attenzione alle riparazioni complesse, ai disastri di parete e alle recidive dopo precedenti interventi. La competenza in chirurgia plastica consente un <a href=\"https://www.federicofiori.com/approccio-morfo-funzionale\">approccio morfo-funzionale</a>, volto al miglior risultato complessivo per il Paziente."
    },
    {
     "type": "p",
-    "html": "Il dott. Fiori è Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano ed è Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di chirurgia addominale da oltre trent'anni e, dal 1996, anche di chirurgia plastica ricostruttiva del tronco, impiegata nel ripristino funzionale ed estetico della parete."
+    "html": "Il Dott. Fiori è Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano ed è Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di chirurgia addominale da oltre trent'anni e, dal 1996, anche di chirurgia plastica ricostruttiva del tronco, impiegata nel ripristino funzionale ed estetico della parete."
    },
    {
     "type": "p",
@@ -61,7 +61,7 @@
    },
    {
     "type": "p",
-    "html": "La tecnica TESAR e i suoi risultati sono stati presentati in congressi nazionali e internazionali di chirurgia della parete — fra cui EHS, ACOI, ISHAWS e AWR Europe — e in videocorsi dedicati alla riparazione dei difetti della linea mediana."
+    "html": "La tecnica TESAR e i suoi risultati sono stati presentati in congressi nazionali e internazionali di Chirurgia della Parete — fra cui EHS, ACOI, ISHAWS e AWR Europe — e in videocorsi dedicati alla riparazione dei difetti della linea mediana."
    },
    {
     "type": "h2",
@@ -69,27 +69,27 @@
    },
    {
     "type": "p",
-    "html": "Curriculum completo, titoli, congressi, pubblicazioni e galleria dei risultati non si duplicano su questo sito: sono pubblicati sull'hub della rete, alla pagina <a href=\"https://www.federicofiori.com/curriculum\">curriculum completo del dott. Federico Fiori</a>. Il profilo anagrafico e professionale è raccontato dall'hub; questa pagina descrive il modo di operare nella chirurgia della parete."
+    "html": "Curriculum completo, titoli, congressi, pubblicazioni e galleria dei risultati non si duplicano su questo sito: sono pubblicati sull'hub della rete, alla pagina <a href=\"https://www.federicofiori.com/curriculum\">curriculum completo del Dott. Federico Fiori</a>. Il profilo anagrafico e professionale è raccontato dall'hub; questa pagina descrive il modo di operare nella Chirurgia della Parete."
    }
   ],
   "kind": "profile",
-  "answer": "Il dott. Federico Fiori è Medico Chirurgo, Specialista in Chirurgia Generale: si occupa di chirurgia laparoscopica avanzata, di chirurgia robotica e di chirurgia della parete addominale, e dal 1996 anche di chirurgia plastica ricostruttiva. In questa pagina: il profilo professionale, i criteri con cui viene scelta la tecnica per ogni Paziente, la sede operatoria in ASST a Milano e l'ambulatorio presso Fi Multicare, in Galleria del Corso 4.",
+  "answer": "Il Dott. Federico Fiori è Medico Chirurgo, Specialista in Chirurgia Generale: si occupa di chirurgia laparoscopica avanzata, di chirurgia robotica e di Chirurgia della Parete addominale, e dal 1996 anche di chirurgia plastica ricostruttiva. In questa pagina: il profilo professionale, i criteri con cui viene scelta la tecnica per ogni Paziente, la sede operatoria in ASST a Milano e l'ambulatorio presso Fi Multicare, in Galleria del Corso 4.",
   "faq": [
    {
-    "q": "Chi è il dott. Federico Fiori?",
-    "a": "Il dott. Fiori è Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano ed è Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di chirurgia addominale da oltre trent'anni e, dal 1996, anche di chirurgia plastica ricostruttiva del tronco, impiegata nel ripristino funzionale ed estetico della parete."
+    "q": "Chi è il Dott. Federico Fiori?",
+    "a": "Il Dott. Fiori è Dirigente Medico di Chirurgia Generale presso l'ASST Santi Paolo e Carlo di Milano ed è Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale - ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano. Si occupa di chirurgia addominale da oltre trent'anni e, dal 1996, anche di chirurgia plastica ricostruttiva del tronco, impiegata nel ripristino funzionale ed estetico della parete."
    },
    {
     "q": "Come viene scelta la tecnica per ogni Paziente?",
     "a": "La tecnica viene decisa in base alle esigenze del singolo Paziente, non sull'abitudine: contano la sede e la dimensione del difetto, la qualità della linea alba e dei muscoli, la storia chirurgica precedente e le condizioni generali. Per questo la valutazione in ambulatorio comprende sempre l'esame clinico e, quando serve, la diagnostica per immagini della parete addominale."
    },
    {
-    "q": "Dove riceve il dott. Federico Fiori?",
+    "q": "Dove riceve il Dott. Federico Fiori?",
     "a": "Riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano. Telefono +39 02 76021568, e-mail info@fimulticare.it. Tutti i riferimenti sono nella pagina dei contatti dello studio."
    },
    {
     "q": "Dove si trova il curriculum completo?",
-    "a": "Curriculum completo, titoli, congressi, pubblicazioni e galleria dei risultati non si duplicano su questo sito: sono pubblicati sull'hub della rete, alla pagina curriculum completo del dott. Federico Fiori. Il profilo anagrafico e professionale è raccontato dall'hub; questa pagina descrive il modo di operare nella chirurgia della parete."
+    "a": "Curriculum completo, titoli, congressi, pubblicazioni e galleria dei risultati non si duplicano su questo sito: sono pubblicati sull'hub della rete, alla pagina curriculum completo del Dott. Federico Fiori. Il profilo anagrafico e professionale è raccontato dall'hub; questa pagina descrive il modo di operare nella Chirurgia della Parete."
    }
   ],
   "related": [

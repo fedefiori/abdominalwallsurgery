@@ -306,3 +306,13 @@ Collaudo completo: /app/memory/collaudo.md.
   Cliniche private in Milano (testo identico a /chi-sono/). FAQ riorganizzate:
   "Dove si trova lo studio e come si prenota?" (verbatim), "Dove opera il dott. Fiori?" (nuova,
   verbatim), documenti invariata. Voce related "Chi sono" -> "Il profilo del dott. Federico Fiori".
+
+## Nuove regole maiuscole (19/09/2026, sera 3) — CHIUSO — REGOLE STILE PRECEDENTI SUPERATE
+- L'utente ha SOSTITUITO la vecchia regola minuscole: da ora "Chirurgia della Parete addominale"
+  (C e P maiuscole, addominale minuscolo), "Dott./Dottor" SEMPRE con iniziale maiuscola,
+  "Chirurgia Generale" sempre maiuscolo. Valido su tutto il sito.
+- Script di normalizzazione applicato a: data/pages/*.json, imagebank.json, seo_render.py,
+  siteconfig.py, HomePage/Layout/AuthorBox.jsx. 117 occorrenze. Protetto il nome proprio
+  "Unità Operativa di Chirurgia della Parete Addominale" (reparto, maiuscole ufficiali).
+- Non toccati: hub_entity.json (cache hub), wp_pages_raw.json (dump), articoli sindacati dall'hub.
+- FAQ verbatim re-verificate dopo la trasformazione: coerenza mantenuta su tutte le pagine.

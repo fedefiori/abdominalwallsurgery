@@ -2,22 +2,22 @@
  "slug": "home",
  "path": "/",
  "it": {
-  "h1": "Chirurgia della parete addominale",
-  "metaTitle": "Chirurgia della parete addominale | dott. Federico Fiori",
-  "metaDescription": "Ernie, laparoceli e difetti della parete addominale: diagnosi, classificazione e chirurgia ricostruttiva a Milano con il dott. Federico Fiori. Info e contatti.",
+  "h1": "Chirurgia della Parete addominale",
+  "metaTitle": "Chirurgia della Parete addominale | Dott. Federico Fiori",
+  "metaDescription": "Ernie, laparoceli e difetti della parete addominale: diagnosi, classificazione e chirurgia ricostruttiva a Milano con il Dott. Federico Fiori. Info e contatti.",
   "blocks": [
    {
     "type": "img",
     "src": "/api/media/logo-chirurgia-della-parete.webp",
-    "alt": "Logo di Chirurgia della Parete, sito del dott. Federico Fiori",
-    "caption": "Logo di Chirurgia della Parete, sito del dott. Federico Fiori",
+    "alt": "Logo di Chirurgia della Parete, sito del Dott. Federico Fiori",
+    "caption": "Logo di Chirurgia della Parete, sito del Dott. Federico Fiori",
     "width": 723,
     "height": 745,
     "kind": "schema"
    },
    {
     "type": "p",
-    "html": "La chirurgia della parete è oramai una branca superspecialistica della chirurgia generale. La conoscenza approfondita dell’anatomia e la precisa comprensione della fisiopatologia consentono oggi di affrontare questo tipo di chirurgia, molto eterogenea, con differenti tecniche operative utili a massimizzare il risultato per il Paziente. Esistono difetti di vario tipo, dalle piccole ernie ombelicali ai disastri di parete, ed esistono tecniche di chirurgia open, laparoscopica ed endoscopica, fino all’approccio robotico. Come sempre è la corretta indicazione a fare il buon chirurgo e a determinare il risultato."
+    "html": "La Chirurgia della Parete è oramai una branca superspecialistica della Chirurgia Generale. La conoscenza approfondita dell’anatomia e la precisa comprensione della fisiopatologia consentono oggi di affrontare questo tipo di chirurgia, molto eterogenea, con differenti tecniche operative utili a massimizzare il risultato per il Paziente. Esistono difetti di vario tipo, dalle piccole ernie ombelicali ai disastri di parete, ed esistono tecniche di chirurgia open, laparoscopica ed endoscopica, fino all’approccio robotico. Come sempre è la corretta indicazione a fare il buon chirurgo e a determinare il risultato."
    },
    {
     "type": "p",
@@ -30,7 +30,7 @@
      "<a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">Pre-abilitazione dei Pazienti all’intervento chirurgico</a>",
      "<a href=\"/la-terapia-chirurgica/\">La terapia chirurgica</a>",
      "<a href=\"/la-diastasi-dei-muscoli-retti/\">La diastasi dei muscoli retti</a>",
-     "<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">Le protesi in chirurgia della parete e il piano di posizionamento della protesi</a>",
+     "<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">Le protesi in Chirurgia della Parete e il piano di posizionamento della protesi</a>",
      "<a href=\"/le-complicanze-chirurgiche-la-vac-therapy/\">Le complicanze chirurgiche, la VAC Therapy</a>"
     ]
    },
@@ -40,7 +40,7 @@
    },
    {
     "type": "p",
-    "html": "Questo sito è il verticale italiano sulla chirurgia della parete addominale del dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
+    "html": "Questo sito è il verticale italiano sulla Chirurgia della Parete addominale del Dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
    },
    {
     "type": "img",
@@ -116,11 +116,11 @@
    }
   ],
   "kind": "home",
-  "answer": "La chirurgia della parete addominale è la branca della chirurgia generale che ripara i difetti della parete: ernie, laparoceli e diastasi dei muscoli retti. Questo sito, a cura del dott. Federico Fiori, spiega anatomia, classificazioni, sintomi, esami e tecniche di riparazione.",
+  "answer": "La Chirurgia della Parete addominale è la branca della Chirurgia Generale che ripara i difetti della parete: ernie, laparoceli e diastasi dei muscoli retti. Questo sito, a cura del Dott. Federico Fiori, spiega anatomia, classificazioni, sintomi, esami e tecniche di riparazione.",
   "faq": [
    {
     "q": "Di che cosa si occupa questo sito?",
-    "a": "Questo sito è il verticale italiano sulla chirurgia della parete addominale del dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
+    "a": "Questo sito è il verticale italiano sulla Chirurgia della Parete addominale del Dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
    },
    {
     "q": "Che cos'è la pre-abilitazione?",

@@ -14,7 +14,7 @@ export function AuthorBox({ updated }) {
         <aside className="pw-authorbox" data-testid="author-box" aria-label="Autore e revisione della pagina">
             <img
                 src={`${API}/api/media/ritratto-dottor-fiori.webp`}
-                alt="Ritratto del dott. Federico Fiori"
+                alt="Ritratto del Dott. Federico Fiori"
                 width="72" height="72" loading="lazy" decoding="async"
             />
             <div className="pw-authorbox-body">
@@ -22,7 +22,7 @@ export function AuthorBox({ updated }) {
                 <span>Medico Chirurgo — Specialista in Chirurgia Generale</span>
                 <span className="pw-authorbox-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span>
                 <span className="pw-authorbox-review">
-                    Scritto e rivisto dal dott. Federico Fiori.{data && <> Ultima revisione: <time dateTime={(updated || '').slice(0, 10)}>{data}</time>.</>}
+                    Scritto e rivisto dal Dott. Federico Fiori.{data && <> Ultima revisione: <time dateTime={(updated || '').slice(0, 10)}>{data}</time>.</>}
                 </span>
                 <span className="pw-authorbox-links">
                     <a href="https://www.federicofiori.com/curriculum" target="_blank" rel="author noopener">Curriculum completo</a>

@@ -99,10 +99,10 @@ def org_ld(entity, domain, lang):
     org = {
         '@type': 'MedicalBusiness',
         '@id': f'{domain}/#organization',
-        'name': 'Chirurgia della Parete Addominale - Dott. Federico Fiori',
+        'name': 'Chirurgia della Parete addominale - Dott. Federico Fiori',
         'url': domain,
         'sameAs': same,
-        'medicalSpecialty': 'Chirurgia della parete addominale',
+        'medicalSpecialty': 'Chirurgia della Parete addominale',
     }
     return org
 
@@ -188,12 +188,12 @@ def author_box_html(domain, person, updated_iso, lang):
         pass
     img = f'{domain}/api/media/ritratto-dottor-fiori.webp'
     return f'''<aside class="pw-authorbox" aria-label="Autore e revisione">
-<img src="{esc(img)}" alt="Ritratto del dott. Federico Fiori" width="72" height="72" loading="lazy" decoding="async" />
+<img src="{esc(img)}" alt="Ritratto del Dott. Federico Fiori" width="72" height="72" loading="lazy" decoding="async" />
 <div>
 <strong>Dott. Federico Fiori</strong><br />
 <span>Medico Chirurgo — Specialista in Chirurgia Generale</span><br />
 <span>Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span><br />
-<span>Scritto e rivisto dal dott. Federico Fiori.{f' Ultima revisione: {esc(data)}.' if data else ''}</span><br />
+<span>Scritto e rivisto dal Dott. Federico Fiori.{f' Ultima revisione: {esc(data)}.' if data else ''}</span><br />
 <a rel="author" href="https://www.federicofiori.com/curriculum">Curriculum completo</a> · <a href="{domain}/contatti/">Dove riceve</a>
 </div>
 </aside>'''
@@ -214,7 +214,7 @@ ABOUT_MAP = {
     'le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi':
         {'@type': 'MedicalProcedure', 'name': 'Riparazione protesica della parete addominale'},
     'preabilitazione-dei-pazienti-all-intervento-chirurgico':
-        {'@type': 'MedicalProcedure', 'name': 'Pre-abilitazione alla chirurgia della parete addominale'},
+        {'@type': 'MedicalProcedure', 'name': 'Pre-abilitazione alla Chirurgia della Parete addominale'},
     'le-complicanze-chirurgiche-la-vac-therapy':
         {'@type': 'MedicalProcedure', 'name': 'Terapia a pressione negativa (VAC therapy)'},
     'radiologia':
@@ -595,7 +595,7 @@ def sitemap_xml(entries):
 
 
 def robots_txt(domain):
-    return f"""# chirurgia della parete - rete federicofiori.com
+    return f"""# Chirurgia della Parete - rete federicofiori.com
 User-agent: *
 Allow: /
 Disallow: /api/stats/
@@ -633,7 +633,7 @@ def llms_txt(site, pages, articles, entity):
     lines = [
         f"# {site['ui']['site_name']}",
         '',
-        f"> Sito verticale italiano sulla chirurgia della parete addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
+        f"> Sito verticale italiano sulla Chirurgia della Parete addominale del {person.get('name', 'Dott. Federico Fiori')}: ernie, laparoceli, protesi, classificazioni e pre-abilitazione. Parte della rete editoriale di federicofiori.com.",
         '',
         '## Chi',
         f"- {person.get('name', 'Dott. Federico Fiori')}, {ruolo}",
@@ -660,7 +660,7 @@ def llms_txt(site, pages, articles, entity):
         '- federico-fiori.it: chirurgia plastica',
         '',
         '## Regole d’uso',
-        '- Contenuto medico a scopo informativo; citare con attribuzione al dott. Federico Fiori e link alla pagina.',
+        '- Contenuto medico a scopo informativo; citare con attribuzione al Dott. Federico Fiori e link alla pagina.',
         '- I dati clinici pubblicati sono citati con autore, rivista, anno e DOI/PMID nelle fonti.',
     ]
     return '\n'.join(lines) + '\n'

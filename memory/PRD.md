@@ -292,3 +292,9 @@ Collaudo completo: /app/memory/collaudo.md.
 - H1 le-protesi: "chirurgia della parete" minuscolo (regola stile discipline).
 - Nota nota: FAQ home "Dove riceve?" ha risposta contatti Fi Multicare non-verbatim dalla home
   (domanda mantenuta per richiesta esplicita utente).
+
+## Rettifica /chi-sono/ (19/09/2026, sera) — CHIUSO
+- H2 "Dove opera e dove riceve?": sostituiti i due paragrafi col testo utente — attivita'
+  istituzionale ASST + attivita' libero-professionale presso Cliniche private in Milano;
+  "Riceve appuntamento presso Fi Multicare..." (rimossi Capoturno/Trauma Leader).
+- FAQ "Dove riceve il dott. Federico Fiori?" riallineata parola per parola al nuovo testo.

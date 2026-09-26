@@ -383,3 +383,16 @@ Extra: nodo Person (e WebSite nel prerender) aggiunto all'indice /articoli (manc
 4. llms.txt: come punto 2, ora la root serve la versione viva (dell'Unita').
 5. ProfilePage: dateModified/dateCreated come data-ora ISO con fuso Roma (rome_dt,
    ZoneInfo Europe/Rome); chi-sono.json ha "created": "2024-09-25T16:17:02" (data WP originale).
+
+## Giro 8 hub — bloccanti A e B (26/09/2026) — CHIUSO
+A. is_final_host ora legge PRIMA X-Forwarded-Host poi Host (ordine hub). Verificato:
+   origine diretta con XFH canonico -> index, follow, max-snippet:-1, max-image-preview:large.
+   PROVA INFRASTRUTTURA: la catena di anteprima Emergent (CF worker preview) SOVRASCRIVE
+   X-Forwarded-Host con l'host di anteprima (probe sugli header in arrivo). Quindi via URL di
+   anteprima il collaudo XFH mostra sempre noindex: e' la piattaforma, non l'app. In produzione
+   il Worker della rete chiama l'origine con Host canonico e la catena lo propaga (come gia'
+   per diastasiedintorni.it). Tutta l'HTML server-side passa da seo_prerender: regola unica.
+B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorator con /seo/),
+   metodi GET+HEAD espliciti (Starlette qui non auto-aggiunge HEAD: era il 405 misurato).
+   Proxy craco alla radice ora gestisce anche HEAD con content-type giusto (text/plain x2,
+   application/xml). Collaudo: 6/6 HEAD 200 con content-type corretti, corpi GET corretti.

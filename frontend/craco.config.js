@@ -295,12 +295,17 @@ webpackConfig.devServer = (devServerConfig) => {
       name: "seo-files-and-real-404",
       middleware: (req, res, next) => {
         const p = req.path || "/";
-        if (req.method === "GET" && SEO_FILES[p]) {
+        if ((req.method === "GET" || req.method === "HEAD") && SEO_FILES[p]) {
           http.get(BACKEND + SEO_FILES[p], (r) => {
-            res.writeHead(r.statusCode || 200, {
-              "Content-Type": r.headers["content-type"] || "text/plain; charset=utf-8",
-            });
-            r.pipe(res);
+            const h = { "Content-Type": r.headers["content-type"] || "text/plain; charset=utf-8" };
+            if (r.headers["content-length"]) h["Content-Length"] = r.headers["content-length"];
+            res.writeHead(r.statusCode || 200, h);
+            if (req.method === "HEAD") {
+              r.resume();
+              res.end();
+            } else {
+              r.pipe(res);
+            }
           }).on("error", () => next());
           return;
         }

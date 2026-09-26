@@ -326,7 +326,12 @@ CANONICAL_HOSTS = [h.strip().lower() for h in
 
 
 def is_final_host(request: Request):
-    return request.headers.get('host', '').split(':')[0].lower() in CANONICAL_HOSTS
+    """Host effettivo della richiesta pubblica (collaudo 26/09):
+    1. X-Forwarded-Host (l'host che il Worker dichiara per i crawler);
+    2. in mancanza, l'Host della richiesta."""
+    raw = request.headers.get('x-forwarded-host') or request.headers.get('host', '')
+    host = raw.split(',')[0].split(':')[0].strip().lower()
+    return host in CANONICAL_HOSTS
 
 
 # ---------------------------------------------------------------- API sito
@@ -546,7 +551,10 @@ async def seo_jsonld(path: str = Query('/')):
 
 
 
-@api_router.get('/seo/sitemap.xml')
+# Esposti anche alla radice /api/: e' il secondo candidato del Worker di rete
+# (collaudo 26/09). Content-type: robots/llms text/plain, sitemap application/xml.
+@api_router.api_route('/sitemap.xml', methods=['GET', 'HEAD'])
+@api_router.api_route('/seo/sitemap.xml', methods=['GET', 'HEAD'])
 async def seo_sitemap():
     pages = load_pages()
     entries = []
@@ -563,12 +571,14 @@ async def seo_sitemap():
     return Response(seo_render.sitemap_xml(entries), media_type='application/xml')
 
 
-@api_router.get('/seo/robots.txt', response_class=PlainTextResponse)
+@api_router.api_route('/robots.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)
+@api_router.api_route('/seo/robots.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)
 async def seo_robots():
     return PlainTextResponse(seo_render.robots_txt(SITE['domain']))
 
 
-@api_router.get('/seo/llms.txt', response_class=PlainTextResponse)
+@api_router.api_route('/llms.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)
+@api_router.api_route('/seo/llms.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)
 async def seo_llms():
     pages = [p for p in load_pages().values() if page_content(p)]
     pages.sort(key=lambda p: p['path'])

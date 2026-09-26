@@ -317,9 +317,16 @@ def clean_article(a):
     return a
 
 
+# Host canonici (collaudo 21/09): il meta robots index/follow vale SOLO qui;
+# ogni altro host (anteprima, localhost) resta noindex. Variabile d'ambiente,
+# stessa logica del gemello diastasiedintorni.it.
+CANONICAL_HOSTS = [h.strip().lower() for h in
+                   os.environ.get('CANONICAL_HOSTS', urlparse(SITE['domain']).netloc).split(',')
+                   if h.strip()]
+
+
 def is_final_host(request: Request):
-    host = urlparse(SITE['domain']).netloc
-    return request.headers.get('host', '') == host
+    return request.headers.get('host', '').split(':')[0].lower() in CANONICAL_HOSTS
 
 
 # ---------------------------------------------------------------- API sito
@@ -473,7 +480,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
             seo_render.breadcrumb_ld([(ui['breadcrumb_home'], domain + '/'),
                                       (ui['breadcrumb_articles'], domain + SITE['articlesIndex'])]),
         ]}
-        robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+        robots = seo_render.robots_meta(noindex)
         return HTMLResponse(f"""<!DOCTYPE html><html lang="{SITE['lang']}"><head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{seo_render.esc(ui['articles_title'])} | {seo_render.esc(ui['site_name'])}</title>

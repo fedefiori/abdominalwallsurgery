@@ -50,9 +50,15 @@ export default function useSEO({ title, description, canonical, noindex, domain,
             if (description) setMeta('name', 'twitter:description', description);
             setMeta('name', 'twitter:image', img);
         }
-        const hostMismatch = domain && !window.location.host.endsWith(
-            domain.replace(/^https?:\/\//, ''));
-        setMeta('name', 'robots', (noindex || hostMismatch) ? 'noindex,nofollow' : 'index,follow');
+        // Meta robots del go-live: index/follow SOLO sugli host canonici
+        // (stessa logica del gemello diastasiedintorni.it), noindex altrove.
+        const host = window.location.hostname.toLowerCase();
+        const canon = (domain || '').replace(/^https?:\/\//, '').split(':')[0].toLowerCase();
+        const canonHosts = [canon, canon.replace(/^www\./, '')].filter(Boolean);
+        const hostMismatch = domain && !canonHosts.includes(host);
+        setMeta('name', 'robots', (noindex || hostMismatch)
+            ? 'noindex,nofollow'
+            : 'index, follow, max-snippet:-1, max-image-preview:large');
     }, [title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType]);
 }
 

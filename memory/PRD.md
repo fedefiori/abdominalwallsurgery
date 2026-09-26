@@ -367,3 +367,19 @@ Extra: nodo Person (e WebSite nel prerender) aggiunto all'indice /articoli (manc
 - NETWORK_STATS_TOKEN di rete in backend/.env (valore hub). stats_hits azzerata per il go-live.
 - Collaudo: hit 202 / summary 401 senza token / 200 con token (header e query). Beacon
   verificato in browser reale: sid stabile, ref interno, titolo aggiornato, 1 hit per vista.
+
+## Giro 7 hub — go-live readiness (26/09/2026) — CHIUSO
+1. Meta robots host-dipendente (BLOCCANTE): CANONICAL_HOSTS in backend/.env
+   (www.chirurgiadellaparete.it, chirurgiadellaparete.it). is_final_host legge la lista;
+   host canonico -> "index, follow, max-snippet:-1, max-image-preview:large" esplicito
+   (seo_render.robots_meta, usato da pagine/articoli/indice); ogni altro host -> noindex,nofollow.
+   Lato client useSEO.js confronta location.hostname con la stessa coppia (canon + senza www).
+2. Sitemap 2023: la causa erano file STATICI in frontend/public (sitemap.xml, llms.txt,
+   robots.txt) che rispondevano al posto del backend. Eliminati; craco devServer ora proxia
+   /sitemap.xml /robots.txt /llms.txt dal backend (in produzione ci pensa il Worker: MAI
+   rimettere copie statiche in public/, finirebbero nel build di produzione stantie).
+3. 404 veri: middleware craco "seo-files-and-real-404": percorsi sconosciuti (GET html/HEAD)
+   -> 404 con guscio app; rotte note da /api/seo/routes (cache 60s) + /articoli/* + /404.
+4. llms.txt: come punto 2, ora la root serve la versione viva (dell'Unita').
+5. ProfilePage: dateModified/dateCreated come data-ora ISO con fuso Roma (rome_dt,
+   ZoneInfo Europe/Rome); chi-sono.json ha "created": "2024-09-25T16:17:02" (data WP originale).

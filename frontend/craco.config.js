@@ -257,4 +257,77 @@ webpackConfig.devServer = (devServerConfig) => {
   return devServerConfig;
 };
 
+// ---- File SEO vivi + 404 veri in anteprima (collaudo 21/09).
+// In produzione /sitemap.xml, /robots.txt e /llms.txt li serve il Worker
+// dall'origine: i file statici in public/ sono stati rimossi per non servire
+// mai una copia vecchia. Qui in dev li proxiamo dal backend, cosi' anteprima
+// e produzione leggono sempre la stessa sorgente.
+const http = require("http");
+const BACKEND = "http://localhost:8001";
+const SEO_FILES = {
+  "/sitemap.xml": "/api/seo/sitemap.xml",
+  "/robots.txt": "/api/seo/robots.txt",
+  "/llms.txt": "/api/seo/llms.txt",
+};
+let routesCache = { t: 0, paths: ["/", "/404"].concat(PAGE_PATHS.map((p) => p + "/")) };
+function fetchRoutes(cb) {
+  const now = Date.now();
+  if (now - routesCache.t < 60000) return cb(routesCache.paths);
+  http.get(BACKEND + "/api/seo/routes", (r) => {
+    let d = "";
+    r.on("data", (c) => (d += c));
+    r.on("end", () => {
+      try {
+        const j = JSON.parse(d);
+        if (Array.isArray(j.paths) && j.paths.length) routesCache = { t: now, paths: j.paths };
+      } catch (e) { /* tiene la cache precedente */ }
+      cb(routesCache.paths);
+    });
+  }).on("error", () => cb(routesCache.paths));
+}
+const prevDevSeo = webpackConfig.devServer;
+webpackConfig.devServer = (devServerConfig) => {
+  devServerConfig = prevDevSeo(devServerConfig);
+  const prev = devServerConfig.setupMiddlewares;
+  devServerConfig.setupMiddlewares = (middlewares, devServer) => {
+    middlewares = prev ? prev(middlewares, devServer) : middlewares;
+    middlewares.unshift({
+      name: "seo-files-and-real-404",
+      middleware: (req, res, next) => {
+        const p = req.path || "/";
+        if (req.method === "GET" && SEO_FILES[p]) {
+          http.get(BACKEND + SEO_FILES[p], (r) => {
+            res.writeHead(r.statusCode || 200, {
+              "Content-Type": r.headers["content-type"] || "text/plain; charset=utf-8",
+            });
+            r.pipe(res);
+          }).on("error", () => next());
+          return;
+        }
+        const isGet = req.method === "GET" || req.method === "HEAD";
+        const wantsHtml = (req.headers.accept || "").includes("text/html") || req.method === "HEAD";
+        if (isGet && wantsHtml && !/\.[a-z0-9]+$/i.test(p)) {
+          fetchRoutes((paths) => {
+            const norm = p.replace(/\/+$/, "") || "/";
+            const ok =
+              norm === "/404" ||
+              norm.startsWith("/articoli/") ||
+              paths.some((x) => (x.replace(/\/+$/, "") || "/") === norm);
+            if (ok) return next();
+            fs.readFile(path.resolve(__dirname, "public/index.html"), "utf8", (err, html) => {
+              if (err) return next();
+              res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+              res.end(req.method === "HEAD" ? undefined : html);
+            });
+          });
+          return;
+        }
+        next();
+      },
+    });
+    return middlewares;
+  };
+  return devServerConfig;
+};
+
 module.exports = webpackConfig;

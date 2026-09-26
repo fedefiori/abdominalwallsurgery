@@ -2,7 +2,25 @@
 import html as htmllib
 import json
 import re
+from datetime import datetime
 from urllib.parse import urlparse
+from zoneinfo import ZoneInfo
+
+ROME = ZoneInfo('Europe/Rome')
+
+
+def rome_dt(s):
+    """Data-ora ISO 8601 con fuso italiano (+02:00 da aprile a ottobre,
+    +01:00 il resto dell'anno). Google la pretende sulle ProfilePage."""
+    if not s:
+        return None
+    try:
+        dt = datetime.fromisoformat(str(s))
+    except ValueError:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=ROME)
+    return dt.isoformat()
 
 TAG_RE = re.compile(r'<[^>]+>')
 
@@ -110,6 +128,15 @@ def org_ld(entity, domain, lang):
 HUB_CLINIC_ID = 'https://www.federicofiori.com/contatti#fi-multicare'
 # @id autorevole della persona, dall'endpoint hub /api/seo/entity: mai cambiarlo.
 PERSON_REF_ID = 'https://www.federicofiori.com/curriculum#federico-fiori'
+
+# Meta robots del go-live (collaudo 21/09): esplicito su entrambi i lati.
+# Sull'host canonico index/follow con snippet illimitato; altrove noindex.
+ROBOTS_LIVE = 'index, follow, max-snippet:-1, max-image-preview:large'
+
+
+def robots_meta(noindex):
+    content = 'noindex,nofollow' if noindex else ROBOTS_LIVE
+    return f'<meta name="robots" content="{content}" />'
 
 # Mappa articolo -> pagine affini del sito (blocco "Su questo sito")
 ARTICLE_RELATED = {
@@ -284,6 +311,8 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
             'mainEntity': person,
             'isPartOf': {'@id': f"{site['domain']}/#website"},
             'lastReviewed': page.get('modified', '')[:10] or None,
+            'dateModified': rome_dt(page.get('modified')),
+            'dateCreated': rome_dt(page.get('created') or page.get('modified')),
         }, person] if person else graphs
     elif kind == 'contact':
         person_node = person_ld(entity, site['lang'])
@@ -438,7 +467,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
         items = ''.join(f'<details><summary>{esc(f["q"])}</summary><p>{esc(f["a"])}</p></details>' for f in faq)
         faq_html = f'<section class="pw-faq" aria-label="{esc(ui["faq_title"])}"><h2>{esc(ui["faq_title"])}</h2>{items}</section>'
     ld = page_jsonld(page, content, site, entity, canonical, crumb_items)
-    robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+    robots = robots_meta(noindex)
     net = network_html(site)
     kind = (page.get('it') or {}).get('kind', 'clinical')
     abox = ''
@@ -511,7 +540,7 @@ def prerender_article(article, site, entity, absolute, noindex):
         items = ''.join(f'<details><summary>{esc(f["q"])}</summary><p>{esc(text_of(f.get("a","")))}</p></details>' for f in faq)
         faq_html = f'<section class="pw-faq"><h2>{esc(u["faq_title"])}</h2>{items}</section>'
     ld = article_jsonld(article, site, entity, canonical, crumb_items)
-    robots = '<meta name="robots" content="noindex,nofollow" />' if noindex else ''
+    robots = robots_meta(noindex)
     og = og_meta(site, article.get('metaTitle') or article.get('title', ''),
                  article.get('metaDescription') or article.get('excerpt') or '',
                  canonical, article.get('coverUrl') or f'{domain}/og/og-fallback.jpg',

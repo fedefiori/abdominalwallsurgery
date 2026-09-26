@@ -396,3 +396,16 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
    metodi GET+HEAD espliciti (Starlette qui non auto-aggiunge HEAD: era il 405 misurato).
    Proxy craco alla radice ora gestisce anche HEAD con content-type giusto (text/plain x2,
    application/xml). Collaudo: 6/6 HEAD 200 con content-type corretti, corpi GET corretti.
+
+## Giro 9 hub — disegno definitivo robots prerender (26/09/2026) — CHIUSO
+- Convenuto con l'hub: /api/seo/prerender con absolute=true emette SEMPRE
+  "index, follow, max-snippet:-1, max-image-preview:large" senza guardare intestazioni
+  (quel percorso e' solo per il Worker dei crawler; le intestazioni possono essere
+  riscritte dalla catena). La logica host resta sul rendering diretto (senza absolute)
+  e lato client (useSEO.js): anteprime noindex. Canonical invariato sul dominio vero.
+- Verificato: absolute=true -> index su home/chi-sono/articolo anche via anteprima;
+  senza absolute -> noindex; DOM browser anteprima -> noindex.
+- IN ATTESA: l'indirizzo origine *.emergent.host (Manage deployment -> Domain) serve
+  all'hub per la variabile ORIGIN del Worker Cloudflare. Non leggibile da qui: compare
+  nella scheda Domain dopo/alla prima pubblicazione. Il Dottore puo' copiarlo da li',
+  oppure si preme Deploy e lo si legge subito dopo.

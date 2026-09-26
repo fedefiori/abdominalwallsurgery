@@ -457,7 +457,13 @@ async def seo_routes():
 
 @api_router.get('/seo/prerender', response_class=HTMLResponse)
 async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool = False):
-    noindex = not is_final_host(request)
+    # Decisione index/noindex (giro 26/09, disegno definitivo concordato con l'hub):
+    # - absolute=true e' chiamata che SOLO il Worker della rete fa per i crawler:
+    #   serve per definizione l'HTML del dominio pubblico -> SEMPRE index,follow,
+    #   senza guardare intestazioni (che la catena puo' riscrivere);
+    # - senza absolute=true (HTML servito direttamente all'anteprima) la logica
+    #   sull'host resta: noindex fuori dagli host canonici.
+    noindex = False if absolute else not is_final_host(request)
     pages = load_pages()
     apath = SITE['articlePath']
     if path.startswith(apath) and path != SITE['articlesIndex']:

@@ -140,7 +140,7 @@ export default function HomePage() {
             {page?.blocks?.length > 0 && (
                 <section className="pw-section" data-testid="home-intro">
                     <div className="pw-shell">
-                        <Blocks blocks={page.blocks.filter((b) => !(b.type === 'img' && (b.src || '').includes('logo')))} />
+                        <Blocks blocks={page.blocks.filter((b) => !(b.type === 'img' && (b.src || '').includes('logo')))} wideFigures />
                     </div>
                 </section>
             )}

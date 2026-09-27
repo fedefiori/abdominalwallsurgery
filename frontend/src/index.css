@@ -454,6 +454,24 @@ h1, h2, h3, h4 { color: var(--title); }
     .pw-fig-side-r img, .pw-fig-side-l img { max-height: 380px; width: 100%; }
 }
 
+/* sezioni CON figura (home): la banda occupa tutta la larghezza dello shell,
+   il testo resta sulla sua misura e la figura riempie la banda libera a destra
+   (richiesta 27/09: mai spazio vuoto accanto al testo) */
+@media (min-width: 1020px) {
+    .pw-sect--wide {
+        width: calc(min(1200px, 100vw) - 96px);
+        margin-left: 0; margin-right: 0;
+        padding-right: clamp(1.4rem, 3vw, 2.6rem);
+    }
+    .pw-sect--wide h2, .pw-sect--wide h3 { max-width: 62ch; }
+    .pw-sect--wide .pw-fig-side-r, .pw-sect--wide .pw-fig-side-l {
+        float: right;
+        margin: .4rem 0 1.2rem 2rem;
+        width: clamp(380px, 38%, 500px);
+    }
+    .pw-sect--wide .pw-fig-side-r img, .pw-sect--wide .pw-fig-side-l img { max-height: 430px; }
+}
+
 /* entrata morbida delle figure allo scroll (progressive enhancement) */
 @keyframes pw-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
 @supports (animation-timeline: view()) {

@@ -432,3 +432,16 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
 - contactPoint MedicalClinic: copia da entity.contactPoints se presente; l'endpoint hub
   oggi NON espone il campo (null) -> segnalato; appena pubblicato, basta un restart.
 - robots.txt: Sitemap ora punta alla radice /sitemap.xml. emmagadda5@gmail.com: 0 occorrenze.
+
+## Figure laterali piene in home (27/09/2026) — CHIUSO
+- Richiesta: niente banda vuota a destra del testo; le figure la occupano.
+- Blocks.jsx: prop wideFigures (solo home). Le sezioni che contengono una figura
+  prendono classe pw-sect--wide: la banda si allarga a tutto lo shell
+  (width: min(1200px,100vw) - 96px), il testo resta su 68ch e TUTTE le figure
+  dentro le sezioni wide flottano a DESTRA a filo del bordo (clamp 380-500px).
+  Pagine pilastro INVARIATE (hanno la TOC: li' il float resta nella colonna).
+- Nuova figura AI "approccio-morfofunzionale.webp" (struttura+silhouette fuse,
+  ricetta hub invariata) nel blocco "Perche' la parete si valuta insieme alla forma
+  dell'addome?" in home; registrata in imagebank.json.
+- Verificato: niente overflow a 390/1366/1920; mobile impila figura sopra il testo;
+  chi-sono e pilastro intatti. Colori/font mai toccati (solo larghezze/margini).

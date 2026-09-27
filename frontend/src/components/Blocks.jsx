@@ -82,7 +82,7 @@ function Figure({ b, first, side }) {
     );
 }
 
-export function Blocks({ blocks }) {
+export function Blocks({ blocks, wideFigures = false }) {
     let imgIndex = 0;
     // raggruppa i blocchi in sezioni delimitate dagli h2: sfondi alternati
     const sections = [];
@@ -140,6 +140,7 @@ export function Blocks({ blocks }) {
     const out = [];
     sections.forEach((sec, s) => {
         const band = s === 0 && sec[0].type !== 'h2' ? 0 : ((s - 1) % 3) + 1;
+        const wide = wideFigures && sec.some((b) => b.type === 'img');
         const children = [];
         let sideCount = 0;
         for (let i = 0; i < sec.length; i += 1) {
@@ -174,7 +175,7 @@ export function Blocks({ blocks }) {
             }
         }
         out.push(
-            <section key={s} className={`pw-sect pw-sect-${band}`} data-testid={`content-section-${s}`}>
+            <section key={s} className={`pw-sect pw-sect-${band}${wide ? ' pw-sect--wide' : ''}`} data-testid={`content-section-${s}`}>
                 {children}
             </section>
         );

@@ -107,6 +107,15 @@
     "text": "Perché la parete si valuta insieme alla forma dell'addome?"
    },
    {
+    "type": "img",
+    "src": "/api/media/approccio-morfofunzionale.webp",
+    "alt": "Struttura della parete e profilo dell'addome fusi in un unico disegno schematico",
+    "caption": "Struttura e forma dell'addome sono la stessa struttura, guardata da due lati.",
+    "kind": "schema",
+    "width": 1200,
+    "height": 896
+   },
+   {
     "type": "p",
     "html": "Nella parete addominale la struttura e l'aspetto non sono due problemi separati: sono la stessa struttura guardata da due lati. Un difetto chiuso bene che lascia un addome che il Paziente non riconosce è un risultato a metà, e un profilo corretto su una parete rimasta debole non dura nel tempo. Per questo la valutazione tiene insieme tre cose: il difetto muscolo-aponeurotico, i tessuti di copertura e i gesti quotidiani della persona."
    },

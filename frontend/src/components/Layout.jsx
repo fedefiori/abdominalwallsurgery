@@ -180,7 +180,11 @@ export default function Layout({ children }) {
                             <p><strong>Dott. Federico Fiori</strong></p>
                             <p>Medico Chirurgo — Specialista in Chirurgia Generale</p>
                             <p className="pw-footer-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</p>
-                            <p>Contatto diretto della rete: <a href="mailto:info@federicofiori.com">info@federicofiori.com</a></p>
+                            <p>Informazioni e appuntamenti<br />
+                                <a href="mailto:info@federicofiori.com">info@federicofiori.com</a></p>
+                            <p>Scrivi al Dott. Fiori<br />
+                                <a href="mailto:fedefiori@federicofiori.com">fedefiori@federicofiori.com</a></p>
+                            <p>Telefono <a href="tel:+390276021568">+39 02 76021568</a></p>
                             <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo sull’hub</a></p>
                         </section>
                         <section data-testid="footer-dove-riceve">

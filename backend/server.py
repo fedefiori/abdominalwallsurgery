@@ -306,6 +306,165 @@ async def stats_summary(request: Request, days: int = 30, token: str = Query('')
     return out
 
 
+# ---------------------------------------------------------------- contatti di rete
+# Le due porte, identiche su tutti i siti della rete (contratto hub 26/09).
+# Destinatari in variabili d'ambiente, mai nel codice.
+CONTACT_NOTIFY_EMAIL = os.environ.get('CONTACT_NOTIFY_EMAIL', '')
+CONTACT_DIRECT_EMAIL = os.environ.get('CONTACT_DIRECT_EMAIL', '')
+EMAIL_FROM_NAME = os.environ.get('EMAIL_FROM_NAME', '')
+EMAIL_KEY = os.environ.get('EMERGENT_EMAIL_KEY', '')
+EMAIL_BASE_URL = 'https://integrations.emergentagent.com'  # costante, mai da env
+
+# reason: qualunque valore mancante, sconosciuto o manomesso ricade su
+# 'appuntamento': una richiesta non deve mai perdersi per un campo sbagliato.
+CONTACT_REASONS = {
+    'dottore': ('Per il Dott. Fiori', CONTACT_DIRECT_EMAIL),
+    'appuntamento': ('Informazioni e appuntamenti', CONTACT_NOTIFY_EMAIL),
+}
+
+# --- guardrail gate email (playbook rete: copiato as-is, chiamato a ogni invio)
+import ipaddress
+from html import escape as hesc
+from html.parser import HTMLParser as _HTMLParser
+
+_SHORTENERS = ("bit.ly", "tinyurl.com", "t.co", "is.gd", "cutt.ly", "goo.gl", "rebrand.ly")
+_CRED_ASK = ("reply with your password", "reply with the code", "send your password", "cvv",
+             "send us your password", "enter your password below", "confirm your card number",
+             "your full card number", "seed phrase", "recovery phrase", "verify your card",
+             "social security number", "confirm your bank details")
+_HOSTISH = re.compile(r"\b(?:https?://)?((?:[a-z0-9-]+\.)+[a-z]{2,})", re.I)
+
+
+def _host_ok(host: str) -> bool:
+    if not host or "xn--" in host:
+        return False
+    try:
+        ipaddress.ip_address(host)
+        return False
+    except ValueError:
+        pass
+    return not any(host == s or host.endswith("." + s) for s in _SHORTENERS)
+
+
+def _same_site(shown: str, real: str) -> bool:
+    return shown == real or real.endswith("." + shown) or shown.endswith("." + real)
+
+
+class _EmailScan(_HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.tags, self.urls, self.anchors = set(), [], []
+        self._href, self._text = None, []
+
+    def handle_starttag(self, tag, attrs):
+        self.tags.add(tag.lower())
+        self.urls += [v for k, v in attrs if k.lower() in ("href", "src") and v]
+        if tag.lower() == "a":
+            self._href = dict((k.lower(), v) for k, v in attrs).get("href")
+            self._text = []
+
+    def handle_data(self, data):
+        if self._href is not None:
+            self._text.append(data)
+
+    def handle_endtag(self, tag):
+        if tag.lower() == "a" and self._href is not None:
+            self.anchors.append((self._href, "".join(self._text)))
+            self._href, self._text = None, []
+
+
+def _assert_safe_email(subject: str, html: str) -> None:
+    scan = _EmailScan(); scan.feed(html)
+    if scan.tags & {"form", "input", "textarea", "select"}:
+        raise ValueError("No forms or input fields in email (G2)")
+    body = f"{subject}\n{html}".lower()
+    for p in _CRED_ASK:
+        if p in body:
+            raise ValueError(f"Email asks the recipient for credentials: {p!r} (G2)")
+    for url in scan.urls:
+        low = url.strip().lower()
+        if low.startswith(("mailto:", "tel:", "cid:", "#")):
+            continue
+        if not low.startswith("https://"):
+            raise ValueError(f"Email links/assets must be absolute https: {url!r} (G3)")
+        host = urlparse(low).hostname or ""
+        if not _host_ok(host) or urlparse(low).username is not None:
+            raise ValueError(f"Shortened, numeric-host or credential-bearing URL: {url!r} (G3)")
+    for href, text in scan.anchors:
+        real = urlparse(href.strip().lower()).hostname or ""
+        if not real:
+            continue
+        for m in _HOSTISH.finditer(text):
+            if not _same_site(m.group(1).lower(), real):
+                raise ValueError(f"Anchor text {m.group(1)!r} != real link host {real!r} (G3)")
+
+
+async def send_contact_email(to, subject, html, reply_to):
+    """Notifica via proxy email gestito dalla piattaforma. From: dominio verificato
+    della piattaforma (non configurabile); il nome visualizzato e' EMAIL_FROM_NAME;
+    Reply-To = l'indirizzo di chi ha scritto."""
+    _assert_safe_email(subject, html)
+    payload = {"to": [to], "subject": subject, "html": html, "from_name": EMAIL_FROM_NAME}
+    if reply_to:
+        payload["contact_email"] = reply_to
+    async with httpx.AsyncClient(timeout=30) as client:
+        resp = await client.post(f"{EMAIL_BASE_URL}/api/v1/email/send",
+                                 headers={"X-Email-Key": EMAIL_KEY}, json=payload)
+    resp.raise_for_status()
+    return resp.json().get("id")
+
+
+@api_router.post('/contact')
+async def contact_send(request: Request):
+    """Le due porte dei contatti. La richiesta va SEMPRE salvata nel database,
+    anche quando la mail parte: se il provider ha un problema, il Paziente non
+    si perde. Silenzioso verso l'utente: mai un errore visibile."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    if body.get('company'):  # honeypot: bot -> ok silenzioso, niente salvataggio
+        return {'ok': True}
+    name = re.sub(r'[\r\n]+', ' ', str(body.get('name') or '')).strip()[:120]
+    email = str(body.get('email') or '').strip()[:200]
+    message = str(body.get('message') or '').strip()[:5000]
+    if not name or not message or not re.match(r'^[^@\s]+@[^@\s]+\.[^@\s]+$', email):
+        return JSONResponse({'ok': False, 'error': 'invalid'}, status_code=400)
+    reason = body.get('reason') if body.get('reason') in CONTACT_REASONS else 'appuntamento'
+    label, notify_to = CONTACT_REASONS[reason]
+    subject = f'[{label}] {name} — dal sito'
+    doc = {
+        'ts': datetime.now(timezone.utc), 'name': name, 'email': email,
+        'message': message, 'reason': reason, 'notifyTo': notify_to,
+        'subject': subject,
+        'site': urlparse(SITE['domain']).netloc.replace('www.', ''),
+        'emailSent': False, 'emailId': None,
+    }
+    # 1) si salva SEMPRE, prima di qualunque invio
+    await db.contact_requests.insert_one(dict(doc))
+    # 2) poi la notifica: se il provider fallisce, la richiesta resta nel DB
+    html = ('<table role="presentation" width="100%"><tr><td style="padding:24px;'
+            'font-family:Arial,sans-serif;font-size:15px;color:#1a1a1a">'
+            f'<p>Nuova richiesta dal sito <strong>chirurgiadellaparete.it</strong>.</p>'
+            f'<p><strong>Motivo:</strong> {hesc(label)}</p>'
+            f'<p><strong>Nome:</strong> {hesc(name)}<br/>'
+            f'<strong>Email:</strong> {hesc(email)}</p>'
+            f'<p><strong>Messaggio:</strong><br/>{hesc(message).replace(chr(10), "<br/>")}</p>'
+            f'<p style="font-size:12px;color:#888">Inviato da {hesc(EMAIL_FROM_NAME)} — '
+            'rete federicofiori.com. Rispondendo a questa email rispondi direttamente '
+            'a chi ha scritto (Reply-To).</p></td></tr></table>')
+    try:
+        doc['emailId'] = await send_contact_email(notify_to, subject, html, reply_to=email)
+        doc['emailSent'] = True
+    except Exception as e:
+        logger.error(f'contact email fallita ({reason} -> {notify_to}): {e}')
+    await db.contact_requests.update_one(
+        {'ts': doc['ts'], 'email': email},
+        {'$set': {'emailSent': doc['emailSent'], 'emailId': doc['emailId']}})
+    doc.pop('_id', None)
+    return {'ok': True, 'reason': reason, 'emailSent': doc['emailSent']}
+
+
 # ---------------------------------------------------------------- helpers
 def clean_article(a):
     a = dict(a)

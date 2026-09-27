@@ -409,3 +409,26 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   all'hub per la variabile ORIGIN del Worker Cloudflare. Non leggibile da qui: compare
   nella scheda Domain dopo/alla prima pubblicazione. Il Dottore puo' copiarlo da li',
   oppure si preme Deploy e lo si legge subito dopo.
+
+## Contatti "le due porte" (27/09/2026) — CONSEGNATO, con nota per l'hub sul provider
+- Backend POST /api/contact: reason appuntamento->info@federicofiori.com / dottore->
+  fedefiori@federicofiori.com (fallback appuntamento su reason mancante/inventato);
+  salvataggio SEMPRE su db.contact_requests (con subject e notifyTo) prima dell'invio;
+  oggetto "[Motivo] Nome — dal sito"; Reply-To = mittente (contact_email); honeypot
+  anti-bot silenzioso; guardrail gate email del playbook integrato.
+- Env: EMERGENT_EMAIL_KEY, EMAIL_FROM_NAME (Chirurgia della Parete Addominale - Dott.
+  Federico Fiori), CONTACT_NOTIFY_EMAIL, CONTACT_DIRECT_EMAIL in backend/.env.
+  MAIL_FROM NON configurabile: il From e' fissato dalla piattaforma (proxy gestito).
+- NOTA CRITICA PER L'HUB: il proxy email della piattaforma RIFIUTA i due recapiti di
+  rete ("undeliverable_recipient", 422): federicofiori.com ha MX self-hosted
+  (mx.federicofiori.com) che non supera la verifica del provider. Pipeline OK
+  (delivered@resend.dev -> 202). Un invio a fedefiori@ e' passato una volta (202),
+  poi sempre 422: inaffidabile. Le richieste NON si perdono (DB), ma la notifica email
+  richiede intervento lato hub/piattaforma (whitelist destinatari o setup del gemello).
+- Frontend: ContactForm.jsx su /contatti/ (telefono primo sopra il modulo, due radio
+  con nota che cambia, honeypot, conferma che ripete la nota, riga mailto diretta
+  sempre visibile). Footer Layout: due righe etichetta+mailto + telefono nella colonna
+  Chi opera. Prerender: stesse due righe + telefono nel footer di ogni pagina.
+- contactPoint MedicalClinic: copia da entity.contactPoints se presente; l'endpoint hub
+  oggi NON espone il campo (null) -> segnalato; appena pubblicato, basta un restart.
+- robots.txt: Sitemap ora punta alla radice /sitemap.xml. emmagadda5@gmail.com: 0 occorrenze.

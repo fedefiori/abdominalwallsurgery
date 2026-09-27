@@ -1,6 +1,7 @@
 """Rendering SEO: blocchi -> HTML, JSON-LD, canonical/hreflang, sitemap, robots, llms."""
 import html as htmllib
 import json
+import os
 import re
 from datetime import datetime
 from urllib.parse import urlparse
@@ -182,8 +183,14 @@ def clinic_ld(domain, entity=None):
         c = dict(clinic)
         c.pop('@context', None)
         c.setdefault('@id', (entity or {}).get('clinicId', HUB_CLINIC_ID))
-        return c
-    return dict(CLINIC_FALLBACK)
+    else:
+        c = dict(CLINIC_FALLBACK)
+    # contactPoint: si copiano dall'entita' condivisa dell'hub (campo contactPoints),
+    # mai riscritti a mano. Se l'hub non li espone ancora, il nodo resta senza.
+    cps = (entity or {}).get('contactPoints')
+    if cps:
+        c['contactPoint'] = cps
+    return c
 
 
 def person_ld(entity, lang='it'):
@@ -596,8 +603,18 @@ def network_html(site):
         f'<li><a href="{esc(s["url"])}">{esc(s["label"][lang])}</a> — {esc(s["desc"][lang])}</li>'
         for s in NETWORK_ECOSYSTEM
         if s['url'] != site['domain'] and s.get('live', True))
+    # Le due porte dei contatti, identiche su tutti i siti della rete e presenti
+    # anche nell'HTML servito ai crawler (contratto hub 26/09).
+    notify = os.environ.get('CONTACT_NOTIFY_EMAIL', '')
+    direct = os.environ.get('CONTACT_DIRECT_EMAIL', '')
+    contacts = ''
+    if notify and direct:
+        contacts = ('<div class="pw-net-contacts">'
+                    f'<p>Informazioni e appuntamenti<br /><a href="mailto:{esc(notify)}">{esc(notify)}</a></p>'
+                    f'<p>Scrivi al Dott. Fiori<br /><a href="mailto:{esc(direct)}">{esc(direct)}</a></p>'
+                    '<p>Telefono <a href="tel:+390276021568">+39 02 76021568</a></p></div>')
     return (f'<footer class="pw-net"><h2>{esc(site["ui"]["network_title"])}</h2>'
-            f'<p>{esc(site["ui"]["network_intro"])}</p><ul>{items}</ul></footer>')
+            f'<p>{esc(site["ui"]["network_intro"])}</p><ul>{items}</ul>{contacts}</footer>')
 
 
 def sitemap_xml(entries):
@@ -634,7 +651,7 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: {domain}/api/seo/sitemap.xml
+Sitemap: {domain}/sitemap.xml
 # Mappa per i modelli linguistici:
 # {domain}/api/seo/llms.txt
 """

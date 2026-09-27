@@ -749,3 +749,40 @@ h1, h2, h3, h4 { color: var(--title); }
     main [style*="opacity"], main [style*="transform"] { opacity: 1 !important; transform: none !important; }
     *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* ---- Contatti: le due porte (rete) ---- */
+.pw-contact { margin: 2.5rem 0; }
+.pw-contact h2 { margin-bottom: 1.25rem; }
+.pw-contact-phone {
+    display: flex; align-items: center; gap: .7rem;
+    padding: 1rem 1.25rem; border: 1px solid var(--line);
+    border-left: 3px solid var(--accent); background: var(--surface);
+    font-size: 1.05rem; margin: 0 0 1.75rem;
+}
+.pw-contact-phone svg { color: var(--accent); flex-shrink: 0; }
+.pw-reasons { border: 0; padding: 0; margin: 0 0 1.25rem; }
+.pw-reasons legend { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: .75rem; }
+.pw-reason {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .9rem 1.1rem; border: 1px solid var(--line);
+    cursor: pointer; transition: border-color .2s ease, background-color .2s ease;
+}
+.pw-reason + .pw-reason { border-top: 0; }
+.pw-reason.active { border-color: var(--accent); background: var(--surface); }
+.pw-reason input { accent-color: var(--accent); }
+.pw-reason-note { font-size: .9rem; color: var(--muted); margin: .6rem 0 0; }
+.pw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .pw-form-row { grid-template-columns: 1fr; } }
+.pw-contact form label { display: block; font-size: .9rem; color: var(--muted); margin-bottom: 1rem; }
+.pw-contact input[type="text"], .pw-contact input[type="email"], .pw-contact textarea {
+    display: block; width: 100%; margin-top: .35rem; padding: .7rem .9rem;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+    font: inherit; transition: border-color .2s ease;
+}
+.pw-contact input:focus, .pw-contact textarea:focus { outline: none; border-color: var(--accent); }
+.pw-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.pw-form-error { color: var(--accent); }
+.pw-direct-line { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .95rem; }
+.pw-net-contacts { margin-top: 1.5rem; }
+.pw-net-contacts p { margin: 0 0 .9rem; }
+.pw-net-contacts a { word-break: break-all; }

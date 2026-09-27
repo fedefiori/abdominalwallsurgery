@@ -5,6 +5,7 @@ import { api } from '../lib/api';
 import useSEO from '../hooks/useSEO';
 import { Blocks, tocOf, Related } from '../components/Blocks';
 import { AuthorBox } from '../components/AuthorBox';
+import { ContactForm } from '../components/ContactForm';
 import { FaqView } from '../components/FaqView';
 import { Reveal } from '../components/Reveal';
 import { ExternalLink } from 'lucide-react';
@@ -113,6 +114,7 @@ export default function PillarPage() {
                             </Reveal>
                         )}
                         <Blocks blocks={page.blocks} />
+                        {page.kind === 'contact' && <ContactForm />}
                         <FaqView faq={page.faq} title={ui.faq_title} />
                         {!['legal', 'contact', 'home'].includes(page.kind) && (
                             <AuthorBox updated={page.modified} />

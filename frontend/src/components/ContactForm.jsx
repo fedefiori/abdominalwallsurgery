@@ -87,7 +87,7 @@ export function ContactForm() {
                             data-testid="contact-message" />
                     </label>
                     {/* honeypot: invisibile agli utenti, lo compilano solo i bot */}
-                    <input type="text" value={form.company} onChange={set('company')} tabIndex={-1}
+                    <input type="text" name="company" value={form.company} onChange={set('company')} tabIndex={-1}
                         autoComplete="off" aria-hidden="true" className="pw-hp" data-testid="contact-honeypot" />
 
                     {state === 'error' && (

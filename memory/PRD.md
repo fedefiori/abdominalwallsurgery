@@ -445,3 +445,29 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   dell'addome?" in home; registrata in imagebank.json.
 - Verificato: niente overflow a 390/1366/1920; mobile impila figura sopra il testo;
   chi-sono e pilastro intatti. Colori/font mai toccati (solo larghezze/margini).
+
+## Giro 10 hub — cura 422 email + contactPoints + layout antivuoto (27/09/2026) — CHIUSO
+- EMAIL: rimosso il proxy gestito della piattaforma (EMERGENT_EMAIL_KEY eliminata da .env);
+  invio diretto Resend con la chiave del Dottore (RESEND_API_KEY, dominio federicofiori.com
+  verificato nel suo account) e MAIL_FROM=info@federicofiori.com. From = "EMAIL_FROM_NAME
+  <info@federicofiori.com>", Reply-To = chi ha scritto. Guardrail _assert_safe_email e
+  salvataggio DB prima dell'invio INVARIATI. Collaudo: 2 invii REALI marcati TEST, entrambi
+  Resend 200 OK con id (appuntamento 01a0e4ee-199b-7423-a66a-40f252d0946f,
+  dottore 01a0e4ee-1a3d-76df-a4a7-0c6820aac94e).
+- CONTACTPOINTS: l'hub ora espone entity.contactPoints (3 voci); cache hub_entity.json
+  aggiornata al riavvio; CLINIC_FALLBACK rimosso da seo_render.py — unica fonte di rete =
+  endpoint hub. I 3 contactPoint del nodo MedicalClinic su /contatti/ combaciano 1:1 con
+  l'hub (diff stringa verificato) sia in /api/seo/jsonld sia nel prerender.
+- LAYOUT ANTIVUOTO (richiesta utente, palette/font mai toccati): Blocks.jsx — la prima
+  figura della sezione fluttua dall'ALTO e il testo la avvolge; la seconda figura fluttua
+  nella sua posizione naturale SOLO se la sezione ha >1100 caratteri (fix del testo
+  strozzato fra due immagini); foto singole inline a tutta colonna (pw-img-solo, cover,
+  max 440px); figure laterali min(48%,470px) cover 4/3.1; home wide clamp(400px,40%,540px)
+  4/3.4. Sezioni SENZA figure su pagine cliniche/home/chi-sono: illustrazione della pagina
+  come fondo sfumato sul lato libero (pw-sect--bg, velo a scomparsa verso il testo,
+  opacity .13 light / .18 dark) oppure cornice tecnica con angoli (pw-sect--framed) se la
+  pagina non ha schemi (chi-sono: 5 cornici). Legali e contatti ESCLUSE dalle decorazioni.
+- Honeypot contatti: aggiunto name="company" (trappola piu' efficace per bot da form).
+- test_credentials.md riallineato al NETWORK_STATS_TOKEN reale di backend/.env.
+- Test: test_reports/iteration_10.json — 16/16 pytest backend + 12 pagine frontend
+  (1366/375, entrambi i temi), 0 bug, 0 errori console. File: backend/tests/test_iteration10.py.

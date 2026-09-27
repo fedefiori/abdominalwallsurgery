@@ -1,0 +1,45 @@
+{
+  "summary": "Iterazione 10 — verifica completa layout figure/sezioni (pw-sect--bg / pw-sect--framed / pw-fig-side-*), migrazione contatti a Resend, e allineamento contactPoints al hub. 16/16 test backend pytest PASS. 12 pagine live (7 @1366px + 5 @375px) verificate: nessun overflow orizzontale, nessuna regressione layout, tema chiaro/scuro OK, FAQ e lightbox OK, contatti/legali correttamente esclusi da decorazioni. 0 errori console.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [
+    "/app/backend/tests/test_iteration10.py",
+    "/app/test_reports/pytest/iter10.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Il campo honeypot 'company' non e' presente nel DOM del contact-form (nessun input[name=company]), ma il backend lo gestisce correttamente se inviato via API. Comportamento coerente con anti-bot server-side; se il main agent vuole trappola classica lato client, aggiungere un input nascosto visualmente ma non da autofill (tabindex=-1, aria-hidden). Non-blocker.",
+    "test_credentials.md indica un vecchio NETWORK_STATS_TOKEN diverso da quello in backend/.env. La fonte di verita' e' .env; suggerisco di aggiornare /app/memory/test_credentials.md per evitare confusione tra agenti."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iteration10.py"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "verification_details": {
+    "seo_jsonld_contatti": "MedicalClinic ha esattamente 3 contactPoint con email info@ (appointments), fedefiori@ (medical inquiries), fedefiori@ (professional referrals) — OK",
+    "seo_prerender_root_robots": "contiene 'index', 'follow', 'max-snippet:-1', 'max-image-preview:large' — OK",
+    "sitemap_robots_llms": "200 OK",
+    "stats_401_without_token": "OK",
+    "stats_200_with_token": "OK (usando NETWORK_STATS_TOKEN da backend/.env)",
+    "contact_invalid_email": "422 (Pydantic) — accettato",
+    "contact_honeypot_company": "{ok:true} senza invio — OK",
+    "layout_1366": {
+      "home": "bg=1, framed=0, figSide=3/3, no overflow",
+      "la-terapia-chirurgica": "bg=8, framed=0, 12 figSide su 17 figs, no overflow",
+      "anatomia": "bg=8, framed=0, 5 figSide su 6 figs, no overflow",
+      "chi-sono": "bg=0, framed=5 (pagina senza schemi → cornici angolari come da spec), no overflow",
+      "contatti": "decorazioni=0 (escluse) OK, contact-form presente con 2 radio [appuntamento, dottore]",
+      "privacy-policy / cookie-policy": "decorazioni=0 (escluse) OK"
+    },
+    "layout_375": "nessun overflow orizzontale su tutte le 5 pagine testate",
+    "theme_toggle": "light → dark; testo pw-sect--bg risulta color=rgb(237,228,216) su fondo scuro → contrasto OK, visibile",
+    "faq_toggle": "faq-question-0 aria-expanded: false → true → false OK",
+    "lightbox": "click su figura apre lightbox, Esc chiude — OK",
+    "console_errors": 0
+  },
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Iterazione 10 verde end-to-end. Test file /app/backend/tests/test_iteration10.py (16 test: SEO, stats, contact validation + honeypot, prerender pagine). Le due email reali di collaudo Resend NON sono ripetute (main agent ha gia' verificato). Notare mismatch tra /app/memory/test_credentials.md (token vecchio) e backend/.env NETWORK_STATS_TOKEN=cuWaAi6fwbCuovE7nyBsulAn_E4yJwc- — usare .env come fonte di verita'. Layout pagine (home/la-terapia/anatomia/chi-sono) e' stabile: chi-sono usa pw-sect--framed (5), le altre pw-sect--bg. Contatti/privacy/cookie: 0 decorazioni come da spec.",
+  "rca of the issue": "N/A — nessun bug rilevato."
+}

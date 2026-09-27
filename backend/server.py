@@ -312,8 +312,13 @@ async def stats_summary(request: Request, days: int = 30, token: str = Query('')
 CONTACT_NOTIFY_EMAIL = os.environ.get('CONTACT_NOTIFY_EMAIL', '')
 CONTACT_DIRECT_EMAIL = os.environ.get('CONTACT_DIRECT_EMAIL', '')
 EMAIL_FROM_NAME = os.environ.get('EMAIL_FROM_NAME', '')
-EMAIL_KEY = os.environ.get('EMERGENT_EMAIL_KEY', '')
-EMAIL_BASE_URL = 'https://integrations.emergentagent.com'  # costante, mai da env
+# Invio diretto Resend con la chiave del Dottore (dominio federicofiori.com
+# verificato nel suo account Resend): il mittente torna configurabile
+# (MAIL_FROM) e Reply-To resta l'indirizzo di chi ha scritto. Una sola
+# chiave per tutti e cinque i siti della rete (contratto hub).
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
+MAIL_FROM = os.environ.get('MAIL_FROM', '')
+RESEND_API_URL = 'https://api.resend.com/emails'  # costante, mai da env
 
 # reason: qualunque valore mancante, sconosciuto o manomesso ricade su
 # 'appuntamento': una richiesta non deve mai perdersi per un campo sbagliato.
@@ -400,18 +405,26 @@ def _assert_safe_email(subject: str, html: str) -> None:
 
 
 async def send_contact_email(to, subject, html, reply_to):
-    """Notifica via proxy email gestito dalla piattaforma. From: dominio verificato
-    della piattaforma (non configurabile); il nome visualizzato e' EMAIL_FROM_NAME;
-    Reply-To = l'indirizzo di chi ha scritto."""
+    """Notifica via Resend con la chiave del Dottore. From: MAIL_FROM (dominio
+    verificato federicofiori.com) con nome visualizzato EMAIL_FROM_NAME;
+    Reply-To = l'indirizzo di chi ha scritto. Restituisce l'id Resend."""
     _assert_safe_email(subject, html)
-    payload = {"to": [to], "subject": subject, "html": html, "from_name": EMAIL_FROM_NAME}
+    payload = {
+        'from': f'{EMAIL_FROM_NAME} <{MAIL_FROM}>' if EMAIL_FROM_NAME else MAIL_FROM,
+        'to': [to],
+        'subject': subject,
+        'html': html,
+    }
     if reply_to:
-        payload["contact_email"] = reply_to
+        payload['reply_to'] = [reply_to]
     async with httpx.AsyncClient(timeout=30) as client:
-        resp = await client.post(f"{EMAIL_BASE_URL}/api/v1/email/send",
-                                 headers={"X-Email-Key": EMAIL_KEY}, json=payload)
-    resp.raise_for_status()
-    return resp.json().get("id")
+        resp = await client.post(RESEND_API_URL,
+                                 headers={'Authorization': f'Bearer {RESEND_API_KEY}'},
+                                 json=payload)
+    if resp.status_code >= 400:
+        # mai loggare la chiave: solo codice e messaggio del provider
+        raise RuntimeError(f'Resend {resp.status_code}: {resp.text[:300]}')
+    return resp.json().get('id')
 
 
 @api_router.post('/contact')

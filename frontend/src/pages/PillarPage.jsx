@@ -113,7 +113,7 @@ export default function PillarPage() {
                                 </p>
                             </Reveal>
                         )}
-                        <Blocks blocks={page.blocks} />
+                        <Blocks blocks={page.blocks} decorate={!['legal', 'contact'].includes(page.kind)} />
                         {page.kind === 'contact' && <ContactForm />}
                         <FaqView faq={page.faq} title={ui.faq_title} />
                         {!['legal', 'contact', 'home'].includes(page.kind) && (

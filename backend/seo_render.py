@@ -155,38 +155,19 @@ ARTICLE_RELATED = {
         ('Contatti e valutazione specialistica', '/contatti/')],
 }
 
-CLINIC_FALLBACK = {
-    '@type': 'MedicalClinic',
-    '@id': HUB_CLINIC_ID,
-    'name': 'Fi Multicare — Centro Medico Multidisciplinare',
-    'address': {
-        '@type': 'PostalAddress',
-        'streetAddress': 'Galleria del Corso 4',
-        'postalCode': '20122',
-        'addressLocality': 'Milano',
-        'addressCountry': 'IT',
-    },
-    'telephone': '+390276021568',
-    'email': 'info@fimulticare.it',
-    'url': 'https://www.fimulticare.it',
-    'geo': {'@type': 'GeoCoordinates', 'latitude': 45.4644978, 'longitude': 9.1951134},
-    'physician': {'@id': PERSON_REF_ID},
-    'sameAs': ['https://www.fimulticare.it/'],
-}
-
-
 def clinic_ld(domain, entity=None):
     """Lo studio e' un nodo condiviso dell'hub: si incorpora cosi' come arriva,
-    in /contatti/ soltanto; altrove si richiama per @id."""
+    in /contatti/ soltanto; altrove si richiama per @id. Unica fonte per tutta
+    la rete: l'endpoint hub /api/seo/entity (campi clinic + contactPoints).
+    Nessun fallback locale: se l'entita' manca, si emette solo il riferimento."""
     clinic = (entity or {}).get('clinic')
-    if clinic:
-        c = dict(clinic)
-        c.pop('@context', None)
-        c.setdefault('@id', (entity or {}).get('clinicId', HUB_CLINIC_ID))
-    else:
-        c = dict(CLINIC_FALLBACK)
-    # contactPoint: si copiano dall'entita' condivisa dell'hub (campo contactPoints),
-    # mai riscritti a mano. Se l'hub non li espone ancora, il nodo resta senza.
+    if not clinic:
+        return {'@type': 'MedicalClinic', '@id': HUB_CLINIC_ID}
+    c = dict(clinic)
+    c.pop('@context', None)
+    c.setdefault('@id', (entity or {}).get('clinicId', HUB_CLINIC_ID))
+    # contactPoint: si copiano COSI' COME SONO dal campo contactPoints
+    # dell'entita' condivisa dell'hub, mai riscritti a mano.
     cps = (entity or {}).get('contactPoints')
     if cps:
         c['contactPoint'] = cps

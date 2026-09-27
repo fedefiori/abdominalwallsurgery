@@ -82,7 +82,7 @@ function Figure({ b, first, side }) {
     );
 }
 
-export function Blocks({ blocks, wideFigures = false }) {
+export function Blocks({ blocks, wideFigures = false, decorate = true }) {
     let imgIndex = 0;
     // raggruppa i blocchi in sezioni delimitate dagli h2: sfondi alternati
     const sections = [];
@@ -95,6 +95,18 @@ export function Blocks({ blocks, wideFigures = false }) {
         current.push(b);
     }
     if (current.length) sections.push(current);
+
+    // Illustrazioni (schemi) gia' previste dalla pagina: riusate come fondo
+    // sfumato delle sezioni prive di figure — attinenti per costruzione.
+    const artPool = decorate
+        ? [...new Set(blocks.filter((b) => b.type === 'img' && b.kind === 'schema').map((b) => b.src))]
+        : [];
+
+    const textLenOf = (sec) => sec.reduce((n, b) => {
+        const raw = b.text || b.html
+            || (b.items || []).map((it) => (typeof it === 'string' ? it : '')).join(' ');
+        return n + String(raw).replace(/<[^>]+>/g, ' ').length;
+    }, 0);
 
     const renderBlock = (b, i) => {
         switch (b.type) {
@@ -140,25 +152,40 @@ export function Blocks({ blocks, wideFigures = false }) {
     const out = [];
     sections.forEach((sec, s) => {
         const band = s === 0 && sec[0].type !== 'h2' ? 0 : ((s - 1) % 3) + 1;
-        const wide = wideFigures && sec.some((b) => b.type === 'img');
+        const hasImg = sec.some((b) => b.type === 'img');
+        const wide = wideFigures && hasImg;
+        // figure a lato del testo: la seconda SOLO se c'e' abbastanza testo,
+        // altrimenti la colonna fra le due si strozza in uno spillo di parole
+        const sideIdx = [];
+        const maxSide = textLenOf(sec) > 1100 ? 2 : 1;
+        for (let i = 0; i < sec.length && sideIdx.length < maxSide; i += 1) {
+            const b = sec[i];
+            if (b.type === 'img' && (b.kind === 'schema' || b.kind === 'photo')) sideIdx.push(i);
+        }
         const children = [];
-        let sideCount = 0;
+        // la prima figura apre la sezione: parte dall'alto e il testo la
+        // avvolge — niente fascia vuota accanto all'immagine
+        const headIdx = sideIdx.length ? sideIdx[0] : -1;
+        if (headIdx >= 0) {
+            imgIndex += 1;
+            children.push(<Figure key={`side-${headIdx}`} b={sec[headIdx]} first={imgIndex === 1}
+                side={s % 2 === 0 ? 'r' : 'l'} />);
+        }
+        // poi gli altri blocchi, nell'ordine originale del testo; l'eventuale
+        // seconda figura fluttua nella sua posizione naturale lungo il testo
         for (let i = 0; i < sec.length; i += 1) {
             const b = sec[i];
             if (b.type === 'img') {
-                // fino a 2 immagini per sezione a lato del testo, lato alternato
-                let side = null;
-                if (sideCount < 2 && (b.kind === 'schema' || b.kind === 'photo')) {
-                    side = (s + sideCount) % 2 === 0 ? 'r' : 'l';
-                    sideCount += 1;
-                }
-                if (side) {
+                if (i === headIdx) continue;
+                const k = sideIdx.indexOf(i);
+                if (k > 0) {
                     imgIndex += 1;
-                    children.push(<Figure key={`side-${i}`} b={b} first={imgIndex === 1} side={side} />);
+                    children.push(<Figure key={`side-${i}`} b={b} first={false}
+                        side={(s + k) % 2 === 0 ? 'r' : 'l'} />);
                     continue;
                 }
                 const duo = [];
-                while (i < sec.length && sec[i].type === 'img' && duo.length < 2) {
+                while (i < sec.length && sec[i].type === 'img' && !sideIdx.includes(i) && duo.length < 2) {
                     duo.push(sec[i]);
                     i += 1;
                 }
@@ -169,13 +196,27 @@ export function Blocks({ blocks, wideFigures = false }) {
                 });
                 children.push(duo.length === 2
                     ? <div className="pw-img-duo" data-testid="figure-duo" key={`duo-${i}`}>{items}</div>
-                    : <div key={`solo-${i}`}>{items}</div>);
+                    : <div className="pw-img-solo" key={`solo-${i}`}>{items}</div>);
             } else {
                 children.push(renderBlock(b, i));
             }
         }
+        // sezione senza figure: fondo sfumato con un'illustrazione della
+        // pagina; se la pagina non ne ha, cornice tecnica con angoli
+        let decoClass = '';
+        let decoStyle;
+        if (decorate && !hasImg && !wide) {
+            if (artPool.length) {
+                const left = band === 2; // lato opposto al filetto colorato
+                decoClass = ` pw-sect--bg${left ? ' pw-sect--bg-l' : ''}`;
+                decoStyle = { '--bg-art': `url(${imgSrc(artPool[s % artPool.length])})` };
+            } else {
+                decoClass = ' pw-sect--framed';
+            }
+        }
         out.push(
-            <section key={s} className={`pw-sect pw-sect-${band}${wide ? ' pw-sect--wide' : ''}`} data-testid={`content-section-${s}`}>
+            <section key={s} className={`pw-sect pw-sect-${band}${wide ? ' pw-sect--wide' : ''}${decoClass}`}
+                style={decoStyle} data-testid={`content-section-${s}`}>
                 {children}
             </section>
         );

@@ -435,6 +435,50 @@ def og_meta(site, title, description, canonical, image, image_alt):
 <meta name="twitter:image" content="{esc(image)}" />'''
 
 
+def prerender_404(site):
+    """HTML della pagina 404 per il Worker della rete: il backend la consegna
+    con 200, il codice di stato 404 lo mette il Worker sull'indirizzo vero.
+    Sempre noindex: la pagina di errore non deve mai entrare nell'indice."""
+    domain = site['domain']
+    ui = site['ui']
+    canonical = domain + '/404'
+    title = f"404 — {ui['notfound_title']}"
+    ld = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'WebPage', '@id': canonical, 'url': canonical,
+         'name': title, 'description': ui['notfound_text'],
+         'inLanguage': site['lang'], 'isPartOf': {'@id': f'{domain}/#website'}},
+        {'@type': 'WebSite', '@id': f'{domain}/#website', 'url': domain,
+         'name': ui['site_name'], 'inLanguage': site['lang'],
+         'publisher': {'@id': PERSON_REF_ID}},
+    ]}
+    og = og_meta(site, f"{title} | {ui['site_name']}", ui['notfound_text'],
+                 canonical, f'{domain}/og/og-fallback.jpg', ui['notfound_title'])
+    return f"""<!DOCTYPE html>
+<html lang="{site['lang']}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{esc(title)} | {esc(ui['site_name'])}</title>
+<meta name="description" content="{esc(ui['notfound_text'])}" />
+<link rel="canonical" href="{esc(canonical)}" />
+{og}
+{robots_meta(True)}
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<style>{BASE_CSS}</style>
+</head>
+<body>
+<main>
+<nav class="pw-crumbs" aria-label="breadcrumb"><a href="{domain}/">{esc(ui['breadcrumb_home'])}</a> / <span>404</span></nav>
+<p aria-hidden="true" style="font-family:'Azeret Mono',monospace;font-size:4rem;color:var(--line);margin:0">404</p>
+<h1>{esc(ui['notfound_title'])}</h1>
+<p>{esc(ui['notfound_text'])}</p>
+<p><a href="{domain}/">{esc(ui['notfound_cta'])}</a></p>
+{network_html(site)}
+</main>
+</body>
+</html>"""
+
+
 def prerender_page(page, content, site, entity, absolute, noindex):
     domain = site['domain']
     path = page['path']

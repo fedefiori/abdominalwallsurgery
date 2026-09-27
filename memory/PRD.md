@@ -478,3 +478,16 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   profilo e attività clinica" (senza "Il"). Breadcrumb, llms.txt e JSON-LD seguono l'h1 in
   automatico; metaTitle invariato. modified -> 2026-09-27T16:00:00 (lastmod sitemap reale).
 - Verificato: API /api/pages/chi-sono e /api/site aggiornate; screenshot header+pagehead ok.
+
+## Prerender /404 per il Worker (27/09/2026, sera 2) — CHIUSO
+- Rilievo hub: /api/seo/prerender?path=/404 rispondeva 404 JSON; il Worker non aveva
+  l'HTML della pagina 404 e ripiegava sul guscio della home.
+- seo_render.prerender_404(site): HTML completo della 404 (title "404 — Pagina non
+  trovata", H1 proprio, testo e CTA dalle stringhe ui, canonical su /404, OG completi,
+  meta robots SEMPRE noindex,nofollow, JSON-LD minimale WebPage+WebSite, footer di rete).
+- server.py: seo_prerender intercetta path /404 (anche /404/) prima del lookup e la
+  consegna con 200 text/html — il codice 404 lo mette il Worker sull'indirizzo vero.
+- Nota per l'hub: /api/seo/404 non e' mai esistito come rotta — il JSON visto era il
+  404 generico FastAPI dei percorsi API sconosciuti; niente da rimuovere.
+- Verificato: /404 -> 200 text/html (con e senza absolute), home e chi-sono 200,
+  slug inesistente resta 404, /api/seo/routes elenca ancora /404.

@@ -636,6 +636,10 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
     # - senza absolute=true (HTML servito direttamente all'anteprima) la logica
     #   sull'host resta: noindex fuori dagli host canonici.
     noindex = False if absolute else not is_final_host(request)
+    # La pagina 404 del sito, consegnata con 200: il codice 404 lo mette il
+    # Worker sull'indirizzo inesistente (contratto hub 27/09). Sempre noindex.
+    if path.strip('/') == '404':
+        return HTMLResponse(seo_render.prerender_404(SITE))
     pages = load_pages()
     apath = SITE['articlePath']
     if path.startswith(apath) and path != SITE['articlesIndex']:

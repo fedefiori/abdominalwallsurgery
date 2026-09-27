@@ -59,7 +59,7 @@ UI = {
     'it': {
         'site_name': 'Chirurgia della Parete Addominale',
         'site_baseline': 'Ernie, laparoceli e ricostruzione della parete addominale',
-        'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Il Dott. Federico Fiori',
+        'nav_home': 'Home', 'nav_articles': 'Articoli', 'nav_contacts': 'Contatti', 'nav_about': 'Dott. F. Fiori',
         'nav_chapters': 'Capitoli',
         'index_title': 'Indice dei contenuti', 'on_this_page': 'In questa pagina',
         'faq_title': 'Domande frequenti', 'network_title': 'La rete',

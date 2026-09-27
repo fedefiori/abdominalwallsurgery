@@ -471,3 +471,10 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
 - test_credentials.md riallineato al NETWORK_STATS_TOKEN reale di backend/.env.
 - Test: test_reports/iteration_10.json — 16/16 pytest backend + 12 pagine frontend
   (1366/375, entrambi i temi), 0 bug, 0 errori console. File: backend/tests/test_iteration10.py.
+
+## Rettifica etichette chi-sono (27/09/2026, sera) — CHIUSO
+- Voce di menu nav_about IT: "Il Dott. Federico Fiori" -> "Dott. F. Fiori" (resta su una riga).
+- H1 /chi-sono/: "Il Dott. Federico Fiori: profilo e attività clinica" -> "Dott. Federico Fiori:
+  profilo e attività clinica" (senza "Il"). Breadcrumb, llms.txt e JSON-LD seguono l'h1 in
+  automatico; metaTitle invariato. modified -> 2026-09-27T16:00:00 (lastmod sitemap reale).
+- Verificato: API /api/pages/chi-sono e /api/site aggiornate; screenshot header+pagehead ok.

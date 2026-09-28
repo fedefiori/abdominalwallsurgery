@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 /* ============================================================
-   CHIRURGIA DELLA PARETE — VERSIONE 8 "Spezzato netto".
-   Dai colori del logo: quasi-nero caldo in apertura, striscia
-   corallo piena, sezioni azzurro-ghiaccio (diluizione del logo)
-   e carta calda. Azzurro logo #9FBEE8 / #1B4F96 come richiamo.
+   CHIRURGIA DELLA PARETE — VERSIONE 9 "Azzurro logo" (28/09/2026).
+   Identica alla V8 "Spezzato netto" negli sfondi (carta, ghiaccio,
+   sabbia, quasi-nero), ma l'arancio corallo e' sostituito OVUNQUE
+   dall'azzurro del logo: striscia e bottoni azzurri con scritte
+   bianche, richiami #9FBEE8 / #1B4F96. Scelta definitiva utente.
    Font FISSI (hub, non cambiarli mai): Inter Tight / Manrope / Azeret Mono.
    ============================================================ */
 
@@ -17,12 +18,12 @@
     --text: #1E1512;
     --muted: #6E5D52;
     --title: #0F1B2A;          /* titoli: quasi-nero freddo */
-    --accent: #E03E1A;         /* corallo saturo: grafica, striscia, testo grande */
-    --accent-soft: #F5875A;
-    --accent-btn: #C93412;     /* bottoni: AA con testo avorio */
-    --accent-ink: #AE2F10;     /* link su chiaro: ~5,9:1 */
+    --accent: #3C83E1;         /* azzurro logo: grafica, striscia, testo grande */
+    --accent-soft: #9FBEE8;    /* azzurro logo chiaro */
+    --accent-btn: #3675C8;     /* bottoni: AA con testo bianco */
+    --accent-ink: #1B4F96;     /* link su chiaro: ~7:1 */
     --signal: #1B4F96;         /* azzurro logo (scuro): etichette/numeri su chiaro */
-    --signal-on-deep: #F5875A; /* corallo chiaro: etichette/numeri su scuro */
+    --signal-on-deep: #9FBEE8; /* azzurro logo chiaro: etichette/numeri su scuro */
     --deep: #0C0A09;           /* quasi-nero caldo: hero, fasce, footer */
     --deep-text: #EDE4D8;
     --on-deep: #9FBEE8;        /* azzurro ghiaccio logo su scuro */
@@ -42,11 +43,11 @@
     --text: #EDE4D8;
     --muted: #A08F7E;
     --title: #F7EFE8;
-    --accent: #F5641F;
-    --accent-soft: #F5875A;
-    --accent-btn: #F5641F;
-    --accent-ink: #FF9A66;
-    --signal: #F5875A;
+    --accent: #3C83E1;
+    --accent-soft: #9FBEE8;
+    --accent-btn: #3675C8;
+    --accent-ink: #9FBEE8;
+    --signal: #9FBEE8;
     --deep: #080604;
     --steel: #4A5A6E;
     --band: #12100D;
@@ -190,11 +191,13 @@ h1, h2, h3, h4 { color: var(--title); }
     border-bottom: 1px solid var(--line);
 }
 .pw-header-inner { display: flex; align-items: center; gap: 2rem; height: 68px; }
-.pw-brand { display: flex; align-items: baseline; gap: .65rem; text-decoration: none; color: var(--text); }
-.pw-brand-logo { width: 30px; height: 30px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); align-self: center; flex: none; display: block; }
-.pw-brand-name { font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; }
-.pw-brand-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-@media (max-width: 760px) { .pw-brand-sub { display: none; } }
+.pw-brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; color: var(--text); }
+.pw-brand-logo { width: 46px; height: 46px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); flex: none; display: block; }
+.pw-brand-text { display: flex; flex-direction: column; justify-content: center; }
+.pw-brand-name { font-family: var(--font-display); font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em; white-space: nowrap; line-height: 1.15; }
+.pw-brand-sub { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+@media (max-width: 760px) { .pw-brand-sub { display: none; } .pw-brand-logo { width: 38px; height: 38px; } }
+@media (max-width: 480px) { .pw-brand-name { font-size: 14px; } .pw-brand { gap: .6rem; } }
 
 .pw-nav { display: flex; gap: clamp(.9rem, 2vw, 1.35rem); margin-left: auto; align-items: center; }
 .pw-nav a {
@@ -312,11 +315,11 @@ h1, h2, h3, h4 { color: var(--title); }
     transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
 }
 .pw-btn:hover { border-color: var(--accent); color: var(--accent-ink); transform: translateY(-2px); }
-.pw-btn-solid { background: var(--accent-btn); border-color: var(--accent-btn); color: #FFF3E8; }
-.pw-btn-solid:hover { background: var(--accent); border-color: var(--accent); color: #FFF3E8; }
-[data-theme="dark"] .pw-btn-solid, [data-theme="dark"] .pw-btn-solid:hover { color: #140B06; }
+.pw-btn-solid { background: var(--accent-btn); border-color: var(--accent-btn); color: #FFFFFF; }
+.pw-btn-solid:hover { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
+[data-theme="dark"] .pw-btn-solid, [data-theme="dark"] .pw-btn-solid:hover { color: #FFFFFF; }
 
-/* ---------------- marquee: striscia corallo piena, firma del sito ---------------- */
+/* ---------------- marquee: striscia azzurro logo piena, firma del sito ---------------- */
 .pw-marquee {
     background: var(--accent);
     overflow: hidden; padding: 1.05rem 0; white-space: nowrap;
@@ -324,9 +327,9 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-marquee-track { display: inline-flex; gap: 3.5rem; animation: pw-marquee 46s linear infinite; will-change: transform; }
 .pw-marquee span {
     font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .14em;
-    text-transform: uppercase; color: #140B06; display: inline-flex; align-items: center; gap: 3.5rem;
+    text-transform: uppercase; color: #FFFFFF; display: inline-flex; align-items: center; gap: 3.5rem;
 }
-.pw-marquee span::after { content: ""; width: 7px; height: 7px; background: #140B06; opacity: .55; }
+.pw-marquee span::after { content: ""; width: 7px; height: 7px; background: #FFFFFF; opacity: .55; }
 @keyframes pw-marquee { to { transform: translateX(-50%); } }
 
 /* ---------------- sezioni ---------------- */
@@ -642,7 +645,7 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-video-play {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     width: 60px; height: 60px; border-radius: 999px;
-    background: var(--accent-btn); color: #FFF3E8;
+    background: var(--accent-btn); color: #FFFFFF;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 4px 18px rgba(12, 10, 9, .35);
     transition: transform .2s ease;
@@ -799,9 +802,9 @@ h1, h2, h3, h4 { color: var(--title); }
     transition: transform .2s ease, border-color .2s ease, color .2s ease;
 }
 .pw-cta:hover { transform: translateY(-2px); border-color: var(--accent); color: var(--accent-ink); text-decoration: none; }
-.pw-cta.solid { background: var(--accent-btn); border-color: var(--accent-btn); color: #FFF3E8; }
-.pw-cta.solid:hover { background: var(--accent); color: #FFF3E8; }
-[data-theme="dark"] .pw-cta.solid, [data-theme="dark"] .pw-cta.solid:hover { color: #140B06; }
+.pw-cta.solid { background: var(--accent-btn); border-color: var(--accent-btn); color: #FFFFFF; }
+.pw-cta.solid:hover { background: var(--accent); color: #FFFFFF; }
+[data-theme="dark"] .pw-cta.solid, [data-theme="dark"] .pw-cta.solid:hover { color: #FFFFFF; }
 .pw-contactlist { margin: 0 0 1.6rem; border-top: 1px solid var(--line); }
 .pw-contactrow {
     display: grid; grid-template-columns: 2rem 9rem 1fr; gap: .8rem; align-items: baseline;

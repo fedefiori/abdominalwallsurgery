@@ -540,3 +540,20 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   con arancio #F5641F) e le immagini OG statiche (og-fallback/og-home hanno corallo).
   Decisione utente in sospeso: se adottata, applicare i 5 token in index.css + BASE_CSS
   di seo_render.py + valutare rigenerazione OG.
+
+## PALETTE VERSIONE 9 "Azzurro logo" DEFINITIVA (28/09/2026, scelta utente) — CHIUSO
+- L'utente ha visto la simulazione runtime e ha scelto: l'arancio corallo esce di scena,
+  sostituito ovunque dall'azzurro del logo. Token :root: --accent #3C83E1, --accent-soft
+  #9FBEE8, --accent-btn #3675C8 (AA con bianco, ~4,6:1), --accent-ink #1B4F96 (~7:1),
+  --signal-on-deep #9FBEE8. Tema SCURO incluso: --accent #3C83E1, --accent-soft/--signal/
+  --accent-ink #9FBEE8, --accent-btn #3675C8. Sfondi INVARIATI (carta/ghiaccio/sabbia/
+  quasi-nero caldo). Scritte su azzurro SEMPRE bianche: #FFF3E8 e #140B06 -> #FFFFFF
+  (bottoni solidi, CTA contatti, pulsanti play video, striscia marquee e suoi punti).
+- Allineato BASE_CSS di seo_render.py (prerender crawler). Immagini OG rigenerate con
+  sostituzione cromatica PIL corallo->azzurro (og-fallback 23.953 px, og-home 989 px).
+- LOGO piu' grande e leggibile: header 30px -> 46px (38px mobile), blocco brand con nome
+  sopra "Dott. Federico Fiori" (colonna, nowrap); a <=480px nome 14px (altrimenti
+  overflow 13px). Attributi width/height img aggiornati in Layout.jsx.
+- Verifiche: token computed light/dark corretti, nav su UNA riga (38px a 1366),
+  overflow 0 a 375/768/1366, hero/marquee/sezioni/video/dark a video tutti azzurri.
+- REGOLA AGGIORNATA: la palette V9 azzurro-logo e' la DEFINITIVA (sostituisce V8).

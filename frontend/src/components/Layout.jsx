@@ -128,9 +128,11 @@ export default function Layout({ children }) {
                 <div className="pw-shell pw-header-inner">
                     <Link to="/" className="pw-brand" data-testid="brand-link">
                         <img className="pw-brand-logo" src={`${API}/api/media/logo-chirurgia-della-parete.webp`}
-                            alt="Logo Chirurgia della Parete" width="30" height="30" data-testid="brand-logo" />
-                        <span className="pw-brand-name">{ui.site_name}</span>
-                        <span className="pw-brand-sub">Dott. Federico Fiori</span>
+                            alt="Logo Chirurgia della Parete" width="46" height="46" data-testid="brand-logo" />
+                        <span className="pw-brand-text">
+                            <span className="pw-brand-name">{ui.site_name}</span>
+                            <span className="pw-brand-sub">Dott. Federico Fiori</span>
+                        </span>
                     </Link>
                     <nav className="pw-nav" aria-label="Navigazione principale" data-testid="main-nav">
                         <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined}>{ui.nav_home}</Link>

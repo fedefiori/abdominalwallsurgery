@@ -479,12 +479,15 @@ h1, h2, h3, h4 { color: var(--title); }
 }
 
 /* figure a lato del testo: più larghe, riempiono la banda libera (27/09 bis).
-   Rese PRIMA del testo nel flusso: il testo le avvolge dall'alto. */
+   Rese PRIMA del testo nel flusso: il testo le avvolge dall'alto.
+   Specificita' doppia (.pw-content) per battere .pw-img-photo/.pw-img-schema:
+   senza, l'immagine restava piu' larga del float e copriva il testo. */
 @media (min-width: 860px) {
     .pw-fig-side-r { float: right; width: min(48%, 470px); margin: .2rem 0 1.1rem 2rem; }
     .pw-fig-side-l { float: left; width: min(48%, 470px); margin: .2rem 2rem 1.1rem 0; }
-    .pw-fig-side-r img, .pw-fig-side-l img {
-        width: 100%; max-height: none; aspect-ratio: 4 / 3.1; object-fit: cover; padding: 0;
+    .pw-content .pw-fig-side-r img, .pw-content .pw-fig-side-l img {
+        width: 100%; max-width: 100%; max-height: none; aspect-ratio: 4 / 3.1;
+        object-fit: cover; padding: 0;
     }
 }
 

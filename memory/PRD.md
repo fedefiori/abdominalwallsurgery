@@ -521,3 +521,22 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
 - Collaudo: batteria backend 7/7 verde (API, routes, sitemap, prerender completo, zero
   VideoObject ovunque, menu in prerender x4, riga cookie) + browser (9 video/9 didascalie/
   9 link, clic -> nocookie, overflow 375=0, nav una riga 981-1366).
+
+## Fix foto che coprono il testo + test palette azzurra (28/09/2026) — CHIUSO
+- BUG segnalato dall'utente: nella pagina terapia chirurgica le figure laterali coprivano
+  l'inizio delle righe di testo. Causa: le regole float `.pw-fig-side-* img` avevano la
+  stessa specificita' di `.pw-img-photo img`/`.pw-img-schema img` (0,1,1) ma compaiono
+  prima nel foglio -> vincevano max-width 560px/width:auto e l'immagine debordava dal
+  float sul testo (visibile solo coi float a sinistra; a destra debordava verso il bordo).
+- FIX: selettori float portati a specificita' (0,2,1) con prefisso .pw-content +
+  max-width:100%. Verificato: 0 figure debordanti (controllo geometrico), testo sempre
+  avvolto e leggibile, home wide invariata (regola (0,3,1) gia' vincente).
+- TEST PALETTE (richiesta utente, NESSUN file modificato): simulazione runtime via
+  add_style_tag — arancio corallo -> azzurro logo (--accent #3C83E1, --accent-soft
+  #9FBEE8, --accent-btn #3675C8, --accent-ink #1B4F96, --signal-on-deep #9FBEE8) e scritte
+  su azzurro bianche (marquee, bottoni solidi, pulsanti play). Screenshot prodotti:
+  /tmp/azzurro_1_hero_v2.png, azzurro_2_sezioni.png, azzurro_3_video.png,
+  azzurro_4_capitoli.png. NON coperti dalla simulazione: tema scuro (token [data-theme=dark]
+  con arancio #F5641F) e le immagini OG statiche (og-fallback/og-home hanno corallo).
+  Decisione utente in sospeso: se adottata, applicare i 5 token in index.css + BASE_CSS
+  di seo_render.py + valutare rigenerazione OG.

@@ -191,13 +191,10 @@ h1, h2, h3, h4 { color: var(--title); }
     border-bottom: 1px solid var(--line);
 }
 .pw-header-inner { display: flex; align-items: center; gap: 2rem; height: 68px; }
-.pw-brand { display: flex; align-items: center; gap: .8rem; text-decoration: none; color: var(--text); }
-.pw-brand-logo { width: 46px; height: 46px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); flex: none; display: block; }
-.pw-brand-text { display: flex; flex-direction: column; justify-content: center; }
-.pw-brand-name { font-family: var(--font-display); font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em; white-space: nowrap; line-height: 1.15; }
+.pw-brand { display: flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--text); }
+.pw-brand-logo { height: 60px; width: auto; border-radius: 10px; border: 1px solid var(--line); flex: none; display: block; }
 .pw-brand-sub { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-@media (max-width: 760px) { .pw-brand-sub { display: none; } .pw-brand-logo { width: 38px; height: 38px; } }
-@media (max-width: 480px) { .pw-brand-name { font-size: 14px; } .pw-brand { gap: .6rem; } }
+@media (max-width: 760px) { .pw-brand-sub { display: none; } .pw-brand-logo { height: 44px; } }
 
 .pw-nav { display: flex; gap: clamp(.9rem, 2vw, 1.35rem); margin-left: auto; align-items: center; }
 .pw-nav a {

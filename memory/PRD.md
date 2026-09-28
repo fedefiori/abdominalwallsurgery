@@ -557,3 +557,16 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
 - Verifiche: token computed light/dark corretti, nav su UNA riga (38px a 1366),
   overflow 0 a 375/768/1366, hero/marquee/sezioni/video/dark a video tutti azzurri.
 - REGOLA AGGIORNATA: la palette V9 azzurro-logo e' la DEFINITIVA (sostituisce V8).
+
+## Logo orizzontale leggibile in header (28/09/2026) — CHIUSO
+- Richiesta: "logo piu' grande, deve leggersi chirurgia della parete". La scritta nel logo
+  quadrato e' il 3,5% dell'altezza immagine: nessun ingrandimento del chip l'avrebbe mai
+  resa leggibile. Soluzione: lockup orizzontale composto con PIL dai PIXEL ORIGINALI del
+  marchio (nessun ridisegno): monogramma FP a sinistra + banda testo ritagliata e divisa
+  "CHIRURGIA" / "DELLA PARETE" su due righe (taglio agli spazi misurati x268/370),
+  scalata 5,4x LANCZOS. File nuovo: static/media/logo-chirurgia-della-parete-orizz.webp
+  (1723x600, 2,87:1, 16,5KB). Il quadrato originale resta per favicon/OG.
+- Header: img lockup 60px desktop / 44px mobile; rimossa la scritta HTML duplicata del nome
+  sito (ora la porta il logo); resta il sub "DOTT. FEDERICO FIORI" accanto; alt completo.
+- Verifiche: scritta leggibile a 1366/768/375 (zoom di controllo), nav una riga (38px),
+  overflow 0 ovunque.

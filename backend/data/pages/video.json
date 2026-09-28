@@ -1,0 +1,113 @@
+{
+  "slug": "video",
+  "path": "/video/",
+  "modified": "2026-09-27T16:00:00",
+  "it": {
+    "h1": "Video",
+    "metaTitle": "Video sulla Chirurgia della Parete Addominale | Dott. Fiori",
+    "metaDescription": "Video dal canale YouTube del Dott. Federico Fiori sulla parete addominale: reti e piani di posizionamento, tecniche mininvasive e recupero dopo l'intervento.",
+    "kind": "video",
+    "answer": "I video di questa pagina sono tratti dal canale YouTube del Dott. Federico Fiori e sono scelti fra quelli che riguardano la parete addominale: le reti, le tecniche mininvasive e il periodo dopo l'intervento. Alcuni contenuti mostrano immagini di interventi chirurgici reali.",
+    "blocks": [
+      {
+        "type": "note",
+        "html": "Alcuni video contengono immagini di interventi chirurgici reali. Sono pubblicati per spiegare la tecnica a Pazienti e colleghi che vogliono capire."
+      },
+      { "type": "h2", "text": "Le reti: quali sono e dove si mettono" },
+      {
+        "type": "video",
+        "yt": "Y9Y_NlzmK-Q",
+        "title": "Diastasi dei Muscoli Retti: Quali tipi di reti esistono e dove si mettono?",
+        "alt": "Copertina del video sui tipi di rete per la parete addominale e sul piano in cui vengono posizionate",
+        "caption": "Nel video si vedono i principali tipi di rete per la parete e il piano in cui ciascuna viene posizionata.",
+        "link": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/",
+        "linkLabel": "Le protesi e il piano di posizionamento"
+      },
+      {
+        "type": "video",
+        "yt": "YYOWiDqOrCE",
+        "title": "Diastasi dei Muscoli Retti: Perchè si usa la rete?",
+        "alt": "Copertina del video sul perché si usa una rete nella riparazione dei difetti della parete",
+        "caption": "Il video mostra perché nella riparazione di un difetto si usa una rete e che cosa cambia quando manca.",
+        "link": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/",
+        "linkLabel": "Le protesi e il piano di posizionamento"
+      },
+      {
+        "type": "video",
+        "yt": "kLfDeR3d6-c",
+        "title": "Diastasi dei Muscoli: La rete si sente?",
+        "alt": "Copertina del video sulla domanda più frequente: la rete si sente dopo l'intervento?",
+        "caption": "Il video risponde alla domanda che fanno tutti i Pazienti: la rete, una volta posizionata, si sente?",
+        "link": "/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/",
+        "linkLabel": "Le protesi e il piano di posizionamento"
+      },
+      { "type": "h2", "text": "Le tecniche mininvasive" },
+      {
+        "type": "video",
+        "yt": "80nF0J17np8",
+        "title": "Diastasi dei Muscoli Retti:  Laparoscopia e Endoscopia sono la stessa cosa?",
+        "alt": "Copertina del video sulla differenza tra laparoscopia ed endoscopia",
+        "caption": "Nel video si vede la differenza tra laparoscopia ed endoscopia: due vie mininvasive che non sono la stessa cosa.",
+        "link": "/la-terapia-chirurgica/",
+        "linkLabel": "La terapia chirurgica"
+      },
+      {
+        "type": "video",
+        "yt": "gXUe8BrsocY",
+        "title": "Diastasi dei Muscoli Retti: C'è una tecnica chirurgica che va bene per tutti?",
+        "alt": "Copertina del video sulla scelta della tecnica chirurgica per il singolo Paziente",
+        "caption": "Il video spiega perché non esiste una tecnica che va bene per tutti e da che cosa dipende la scelta.",
+        "link": "/la-terapia-chirurgica/",
+        "linkLabel": "La terapia chirurgica"
+      },
+      {
+        "type": "video",
+        "yt": "47RQ-3HvX6g",
+        "title": "Diastasi dei Muscoli Retti: Quando è indicato utilizzare una Tecnica Mininvasiva?",
+        "alt": "Copertina del video su quando una tecnica mininvasiva è indicata e quando no",
+        "caption": "Si vede quando una tecnica mininvasiva è indicata e quando invece è meglio non usarla.",
+        "link": "/la-terapia-chirurgica/",
+        "linkLabel": "La terapia chirurgica"
+      },
+      { "type": "h2", "text": "Dopo l'intervento" },
+      {
+        "type": "video",
+        "yt": "V6_2pQuOjaQ",
+        "title": "Diastasi dei Muscoli Retti: Quando si può riprendere l'attività fisica dopo l'intervento chirurgico?",
+        "alt": "Copertina del video sulla ripresa dell'attività fisica dopo l'intervento alla parete",
+        "caption": "Il video mostra quando e come si riprende l'attività fisica dopo l'intervento alla parete.",
+        "link": "/sintomi-e-complicanze/",
+        "linkLabel": "Sintomi e complicanze dei difetti"
+      },
+      {
+        "type": "video",
+        "yt": "rvrsealK0_0",
+        "title": "Diastasi dei Muscoli Retti dell'Addome: Quando si può riprendere a lavorare dopo l'intervento?",
+        "alt": "Copertina del video sul ritorno al lavoro dopo l'intervento alla parete",
+        "caption": "Nel video si spiega quando si torna al lavoro dopo l'intervento e da che cosa dipendono i tempi.",
+        "link": "/sintomi-e-complicanze/",
+        "linkLabel": "Sintomi e complicanze dei difetti"
+      },
+      {
+        "type": "video",
+        "yt": "tBbJK-LV1ac",
+        "title": "Diastasi dei Muscoli Retti: I sintomi scompaiono dopo l'intervento?",
+        "alt": "Copertina del video sui sintomi dopo l'intervento di parete",
+        "caption": "Si vede che cosa succede ai sintomi dopo l'intervento: quali scompaiono e in quanto tempo.",
+        "link": "/sintomi-e-complicanze/",
+        "linkLabel": "Sintomi e complicanze dei difetti"
+      },
+      {
+        "type": "ul",
+        "ordered": false,
+        "items": [
+          "<a href=\"https://www.federicofiori.com/video\" target=\"_blank\" rel=\"noopener\">Tutti i video del canale, raccolti</a>",
+          "<a href=\"https://www.youtube.com/@federicofiori2383\" target=\"_blank\" rel=\"noopener\">Il canale YouTube</a>"
+        ]
+      }
+    ],
+    "faq": [],
+    "related": []
+  },
+  "en": null
+}

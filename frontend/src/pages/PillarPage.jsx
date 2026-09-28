@@ -16,7 +16,7 @@ export const KNOWN_SLUGS = [
     'le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi',
     'le-complicanze-chirurgiche-la-vac-therapy', 'sintomi-e-complicanze',
     'difetti-della-parete-addominale-e-classificazione', 'la-diastasi-dei-muscoli-retti',
-    'preabilitazione-dei-pazienti-all-intervento-chirurgico', 'contatti',
+    'preabilitazione-dei-pazienti-all-intervento-chirurgico', 'contatti', 'video',
     'privacy-policy', 'cookie-policy',
 ];
 
@@ -113,10 +113,10 @@ export default function PillarPage() {
                                 </p>
                             </Reveal>
                         )}
-                        <Blocks blocks={page.blocks} decorate={!['legal', 'contact'].includes(page.kind)} />
+                        <Blocks blocks={page.blocks} decorate={!['legal', 'contact', 'video'].includes(page.kind)} />
                         {page.kind === 'contact' && <ContactForm />}
                         <FaqView faq={page.faq} title={ui.faq_title} />
-                        {!['legal', 'contact', 'home'].includes(page.kind) && (
+                        {!['legal', 'contact', 'home', 'video'].includes(page.kind) && (
                             <AuthorBox updated={page.modified} />
                         )}
                         <FontiView fonti={page.fonti} />

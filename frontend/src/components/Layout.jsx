@@ -114,6 +114,7 @@ export default function Layout({ children }) {
     const mainNav = [
         { to: '/', label: ui.nav_home },
         { to: site?.articlesIndex || '/articoli', label: ui.nav_articles },
+        ...(!site || site.hasVideo ? [{ to: '/video/', label: ui.nav_video || 'Video' }] : []),
         { to: '/chi-sono/', label: ui.nav_about },
         { to: '/contatti/', label: ui.nav_contacts },
     ].map((i) => (i.path ? { to: i.path, label: i.label } : i));

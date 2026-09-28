@@ -67,6 +67,22 @@ def render_blocks(blocks, domain, lang, lazy_from=1):
             out.append(
                 f'<figure><img src="{esc(src)}" alt="{esc(b.get("alt"))}" width="{w}" height="{h}"'
                 f'{lazy} decoding="async" />{cap}</figure>')
+        elif t == 'video':
+            # Nell'HTML dei crawler il video e' un LINK (i crawler non eseguono
+            # clic): copertina, titolo, didascalia e link interno restano
+            # leggibili. Nessun iframe, nessun VideoObject (contratto hub:
+            # i dati strutturati dei video stanno solo sull'hub).
+            yt = esc(b.get('yt', ''))
+            link = b.get('link', '')
+            link_url = esc(domain + link if link.startswith('/') else link)
+            link_html = f' — <a href="{link_url}">{esc(b.get("linkLabel", ""))}</a>' if link else ''
+            out.append(
+                f'<figure class="pw-video">'
+                f'<a href="https://www.youtube.com/watch?v={yt}">'
+                f'<img src="https://i.ytimg.com/vi/{yt}/hqdefault.jpg" alt="{esc(b.get("alt") or b.get("title", ""))}" '
+                f'width="480" height="360" loading="lazy" decoding="async" />'
+                f'<span>{esc(b.get("title", ""))}</span></a>'
+                f'<figcaption>{esc(b.get("caption", ""))}{link_html}</figcaption></figure>')
         elif t == 'plainBox':
             out.append(f'<div class="pw-plainbox"><p>{b.get("html", "")}</p></div>')
         elif t == 'proBox':
@@ -227,6 +243,8 @@ ABOUT_MAP = {
         {'@type': 'MedicalProcedure', 'name': 'Terapia a pressione negativa (VAC therapy)'},
     'radiologia':
         {'@type': 'MedicalProcedure', 'name': 'Diagnostica per immagini della parete addominale'},
+    'video':
+        {'@type': 'MedicalProcedure', 'name': 'Chirurgia della Parete Addominale'},
 }
 
 
@@ -405,6 +423,8 @@ th{background:var(--deep);color:var(--deep-text)}
 tr:nth-child(even) td{background:#E3EEFB}
 .pw-crumbs{font-size:.8rem;color:var(--muted);margin-bottom:1.4rem}
 .pw-crumbs a{color:var(--muted)}
+.pw-menu{margin-bottom:1.6rem;font-size:.95rem}
+.pw-menu a{margin-right:1.2rem}
 .pw-faq details{border-top:1px solid var(--line);padding:.8rem 0}
 .pw-faq summary{cursor:pointer;font-weight:600}
 .pw-net{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.4rem;color:var(--muted);font-size:.9rem}
@@ -435,7 +455,24 @@ def og_meta(site, title, description, canonical, image, image_alt):
 <meta name="twitter:image" content="{esc(image)}" />'''
 
 
-def prerender_404(site):
+def menu_html(site, pages=None):
+    """Il menu principale del sito, presente anche nell'HTML servito ai
+    crawler: scoperta degli indirizzi principali senza eseguire JavaScript.
+    Le voci pagina (Video, Dott. Fiori, Contatti) compaiono solo se la
+    pagina esiste nella lingua del sito."""
+    ui = site['ui']
+    d = site['domain']
+    items = [(d + '/', ui['breadcrumb_home']),
+             (d + site['articlesIndex'], ui['nav_articles'])]
+    for slug, key in (('video', 'nav_video'), ('chi-sono', 'nav_about'), ('contatti', 'nav_contacts')):
+        p = (pages or {}).get(slug)
+        if p and p.get(site['lang']):
+            items.append((d + p['path'], ui.get(key, slug)))
+    links = ''.join(f'<a href="{esc(u)}">{esc(lbl)}</a>' for u, lbl in items)
+    return f'<nav class="pw-menu" aria-label="Menu principale">{links}</nav>'
+
+
+def prerender_404(site, pages=None):
     """HTML della pagina 404 per il Worker della rete: il backend la consegna
     con 200, il codice di stato 404 lo mette il Worker sull'indirizzo vero.
     Sempre noindex: la pagina di errore non deve mai entrare nell'indice."""
@@ -468,6 +505,7 @@ def prerender_404(site):
 </head>
 <body>
 <main>
+{menu_html(site, pages)}
 <nav class="pw-crumbs" aria-label="breadcrumb"><a href="{domain}/">{esc(ui['breadcrumb_home'])}</a> / <span>404</span></nav>
 <p aria-hidden="true" style="font-family:'Azeret Mono',monospace;font-size:4rem;color:var(--line);margin:0">404</p>
 <h1>{esc(ui['notfound_title'])}</h1>
@@ -479,7 +517,7 @@ def prerender_404(site):
 </html>"""
 
 
-def prerender_page(page, content, site, entity, absolute, noindex):
+def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
     domain = site['domain']
     path = page['path']
     canonical = domain + path
@@ -503,7 +541,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
     net = network_html(site)
     kind = (page.get('it') or {}).get('kind', 'clinical')
     abox = ''
-    if kind not in ('legal', 'contact'):
+    if kind not in ('legal', 'contact', 'video'):
         abox = author_box_html(site['domain'], (entity or {}).get('person') or {}, page.get('modified', ''), site['lang'])
     rel = content.get('related') or []
     rel_html = ''
@@ -534,6 +572,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
 </head>
 <body>
 <main>
+{menu_html(site, pages)}
 {crumbs_html}
 <h1>{esc(h1)}</h1>
 {f'<p class="pw-answer">{esc(answer)}</p>' if answer else ''}
@@ -548,7 +587,7 @@ def prerender_page(page, content, site, entity, absolute, noindex):
 </html>"""
 
 
-def prerender_article(article, site, entity, absolute, noindex):
+def prerender_article(article, site, entity, absolute, noindex, pages=None):
     domain = site['domain']
     canonical = article.get('canonical') or (domain + site['articlePath'] + article['slug'])
     ui = site['lang']
@@ -607,6 +646,7 @@ def prerender_article(article, site, entity, absolute, noindex):
 </head>
 <body>
 <main>
+{menu_html(site, pages)}
 {crumbs_html}
 <h1>{esc(article.get('title', ''))}</h1>
 {f'<p class="pw-answer">{esc(da)}</p>' if da else ''}

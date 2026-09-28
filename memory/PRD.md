@@ -491,3 +491,33 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   404 generico FastAPI dei percorsi API sconosciuti; niente da rimuovere.
 - Verificato: /404 -> 200 text/html (con e senza absolute), home e chi-sono 200,
   slug inesistente resta 404, /api/seo/routes elenca ancora /404.
+
+## Pagina /video/ (28/09/2026, contratto hub) — CHIUSO
+- Nuova pagina data/pages/video.json (kind "video", en=null): H1 "Video", risposta diretta e
+  avviso contenuti verbatim hub, 3 gruppi H2 (reti/tecniche mininvasive/dopo l'intervento),
+  9 video YouTube con didascalia di una riga + link interno (protesi/terapia/sintomi),
+  chiusura con 2 link esterni (hub /video + canale @federicofiori2383, _blank noopener,
+  MAI nofollow). Titoli iframe = titoli reali YouTube (oEmbed).
+- REGOLA ZERO: nessun VideoObject, nessun ItemList di video su questo sito (verificato su
+  TUTTE le pagine prerender + jsonld). Schema pagina = solito grafo (MedicalWebPage +
+  BreadcrumbList + WebSite/Org/Person, isPartOf sito; about=MedicalProcedure parete).
+- CARICAMENTO AL CLIC: Blocks.jsx VideoEmbed — all'apertura solo copertina i.ytimg.com
+  (hqdefault) + pulsante play in palette + alt descrittivo; iframe creato SOLO al clic verso
+  youtube-nocookie.com/embed con title, loading=lazy, allowfullscreen, NO autoplay.
+  Verificato in browser con tracciamento richieste: 0 chiamate youtube.com prima del clic.
+- PRERENDER: render_blocks caso 'video' -> figura con LINK youtube.com/watch + copertina
+  img + didascalia + link interno (i crawler non cliccano). Nuovo menu_html(): il menu
+  principale (Home/Articoli/Video/Dott. F. Fiori/Contatti, voci pagina solo se esistenti
+  nella lingua) ora e' presente nel prerender di TUTTE le pagine (pagine, articoli,
+  indice, 404) — prima non c'era alcun menu nel crawler HTML.
+- Menu sito: voce "Video" dopo "Articoli" (Layout mainNav, desktop+mobile), condizionata a
+  site.hasVideo (nuovo flag di /api/site). Fix di conseguenza: .pw-nav a white-space
+  nowrap + gap fluido — il menu resta su UNA riga fino a 981px.
+- Cookie policy: riga YouTube caricamento-al-clic nella sezione Esperienza (contenuti
+  terze parti), verbatim hub. modified -> 2026-09-27 (sitemap reale).
+- AuthorBox escluso su kind video (pagina curata ma struttura hub minimale). Decorate
+  (sfondi sfumati/cornici) disattivate sulla pagina video (i video sono gia' i media).
+- Sitemap: /video/ con lastmod 2026-09-27; routes: /video/ + redirect /video -> /video/.
+- Collaudo: batteria backend 7/7 verde (API, routes, sitemap, prerender completo, zero
+  VideoObject ovunque, menu in prerender x4, riga cookie) + browser (9 video/9 didascalie/
+  9 link, clic -> nocookie, overflow 375=0, nav una riga 981-1366).

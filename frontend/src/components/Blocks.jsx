@@ -1,6 +1,8 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { API } from '../lib/api';
 import { useLightbox } from './Lightbox';
-import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Globe, Play } from 'lucide-react';
 
 const CONTACT_ICONS = { phone: Phone, mail: Mail, 'map-pin': MapPin, globe: Globe };
 
@@ -82,6 +84,38 @@ function Figure({ b, first, side }) {
     );
 }
 
+/** Video YouTube con caricamento AL CLIC (regola di rete, non negoziabile):
+    all'apertura solo la copertina da i.ytimg.com; l'iframe nasce al clic e
+    punta a youtube-nocookie.com: mai dati a YouTube prima della scelta. */
+function VideoEmbed({ b }) {
+    const [play, setPlay] = useState(false);
+    return (
+        <figure className="pw-video" data-testid={`video-${b.yt}`}>
+            {play ? (
+                <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${b.yt}`}
+                    title={b.title}
+                    loading="lazy"
+                    allow="accelerometer; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    data-testid={`video-iframe-${b.yt}`}
+                />
+            ) : (
+                <button type="button" className="pw-video-cover" onClick={() => setPlay(true)}
+                    aria-label={`Riproduci il video: ${b.title}`} data-testid={`video-play-${b.yt}`}>
+                    <img src={`https://i.ytimg.com/vi/${b.yt}/hqdefault.jpg`}
+                        alt={b.alt || b.title} width="480" height="360" loading="lazy" decoding="async" />
+                    <span className="pw-video-play" aria-hidden="true"><Play size={22} fill="currentColor" /></span>
+                </button>
+            )}
+            <figcaption>
+                {b.caption}
+                {b.link && <> — <Link to={b.link}>{b.linkLabel}</Link></>}
+            </figcaption>
+        </figure>
+    );
+}
+
 export function Blocks({ blocks, wideFigures = false, decorate = true }) {
     let imgIndex = 0;
     // raggruppa i blocchi in sezioni delimitate dagli h2: sfondi alternati
@@ -152,7 +186,7 @@ export function Blocks({ blocks, wideFigures = false, decorate = true }) {
     const out = [];
     sections.forEach((sec, s) => {
         const band = s === 0 && sec[0].type !== 'h2' ? 0 : ((s - 1) % 3) + 1;
-        const hasImg = sec.some((b) => b.type === 'img');
+        const hasImg = sec.some((b) => b.type === 'img' || b.type === 'video');
         const wide = wideFigures && hasImg;
         // figure a lato del testo: la seconda SOLO se c'e' abbastanza testo,
         // altrimenti la colonna fra le due si strozza in uno spillo di parole
@@ -175,7 +209,17 @@ export function Blocks({ blocks, wideFigures = false, decorate = true }) {
         // seconda figura fluttua nella sua posizione naturale lungo il testo
         for (let i = 0; i < sec.length; i += 1) {
             const b = sec[i];
-            if (b.type === 'img') {
+            if (b.type === 'video') {
+                // video consecutivi in griglia; l'iframe nasce solo al clic
+                const grp = [];
+                while (i < sec.length && sec[i].type === 'video') { grp.push(sec[i]); i += 1; }
+                i -= 1;
+                children.push(
+                    <div className="pw-videogrid" data-testid="video-group" key={`vg-${i}`}>
+                        {grp.map((v) => <VideoEmbed key={v.yt} b={v} />)}
+                    </div>
+                );
+            } else if (b.type === 'img') {
                 if (i === headIdx) continue;
                 const k = sideIdx.indexOf(i);
                 if (k > 0) {

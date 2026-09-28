@@ -517,6 +517,7 @@ async def get_site():
         'key': SITE['key'], 'lang': SITE['lang'], 'domain': SITE['domain'],
         'articlePath': SITE['articlePath'], 'articlesIndex': SITE['articlesIndex'],
         'ui': ui, 'nav': nav,
+        'hasVideo': bool(pages.get('video') and page_content(pages['video'])),
         'network': [{'url': s['url'], 'label': s['label'][SITE['lang']], 'desc': s['desc'][SITE['lang']]}
                     for s in NETWORK_ECOSYSTEM if s['url'] != SITE['domain'] and s.get('live', True)],
         'clinic': {
@@ -639,7 +640,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
     # La pagina 404 del sito, consegnata con 200: il codice 404 lo mette il
     # Worker sull'indirizzo inesistente (contratto hub 27/09). Sempre noindex.
     if path.strip('/') == '404':
-        return HTMLResponse(seo_render.prerender_404(SITE))
+        return HTMLResponse(seo_render.prerender_404(SITE, load_pages()))
     pages = load_pages()
     apath = SITE['articlePath']
     if path.startswith(apath) and path != SITE['articlesIndex']:
@@ -648,7 +649,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
         if not a:
             raise HTTPException(404, 'articolo non trovato')
         return HTMLResponse(seo_render.prerender_article(
-            clean_article(a), SITE, entity(), absolute, noindex))
+            clean_article(a), SITE, entity(), absolute, noindex, pages))
     if path == SITE['articlesIndex']:
         arts = await db.articles.find({'site': SITE['key']}).sort('publishedAt', -1).to_list(500)
         ui = SITE['ui']
@@ -676,6 +677,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
 {seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui['articles_sub'], domain + SITE['articlesIndex'], domain + '/og/og-fallback.jpg', ui['articles_title'])}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{seo_render.BASE_CSS}</style></head><body><main>
+{seo_render.menu_html(SITE, pages)}
 <nav class="pw-crumbs"><a href="{domain}/">{seo_render.esc(ui['breadcrumb_home'])}</a> / <span>{seo_render.esc(ui['breadcrumb_articles'])}</span></nav>
 <h1>{seo_render.esc(ui['articles_title'])}</h1><p>{seo_render.esc(ui['articles_sub'])}</p>
 <ul>{lis}</ul>{seo_render.network_html(SITE)}</main></body></html>""")
@@ -686,7 +688,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
     content = page_content(page)
     if not content:
         raise HTTPException(404, 'pagina non disponibile in questa lingua')
-    return HTMLResponse(seo_render.prerender_page(page, content, SITE, entity(), absolute, noindex))
+    return HTMLResponse(seo_render.prerender_page(page, content, SITE, entity(), absolute, noindex, pages))
 
 
 @api_router.get('/seo/jsonld')

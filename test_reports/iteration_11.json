@@ -1,0 +1,35 @@
+{
+  "summary": "Iterazione 11 — verifica frontend V9 palette azzurro + logo lockup orizzontale + scala fluida. Tutte le 7 pagine (home, la-terapia, anatomia, video, chi-sono, contatti, articoli) testate a 1920/1366/768/375: NESSUN overflow orizzontale, NESSUN colore arancio rilevato (light + dark). Header logo /api/media/logo-chirurgia-della-parete-orizz.webp servito correttamente (60px desktop / 44px mobile). Menu su una singola riga a 981/1200/1366/1600/1920. VIDEO presente dopo ARTICOLI. Funzionalita' verificate: theme toggle -> dark senza arancio, FAQ apre, video click-to-play su youtube-nocookie.com, contact form visibile con 2 radio, TOC sticky @1366 sulle pillar, lightbox apre/chiude con Esc. Burger mobile visibile e cliccabile (drawer overlay funzionante da screenshot). 0 errori console rilevanti, 0 404.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": ["/app/test_reports/iteration_11.json"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Warning React 'Each child in a list should have a unique key prop' rilevato in console (probabilmente in un .map senza key). Non blocca alcuna funzionalita' ma andrebbe risolto per pulizia — cercare il componente che renderizza liste (probabile TOC/menu capitoli o elenco articoli).",
+    "Il locator [data-testid=brand-logo] punta direttamente al tag <img>; ok cosi', ma se in futuro serve la sub-scritta 'DOTT. FEDERICO FIORI' come parte del brand, valutare wrapper <a data-testid=brand-logo>."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (non testato in questa iterazione)", "frontend": "100%"},
+  "verification_details": {
+    "overflow_check": "7 pagine x 4 viewport (1920/1366/768/375) = 28 combinazioni, tutte con docW == innerW (over=0)",
+    "orange_check_light": "0 hit su tutte le pagine testate (regex RGB: R>=180, G 60-170, B<=120)",
+    "orange_check_dark": "0 hit dopo theme-toggle su home",
+    "menu_single_line": "981/1200/1366/1600/1920 => 1 riga (5 link visibili top identico)",
+    "menu_items_order": ["Home","Articoli","Video","Dott. F. Fiori","Contatti"],
+    "video_after_articoli": true,
+    "logo_desktop_1366": {"src": "logo-chirurgia-della-parete-orizz.webp", "dispH_px": 60, "natural": "1723x600"},
+    "logo_mobile_375": {"src": "logo-chirurgia-della-parete-orizz.webp", "dispH_px": 44},
+    "theme_dark": {"data-theme": "dark", "orange_hits": 0},
+    "faq_home_q0": "aria-expanded false -> true OK",
+    "video_click_to_play": {"iframe_before_click": 0, "iframe_src_after": "https://www.youtube-nocookie.com/embed/Y9Y_NlzmK-Q", "nocookie": true},
+    "contact_form": {"visible": true, "radios": 2},
+    "toc_sticky_1366_pillar": {"visible": true, "position": "sticky"},
+    "lightbox": {"opened_on_fig_click": true, "closed_on_esc": true},
+    "burger_mobile": "burger visibile a 375px, drawer overlay con voci Home/Articoli/Video/Dott. F. Fiori/Contatti + capitoli (verificato via screenshot)"
+  },
+  "seed_data_creation": "",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Frontend V9 verde end-to-end. Backend NON testato in questa iterazione (per request esplicita 'frontend only'): la baseline backend resta iterazione 10 (16/16 pytest PASS in /app/backend/tests/test_iteration10.py). Se serve regressione backend usare quel file. Console mostra un warning React 'unique key prop' non bloccante da investigare.",
+  "rca of the issue": "N/A — nessun bug rilevato."
+}

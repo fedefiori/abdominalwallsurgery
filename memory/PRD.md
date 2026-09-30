@@ -570,3 +570,17 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   sito (ora la porta il logo); resta il sub "DOTT. FEDERICO FIORI" accanto; alt completo.
 - Verifiche: scritta leggibile a 1366/768/375 (zoom di controllo), nav una riga (38px),
   overflow 0 ovunque.
+
+## Layout fluido multi-schermo (30/09/2026, richiesta utente "15 pollici con molto spazio") — CHIUSO
+- Radice tipografica fluida: html font-size clamp(16px, 0.45vw + 10px, 19px) — scala TUTTI
+  i rem del sito (16px a <=1366, 17,2px a 1600, 18,6px a 1920, cap 19px). Body 18px ->
+  1.125rem (18px a 1366 -> ~21px a 1920). Mobile invariato (16px).
+- Contenitore fluido: --shell-w clamp(1200px, 82vw, 1520px) su .pw-shell e .pw-sect--wide
+  (prima 1200px fisso). Figure laterali min(48%,540px) (era 470), home wide
+  clamp(420px,40%,620px). Blocchi FAQ/firma home 820px -> 980px.
+- Colori/font MAI toccati: solo dimensioni. Verificato: 7 pagine x 4 viewport
+  (1920/1366/768/375) = 28 combinazioni, overflow SEMPRE 0, nessun arancio residuo
+  (light+dark), menu una riga 981-1920, video click-to-play nocookie, TOC sticky,
+  lightbox, form contatti. Test: test_reports/iteration_11.json — 100% frontend.
+- Nota: warning React 'unique key prop' segnalato dal tester NON riproducibile
+  (console pulita su home/articoli/terapia/video/chi-sono); tutte le .map hanno key.

@@ -200,7 +200,7 @@ export default function HomePage() {
 
             {page?.faq?.length > 0 && (
                 <section className="pw-section" data-testid="home-faq-section">
-                    <div className="pw-shell" style={{ maxWidth: '820px' }}>
+                    <div className="pw-shell" style={{ maxWidth: '980px' }}>
                         <FaqView faq={page.faq} title={ui.faq_title} />
                     </div>
                 </section>
@@ -208,7 +208,7 @@ export default function HomePage() {
 
             {page?.modified && (
                 <section className="pw-section" style={{ paddingTop: 0 }} data-testid="home-author-section">
-                    <div className="pw-shell" style={{ maxWidth: '820px' }}>
+                    <div className="pw-shell" style={{ maxWidth: '980px' }}>
                         <AuthorBox updated={page.modified} />
                     </div>
                 </section>

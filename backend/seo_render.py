@@ -216,7 +216,7 @@ def author_box_html(domain, person, updated_iso, lang):
 <div>
 <strong>Dott. Federico Fiori</strong><br />
 <span>Medico Chirurgo — Specialista in Chirurgia Generale</span><br />
-<span>Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span><br />
+<span>Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, Milano</span><br />
 <span>Scritto e rivisto dal Dott. Federico Fiori.{f' Ultima revisione: {esc(data)}.' if data else ''}</span><br />
 <a rel="author" href="https://www.federicofiori.com/curriculum">Curriculum completo</a> · <a href="{domain}/contatti/">Dove riceve</a>
 </div>
@@ -227,8 +227,6 @@ def author_box_html(domain, person, updated_iso, lang):
 ABOUT_MAP = {
     'anatomia-della-parete-addominale-e-abdominal-core':
         {'@type': 'AnatomicalStructure', 'name': 'Parete addominale anteriore'},
-    'la-diastasi-dei-muscoli-retti':
-        {'@type': 'MedicalCondition', 'name': 'Diastasi dei muscoli retti'},
     'difetti-della-parete-addominale-e-classificazione':
         {'@type': 'MedicalCondition', 'name': 'Ernia della parete addominale'},
     'sintomi-e-complicanze':
@@ -436,22 +434,40 @@ tr:nth-child(even) td{background:#E3EEFB}
 """
 
 
+def og_description(text, limit=125):
+    """og:description max 125 caratteri, taglio all'ultimo confine di frase
+    (contratto hub 04/10): mai a meta' frase, mai un punto dopo una preposizione."""
+    t = (text or '').strip()
+    if len(t) <= limit:
+        return t
+    out = ''
+    for m in re.finditer(r'[^.!?]*[.!?]', t):
+        cand = (out + ' ' + m.group(0).strip()).strip()
+        if len(cand) > limit:
+            break
+        out = cand
+    if out:
+        return out
+    return t[:limit].rsplit(' ', 1)[0].rstrip(',;:') + '…'
+
+
 def og_meta(site, title, description, canonical, image, image_alt):
     """Set completo Open Graph + Twitter card (collaudo 19/06)."""
     locale = 'it_IT' if site['lang'] == 'it' else 'en_US'
+    og_desc = og_description(description)
     return f'''<meta property="og:type" content="website" />
 <meta property="og:url" content="{esc(canonical)}" />
 <meta property="og:site_name" content="{esc(site['ui']['site_name'])}" />
 <meta property="og:locale" content="{locale}" />
 <meta property="og:title" content="{esc(title)}" />
-<meta property="og:description" content="{esc(description)}" />
+<meta property="og:description" content="{esc(og_desc)}" />
 <meta property="og:image" content="{esc(image)}" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="{esc(image_alt)}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{esc(title)}" />
-<meta name="twitter:description" content="{esc(description)}" />
+<meta name="twitter:description" content="{esc(og_desc)}" />
 <meta name="twitter:image" content="{esc(image)}" />'''
 
 
@@ -469,7 +485,8 @@ def menu_html(site, pages=None):
         if p and p.get(site['lang']):
             items.append((d + p['path'], ui.get(key, slug)))
     links = ''.join(f'<a href="{esc(u)}">{esc(lbl)}</a>' for u, lbl in items)
-    return f'<nav class="pw-menu" aria-label="Menu principale">{links}</nav>'
+    # i bot devono vedere una vera navigazione: <header><nav> (contratto 04/10)
+    return f'<header><nav class="pw-menu" aria-label="Menu principale">{links}</nav></header>'
 
 
 def prerender_404(site, pages=None):
@@ -677,7 +694,7 @@ def network_html(site):
         contacts = ('<div class="pw-net-contacts">'
                     f'<p>Informazioni e appuntamenti<br /><a href="mailto:{esc(notify)}">{esc(notify)}</a></p>'
                     f'<p>Scrivi al Dott. Fiori<br /><a href="mailto:{esc(direct)}">{esc(direct)}</a></p>'
-                    '<p>Telefono <a href="tel:+390276021568">+39 02 76021568</a></p></div>')
+                    '<p>Telefono <a href="tel:+390276021568">+39 02 7602 1568</a></p></div>')
     return (f'<footer class="pw-net"><h2>{esc(site["ui"]["network_title"])}</h2>'
             f'<p>{esc(site["ui"]["network_intro"])}</p><ul>{items}</ul>{contacts}</footer>')
 
@@ -698,7 +715,8 @@ User-agent: *
 Allow: /
 Disallow: /api/stats/
 
-# Bot AI: esplicitamente benvenuti (allow-list)
+# Bot AI e motori: allow-list di rete, allineata a quella completa di
+# diastasisandbeyond.com (contratto hub 04/10). Mai un Disallow: / globale.
 User-agent: GPTBot
 Allow: /
 User-agent: OAI-SearchBot
@@ -707,18 +725,49 @@ User-agent: ChatGPT-User
 Allow: /
 User-agent: ClaudeBot
 Allow: /
+User-agent: Claude-SearchBot
+Allow: /
 User-agent: Claude-User
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
 Allow: /
 User-agent: PerplexityBot
 Allow: /
+User-agent: Perplexity-User
+Allow: /
 User-agent: Google-Extended
+Allow: /
+User-agent: Google-CloudVertexBot
+Allow: /
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Applebot
 Allow: /
 User-agent: Applebot-Extended
 Allow: /
+User-agent: DuckDuckBot
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: MistralAI-User
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: YouBot
+Allow: /
 
 Sitemap: {domain}/sitemap.xml
-# Mappa per i modelli linguistici:
-# {domain}/api/seo/llms.txt
+# Structured summary for AI answer engines: {domain}/llms.txt
 """
 
 
@@ -733,9 +782,9 @@ def llms_txt(site, pages, articles, entity):
         '',
         '## Chi',
         f"- {person.get('name', 'Dott. Federico Fiori')}, Medico Chirurgo - Specialista in Chirurgia Generale",
-        "- Incarico: Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale, ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano",
+        "- Incarico: Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, Milano",
         f"- Centro: {HUB_CLINIC_ID}",
-        f"- Sede: Galleria del Corso 4, 20122 Milano. Telefono: +39 02 76021568",
+        f"- Sede: Galleria del Corso 4, 20122 Milano. Telefono: +39 02 7602 1568",
         f"- Hub: https://www.federicofiori.com (curriculum, TESAR, MILA, glossario, galleria risultati)",
         f"- Identità: {person.get('@id', '')}",
         '',

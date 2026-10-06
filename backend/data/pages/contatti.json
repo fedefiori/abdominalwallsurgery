@@ -1,104 +1,104 @@
 {
- "slug": "contatti",
- "path": "/contatti/",
- "it": {
-  "h1": "Contatti",
-  "metaTitle": "Contatti | Chirurgia della Parete Addominale a Milano",
-  "metaDescription": "Il Dott. Federico Fiori riceve presso Fi Multicare, Galleria del Corso 4, 20122 Milano: telefono +39 02 76021568, e-mail info@fimulticare.it, su appuntamento.",
-  "blocks": [
-   {
-    "type": "ctaRow",
-    "items": [
-     {
-      "icon": "phone",
-      "label": "Chiama +39 02 76021568",
-      "href": "tel:+390276021568"
-     },
-     {
-      "icon": "mail",
-      "label": "Scrivi a info@fimulticare.it",
-      "href": "mailto:info@fimulticare.it"
-     }
+  "slug": "contatti",
+  "path": "/contatti/",
+  "it": {
+    "h1": "Contatti",
+    "metaTitle": "Contatti | Chirurgia della Parete Addominale a Milano",
+    "metaDescription": "Il Dott. Federico Fiori riceve presso Fi Multicare, Galleria del Corso 4, 20122 Milano: telefono +39 02 7602 1568, e-mail info@fimulticare.it, su appuntamento.",
+    "blocks": [
+      {
+        "type": "ctaRow",
+        "items": [
+          {
+            "icon": "phone",
+            "label": "Chiama +39 02 7602 1568",
+            "href": "tel:+390276021568"
+          },
+          {
+            "icon": "mail",
+            "label": "Scrivi a info@fimulticare.it",
+            "href": "mailto:info@fimulticare.it"
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dove si trova lo studio?"
+      },
+      {
+        "type": "p",
+        "html": "Il Dott. Federico Fiori riceve su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila."
+      },
+      {
+        "type": "p",
+        "html": "L'attività chirurgica istituzionale si svolge presso la Divisione di Chirurgia d'Urgenza - Chirurgia Generale e Robotica - dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano. L'attività chirurgica in regime libero-professionale viene effettuata presso Cliniche private in Milano."
+      },
+      {
+        "type": "contactList",
+        "items": [
+          {
+            "icon": "map-pin",
+            "label": "Indirizzo",
+            "value": "Galleria del Corso 4, 20122 Milano",
+            "href": "https://www.google.com/maps/search/?api=1&query=Galleria+del+Corso+4,+20122+Milano",
+            "hrefLabel": "Apri in Google Maps"
+          },
+          {
+            "icon": "phone",
+            "label": "Telefono",
+            "value": "+39 02 7602 1568",
+            "href": "tel:+390276021568"
+          },
+          {
+            "icon": "mail",
+            "label": "E-mail",
+            "value": "info@fimulticare.it",
+            "href": "mailto:info@fimulticare.it"
+          },
+          {
+            "icon": "globe",
+            "label": "Sito del centro",
+            "value": "fimulticare.it",
+            "href": "https://www.fimulticare.it/"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "html": "Prima della visita può essere utile leggere come funziona la <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione prima dell’intervento</a>, la descrizione della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica della parete</a> e il profilo del <a href=\"https://www.federicofiori.com/curriculum\" target=\"_blank\" rel=\"noopener\">Dott. Federico Fiori</a>."
+      }
+    ],
+    "kind": "contact",
+    "answer": "Il Dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano: telefono +39 02 7602 1568, e-mail info@fimulticare.it. Per il contatto diretto della rete: info@federicofiori.com. La valutazione riguarda ernie, laparoceli e gli altri difetti della parete.",
+    "faq": [
+      {
+        "q": "Dove si trova lo studio e come si prenota?",
+        "a": "Il Dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila. Telefono +39 02 7602 1568, e-mail info@fimulticare.it."
+      },
+      {
+        "q": "Dove opera il Dott. Fiori?",
+        "a": "L'attività chirurgica istituzionale si svolge presso la Divisione di Chirurgia d'Urgenza - Chirurgia Generale e Robotica - dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano. L'attività chirurgica in regime libero-professionale viene effettuata presso Cliniche private in Milano."
+      },
+      {
+        "q": "Quali documenti portare alla prima visita?",
+        "a": "Alla prima visita è utile portare un documento di identità, il codice fiscale o la tessera sanitaria, gli esami già eseguiti (ecografie, TC o risonanze della parete addominale) e la documentazione degli eventuali interventi chirurgici precedenti."
+      }
+    ],
+    "related": [
+      {
+        "label": "Curriculum completo sull’hub",
+        "href": "https://www.federicofiori.com/curriculum"
+      },
+      {
+        "label": "La terapia chirurgica",
+        "href": "/la-terapia-chirurgica/"
+      },
+      {
+        "label": "La pre-abilitazione prima dell’intervento",
+        "href": "/preabilitazione-dei-pazienti-all-intervento-chirurgico/"
+      }
     ]
-   },
-   {
-    "type": "h2",
-    "text": "Dove si trova lo studio?"
-   },
-   {
-    "type": "p",
-    "html": "Il Dott. Federico Fiori riceve su appuntamento presso <strong>Fi Multicare — Centro Medico Multidisciplinare</strong>, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila."
-   },
-   {
-    "type": "p",
-    "html": "L'attività chirurgica istituzionale si svolge presso la Divisione di Chirurgia d'Urgenza - Chirurgia Generale e Robotica - dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano. L'attività chirurgica in regime libero-professionale viene effettuata presso Cliniche private in Milano."
-   },
-   {
-    "type": "contactList",
-    "items": [
-     {
-      "icon": "map-pin",
-      "label": "Indirizzo",
-      "value": "Galleria del Corso 4, 20122 Milano",
-      "href": "https://www.google.com/maps/search/?api=1&query=Galleria+del+Corso+4,+20122+Milano",
-      "hrefLabel": "Apri in Google Maps"
-     },
-     {
-      "icon": "phone",
-      "label": "Telefono",
-      "value": "+39 02 76021568",
-      "href": "tel:+390276021568"
-     },
-     {
-      "icon": "mail",
-      "label": "E-mail",
-      "value": "info@fimulticare.it",
-      "href": "mailto:info@fimulticare.it"
-     },
-     {
-      "icon": "globe",
-      "label": "Sito del centro",
-      "value": "fimulticare.it",
-      "href": "https://www.fimulticare.it/"
-     }
-    ]
-   },
-   {
-    "type": "p",
-    "html": "Prima della visita può essere utile leggere come funziona la <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione prima dell’intervento</a>, la descrizione della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica della parete</a> e il profilo del <a href=\"/chi-sono/\">Dott. Federico Fiori</a>."
-   }
-  ],
-  "kind": "contact",
-  "answer": "Il Dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano: telefono +39 02 76021568, e-mail info@fimulticare.it. Per il contatto diretto della rete: info@federicofiori.com. La valutazione riguarda ernie, laparoceli e gli altri difetti della parete.",
-  "faq": [
-   {
-    "q": "Dove si trova lo studio e come si prenota?",
-    "a": "Il Dott. Federico Fiori riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano, a pochi passi da Piazza San Babila. Telefono +39 02 76021568, e-mail info@fimulticare.it."
-   },
-   {
-    "q": "Dove opera il Dott. Fiori?",
-    "a": "L'attività chirurgica istituzionale si svolge presso la Divisione di Chirurgia d'Urgenza - Chirurgia Generale e Robotica - dell'ASST Santi Paolo e Carlo, Polo Ospedaliero San Carlo Borromeo di Milano. L'attività chirurgica in regime libero-professionale viene effettuata presso Cliniche private in Milano."
-   },
-   {
-    "q": "Quali documenti portare alla prima visita?",
-    "a": "Alla prima visita è utile portare un documento di identità, il codice fiscale o la tessera sanitaria, gli esami già eseguiti (ecografie, TC o risonanze della parete addominale) e la documentazione degli eventuali interventi chirurgici precedenti."
-   }
-  ],
-  "related": [
-   {
-    "label": "Il profilo del Dott. Federico Fiori",
-    "href": "/chi-sono/"
-   },
-   {
-    "label": "La terapia chirurgica",
-    "href": "/la-terapia-chirurgica/"
-   },
-   {
-    "label": "La pre-abilitazione prima dell’intervento",
-    "href": "/preabilitazione-dei-pazienti-all-intervento-chirurgico/"
-   }
-  ]
- },
- "en": null,
- "modified": "2026-09-19T16:00:00"
+  },
+  "en": null,
+  "modified": "2026-10-04T10:00:00"
 }

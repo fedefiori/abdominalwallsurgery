@@ -46,7 +46,7 @@ export function ContactForm() {
             <p className="pw-contact-phone" data-testid="contact-phone-cta">
                 <Phone size={18} aria-hidden="true" />
                 <span>Informazioni e appuntamenti, risponde Emma Gadda:{' '}
-                    <a href="tel:+390276021568"><strong>+39 02 76021568</strong></a>
+                    <a href="tel:+390276021568"><strong>+39 02 7602 1568</strong></a>
                 </span>
             </p>
 

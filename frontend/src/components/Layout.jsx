@@ -111,13 +111,16 @@ export default function Layout({ children }) {
     useEffect(() => { setOpen(false); }, [location.pathname]);
     useJsonLd(location.pathname);
 
+    // «Dott. F. Fiori» porta al curriculum canonico sull'hub (contratto 04/10:
+    // nessuna pagina-persona su questo sito: l'identita' della rete e' una sola).
+    const CURRICULUM_URL = 'https://www.federicofiori.com/curriculum';
     const mainNav = [
         { to: '/', label: ui.nav_home },
         { to: site?.articlesIndex || '/articoli', label: ui.nav_articles },
         ...(!site || site.hasVideo ? [{ to: '/video/', label: ui.nav_video || 'Video' }] : []),
-        { to: '/chi-sono/', label: ui.nav_about },
+        { to: CURRICULUM_URL, label: ui.nav_about, external: true },
         { to: '/contatti/', label: ui.nav_contacts },
-    ].map((i) => (i.path ? { to: i.path, label: i.label } : i));
+    ];
 
     return (
         <>
@@ -135,10 +138,14 @@ export default function Layout({ children }) {
                         <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined}>{ui.nav_home}</Link>
                         <ChaptersDropdown items={site?.nav} label={ui.nav_chapters || 'Capitoli'} />
                         {mainNav.slice(1).map((item) => (
-                            <Link key={item.to} to={item.to}
-                                aria-current={location.pathname === item.to ? 'page' : undefined}>
-                                {item.label}
-                            </Link>
+                            item.external ? (
+                                <a key={item.to} href={item.to}>{item.label}</a>
+                            ) : (
+                                <Link key={item.to} to={item.to}
+                                    aria-current={location.pathname === item.to ? 'page' : undefined}>
+                                    {item.label}
+                                </Link>
+                            )
                         ))}
                         <ThemeToggle />
                     </nav>
@@ -163,7 +170,9 @@ export default function Layout({ children }) {
                         >
                             <div className="pw-shell" style={{ padding: '1rem 1.25rem 1.5rem' }}>
                                 {[...mainNav, ...(site?.nav || [])].map((item) => (
-                                    <Link key={item.to} to={item.to}>{item.label}</Link>
+                                    item.external
+                                        ? <a key={item.to} href={item.to}>{item.label}</a>
+                                        : <Link key={item.to} to={item.to}>{item.label}</Link>
                                 ))}
                                 <div style={{ paddingTop: '1rem' }}><ThemeToggle /></div>
                             </div>
@@ -184,14 +193,14 @@ export default function Layout({ children }) {
                                 <a href="mailto:info@federicofiori.com">info@federicofiori.com</a></p>
                             <p>Scrivi al Dott. Fiori<br />
                                 <a href="mailto:fedefiori@federicofiori.com">fedefiori@federicofiori.com</a></p>
-                            <p>Telefono <a href="tel:+390276021568">+39 02 76021568</a></p>
+                            <p>Telefono <a href="tel:+390276021568">+39 02 7602 1568</a></p>
                             <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo sull’hub</a></p>
                         </section>
                         <section data-testid="footer-dove-riceve">
                             <h3>Dove riceve</h3>
                             <p><strong>Fi Multicare</strong> — Centro Medico Multidisciplinare</p>
                             <p>Galleria del Corso 4, 20122 Milano</p>
-                            <p>Telefono <a href={site?.clinic?.telHref || 'tel:+390276021568'}>{site?.clinic?.telLabel || '+39 02 76021568'}</a><br />
+                            <p>Telefono <a href={site?.clinic?.telHref || 'tel:+390276021568'}>{site?.clinic?.telLabel || '+39 02 7602 1568'}</a><br />
                                 E-mail <a href="mailto:info@fimulticare.it">info@fimulticare.it</a></p>
                             <p>Visite su appuntamento</p>
                             <p><a href="https://www.fimulticare.it/" target="_blank" rel="noopener">fimulticare.it</a></p>

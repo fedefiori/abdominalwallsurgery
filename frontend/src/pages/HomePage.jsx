@@ -105,7 +105,7 @@ export default function HomePage() {
                         transition={{ duration: 0.4, delay: 0.2 }}
                     >
                         <span className="pw-hero-titles-main">Medico Chirurgo — Specialista in Chirurgia Generale</span>
-                        <span className="pw-hero-titles-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span>
+                        <span className="pw-hero-titles-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, Milano</span>
                     </motion.div>
                     <MaskLines lines={splitLines(h1)} />
                     <motion.p

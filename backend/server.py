@@ -523,7 +523,7 @@ async def get_site():
         'clinic': {
             'name': 'Fi Multicare — Centro Medico Multidisciplinare',
             'address': 'Galleria del Corso 4, 20122 Milano',
-            'telLabel': '+39 02 76021568', 'telHref': 'tel:+390276021568',
+            'telLabel': '+39 02 7602 1568', 'telHref': 'tel:+390276021568',
             'email': 'info@fimulticare.it',
             'networkEmail': 'info@federicofiori.com',
             'url': 'https://www.fimulticare.it/',

@@ -22,6 +22,22 @@ function setLink(rel, href) {
     el.setAttribute('href', href);
 }
 
+/** og:description: max 125 caratteri, taglio all'ultimo confine di frase
+    (contratto hub 04/10): mai a meta' frase. */
+function ogDescription(t, limit = 125) {
+    const s = (t || '').trim();
+    if (s.length <= limit) return s;
+    const parts = s.match(/[^.!?]*[.!?]/g) || [];
+    let out = '';
+    for (const p of parts) {
+        const cand = (out + ' ' + p.trim()).trim();
+        if (cand.length > limit) break;
+        out = cand;
+    }
+    if (out) return out;
+    return s.slice(0, limit).split(' ').slice(0, -1).join(' ').replace(/[,;:]$/, '') + '…';
+}
+
 /** SEO lato client: il crawler riceve l'HTML dal prerender del Worker;
     qui gestiamo la vista per gli utenti nel browser, con OG completi. */
 export default function useSEO({ title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType }) {
@@ -30,7 +46,7 @@ export default function useSEO({ title, description, canonical, noindex, domain,
         if (title) setMeta('property', 'og:title', title);
         if (description) {
             setMeta('name', 'description', description);
-            setMeta('property', 'og:description', description);
+            setMeta('property', 'og:description', ogDescription(description));
         }
         if (canonical) {
             setLink('canonical', canonical);

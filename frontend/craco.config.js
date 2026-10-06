@@ -321,8 +321,14 @@ webpackConfig.devServer = (devServerConfig) => {
             if (ok) return next();
             fs.readFile(path.resolve(__dirname, "public/index.html"), "utf8", (err, html) => {
               if (err) return next();
+              // il file su disco non ha il bundle (lo inietta webpack quando
+              // serve): senza script la SPA non parte e la pagina resta bianca
+              const boot = html.replace(
+                "</body>",
+                '<script defer src="/static/js/bundle.js"></script></body>'
+              );
               res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
-              res.end(req.method === "HEAD" ? undefined : html);
+              res.end(req.method === "HEAD" ? undefined : boot);
             });
           });
           return;

@@ -20,7 +20,7 @@ export function AuthorBox({ updated }) {
             <div className="pw-authorbox-body">
                 <strong>Dott. Federico Fiori</strong>
                 <span>Medico Chirurgo — Specialista in Chirurgia Generale</span>
-                <span className="pw-authorbox-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</span>
+                <span className="pw-authorbox-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, Milano</span>
                 <span className="pw-authorbox-review">
                     Scritto e rivisto dal Dott. Federico Fiori.{data && <> Ultima revisione: <time dateTime={(updated || '').slice(0, 10)}>{data}</time>.</>}
                 </span>

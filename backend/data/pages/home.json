@@ -1,150 +1,150 @@
 {
- "slug": "home",
- "path": "/",
- "it": {
-  "h1": "Chirurgia della Parete Addominale",
-  "metaTitle": "Chirurgia della Parete Addominale | Dott. Federico Fiori",
-  "metaDescription": "Ernie, laparoceli e difetti della parete addominale: diagnosi, classificazione e chirurgia ricostruttiva a Milano con il Dott. Federico Fiori. Info e contatti.",
-  "blocks": [
-   {
-    "type": "img",
-    "src": "/api/media/logo-chirurgia-della-parete.webp",
-    "alt": "Logo di Chirurgia della Parete, sito del Dott. Federico Fiori",
-    "caption": "Logo di Chirurgia della Parete, sito del Dott. Federico Fiori",
-    "width": 723,
-    "height": 745,
-    "kind": "schema"
-   },
-   {
-    "type": "p",
-    "html": "La Chirurgia della Parete è oramai una branca superspecialistica della Chirurgia Generale. La conoscenza approfondita dell’anatomia e la precisa comprensione della fisiopatologia consentono oggi di affrontare questo tipo di chirurgia, molto eterogenea, con differenti tecniche operative utili a massimizzare il risultato per il Paziente. Esistono difetti di vario tipo, dalle piccole ernie ombelicali ai disastri di parete, ed esistono tecniche di chirurgia open, laparoscopica ed endoscopica, fino all’approccio robotico. Come sempre è la corretta indicazione a fare il buon chirurgo e a determinare il risultato."
-   },
-   {
-    "type": "p",
-    "html": "Per questo è utile ribadire quali siano i difetti della parete addominale, quale sia l’importanza della diagnostica, quali le possibili varianti di trattamento chirurgico, le finalità e l’importanza della pre e riabilitazione e i possibili trattamenti correlati per migliorare l’outcome complessivo. L’attenzione di questo sito web si rivolge alla parete addominale anteriore, tralasciando quanto correlato alla regione inguino-crurale per cui esistono realtà specifiche già presenti sul web, sconfinando eventualmente solo per quanto concerne la presentazione di alcune tecniche mininvasive."
-   },
-   {
-    "type": "ul",
-    "ordered": false,
-    "items": [
-     "<a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">Pre-abilitazione dei Pazienti all’intervento chirurgico</a>",
-     "<a href=\"/la-terapia-chirurgica/\">La terapia chirurgica</a>",
-     "<a href=\"/la-diastasi-dei-muscoli-retti/\">La diastasi dei muscoli retti</a>",
-     "<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">Le protesi in Chirurgia della Parete e il piano di posizionamento della protesi</a>",
-     "<a href=\"/le-complicanze-chirurgiche-la-vac-therapy/\">Le complicanze chirurgiche, la VAC Therapy</a>"
+  "slug": "home",
+  "path": "/",
+  "it": {
+    "h1": "Chirurgia della Parete Addominale",
+    "metaTitle": "Chirurgia della Parete Addominale | Dott. Federico Fiori",
+    "metaDescription": "Ernie, laparoceli e difetti della parete addominale: diagnosi, classificazione e chirurgia ricostruttiva a Milano con il Dott. Federico Fiori. Info e contatti.",
+    "blocks": [
+      {
+        "type": "img",
+        "src": "/api/media/logo-chirurgia-della-parete.webp",
+        "alt": "Logo di Chirurgia della Parete, sito del Dott. Federico Fiori",
+        "caption": "Logo di Chirurgia della Parete, sito del Dott. Federico Fiori",
+        "width": 723,
+        "height": 745,
+        "kind": "schema"
+      },
+      {
+        "type": "p",
+        "html": "La Chirurgia della Parete è oramai una branca superspecialistica della Chirurgia Generale. La conoscenza approfondita dell’anatomia e la precisa comprensione della fisiopatologia consentono oggi di affrontare questo tipo di chirurgia, molto eterogenea, con differenti tecniche operative utili a massimizzare il risultato per il Paziente. Esistono difetti di vario tipo, dalle piccole ernie ombelicali ai disastri di parete, ed esistono tecniche di chirurgia open, laparoscopica ed endoscopica, fino all’approccio robotico. Come sempre è la corretta indicazione a fare il buon chirurgo e a determinare il risultato."
+      },
+      {
+        "type": "p",
+        "html": "Per questo è utile ribadire quali siano i difetti della parete addominale, quale sia l’importanza della diagnostica, quali le possibili varianti di trattamento chirurgico, le finalità e l’importanza della pre e riabilitazione e i possibili trattamenti correlati per migliorare l’outcome complessivo. L’attenzione di questo sito web si rivolge alla parete addominale anteriore, tralasciando quanto correlato alla regione inguino-crurale per cui esistono realtà specifiche già presenti sul web, sconfinando eventualmente solo per quanto concerne la presentazione di alcune tecniche mininvasive."
+      },
+      {
+        "type": "ul",
+        "ordered": false,
+        "items": [
+          "<a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">Pre-abilitazione dei Pazienti all’intervento chirurgico</a>",
+          "<a href=\"/la-terapia-chirurgica/\">La terapia chirurgica</a>",
+          "<a href=\"https://www.diastasiedintorni.it/cose-una-diastasi/\" target=\"_blank\" rel=\"noopener\">La diastasi dei muscoli retti (sito dedicato)</a>",
+          "<a href=\"/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/\">Le protesi in Chirurgia della Parete e il piano di posizionamento della protesi</a>",
+          "<a href=\"/le-complicanze-chirurgiche-la-vac-therapy/\">Le complicanze chirurgiche, la VAC Therapy</a>"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Di che cosa si occupa questo sito?"
+      },
+      {
+        "type": "p",
+        "html": "Questo sito è il verticale italiano sulla Chirurgia della Parete Addominale del Dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
+      },
+      {
+        "type": "img",
+        "src": "/api/media/strati-della-parete.webp",
+        "alt": "Schema esploso degli strati della parete addominale visti di lato: cute, grasso, fasce, muscoli retti e peritoneo come piani luminosi paralleli",
+        "caption": "Gli strati della parete addominale, dal piano superficiale al peritoneo.",
+        "kind": "schema",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "type": "p",
+        "html": "Ogni argomento della rete ha un sito di riferimento: la diastasi dei muscoli retti è trattata per esteso su diastasiedintorni.it, mentre il curriculum, la tecnica TESAR, la tecnica MILA e il glossario degli acronimi vivono sull'hub federicofiori.com. Qui resta tutto quello che serve per capire ernie e laparoceli e per arrivare preparati alla visita."
+      },
+      {
+        "type": "h3",
+        "text": "Ernie e difetti primitivi della parete"
+      },
+      {
+        "type": "p",
+        "html": "L'ernia è la fuoriuscita di viscere o tessuto attraverso un punto di debolezza della parete addominale: epigastrica, ombelicale o di Spigelio. Sedi, sigle e dimensioni sono nella pagina della <a href=\"/difetti-della-parete-addominale-e-classificazione/\">classificazione dei difetti della parete</a>."
+      },
+      {
+        "type": "h3",
+        "text": "Laparocele: l'ernia sulla cicatrice"
+      },
+      {
+        "type": "p",
+        "html": "Il laparocele, o ernia incisionale, è il difetto che compare su una cicatrice di un precedente intervento addominale. Come si riconosce e quando diventa urgente è spiegato nella pagina dei <a href=\"/sintomi-e-complicanze/\">sintomi e delle complicanze</a>."
+      },
+      {
+        "type": "h3",
+        "text": "La pre-abilitazione prima dell'intervento"
+      },
+      {
+        "type": "p",
+        "html": "La pre-abilitazione è la preparazione clinica delle settimane che precedono l'intervento: peso, glicemia, fumo, nutrizione ed esercizio. Il percorso è descritto nella pagina della <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione dei Pazienti</a>."
+      },
+      {
+        "type": "h2",
+        "text": "Come si arriva all'intervento?"
+      },
+      {
+        "type": "ul",
+        "ordered": true,
+        "items": [
+          "La <strong>valutazione specialistica</strong> in ambulatorio, con l'esame clinico della parete: si prenota dalla pagina dei <a href=\"/contatti/\">contatti</a>.",
+          "La <strong>diagnostica per immagini</strong> — ecografia, TC o risonanza — quando serve misurare il difetto: gli esami sono descritti nella pagina di <a href=\"/radiologia/\">radiologia della parete</a>.",
+          "La <strong>pre-abilitazione</strong>, se il quadro lo richiede, per arrivare all'intervento nelle migliori condizioni.",
+          "L'<strong>intervento</strong> con la tecnica scelta sul singolo Paziente: le tecniche sono nella pagina della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica</a>."
+        ]
+      },
+      {
+        "type": "img",
+        "src": "/api/media/chirurgo-sala-operatoria.webp",
+        "alt": "Chirurgo in sala operatoria durante un intervento sulla parete addominale, illustrazione schematica",
+        "caption": "L'intervento è pianificato sul singolo Paziente, dalla valutazione alla sala operatoria.",
+        "kind": "schema",
+        "width": 1200,
+        "height": 896
+      },
+      {
+        "type": "h2",
+        "text": "Perché la parete si valuta insieme alla forma dell'addome?"
+      },
+      {
+        "type": "img",
+        "src": "/api/media/approccio-morfofunzionale.webp",
+        "alt": "Struttura della parete e profilo dell'addome fusi in un unico disegno schematico",
+        "caption": "Struttura e forma dell'addome sono la stessa struttura, guardata da due lati.",
+        "kind": "schema",
+        "width": 1200,
+        "height": 896
+      },
+      {
+        "type": "p",
+        "html": "Nella parete addominale la struttura e l'aspetto non sono due problemi separati: sono la stessa struttura guardata da due lati. Un difetto chiuso bene che lascia un addome che il Paziente non riconosce è un risultato a metà, e un profilo corretto su una parete rimasta debole non dura nel tempo. Per questo la valutazione tiene insieme tre cose: il difetto muscolo-aponeurotico, i tessuti di copertura e i gesti quotidiani della persona."
+      },
+      {
+        "type": "p",
+        "html": "È il criterio che guida le indicazioni descritte in queste pagine. Il metodo, con i suoi principi e i suoi limiti, è spiegato per intero sull'hub della rete: <a href=\"https://www.federicofiori.com/approccio-morfo-funzionale\">approccio morfo-funzionale alla parete addominale</a>."
+      }
+    ],
+    "kind": "home",
+    "answer": "La Chirurgia della Parete Addominale è la branca della Chirurgia Generale che ripara i difetti della parete: ernie, laparoceli e diastasi dei muscoli retti. Questo sito, a cura del Dott. Federico Fiori, spiega anatomia, classificazioni, sintomi, esami e tecniche di riparazione.",
+    "faq": [
+      {
+        "q": "Di che cosa si occupa questo sito?",
+        "a": "Questo sito è il verticale italiano sulla Chirurgia della Parete Addominale del Dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
+      },
+      {
+        "q": "Che cos'è la pre-abilitazione?",
+        "a": "La pre-abilitazione è la preparazione clinica delle settimane che precedono l'intervento: peso, glicemia, fumo, nutrizione ed esercizio."
+      },
+      {
+        "q": "Dove riceve?",
+        "a": "Si riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano. Telefono +39 02 7602 1568, e-mail info@fimulticare.it."
+      },
+      {
+        "q": "Che cos'è un laparocele?",
+        "a": "Il laparocele, o ernia incisionale, è il difetto che compare su una cicatrice di un precedente intervento addominale."
+      }
     ]
-   },
-   {
-    "type": "h2",
-    "text": "Di che cosa si occupa questo sito?"
-   },
-   {
-    "type": "p",
-    "html": "Questo sito è il verticale italiano sulla Chirurgia della Parete Addominale del Dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
-   },
-   {
-    "type": "img",
-    "src": "/api/media/strati-della-parete.webp",
-    "alt": "Schema esploso degli strati della parete addominale visti di lato: cute, grasso, fasce, muscoli retti e peritoneo come piani luminosi paralleli",
-    "caption": "Gli strati della parete addominale, dal piano superficiale al peritoneo.",
-    "kind": "schema",
-    "width": 1024,
-    "height": 1024
-   },
-   {
-    "type": "p",
-    "html": "Ogni argomento della rete ha un sito di riferimento: la diastasi dei muscoli retti è trattata per esteso su diastasiedintorni.it, mentre il curriculum, la tecnica TESAR, la tecnica MILA e il glossario degli acronimi vivono sull'hub federicofiori.com. Qui resta tutto quello che serve per capire ernie e laparoceli e per arrivare preparati alla visita."
-   },
-   {
-    "type": "h3",
-    "text": "Ernie e difetti primitivi della parete"
-   },
-   {
-    "type": "p",
-    "html": "L'ernia è la fuoriuscita di viscere o tessuto attraverso un punto di debolezza della parete addominale: epigastrica, ombelicale o di Spigelio. Sedi, sigle e dimensioni sono nella pagina della <a href=\"/difetti-della-parete-addominale-e-classificazione/\">classificazione dei difetti della parete</a>."
-   },
-   {
-    "type": "h3",
-    "text": "Laparocele: l'ernia sulla cicatrice"
-   },
-   {
-    "type": "p",
-    "html": "Il laparocele, o ernia incisionale, è il difetto che compare su una cicatrice di un precedente intervento addominale. Come si riconosce e quando diventa urgente è spiegato nella pagina dei <a href=\"/sintomi-e-complicanze/\">sintomi e delle complicanze</a>."
-   },
-   {
-    "type": "h3",
-    "text": "La pre-abilitazione prima dell'intervento"
-   },
-   {
-    "type": "p",
-    "html": "La pre-abilitazione è la preparazione clinica delle settimane che precedono l'intervento: peso, glicemia, fumo, nutrizione ed esercizio. Il percorso è descritto nella pagina della <a href=\"/preabilitazione-dei-pazienti-all-intervento-chirurgico/\">pre-abilitazione dei Pazienti</a>."
-   },
-   {
-    "type": "h2",
-    "text": "Come si arriva all'intervento?"
-   },
-   {
-    "type": "ul",
-    "ordered": true,
-    "items": [
-     "La <strong>valutazione specialistica</strong> in ambulatorio, con l'esame clinico della parete: si prenota dalla pagina dei <a href=\"/contatti/\">contatti</a>.",
-     "La <strong>diagnostica per immagini</strong> — ecografia, TC o risonanza — quando serve misurare il difetto: gli esami sono descritti nella pagina di <a href=\"/radiologia/\">radiologia della parete</a>.",
-     "La <strong>pre-abilitazione</strong>, se il quadro lo richiede, per arrivare all'intervento nelle migliori condizioni.",
-     "L'<strong>intervento</strong> con la tecnica scelta sul singolo Paziente: le tecniche sono nella pagina della <a href=\"/la-terapia-chirurgica/\">terapia chirurgica</a>."
-    ]
-   },
-   {
-    "type": "img",
-    "src": "/api/media/chirurgo-sala-operatoria.webp",
-    "alt": "Chirurgo in sala operatoria durante un intervento sulla parete addominale, illustrazione schematica",
-    "caption": "L'intervento è pianificato sul singolo Paziente, dalla valutazione alla sala operatoria.",
-    "kind": "schema",
-    "width": 1200,
-    "height": 896
-   },
-   {
-    "type": "h2",
-    "text": "Perché la parete si valuta insieme alla forma dell'addome?"
-   },
-   {
-    "type": "img",
-    "src": "/api/media/approccio-morfofunzionale.webp",
-    "alt": "Struttura della parete e profilo dell'addome fusi in un unico disegno schematico",
-    "caption": "Struttura e forma dell'addome sono la stessa struttura, guardata da due lati.",
-    "kind": "schema",
-    "width": 1200,
-    "height": 896
-   },
-   {
-    "type": "p",
-    "html": "Nella parete addominale la struttura e l'aspetto non sono due problemi separati: sono la stessa struttura guardata da due lati. Un difetto chiuso bene che lascia un addome che il Paziente non riconosce è un risultato a metà, e un profilo corretto su una parete rimasta debole non dura nel tempo. Per questo la valutazione tiene insieme tre cose: il difetto muscolo-aponeurotico, i tessuti di copertura e i gesti quotidiani della persona."
-   },
-   {
-    "type": "p",
-    "html": "È il criterio che guida le indicazioni descritte in queste pagine. Il metodo, con i suoi principi e i suoi limiti, è spiegato per intero sull'hub della rete: <a href=\"https://www.federicofiori.com/approccio-morfo-funzionale\">approccio morfo-funzionale alla parete addominale</a>."
-   }
-  ],
-  "kind": "home",
-  "answer": "La Chirurgia della Parete Addominale è la branca della Chirurgia Generale che ripara i difetti della parete: ernie, laparoceli e diastasi dei muscoli retti. Questo sito, a cura del Dott. Federico Fiori, spiega anatomia, classificazioni, sintomi, esami e tecniche di riparazione.",
-  "faq": [
-   {
-    "q": "Di che cosa si occupa questo sito?",
-    "a": "Questo sito è il verticale italiano sulla Chirurgia della Parete Addominale del Dott. Federico Fiori: spiega l'anatomia della parete, la classificazione dei difetti, i sintomi, gli esami e le tecniche di riparazione, con il testo clinico del chirurgo e gli articoli divulgativi della rete editoriale di federicofiori.com."
-   },
-   {
-    "q": "Che cos'è la pre-abilitazione?",
-    "a": "La pre-abilitazione è la preparazione clinica delle settimane che precedono l'intervento: peso, glicemia, fumo, nutrizione ed esercizio."
-   },
-   {
-    "q": "Dove riceve?",
-    "a": "Si riceve su appuntamento presso Fi Multicare — Centro Medico Multidisciplinare, Galleria del Corso 4, 20122 Milano. Telefono +39 02 76021568, e-mail info@fimulticare.it."
-   },
-   {
-    "q": "Che cos'è un laparocele?",
-    "a": "Il laparocele, o ernia incisionale, è il difetto che compare su una cicatrice di un precedente intervento addominale."
-   }
-  ]
- },
- "en": null,
- "modified": "2026-09-19T15:00:00"
+  },
+  "en": null,
+  "modified": "2026-10-04T10:00:00"
 }

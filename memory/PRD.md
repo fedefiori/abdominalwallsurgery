@@ -584,3 +584,35 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   lightbox, form contatti. Test: test_reports/iteration_11.json — 100% frontend.
 - Nota: warning React 'unique key prop' segnalato dal tester NON riproducibile
   (console pulita su home/articoli/terapia/video/chi-sono); tutte le .map hanno key.
+
+## Correzioni pre-pubblicazione dall'hub (04/10/2026, audit di rete) — CHIUSO
+- ROTTE RITIRATE (decisione hub, supera il contratto di settembre): /chi-sono/ e
+  /la-diastasi-dei-muscoli-retti/ NON esistono piu' sul sito. JSON spostati in
+  data/pages/_archivio/ (contenuto conservato). 301 esterni registrati in
+  retired_redirects (letti dal Worker via /api/seo/routes): /chi-sono/ ->
+  federicofiori.com/curriculum, /la-diastasi-dei-muscoli-retti/ ->
+  diastasiedintorni.it/cose-una-diastasi/. Menu «Dott. F. Fiori» ora punta al curriculum
+  canonico (link esterno nel mainNav, desktop+mobile). Tolte da KNOWN_SLUGS e nav_pages.
+  Link interni aggiornati (home related, contatti related + inline).
+- DICITURA RUOLO canonica carattere per carattere (senza "PO San Carlo Borromeo"): hero
+  home, AuthorBox, firma prerender, llms.txt. Il worksFor del nodo Person hub contiene
+  ancora "PO San Carlo Borromeo": e' il nome della Divisione copiato verbatim (regola di
+  rete), NON la dicitura del ruolo. Telefono display ovunque "+39 02 7602 1568".
+  NOTA PER L'HUB: l'endpoint /api/seo/entity espone il telefono come "+39 02 76021568"
+  (senza spazio): i contactPoint si copiano verbatim da li' — allineare l'hub se serve.
+- og:description <=125 con taglio a confine di frase (seo_render.og_description +
+  useSEO.js): le description restano 150-160, le og corte. Verificato su tutte le pagine.
+- Prerender: menu ora dentro <header><nav> (contratto: i bot devono vedere la
+  navigazione). robots.txt: allow-list completa copiata da diastasisandbeyond.com
+  (24 UA AI/motori) + Disallow solo /api/stats/ + llms.txt annunciato alla radice.
+- Bug trovato e corretto: il guscio 404 del dev-server serviva public/index.html SENZA
+  il bundle -> pagina bianca in anteprima su rotte sconosciute. Ora inietta
+  /static/js/bundle.js: /chi-sono/ e indirizzi inventati mostrano la 404 del sito.
+- Verifiche: batteria completa su tutte le pagine servite (0 tiscali/0240222182;
+  dicitura ok; og<=125 decodificate; header>nav+robots+canonical+JSON-LD valido x3
+  pagine; 0 hreflang verso abdominalwallsurgery; sitemap 16 URL senza le ritirate;
+  llms aggiornato). DOI/PMID: tutti risolvono (Handle API 200; i 403 erano bot-block
+  degli editori). pytest 15/15 (test chi-sono rimosso dalla regressione).
+- APERTO (decisione del Dottore, segnalata non eseguita): H1 home = nome del sito
+  ("Chirurgia della Parete Addominale") — coincide con l'argomento esatto del verticale;
+  la regola hub vieta H1=nome sito. In attesa di parere.

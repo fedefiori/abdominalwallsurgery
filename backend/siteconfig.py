@@ -131,7 +131,6 @@ def nav_pages(lang):
             ('le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi', 'Meshes'),
             ('le-complicanze-chirurgiche-la-vac-therapy', 'Complications & VAC'),
             ('preabilitazione-dei-pazienti-all-intervento-chirurgico', 'Prehabilitation'),
-            ('la-diastasi-dei-muscoli-retti', 'Rectus diastasis'),
         ]
     return [
         ('anatomia-della-parete-addominale-e-abdominal-core', 'Anatomia'),
@@ -142,5 +141,4 @@ def nav_pages(lang):
         ('le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi', 'Protesi'),
         ('le-complicanze-chirurgiche-la-vac-therapy', 'Complicanze e VAC'),
         ('preabilitazione-dei-pazienti-all-intervento-chirurgico', 'Preabilitazione'),
-        ('la-diastasi-dei-muscoli-retti', 'Diastasi dei retti'),
     ]

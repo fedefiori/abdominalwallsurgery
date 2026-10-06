@@ -12,10 +12,10 @@ import { ExternalLink } from 'lucide-react';
 
 export const KNOWN_SLUGS = [
     'anatomia-della-parete-addominale-e-abdominal-core',
-    'la-terapia-chirurgica', 'chi-sono', 'radiologia',
+    'la-terapia-chirurgica', 'radiologia',
     'le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi',
     'le-complicanze-chirurgiche-la-vac-therapy', 'sintomi-e-complicanze',
-    'difetti-della-parete-addominale-e-classificazione', 'la-diastasi-dei-muscoli-retti',
+    'difetti-della-parete-addominale-e-classificazione',
     'preabilitazione-dei-pazienti-all-intervento-chirurgico', 'contatti', 'video',
     'privacy-policy', 'cookie-policy',
 ];

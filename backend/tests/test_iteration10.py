@@ -133,7 +133,7 @@ class TestPages:
         "/",
         "/la-terapia-chirurgica/",
         "/anatomia-della-parete-addominale-e-abdominal-core/",
-        "/chi-sono/",
+        
         "/contatti/",
         "/privacy-policy/",
         "/cookie-policy/",

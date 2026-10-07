@@ -126,9 +126,10 @@ def nav_pages(lang):
             ('anatomia-della-parete-addominale-e-abdominal-core', 'Anatomy'),
             ('difetti-della-parete-addominale-e-classificazione', 'Defects & classification'),
             ('sintomi-e-complicanze', 'Symptoms & complications'),
-            ('radiologia', 'Radiology'),
+            ('radiologia', 'Imaging & radiology'),
+            ('rectus-diastasis', 'Rectus diastasis'),
             ('la-terapia-chirurgica', 'Surgical treatment'),
-            ('le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi', 'Meshes'),
+            ('le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi', 'Meshes & plane'),
             ('le-complicanze-chirurgiche-la-vac-therapy', 'Complications & VAC'),
             ('preabilitazione-dei-pazienti-all-intervento-chirurgico', 'Prehabilitation'),
         ]

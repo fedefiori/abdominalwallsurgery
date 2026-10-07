@@ -107,19 +107,24 @@ export default function Layout({ children }) {
     const { site, ui } = useSite();
     const [open, setOpen] = useState(false);
     const location = useLocation();
+    const en = site?.lang === 'en';
 
     useEffect(() => { setOpen(false); }, [location.pathname]);
     useJsonLd(location.pathname);
 
     // «Dott. F. Fiori» porta al curriculum canonico sull'hub (contratto 04/10:
-    // nessuna pagina-persona su questo sito: l'identita' della rete e' una sola).
+    // nessuna pagina-persona su questo sito). Sul gemello inglese esiste invece
+    // una pagina /about/ breve che rimanda al curriculum dell'hub.
     const CURRICULUM_URL = 'https://www.federicofiori.com/curriculum';
+    const aboutItem = en
+        ? { to: '/about/', label: ui.nav_about }
+        : { to: CURRICULUM_URL, label: ui.nav_about, external: true };
     const mainNav = [
         { to: '/', label: ui.nav_home },
         { to: site?.articlesIndex || '/articoli', label: ui.nav_articles },
-        ...(!site || site.hasVideo ? [{ to: '/video/', label: ui.nav_video || 'Video' }] : []),
-        { to: CURRICULUM_URL, label: ui.nav_about, external: true },
-        { to: '/contatti/', label: ui.nav_contacts },
+        ...(!site || site.hasVideo ? [{ to: en ? '/videos/' : '/video/', label: ui.nav_video || 'Video' }] : []),
+        aboutItem,
+        { to: en ? '/contact/' : '/contatti/', label: ui.nav_contacts },
     ];
 
     return (
@@ -130,9 +135,30 @@ export default function Layout({ children }) {
             <header className="pw-header" data-testid="site-header">
                 <div className="pw-shell pw-header-inner">
                     <Link to="/" className="pw-brand" data-testid="brand-link">
-                        <img className="pw-brand-logo" src={`${API}/api/media/logo-chirurgia-della-parete-orizz.webp`}
-                            alt="Chirurgia della Parete Addominale — Dott. Federico Fiori" width="172" height="60" data-testid="brand-logo" />
-                        <span className="pw-brand-sub">Dott. Federico Fiori</span>
+                        {en ? (
+                            <>
+                                <svg className="pw-brand-logo" width="60" height="60" viewBox="0 0 60 60"
+                                    role="img" aria-label="AWS — Abdominal Wall Surgery" data-testid="brand-logo">
+                                    <rect x="1.5" y="1.5" width="57" height="57" rx="13" fill="#0C0A09"
+                                        stroke="#7DF542" strokeWidth="2.6" />
+                                    <text x="30" y="30" textAnchor="middle" dominantBaseline="central"
+                                        fontFamily="Inter Tight, sans-serif" fontWeight="700" fontSize="21"
+                                        letterSpacing="1">
+                                        <tspan fill="#7DF542">A</tspan><tspan fill="#FFFFFF">W</tspan><tspan fill="#7DF542">S</tspan>
+                                    </text>
+                                </svg>
+                                <span className="pw-brand-textblock">
+                                    <span className="pw-brand-name">Abdominal Wall Surgery</span>
+                                    <span className="pw-brand-sub">Dr. Federico Fiori</span>
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <img className="pw-brand-logo" src={`${API}/api/media/logo-chirurgia-della-parete-orizz.webp`}
+                                    alt="Chirurgia della Parete Addominale — Dott. Federico Fiori" width="172" height="60" data-testid="brand-logo" />
+                                <span className="pw-brand-sub">Dott. Federico Fiori</span>
+                            </>
+                        )}
                     </Link>
                     <nav className="pw-nav" aria-label="Navigazione principale" data-testid="main-nav">
                         <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined}>{ui.nav_home}</Link>
@@ -185,28 +211,30 @@ export default function Layout({ children }) {
                 <div className="pw-shell">
                     <div className="pw-footer-grid">
                         <section data-testid="footer-chi-opera">
-                            <h3>Chi opera</h3>
-                            <p><strong>Dott. Federico Fiori</strong></p>
-                            <p>Medico Chirurgo — Specialista in Chirurgia Generale</p>
-                            <p className="pw-footer-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano</p>
-                            <p>Informazioni e appuntamenti<br />
+                            <h3>{en ? 'The surgeon' : 'Chi opera'}</h3>
+                            <p><strong>{en ? 'Dr. Federico Fiori' : 'Dott. Federico Fiori'}</strong></p>
+                            <p>{en ? 'General surgeon' : 'Medico Chirurgo — Specialista in Chirurgia Generale'}</p>
+                            <p className="pw-footer-role">{en
+                                ? 'Head of the Abdominal Wall Surgery Unit — ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital, Milan'
+                                : "Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, PO San Carlo Borromeo, Milano"}</p>
+                            <p>{en ? 'Information and appointments' : 'Informazioni e appuntamenti'}<br />
                                 <a href="mailto:info@federicofiori.com">info@federicofiori.com</a></p>
-                            <p>Scrivi al Dott. Fiori<br />
+                            <p>{en ? 'Write to Dr. Fiori' : 'Scrivi al Dott. Fiori'}<br />
                                 <a href="mailto:fedefiori@federicofiori.com">fedefiori@federicofiori.com</a></p>
-                            <p>Telefono <a href="tel:+390276021568">+39 02 7602 1568</a></p>
-                            <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">Curriculum completo sull’hub</a></p>
+                            <p>{en ? 'Phone' : 'Telefono'} <a href="tel:+390276021568">+39 02 7602 1568</a></p>
+                            <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">{en ? 'Full curriculum on the hub' : 'Curriculum completo sull’hub'}</a></p>
                         </section>
                         <section data-testid="footer-dove-riceve">
-                            <h3>Dove riceve</h3>
-                            <p><strong>Fi Multicare</strong> — Centro Medico Multidisciplinare</p>
+                            <h3>{en ? 'Where he practices' : 'Dove riceve'}</h3>
+                            <p><strong>Fi Multicare</strong> — {en ? 'Multidisciplinary Medical Center' : 'Centro Medico Multidisciplinare'}</p>
                             <p>Galleria del Corso 4, 20122 Milano</p>
-                            <p>Telefono <a href={site?.clinic?.telHref || 'tel:+390276021568'}>{site?.clinic?.telLabel || '+39 02 7602 1568'}</a><br />
-                                E-mail <a href="mailto:info@fimulticare.it">info@fimulticare.it</a></p>
-                            <p>Visite su appuntamento</p>
+                            <p>{en ? 'Phone' : 'Telefono'} <a href={site?.clinic?.telHref || 'tel:+390276021568'}>{site?.clinic?.telLabel || '+39 02 7602 1568'}</a><br />
+                                {en ? 'E-mail' : 'E-mail'} <a href="mailto:info@fimulticare.it">info@fimulticare.it</a></p>
+                            <p>{en ? 'Visits by appointment' : 'Visite su appuntamento'}</p>
                             <p><a href="https://www.fimulticare.it/" target="_blank" rel="noopener">fimulticare.it</a></p>
                         </section>
                         <section data-testid="footer-la-rete">
-                            <h3>La rete</h3>
+                            <h3>{en ? 'The network' : 'La rete'}</h3>
                             <ul className="pw-footer-net">
                                 {(site?.network || []).map((n) => (
                                     <li key={n.url}>
@@ -217,10 +245,10 @@ export default function Layout({ children }) {
                             </ul>
                         </section>
                         <section data-testid="footer-legale">
-                            <h3>Legale e servizio</h3>
+                            <h3>{en ? 'Legal & service' : 'Legale e servizio'}</h3>
                             <ul>
-                                <li><Link to="/privacy-policy/">Privacy policy</Link></li>
-                                <li><Link to="/cookie-policy/">Cookie policy</Link></li>
+                                <li><Link to="/privacy-policy/">{en ? 'Privacy policy' : 'Privacy policy'}</Link></li>
+                                <li><Link to="/cookie-policy/">{en ? 'Cookie policy' : 'Cookie policy'}</Link></li>
                                 <li><a href="/sitemap.xml">Sitemap</a></li>
                                 <li>
                                     <button
@@ -229,7 +257,7 @@ export default function Layout({ children }) {
                                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                                         style={{ color: 'var(--accent-soft)', fontSize: '14px' }}
                                     >
-                                        Torna su ↑
+                                        {en ? 'Back to top ↑' : 'Torna su ↑'}
                                     </button>
                                 </li>
                             </ul>
@@ -237,9 +265,11 @@ export default function Layout({ children }) {
                     </div>
                     <div className="pw-footer-legal">
                         <span className="pw-footer-disclaimer" data-testid="footer-disclaimer">
-                            Le informazioni di questo sito hanno finalità divulgativa e non sostituiscono la visita medica.
+                            {en
+                                ? 'The information on this site is for educational purposes and does not replace a medical consultation.'
+                                : 'Le informazioni di questo sito hanno finalità divulgativa e non sostituiscono la visita medica.'}
                         </span>
-                        <span className="pw-label">© {new Date().getFullYear()} Dott. Federico Fiori — Milano</span>
+                        <span className="pw-label">© {new Date().getFullYear()} {en ? 'Dr. Federico Fiori — Milan' : 'Dott. Federico Fiori — Milano'}</span>
                     </div>
                 </div>
             </footer>

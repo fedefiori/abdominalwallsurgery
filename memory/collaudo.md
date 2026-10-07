@@ -35,7 +35,7 @@ Person.jobTitle nel JSON-LD: ["Medico Chirurgo - Specialista in Chirurgia Genera
   Su questo sito), zero errori console.
 
 # COLLAUDO 3 — giro hub 2 (18/09/2026)
-Host: https://chirurgia-test.preview.emergentagent.com
+Host: https://abdominal-wall-site.preview.emergentagent.com
 
 ## Punto 1 — recapiti
 grep -ri tiscali su tutti i contenuti e il codice: 0 occorrenze.
@@ -121,7 +121,7 @@ Articolo: crash "startsWith of undefined" sul blocco Su questo sito (formato tup
 normalizzato in Related. Riverificato in browser: blocco presente, 0 errori console.
 
 # COLLAUDO 2 — giro di correzioni hub (16/09/2026, ore 20)
-Host: https://chirurgia-test.preview.emergentagent.com (noindex attivo fuori dominio)
+Host: https://abdominal-wall-site.preview.emergentagent.com (noindex attivo fuori dominio)
 
 ## 1. Guasto bloccante home e /articoli — RISOLTO
 Causa vera: doppia rotta React Router `/articoli` + `/articoli/` (duplicate path in react-router v7

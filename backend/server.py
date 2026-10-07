@@ -56,6 +56,20 @@ def page_content(page):
     return page.get(SITE['lang'])
 
 
+def page_path(page):
+    """Percorso della pagina nella lingua attiva: la chiave 'path' dentro il
+    blocco di lingua ha la precedenza (slug inglesi distinti), fallback al
+    'path' di primo livello (slug italiano)."""
+    c = page.get(SITE['lang']) or {}
+    return c.get('path') or page['path']
+
+
+def page_urlslug(page):
+    """Slug di URL nella lingua attiva (segmento usato dal frontend)."""
+    c = page.get(SITE['lang']) or {}
+    return c.get('slug') or page['slug']
+
+
 def entity():
     global _entity
     if _entity:
@@ -522,7 +536,7 @@ def is_final_host(request: Request):
 async def get_site():
     ui = SITE['ui']
     pages = load_pages()
-    nav = [{'path': f'/{s}/', 'label': lbl} for s, lbl in nav_pages(SITE['lang'])
+    nav = [{'path': page_path(pages[s]), 'label': lbl} for s, lbl in nav_pages(SITE['lang'])
            if s in pages and page_content(pages[s])]
     return {
         'key': SITE['key'], 'lang': SITE['lang'], 'domain': SITE['domain'],
@@ -552,7 +566,7 @@ async def get_site():
 @api_router.get('/pages/{slug}')
 async def get_page(slug: str):
     pages = load_pages()
-    page = pages.get(slug)
+    page = next((p for p in pages.values() if page_urlslug(p) == slug), None) or pages.get(slug)
     if not page:
         raise HTTPException(404, 'pagina non trovata')
     content = page_content(page)
@@ -560,7 +574,7 @@ async def get_page(slug: str):
         # chiave di lingua vuota: la pagina in questa lingua non esiste
         raise HTTPException(404, 'pagina non disponibile in questa lingua')
     return {
-        'slug': page['slug'], 'path': page['path'], 'modified': page.get('modified', ''),
+        'slug': page_urlslug(page), 'path': page_path(page), 'modified': page.get('modified', ''),
         'lang': SITE['lang'],
         'h1': content.get('h1'), 'metaTitle': content.get('metaTitle'),
         'metaDescription': content.get('metaDescription'), 'kind': content.get('kind'),
@@ -619,7 +633,7 @@ async def seo_routes():
     paths = []
     for p in pages.values():
         if page_content(p):
-            paths.append(p['path'])
+            paths.append(page_path(p))
     paths.append(SITE['articlesIndex'])
     arts = await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).to_list(500)
     for a in arts:
@@ -628,9 +642,9 @@ async def seo_routes():
     redirects = {}
     # doppioni da barra finale: "/slug" -> "/slug/" (assoluto), piu' /home e /home/ -> /
     for p in pages.values():
-        if page_content(p) and p['path'] != '/':
-            bare = p['path'].rstrip('/')
-            redirects[bare] = SITE['domain'] + p['path']
+        if page_content(p) and page_path(p) != '/':
+            bare = page_path(p).rstrip('/')
+            redirects[bare] = SITE['domain'] + page_path(p)
     redirects['/home'] = SITE['domain'] + '/'
     redirects['/home/'] = SITE['domain'] + '/'
     ret = await db.retired_redirects.find({}).to_list(1000)
@@ -687,14 +701,13 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
 <link rel="canonical" href="{seo_render.esc(domain + SITE['articlesIndex'])}" />{robots}
 {seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui['articles_sub'], domain + SITE['articlesIndex'], domain + '/og/og-fallback.jpg', ui['articles_title'])}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{seo_render.BASE_CSS}</style></head><body><main>
+<style>{seo_render.base_css(SITE)}</style></head><body><main>
 {seo_render.menu_html(SITE, pages)}
 <nav class="pw-crumbs"><a href="{domain}/">{seo_render.esc(ui['breadcrumb_home'])}</a> / <span>{seo_render.esc(ui['breadcrumb_articles'])}</span></nav>
 <h1>{seo_render.esc(ui['articles_title'])}</h1><p>{seo_render.esc(ui['articles_sub'])}</p>
 <ul>{lis}</ul>{seo_render.network_html(SITE)}</main></body></html>""")
-    slug = 'home' if path in ('/', '') else path.strip('/').split('/')[0]
-    page = pages.get(slug)
-    if not page or page['path'] != path:
+    page = next((p for p in pages.values() if page_path(p) == path), None)
+    if not page:
         raise HTTPException(404, 'pagina non trovata')
     content = page_content(page)
     if not content:
@@ -732,15 +745,14 @@ async def seo_jsonld(path: str = Query('/')):
             seo_render.breadcrumb_ld([(ui['breadcrumb_home'], domain + '/'),
                                       (ui['breadcrumb_articles'], domain + SITE['articlesIndex'])]),
         ]}
-    slug = 'home' if path in ('/', '') else path.strip('/').split('/')[0]
-    page = pages.get(slug)
+    page = next((p for p in pages.values() if page_path(p) == path), None)
     if not page:
         raise HTTPException(404, 'pagina non trovata')
     content = page_content(page)
     if not content:
         raise HTTPException(404, 'pagina non disponibile in questa lingua')
-    canonical = domain + page['path']
-    crumbs = None if page['path'] == '/' else [
+    canonical = domain + page_path(page)
+    crumbs = None if page_path(page) == '/' else [
         (ui['breadcrumb_home'], domain + '/'), (content.get('h1', ''), canonical)]
     return seo_render.page_jsonld(page, content, SITE, entity(), canonical, crumbs)
 
@@ -756,7 +768,7 @@ async def seo_sitemap():
     for p in pages.values():
         if page_content(p):
             lm = (p.get('modified') or '')[:10]
-            entries.append((SITE['domain'] + p['path'], lm))
+            entries.append((SITE['domain'] + page_path(p), lm))
     entries.append((SITE['domain'] + SITE['articlesIndex'], datetime.now(timezone.utc).date().isoformat()))
     arts = await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).to_list(500)
     for a in arts:

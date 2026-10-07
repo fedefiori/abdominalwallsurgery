@@ -391,6 +391,30 @@
   "answer": "Questa pagina è l'informativa privacy di chirurgiadellaparete.it: descrive il titolare del trattamento, le finalità e le basi giuridiche del trattamento dei dati personali, i destinatari, i tempi di conservazione e i diritti che l'interessato può esercitare.",
   "faq": []
  },
- "en": null,
+ "en": {
+  "h1": "Privacy policy",
+  "metaTitle": "Privacy policy | Abdominal Wall Surgery",
+  "metaDescription": "How abdominalwallsurgery.com handles personal data: data controller, purposes, legal basis, retention and your rights under the GDPR.",
+  "path": "/privacy-policy/",
+  "slug": "privacy-policy",
+  "kind": "legal",
+  "answer": "This site processes personal data only to answer contact requests and, in anonymous and aggregated form, to measure traffic. The data controller is Dr. Federico Fiori; the contact address is info@federicofiori.com.",
+  "blocks": [
+   { "type": "h2", "text": "Who is the data controller?" },
+   { "type": "p", "html": "The data controller is Dr. Federico Fiori, Galleria del Corso 4, 20122 Milano, Italy. For any matter relating to the processing of your personal data you can write to <a href=\"mailto:info@federicofiori.com\">info@federicofiori.com</a>." },
+   { "type": "h2", "text": "What data do we process and why?" },
+   { "type": "p", "html": "<strong>Contact requests.</strong> When you use the contact form or write to the e-mail addresses on the site, we process the data you provide (name, e-mail address and the content of your message) for the sole purpose of answering your request. The legal basis is the performance of measures taken at your request (Art. 6(1)(b) GDPR). Please do not include health data that is not strictly necessary in your first message." },
+   { "type": "p", "html": "<strong>Traffic measurement.</strong> The site uses a first-party, anonymous counter that records page views without cookies, without your IP address and without any identifier that can be traced back to a person. The data is aggregated and shared only in aggregate form within the federicofiori.com editorial network. For this reason no consent banner is required." },
+   { "type": "h2", "text": "How long do we keep the data?" },
+   { "type": "p", "html": "Contact data is kept for the time needed to handle your request and to comply with any legal obligations, and is then deleted. Aggregated traffic statistics contain no personal data." },
+   { "type": "h2", "text": "Who has access to the data?" },
+   { "type": "p", "html": "Your data is not sold or transferred for marketing purposes. It may be processed by technical suppliers acting as data processors (hosting and the e-mail delivery service), strictly to operate the site and deliver messages." },
+   { "type": "h2", "text": "What are your rights?" },
+   { "type": "p", "html": "Under Articles 15–22 GDPR you have the right to access, rectification, erasure, restriction and portability of your data, and the right to object. You can exercise these rights by writing to <a href=\"mailto:info@federicofiori.com\">info@federicofiori.com</a>, and you have the right to lodge a complaint with the Italian Data Protection Authority (Garante per la protezione dei dati personali)." },
+   { "type": "p", "html": "See also the <a href=\"/cookie-policy/\">cookie policy</a>." }
+  ],
+  "faq": [],
+  "related": []
+ },
  "modified": "2026-09-19T10:00:00"
 }

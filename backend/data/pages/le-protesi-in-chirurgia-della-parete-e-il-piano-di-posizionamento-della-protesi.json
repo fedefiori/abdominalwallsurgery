@@ -268,6 +268,75 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Meshes and the plane of placement",
+  "metaTitle": "Meshes in wall surgery and the plane of placement",
+  "metaDescription": "Types of mesh for hernias and incisional hernias and the planes of placement: subcutaneous onlay, retromuscular sublay, preperitoneal and intraperitoneal IPOM.",
+  "path": "/meshes-and-the-plane-of-placement/",
+  "slug": "meshes-and-the-plane-of-placement",
+  "blocks": [
+   { "type": "img", "src": "/api/media/protesi-chirurgia-della-parete-01.webp", "alt": "Synthetic mesh for the repair of the abdominal wall", "caption": "Synthetic mesh for the repair of the abdominal wall", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "h2", "text": "Which meshes are used in the abdominal wall?" },
+   { "type": "p", "html": "Knowledge of the biological basis of hernia development has progressed rapidly, and as a result both the surgical techniques and the use of meshes for repair have evolved just as quickly. Every year more than 20 million meshes are implanted with the aim of reducing the <a href=\"/articles/umbilical-hernia-why-it-recurs-and-how-to-prevent-recurrence\">recurrence</a> rate compared with suture-only repair." },
+   { "type": "p", "html": "On that objective the effectiveness of the mesh is no longer in question. There has also long been talk of prevention, that is, placing a mesh during the primary operation so that a secondary wall defect does not appear. Although the studies are still at an early stage, the data are already encouraging in this direction too." },
+   { "type": "p", "html": "There are numerous meshes available on the market today, and the choice can be demanding." },
+   { "type": "h2", "text": "What materials are meshes made of?" },
+   { "type": "p", "html": "The type of polymer refers to the material the mesh is made from. In general, polymers may be plastics (synthetic), biological materials or a combination." },
+   { "type": "p", "html": "Non-absorbable synthetic meshes" },
+   { "type": "img", "src": "/api/media/protesi-chirurgia-della-parete-04.webp", "alt": "Biological mesh used in abdominal wall surgery", "caption": "Biological mesh used in abdominal wall surgery", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "p", "html": "The term plastic refers to any of the countless organic, synthetic or processed materials that are mostly high-molecular-weight thermoplastic polymers. Three polymers in particular have been used to build synthetic meshes:" },
+   { "type": "p", "html": "- polypropylene (PP)," },
+   { "type": "p", "html": "- polyester, and" },
+   { "type": "p", "html": "- expanded polytetrafluoroethylene (ePTFE)." },
+   { "type": "p", "html": "More recently other plastic polymers have been used, namely cPTFE (condensed PTFE) and polyvinylidene fluoride (PVDF)." },
+   { "type": "p", "html": "Propylene is derived from propane gas by a technique introduced by the Italian scientist Giulio Natta. The liquid polymer is extruded as a monofilament of predetermined width and strength. Polypropylene is shaped by weaving the filaments into fibres, which are then knitted together to create a hydrophilic mesh. Different shapes can be created by changing the fibre size and the knit design. Polypropylene meshes are by far the most widely used today." },
+   { "type": "p", "html": "ePTFE meshes are less common, while PVDF meshes, a non-absorbable fluoropolymer, are increasingly used. PVDF sutures have been widely used in both cardiothoracic and orthopaedic surgery. The inflammatory process has been observed to be less intense with PVDF than with lightweight macroporous PP. The collagen capsule is more limited and does not produce, as with other materials, a scar plate that incorporates the whole mesh. Today this material enjoys wide consensus among surgeons." },
+   { "type": "p", "html": "Absorbable synthetic meshes" },
+   { "type": "p", "html": "Absorbable meshes are little used in reconstructive wall surgery." },
+   { "type": "p", "html": "Biosynthetic meshes" },
+   { "type": "img", "src": "/api/media/protesi-chirurgia-della-parete-02.webp", "alt": "Detail of a mesh for abdominal wall surgery", "caption": "Detail of a mesh for abdominal wall surgery", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "p", "html": "Recently new types of mesh known as biosynthetic have been developed, combining the advantages of synthetic and biological meshes and greatly narrowing the field of use of the latter." },
+   { "type": "p", "html": "These meshes are designed to be completely absorbed over time, thereby reducing the risk of long-term complications. Their unique structure provides temporary support to the weak areas of the abdomen, allowing scar tissue to form and strengthen the damaged area. In practice the biosynthetic mesh acts as a scaffold." },
+   { "type": "p", "html": "It provides three-dimensional support used to promote tissue growth and regeneration, and is colonised by repair cells that adapt to its surface and begin to proliferate within it. Meanwhile, the mesh provides mechanical support to the cells, holding them in place and allowing effective adhesion to form solid tissue." },
+   { "type": "p", "html": "Biosynthetic meshes are mainly used in the repair of complex ventral hernias, particularly where there is a high risk of infection or contamination. Their use in wall repair in women of childbearing age is debated." },
+   { "type": "p", "html": "Composite/hybrid/dual meshes" },
+   { "type": "p", "html": "These meshes are made of several materials of various kinds, synthetic/biological, in order to make them suitable for the use and plane of placement for which they are indicated. Dual meshes were developed so that they could be placed inside the peritoneal cavity. The IPOM or IPUM technique involves repair with meshes placed in the cavity and fixed in various ways to cover the defect. These meshes must be built with a suitable material on the side facing the inside of the cavity to avoid the formation of adhesions with the viscera, which could cause serious <a href=\"/surgical-complications-and-vac-therapy/\">complications</a>." },
+   { "type": "table", "html": "<table><thead><tr><th>Material</th><th>Type</th><th>Characteristic</th></tr></thead><tbody><tr><td>Polypropylene (PP)</td><td>Non-absorbable synthetic</td><td>The most used mesh in wall surgery</td></tr><tr><td>Polyester</td><td>Non-absorbable synthetic</td><td>Historical alternative to polypropylene</td></tr><tr><td>ePTFE / cPTFE</td><td>Non-absorbable synthetic</td><td>Surface suited to visceral contact</td></tr><tr><td>PVDF</td><td>Non-absorbable fluoropolymer</td><td>Growing use in wall repairs</td></tr><tr><td>Biosynthetic meshes</td><td>Slowly absorbable</td><td>Combine advantages of synthetic and biological meshes</td></tr><tr><td>Composite / dual meshes</td><td>Hybrid</td><td>Several materials for contact with the viscera</td></tr></tbody></table><p class=\"pw-table-caption\">Mesh materials for abdominal wall surgery.</p>" },
+   { "type": "h2", "text": "How are meshes classified?" },
+   { "type": "p", "html": "The most widely used mesh <a href=\"/abdominal-wall-defects-and-classification/\">classification</a> was created by Amid in 1997, based on mesh porosity." },
+   { "type": "p", "html": "Amid classification" },
+   { "type": "ul", "ordered": false, "items": ["Type I Macroporous", "Type II Microporous", "Type III Macroporous or microporous components", "Type IV Biomaterials with submicronic pores/sheets"] },
+   { "type": "p", "html": "Another useful subdivision was proposed by Coda, with a classification based on weight: ultralight ≤35 g/m² · light 35–70 g/m² · standard 70–140 g/m² · heavy ≥140 g/m²." },
+   { "type": "img", "src": "/api/media/protesi-chirurgia-della-parete-03.webp", "alt": "Large-pore mesh for reinforcing the abdominal wall", "caption": "Large-pore mesh for reinforcing the abdominal wall", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "h2", "text": "In which plane is the mesh placed?" },
+   { "type": "p", "html": "<b>The mesh can be placed in different planes relative to the various aspects of the musculo-fascial wall.</b>" },
+   { "type": "img", "src": "/api/media/piani-della-rete.webp", "alt": "Four overlaid schematic sections of the wall, each with a thin mesh texture at a different depth, from the most superficial to the deepest", "caption": "Onlay, sublay, preperitoneal, intraperitoneal: the plane changes, not just the material.", "kind": "schema", "width": 1200, "height": 896 },
+   { "type": "p", "html": "The classification validated by the EHS describes the plane of mesh placement relative to the muscles and fasciae as follows:" },
+   { "type": "img", "src": "/api/media/protesi-chirurgia-della-parete-05.webp", "alt": "Placement of the mesh in the retromuscular plane", "caption": "Placement of the mesh in the retromuscular plane", "width": 800, "height": 261, "kind": "photo" },
+   { "type": "p", "html": "<b>International classification of abdominal wall planes (ICAP) to describe mesh insertion for ventral hernia repair.</b>" },
+   { "type": "p", "html": "S G Parker, S Halligan, M K Liang, F E Muysoms, G L Adrales, A Boutall, A C de Beaux, U A Dietz, C M Divino, M T Hawn…" },
+   { "type": "p", "html": "British Journal of Surgery, Volume 107, Issue 3, February 2020, Pages 209–217, <a href=\"https://doi.org/10.1002/bjs.11400\" target=\"_blank\" rel=\"noopener\">https://doi.org/10.1002/bjs.11400</a>" },
+   { "type": "p", "html": "For simplicity, however, the plane of placement can be indicated as follows, from the surface going deeper:" },
+   { "type": "table", "html": "<table><thead><tr><th>Plane of placement</th><th>Position of the mesh</th></tr></thead><tbody><tr><td>Onlay</td><td>Above the muscular fascia</td></tr><tr><td>Inlay</td><td>Bridging, within the defect</td></tr><tr><td>Sublay</td><td>Retromuscular or preperitoneal</td></tr><tr><td>Intraperitoneal (IPOM)</td><td>Beneath the peritoneum</td></tr></tbody></table><p class=\"pw-table-caption\">Planes of mesh placement, from the surface to the depth.</p>" },
+   { "type": "p", "html": "The above summarises for simplicity the most frequent planes of placement. There are in fact mixed planes, as in the Reverse TAR proposed by Miguel Angel Garcia Urena for the repair of large lateral defects." }
+  ],
+  "kind": "clinical-procedure",
+  "answer": "A mesh is a net that reinforces the abdominal wall after the defect is closed. The result depends on the material, but even more on the plane of placement: onlay above the fascia, sublay behind the muscles, preperitoneal or intraperitoneal. This page describes materials and planes.",
+  "faq": [
+   { "q": "What is a mesh in abdominal wall surgery?", "a": "A mesh is a net that reinforces the wall after the defect is closed. Composite and dual meshes are made of several synthetic/biological materials suited to the use and plane of placement for which they are indicated." },
+   { "q": "What planes of placement exist for the mesh?", "a": "From the surface to the depth: onlay (above the fascia), inlay (bridging), sublay (retromuscular or preperitoneal) and intraperitoneal (IPOM, beneath the peritoneum)." },
+   { "q": "How is the plane of placement chosen?", "a": "The plane is chosen according to the type and size of the defect and the mesh used, so that the material is suitable for the plane for which it is indicated; intraperitoneal meshes must be built to avoid adhesions with the viscera." }
+  ],
+  "related": [
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" },
+   { "label": "Abdominal wall defects and classification", "href": "/abdominal-wall-defects-and-classification/" },
+   { "label": "Surgical complications and VAC therapy", "href": "/surgical-complications-and-vac-therapy/" }
+  ],
+  "fonti": [
+   { "label": "European Hernia Society — guidelines", "href": "https://europeanherniasociety.eu/about-ehs/guidelines/" },
+   { "label": "ICAP — international classification of abdominal wall planes (Parker et al., Br J Surg 2020)", "href": "https://doi.org/10.1002/bjs.11400" },
+   { "label": "European Hernia Society — classification of primary and incisional wall hernias (Muysoms et al., Hernia 2009)", "href": "https://pubmed.ncbi.nlm.nih.gov/19495920/" }
+  ]
+ },
  "modified": "2026-09-19T10:00:00"
 }

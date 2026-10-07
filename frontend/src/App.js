@@ -6,7 +6,7 @@ import { LightboxProvider } from './components/Lightbox';
 import { trackPageview, initStatsClicks } from './lib/stats';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
-import PillarPage, { KNOWN_SLUGS } from './pages/PillarPage';
+import PillarPage from './pages/PillarPage';
 import ArticlesPage from './pages/ArticlesPage';
 import ArticlePage from './pages/ArticlePage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -42,7 +42,7 @@ function StatsTracker() {
 function SlugRedirect() {
     const { pathname } = useLocation();
     const slug = pathname.replace(/^\//, '');
-    if (KNOWN_SLUGS.includes(slug)) return <Navigate to={`/${slug}/`} replace />;
+    if (slug && !slug.includes('/')) return <Navigate to={`/${slug}/`} replace />;
     return <NotFoundPage />;
 }
 
@@ -59,6 +59,8 @@ export default function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/articoli" element={<ArticlesPage />} />
                         <Route path="/articoli/:slug" element={<ArticlePage />} />
+                        <Route path="/articles" element={<ArticlesPage />} />
+                        <Route path="/articles/:slug" element={<ArticlePage />} />
                         <Route path="/404" element={<NotFoundPage />} />
                         <Route path="/:slug/" element={<PillarPage />} />
                         <Route path="/:slug" element={<SlugRedirect />} />

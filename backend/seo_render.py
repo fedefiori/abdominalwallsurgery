@@ -113,6 +113,19 @@ def render_blocks(blocks, domain, lang, lazy_from=1):
     return '\n'.join(out)
 
 
+def active_path(page, site):
+    c = page.get(site['lang']) or {}
+    return c.get('path') or page['path']
+
+
+# Override accento lime per il gemello inglese (solo HTML dei crawler).
+EN_ACCENT_CSS = ":root{--accent:#7DF542;--accent-soft:#A8FA7E;--accent-ink:#2E6B0B;--signal:#2E6B0B;--on-deep:#7DF542;--deep-text:#EDE4D8}"
+
+
+def base_css(site):
+    return BASE_CSS + (EN_ACCENT_CSS if site.get('lang') == 'en' else '')
+
+
 def breadcrumb_ld(items):
     return {
         '@type': 'BreadcrumbList',
@@ -157,6 +170,14 @@ def robots_meta(noindex):
 
 # Mappa articolo -> pagine affini del sito (blocco "Su questo sito")
 ARTICLE_RELATED = {
+    'incisional-hernia-after-abdominal-surgery-when-to-operate': [
+        ('Abdominal wall defects and classification', '/abdominal-wall-defects-and-classification/'),
+        ('Symptoms and complications', '/symptoms-and-complications/'),
+        ('Surgical treatment', '/surgical-treatment/')],
+    'umbilical-hernia-why-it-recurs-and-how-to-prevent-recurrence': [
+        ('Symptoms and complications', '/symptoms-and-complications/'),
+        ('Meshes and the plane of placement', '/meshes-and-the-plane-of-placement/'),
+        ('Contact and specialist assessment', '/contact/')],
     'tecnica-tesar-riparazione-endoscopica-sublay-anteriore': [
         ('La terapia chirurgica dei difetti della parete', '/la-terapia-chirurgica/'),
         ('Le protesi e il piano di posizionamento', '/le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi/'),
@@ -211,6 +232,17 @@ def author_box_html(domain, person, updated_iso, lang):
     except Exception:
         pass
     img = f'{domain}/api/media/ritratto-dottor-fiori.webp'
+    if lang == 'en':
+        return f'''<aside class="pw-authorbox" aria-label="Author and review">
+<img src="{esc(img)}" alt="Portrait of Dr. Federico Fiori" width="72" height="72" loading="lazy" decoding="async" />
+<div>
+<strong>Dr. Federico Fiori</strong><br />
+<span>General surgeon</span><br />
+<span>Head of the Abdominal Wall Surgery Unit — ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital, Milan</span><br />
+<span>Written and reviewed by Dr. Federico Fiori.{f' Last reviewed: {esc(data)}.' if data else ''}</span><br />
+<a rel="author" href="https://www.federicofiori.com/curriculum">Full curriculum</a>
+</div>
+</aside>'''
     return f'''<aside class="pw-authorbox" aria-label="Autore e revisione">
 <img src="{esc(img)}" alt="Ritratto del Dott. Federico Fiori" width="72" height="72" loading="lazy" decoding="async" />
 <div>
@@ -248,7 +280,7 @@ ABOUT_MAP = {
 
 def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
     """JSON-LD per le 14 pagine ereditate, in base al kind."""
-    kind = page.get('it', {}).get('kind', 'clinical') if page.get('it') else 'clinical'
+    kind = page.get(site['lang'], {}).get('kind', 'clinical') if page.get(site['lang']) else 'clinical'
     graphs = []
     person = person_ld(entity, site['lang'])
     org = org_ld(entity, site['domain'], site['lang'])
@@ -480,10 +512,10 @@ def menu_html(site, pages=None):
     d = site['domain']
     items = [(d + '/', ui['breadcrumb_home']),
              (d + site['articlesIndex'], ui['nav_articles'])]
-    for slug, key in (('video', 'nav_video'), ('chi-sono', 'nav_about'), ('contatti', 'nav_contacts')):
+    for slug, key in (('video', 'nav_video'), ('about', 'nav_about'), ('chi-sono', 'nav_about'), ('contatti', 'nav_contacts')):
         p = (pages or {}).get(slug)
         if p and p.get(site['lang']):
-            items.append((d + p['path'], ui.get(key, slug)))
+            items.append((d + active_path(p, site), ui.get(key, slug)))
     links = ''.join(f'<a href="{esc(u)}">{esc(lbl)}</a>' for u, lbl in items)
     # i bot devono vedere una vera navigazione: <header><nav> (contratto 04/10)
     return f'<header><nav class="pw-menu" aria-label="Menu principale">{links}</nav></header>'
@@ -518,7 +550,7 @@ def prerender_404(site, pages=None):
 {og}
 {robots_meta(True)}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{BASE_CSS}</style>
+<style>{base_css(site)}</style>
 </head>
 <body>
 <main>
@@ -536,7 +568,7 @@ def prerender_404(site, pages=None):
 
 def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
     domain = site['domain']
-    path = page['path']
+    path = active_path(page, site)
     canonical = domain + path
     h1 = content.get('h1', '')
     body = render_blocks(content.get('blocks', []), domain, site['lang'])
@@ -556,7 +588,7 @@ def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
     ld = page_jsonld(page, content, site, entity, canonical, crumb_items)
     robots = robots_meta(noindex)
     net = network_html(site)
-    kind = (page.get('it') or {}).get('kind', 'clinical')
+    kind = (page.get(site['lang']) or {}).get('kind', 'clinical')
     abox = ''
     if kind not in ('legal', 'contact', 'video'):
         abox = author_box_html(site['domain'], (entity or {}).get('person') or {}, page.get('modified', ''), site['lang'])
@@ -585,7 +617,7 @@ def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
 {og}
 {robots}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{BASE_CSS}</style>
+<style>{base_css(site)}</style>
 </head>
 <body>
 <main>
@@ -659,7 +691,7 @@ def prerender_article(article, site, entity, absolute, noindex, pages=None):
 {og}
 {robots}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{BASE_CSS}</style>
+<style>{base_css(site)}</style>
 </head>
 <body>
 <main>
@@ -691,10 +723,16 @@ def network_html(site):
     direct = os.environ.get('CONTACT_DIRECT_EMAIL', '')
     contacts = ''
     if notify and direct:
-        contacts = ('<div class="pw-net-contacts">'
-                    f'<p>Informazioni e appuntamenti<br /><a href="mailto:{esc(notify)}">{esc(notify)}</a></p>'
-                    f'<p>Scrivi al Dott. Fiori<br /><a href="mailto:{esc(direct)}">{esc(direct)}</a></p>'
-                    '<p>Telefono <a href="tel:+390276021568">+39 02 7602 1568</a></p></div>')
+        if lang == 'en':
+            contacts = ('<div class="pw-net-contacts">'
+                        f'<p>Information and appointments<br /><a href="mailto:{esc(notify)}">{esc(notify)}</a></p>'
+                        f'<p>Write to Dr. Fiori<br /><a href="mailto:{esc(direct)}">{esc(direct)}</a></p>'
+                        '<p>Phone <a href="tel:+390276021568">+39 02 7602 1568</a></p></div>')
+        else:
+            contacts = ('<div class="pw-net-contacts">'
+                        f'<p>Informazioni e appuntamenti<br /><a href="mailto:{esc(notify)}">{esc(notify)}</a></p>'
+                        f'<p>Scrivi al Dott. Fiori<br /><a href="mailto:{esc(direct)}">{esc(direct)}</a></p>'
+                        '<p>Telefono <a href="tel:+390276021568">+39 02 7602 1568</a></p></div>')
     return (f'<footer class="pw-net"><h2>{esc(site["ui"]["network_title"])}</h2>'
             f'<p>{esc(site["ui"]["network_intro"])}</p><ul>{items}</ul>{contacts}</footer>')
 
@@ -775,6 +813,43 @@ def llms_txt(site, pages, articles, entity):
     lang = site['lang']
     domain = site['domain']
     person = (entity or {}).get('person', {})
+    if lang == 'en':
+        lines = [
+            f"# {site['ui']['site_name']}",
+            '',
+            f"> English vertical site on abdominal wall surgery by {person.get('name', 'Dr. Federico Fiori')}: hernias, incisional hernias, meshes, classifications and prehabilitation. Part of the federicofiori.com editorial network.",
+            '',
+            '## Who',
+            f"- {person.get('name', 'Dr. Federico Fiori')}, general surgeon",
+            "- Role: Head of the Abdominal Wall Surgery Unit — ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital, Milan",
+            f"- Center: {HUB_CLINIC_ID}",
+            f"- Practice: Galleria del Corso 4, 20122 Milano. Phone: +39 02 7602 1568",
+            f"- Hub: https://www.federicofiori.com (curriculum, TESAR, MILA, glossary, results gallery)",
+            f"- Identity: {person.get('@id', '')}",
+            '',
+            '## Pages',
+        ]
+        for p in pages:
+            c = p.get('en') or {}
+            lines.append(f"- [{c.get('h1', p['slug'])}]({domain}{active_path(p, site)}): {c.get('metaDescription', '')}")
+        if articles:
+            lines += ['', '## Articles']
+            for a in articles:
+                lines.append(f"- [{a.get('title')}]({a.get('canonical', '')}): {a.get('excerpt', '')}")
+        lines += [
+            '',
+            '## Network',
+            '- federicofiori.com: hub — identity, curriculum, TESAR, MILA, glossary, results',
+            '- chirurgiadellaparete.it: Italian vertical on hernias and incisional hernias',
+            '- diastasiedintorni.it: Italian vertical on rectus diastasis',
+            '- diastasisandbeyond.com: English vertical on rectus diastasis',
+            '- federico-fiori.it: plastic surgery',
+            '',
+            '## Usage',
+            '- Medical content for information only; cite with attribution to Dr. Federico Fiori and a link to the page.',
+            '- Published clinical figures are cited with author, journal, year and DOI/PMID in the sources.',
+        ]
+        return '\n'.join(lines) + '\n'
     lines = [
         f"# {site['ui']['site_name']}",
         '',

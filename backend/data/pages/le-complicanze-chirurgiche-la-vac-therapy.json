@@ -184,6 +184,68 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Surgical complications and VAC therapy",
+  "metaTitle": "Surgical complications and VAC therapy of the wall",
+  "metaDescription": "Seromas, infections and dehiscence after abdominal wall surgery: how they are recognised, how they are treated and the role of VAC therapy in healing.",
+  "path": "/surgical-complications-and-vac-therapy/",
+  "slug": "surgical-complications-and-vac-therapy",
+  "blocks": [
+   { "type": "h2", "text": "What complications can abdominal wall surgery have?" },
+   { "type": "p", "html": "Anterior abdominal wall surgery can be open, laparoscopic, endoscopic or robotic.<br/>Complications vary with the type of approach and are overall less frequent with minimally invasive techniques.<br/>Here is a summary of the most common ones, bearing in mind that there are statistical differences related to the type of technique.<br/>Complications after abdominal wall surgery can be divided into early (within 30 days of surgery) and late (beyond 30 days of surgery)." },
+   { "type": "p", "html": "Early complications" },
+   { "type": "ul", "ordered": true, "items": [
+     "<b>Bleeding:</b> can occur soon after surgery. The incidence varies with the type of surgery and technique used, but is generally low.",
+     "<b>Wound infection:</b> the incidence ranges from 1% to 10%, depending on the surgical technique, the patient's condition and the setting. It may require antibiotic treatment and, in some cases, surgical removal of the infected tissue.",
+     "<b>Seroma:</b> a collection of fluid in the operated area. It can occur in 10–15% of cases, depending on the type of surgery. It may be bothersome, require repeated aspirations, and in rare cases of persistence over several months surgery to remove the capsule may be indicated.",
+     "<b>Visceral injury:</b> rare, but it can occur, particularly during laparoscopic surgery. The incidence is less than 1%.",
+     "<b>Vascular injury:</b> this complication is also rare, with an incidence of less than 1%."
+   ] },
+   { "type": "p", "html": "<b>Wound complications:</b> frequent and early. In some case series they reach 25–30% for open surgery. They heal over a very long time and can benefit from <a href=\"/surgical-treatment/\">surgical treatment</a> with a vacuum device." },
+   { "type": "p", "html": "Late complications" },
+   { "type": "ul", "ordered": true, "items": [
+     "<b>Hernia recurrence:</b> recurrence means a further hernia defect in the same operated area. The incidence varies with the type of surgery and technique used, but on average is around 5–10%.",
+     "<b>Chronic pain:</b> it can vary, but it is estimated that about 10% of patients may experience some degree of chronic postoperative pain.",
+     "<b>Adhesions:</b> they can form after surgery. They may cause pain and, in rare cases, bowel obstruction. The specific incidence varies with the surgery, but is more common after open procedures than after laparoscopy.",
+     "<b>Muscle atrophy or hypotrophy:</b> this can happen after a long period of muscular immobility or in the case of nerve injury."
+   ] },
+   { "type": "p", "html": "<b>Scar disorders:</b> hypertrophy, keloid and scar diastasis are possible complications common to any surgical procedure." },
+   { "type": "p", "html": "It must be stressed that the statistics can vary with the type of surgery, the surgical technique, the patient's condition, the surgeon's skill and other factors." },
+   { "type": "p", "html": "These are generally not serious complications, and visceral injury truly has a marginal incidence, but they can require long and troublesome management, involving repeated dressings over what may be a long time." },
+   { "type": "h2", "text": "What is VAC therapy and when is it used?" },
+   { "type": "p", "html": "Negative pressure wound therapy, or Vacuum Assisted Closure (VAC), is a technique used to treat complex surgical wounds. It is indicated to promote the healing of difficult wounds, reduce infection and speed up the healing process. Here are some elements of the rationale for using vacuum therapy:" },
+   { "type": "img", "src": "/api/media/vac-pressione-negativa.webp", "alt": "Schematic cross-section of a wound cavity sealed by a membrane with a gauze mesh inside, converging pressure lines and a thin drainage tube leaving the field", "caption": "Negative pressure draws the edges together and drains: the dressing works in a closed system.", "kind": "schema", "width": 1024, "height": 1024 },
+   { "type": "p", "html": "Reduction of oedema" },
+   { "type": "p", "html": "Negative pressure therapy reduces oedema or swelling in the wound. Applying constant negative pressure through the VAC device helps remove excess fluid from the wound, improving local blood circulation and reducing fluid build-up." },
+   { "type": "p", "html": "Removal of exudate" },
+   { "type": "p", "html": "Exudate, the fluid that leaks from the wound, can slow the healing process. Vacuum therapy efficiently removes exudate from the wound through a drainage system connected to the VAC device. This reduces the chance of fluid build-up that can promote infection." },
+   { "type": "p", "html": "Promotion of angiogenesis" },
+   { "type": "p", "html": "The continuous negative pressure applied by vacuum therapy stimulates the formation of new blood vessels, a process known as angiogenesis. This favours a better blood supply to the wound, providing the nutrients and oxygen needed for healing." },
+   { "type": "p", "html": "Reduction of wound size" },
+   { "type": "p", "html": "Vacuum therapy helps reduce the size of the wound over time. By applying constant negative pressure, the wound tissue is drawn together, favouring closure of the wound edges and speeding up healing." },
+   { "type": "p", "html": "Prevention of infection" },
+   { "type": "p", "html": "Vacuum therapy creates a low-oxygen environment in the wound, which hinders the growth of bacteria. In addition, the constant suction of fluid from the wound helps remove the bacteria present, reducing the risk of infection." },
+   { "type": "p", "html": "Promotion of granulation" },
+   { "type": "p", "html": "Vacuum therapy promotes the formation of granulation tissue, which is crucial for wound healing. The negative pressure system applied with the VAC stimulates the proliferation of the cells that make up granulation tissue, favours the formation of new blood vessels and contributes to the reconstruction of the damaged tissue." },
+   { "type": "p", "html": "However, it is important to stress that the use of vacuum therapy must be assessed case by case and is not always indicated for every complex surgical wound. It is essential that a specialist surgeon and a support team evaluate the wound and determine whether vacuum therapy is appropriate and beneficial for the patient." },
+   { "type": "img", "src": "/api/media/vac-01.webp", "alt": "VAC therapy dressing on an abdominal wall surgical wound", "caption": "VAC therapy dressing on an abdominal wall surgical wound", "width": 800, "height": 725, "kind": "photo" },
+   { "type": "img", "src": "/api/media/vac-02.webp", "alt": "Application of the VAC therapy system for abdominal wound complications", "caption": "Application of the VAC therapy system for abdominal wound complications", "width": 800, "height": 490, "kind": "photo" }
+  ],
+  "kind": "clinical",
+  "answer": "Wound complications — seromas, infections, dehiscence — are the main obstacle in abdominal wall surgery. VAC therapy is a negative-pressure dressing that draws the wound edges together and drains the exudate in a closed system, promoting healing by secondary intention.",
+  "faq": [
+   { "q": "What complications can abdominal wall surgery have?", "a": "Anterior abdominal wall surgery can be open, laparoscopic, endoscopic or robotic. Complications vary with the type of approach and are overall less frequent with minimally invasive techniques. They can be divided into early (within 30 days of surgery) and late (beyond 30 days of surgery)." },
+   { "q": "What wound complications can occur?", "a": "Wound complications are frequent and early. In some case series they reach 25–30% for open surgery. They heal over a very long time and can benefit from vacuum therapy." }
+  ],
+  "related": [
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" },
+   { "label": "Symptoms and complications", "href": "/symptoms-and-complications/" }
+  ],
+  "fonti": [
+   { "label": "European Hernia Society — guidelines", "href": "https://europeanherniasociety.eu/about-ehs/guidelines/" },
+   { "label": "European Hernia Society (EHS)", "href": "https://europeanherniasociety.eu/" },
+   { "label": "ISHAWS — Italian Society of Hernia and Abdominal Wall Surgery", "href": "https://www.ishaws.it/" }
+  ]
+ },
  "modified": "2026-09-19T10:00:00"
 }

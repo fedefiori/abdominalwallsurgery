@@ -45,10 +45,11 @@ function Toc({ items }) {
 }
 
 function FontiView({ fonti }) {
+    const { site } = useSite();
     if (!fonti?.length) return null;
     return (
-        <section className="pw-fonti" data-testid="fonti-section" aria-label="Fonti">
-            <h2>Fonti</h2>
+        <section className="pw-fonti" data-testid="fonti-section" aria-label={site?.lang === 'en' ? 'Sources' : 'Fonti'}>
+            <h2>{site?.lang === 'en' ? 'Sources' : 'Fonti'}</h2>
             <ul>
                 {fonti.map((f, i) => (
                     <li key={i}>
@@ -120,7 +121,7 @@ export default function PillarPage() {
                             <AuthorBox updated={page.modified} />
                         )}
                         <FontiView fonti={page.fonti} />
-                        <Related items={page.related} />
+                        <Related items={page.related} title={site?.lang === 'en' ? 'See also' : 'Leggi anche'} />
                     </article>
                     <Toc items={toc} />
                 </div>

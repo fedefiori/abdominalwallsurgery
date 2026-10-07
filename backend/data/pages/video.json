@@ -109,5 +109,95 @@
     "faq": [],
     "related": []
   },
-  "en": null
+  "en": {
+    "h1": "Videos",
+    "metaTitle": "Abdominal Wall Surgery Videos | Dr. Federico Fiori",
+    "metaDescription": "Videos from Dr. Federico Fiori's YouTube channel on the abdominal wall: meshes and planes of placement, minimally invasive techniques and recovery after surgery.",
+    "path": "/videos/",
+    "slug": "videos",
+    "kind": "video",
+    "answer": "The videos on this page are from Dr. Federico Fiori's YouTube channel and are chosen among those about the abdominal wall: meshes, minimally invasive techniques and the period after surgery. Some clips show real surgical footage.",
+    "blocks": [
+      {
+        "type": "note",
+        "html": "Some videos contain real surgical footage. They are published to explain the technique to patients and colleagues who want to understand it."
+      },
+      { "type": "h2", "text": "Meshes: which ones, and in which plane" },
+      {
+        "type": "video", "yt": "Y9Y_NlzmK-Q",
+        "title": "Which types of mesh exist and where are they placed?",
+        "alt": "Video cover: the main types of mesh for the abdominal wall and the plane in which each is placed",
+        "caption": "A walk-through of the main mesh types and the plane each one sits in, from onlay to retromuscular.",
+        "link": "/meshes-and-the-plane-of-placement/", "linkLabel": "Meshes and the plane of placement"
+      },
+      {
+        "type": "video", "yt": "YYOWiDqOrCE",
+        "title": "Why is a mesh used?",
+        "alt": "Video cover: why a mesh is used in the repair of a wall defect",
+        "caption": "Why a defect is reinforced with a mesh, and what changes in the repair when one is left out.",
+        "link": "/meshes-and-the-plane-of-placement/", "linkLabel": "Meshes and the plane of placement"
+      },
+      {
+        "type": "video", "yt": "kLfDeR3d6-c",
+        "title": "Can you feel the mesh?",
+        "alt": "Video cover: can the mesh be felt after surgery",
+        "caption": "The question almost every patient asks: once it is in place, can the mesh be felt?",
+        "link": "/meshes-and-the-plane-of-placement/", "linkLabel": "Meshes and the plane of placement"
+      },
+      { "type": "h2", "text": "Minimally invasive techniques" },
+      {
+        "type": "video", "yt": "80nF0J17np8",
+        "title": "Are laparoscopy and endoscopy the same thing?",
+        "alt": "Video cover: the difference between laparoscopy and endoscopy",
+        "caption": "The difference between laparoscopy and endoscopy: two minimally invasive routes that are not the same thing.",
+        "link": "/surgical-treatment/", "linkLabel": "Surgical treatment"
+      },
+      {
+        "type": "video", "yt": "gXUe8BrsocY",
+        "title": "Is there one technique that suits everyone?",
+        "alt": "Video cover: choosing the surgical technique for the individual patient",
+        "caption": "Why no single technique fits every patient, and what the choice actually depends on.",
+        "link": "/surgical-treatment/", "linkLabel": "Surgical treatment"
+      },
+      {
+        "type": "video", "yt": "47RQ-3HvX6g",
+        "title": "When is a minimally invasive technique indicated?",
+        "alt": "Video cover: when a minimally invasive technique is indicated and when it is not",
+        "caption": "When a minimally invasive technique is the right call, and when it is better to avoid it.",
+        "link": "/surgical-treatment/", "linkLabel": "Surgical treatment"
+      },
+      { "type": "h2", "text": "After surgery" },
+      {
+        "type": "video", "yt": "V6_2pQuOjaQ",
+        "title": "When can you go back to physical activity after surgery?",
+        "alt": "Video cover: returning to physical activity after abdominal wall surgery",
+        "caption": "When and how physical activity resumes after wall surgery, and what paces the return.",
+        "link": "/symptoms-and-complications/", "linkLabel": "Symptoms and complications"
+      },
+      {
+        "type": "video", "yt": "rvrsealK0_0",
+        "title": "When can you return to work after surgery?",
+        "alt": "Video cover: returning to work after abdominal wall surgery",
+        "caption": "When you go back to work after surgery, and what the timing depends on.",
+        "link": "/symptoms-and-complications/", "linkLabel": "Symptoms and complications"
+      },
+      {
+        "type": "video", "yt": "tBbJK-LV1ac",
+        "title": "Do the symptoms disappear after surgery?",
+        "alt": "Video cover: symptoms after abdominal wall surgery",
+        "caption": "What happens to the symptoms after surgery: which ones go, and how long it takes.",
+        "link": "/symptoms-and-complications/", "linkLabel": "Symptoms and complications"
+      },
+      {
+        "type": "ul",
+        "ordered": false,
+        "items": [
+          "<a href=\"https://www.federicofiori.com/en/videos\" target=\"_blank\" rel=\"noopener\">All the videos, collected</a>",
+          "<a href=\"https://www.youtube.com/@federicofiori2383\" target=\"_blank\" rel=\"noopener\">The YouTube channel</a>"
+        ]
+      }
+    ],
+    "faq": [],
+    "related": []
+  }
 }

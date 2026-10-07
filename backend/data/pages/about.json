@@ -1,0 +1,45 @@
+{
+ "slug": "about",
+ "path": "/about/",
+ "it": null,
+ "en": {
+  "h1": "About Dr. Federico Fiori",
+  "metaTitle": "About | Dr. Federico Fiori — Abdominal Wall Surgery",
+  "metaDescription": "Dr. Federico Fiori is a general surgeon and Head of the Abdominal Wall Surgery Unit at ASST Santi Paolo e Carlo in Milan. His full curriculum is on the hub.",
+  "path": "/about/",
+  "slug": "about",
+  "blocks": [
+   {
+    "type": "img",
+    "src": "/api/media/ritratto-dottor-fiori.webp",
+    "alt": "Portrait of Dr. Federico Fiori in surgical scrubs",
+    "caption": "Dr. Federico Fiori, Head of the Abdominal Wall Surgery Unit, Milan.",
+    "kind": "photo",
+    "width": 820,
+    "height": 1000
+   },
+   {
+    "type": "p",
+    "html": "Dr. Federico Fiori is a general surgeon and Head of the Abdominal Wall Surgery Unit — ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital, Milan. His work covers general surgery, with a specific field of interest in defects of the abdominal wall: primary hernias, incisional hernias (laparoceles) and rectus diastasis, with particular attention to complex repairs, wall disasters and recurrences after previous surgery."
+   },
+   {
+    "type": "p",
+    "html": "In January 2019 he published the TESAR technique in the <i>Journal of Laparoendoscopic &amp; Advanced Surgical Techniques</i>, an endoscopic technique for the minimally invasive treatment of incisional and ventral hernias (DOI: 10.1089/lap.2018.0807. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30807248/\" target=\"_blank\" rel=\"noopener\">PMID: 30807248</a>). The full description of the technique and its results is the canonical source on the hub: <a href=\"https://www.federicofiori.com/en/tesar-technique\" target=\"_blank\" rel=\"noopener\">the TESAR technique</a>."
+   },
+   {
+    "type": "p",
+    "html": "The full curriculum — qualifications, congresses, publications and the results gallery — is not duplicated on this site: it is published on the network hub, on the <a href=\"https://www.federicofiori.com/curriculum\" target=\"_blank\" rel=\"noopener\">full curriculum of Dr. Federico Fiori</a> page."
+   }
+  ],
+  "kind": "profile",
+  "answer": "Dr. Federico Fiori is a general surgeon and Head of the Abdominal Wall Surgery Unit at ASST Santi Paolo e Carlo in Milan. This site describes his clinical work on the abdominal wall; the full curriculum lives on the federicofiori.com hub.",
+  "faq": [],
+  "related": [
+   { "label": "Full curriculum on the hub", "href": "https://www.federicofiori.com/curriculum" },
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" },
+   { "label": "Contact", "href": "/contact/" }
+  ]
+ },
+ "created": "2024-09-25T16:17:02",
+ "modified": "2026-10-07T10:00:00"
+}

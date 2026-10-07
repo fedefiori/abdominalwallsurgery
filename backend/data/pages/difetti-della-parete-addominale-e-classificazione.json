@@ -218,6 +218,65 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Abdominal wall defects and classification",
+  "metaTitle": "EHS classification of wall defects: sites, labels and sizes",
+  "metaDescription": "The European Hernia Society classification for abdominal wall hernias: anatomical sites M1-L4, defect size and clinical definitions.",
+  "path": "/abdominal-wall-defects-and-classification/",
+  "slug": "abdominal-wall-defects-and-classification",
+  "blocks": [
+   { "type": "plainBox", "html": "For the acronyms and labels used on this page, the reference is the <a href=\"https://www.federicofiori.com\" target=\"_blank\" rel=\"noopener\">glossary of abdominal wall surgery acronyms</a> on federicofiori.com." },
+   { "type": "img", "src": "/api/media/difetti-parete-addominale.webp", "alt": "Graphic representation of abdominal wall defects", "caption": "Graphic representation of abdominal wall defects", "width": 800, "height": 475, "kind": "schema" },
+   { "type": "h2", "text": "What are the defects of the anterior abdominal wall?" },
+   { "type": "p", "html": "The defects of the anterior abdominal wall can be divided into primary defects and secondary defects." },
+   { "type": "img", "src": "/api/media/sedi-dei-difetti.webp", "alt": "Schematic frontal silhouette of the abdominal wall with thin bright rings over the typical weak points: midline, supra-umbilical region and lower flanks", "caption": "The typical sites of wall defects: midline, epigastric, lateral.", "kind": "schema", "width": 1024, "height": 1024 },
+   { "type": "p", "html": "<strong>The primary defects</strong>, or hernias, of the anterior abdominal wall are:" },
+   { "type": "h2", "text": "What are the primary defects of the wall?" },
+   { "type": "p", "html": "Epigastric hernia" },
+   { "type": "p", "html": "An epigastric hernia is a form of ventral hernia that develops in the epigastric region, the upper part of the abdomen. In this type of hernia a portion of tissue, such as fat or bowel, protrudes through a defect in the muscular fascia of the abdominal wall." },
+   { "type": "p", "html": "The epigastric hernia is located in the epigastric region, usually between the xiphoid process (the lower part of the sternum) and the umbilicus. The hernia bulge may be palpable or visible as a small to medium protrusion in the affected area." },
+   { "type": "p", "html": "Epigastric hernias develop because of a weakness or defect in the linea alba, the vertical band of connective tissue that separates the rectus muscles. This weakness may be present from birth (congenital hernia) or develop over time." },
+   { "type": "p", "html": "Symptoms of an epigastric hernia can vary from person to person. Common symptoms include a bulge or swelling in the epigastric region, localized pain or discomfort, especially during physical activity or lifting, and a feeling of weakness or pressure in the affected area." },
+   { "type": "p", "html": "Umbilical hernia" },
+   { "type": "p", "html": "An umbilical hernia is a common form of anterior abdominal wall hernia that occurs when part of the bowel or fatty tissue protrudes through a defect in the umbilical region. This type of hernia can be congenital, present in newborns and children, but it very often appears in adults as well, and in association with pregnancy." },
+   { "type": "p", "html": "Symptoms of an umbilical hernia vary with its size and may include a bulge or swelling at the umbilicus, pain or tenderness in the hernia area, and discomfort or pressure in the abdominal region, especially during physical activity or coughing." },
+   { "type": "p", "html": "Spigelian hernia" },
+   { "type": "p", "html": "The Spigelian hernia, also called a lateral ventral hernia, is a rare form of anterior abdominal wall hernia. This type occurs along the semilunar line of Spigelius, a thin weak zone of the lower abdominal wall located between the rectus muscle and the external oblique muscle." },
+   { "type": "p", "html": "<b>– Rectus diastasis</b>, discussed more fully on its dedicated page." },
+   { "type": "h2", "text": "What is the difference between a primary hernia and an incisional hernia?" },
+   { "type": "p", "html": "Secondary defects of the abdominal wall, or incisional hernias (laparoceles), are the defects that occur on previous incisions, or are a consequence of them." },
+   { "type": "h2", "text": "How are abdominal wall defects classified?" },
+   { "type": "p", "html": "<b>There are many classifications of anterior-lateral abdominal wall defects. The best known and most internationally used are those proposed by the EHS.</b>" },
+   { "type": "p", "html": "The EHS, European Hernia Society, classifies <b>primary wall hernias by size and position</b>." },
+   { "type": "table", "html": "<table><thead><tr><th>Site</th><th>EHS label</th><th>Definition</th></tr></thead><tbody><tr><td>Subxiphoid</td><td>M1</td><td>From the xiphoid process to 3 cm below it</td></tr><tr><td>Epigastric</td><td>M2</td><td>From 3 cm below the xiphoid to 3 cm above the umbilicus</td></tr><tr><td>Umbilical</td><td>M3</td><td>From 3 cm above to 3 cm below the umbilicus</td></tr><tr><td>Infraumbilical</td><td>M4</td><td>From 3 cm below the umbilicus to 3 cm above the pubis</td></tr><tr><td>Suprapubic</td><td>M5</td><td>From the pubis to 3 cm above it</td></tr><tr><td>Subcostal</td><td>L1</td><td>From the costal margin to 3 cm above the umbilicus, laterally</td></tr><tr><td>Flank</td><td>L2</td><td>Lateral to the rectus sheath, between 3 cm above and 3 cm below the umbilicus</td></tr><tr><td>Iliac</td><td>L3</td><td>From 3 cm below the umbilicus to the inguinal region</td></tr><tr><td>Lumbar</td><td>L4</td><td>Latero-dorsal to the anterior axillary line</td></tr></tbody></table><p class=\"pw-table-caption\">EHS classification of abdominal wall hernias by site.</p><p class=\"pw-table-source\">Source: Muysoms F.E. et al., <i>Hernia</i>, 2009;13(4):407-414. DOI: 10.1007/s10029-009-0518-x</p>" },
+   { "type": "table", "html": "<table><thead><tr><th>Defect size</th><th>Primary hernia</th><th>Incisional hernia (laparocele)</th></tr></thead><tbody><tr><td>Small</td><td>&lt; 2 cm</td><td>W1: &lt; 4 cm</td></tr><tr><td>Medium</td><td>2–4 cm</td><td>W2: 4–10 cm</td></tr><tr><td>Large</td><td>&gt; 4 cm</td><td>W3: &gt; 10 cm</td></tr></tbody></table><p class=\"pw-table-caption\">EHS classification by size of the hernia defect.</p>" },
+   { "type": "img", "src": "/api/media/european-hernia-society-hernia-classification.webp", "alt": "EHS table classifying primary wall hernias", "caption": "EHS table classifying primary wall hernias", "width": 753, "height": 366, "kind": "schema" },
+   { "type": "img", "src": "/api/media/hernia-incisionali.webp", "alt": "Abdominal muscles", "caption": "Abdominal muscles", "width": 675, "height": 676, "kind": "schema" },
+   { "type": "h2", "text": "How does the EHS classify incisional hernias?" },
+   { "type": "img", "src": "/api/media/incisional-hernia-classification-ehs.webp", "alt": "EHS table classifying incisional hernias of the abdominal wall", "caption": "EHS table classifying incisional hernias of the abdominal wall", "width": 397, "height": 713, "kind": "schema" },
+   { "type": "img", "src": "/api/media/hernia-defect.webp", "alt": "Defects related to abdominal hernias", "caption": "Defects related to abdominal hernias", "width": 518, "height": 657, "kind": "schema" },
+   { "type": "h2", "text": "What is a wall disaster?" },
+   { "type": "p", "html": "A \"wall disaster\" is a term used in medicine to describe a condition in which there is severe compromise of the abdominal wall, entailing significant problems. The abdominal wall is made up of several layers of tissue — muscle, connective tissue and skin — that work together to maintain stability and support the organs in the abdominal cavity." },
+   { "type": "p", "html": "A wall disaster can result from a range of causes, including postoperative complications, trauma, infections or chronic diseases, muscular imbalance from iatrogenic deficits, abscesses or fistulas involving the abdominal wall." },
+   { "type": "p", "html": "Symptoms of a wall disaster vary with the severity and underlying cause, but often include pain, swelling, loss of function, visible deformity or protrusion of the internal tissues through the defect. In some cases a wall disaster can also lead to complications such as recurrent infections, bowel obstructions or eventrations, in which the abdominal contents prolapse through an opening in the abdominal wall." },
+   { "type": "p", "html": "The diagnosis and treatment of a wall disaster often require <a href=\"/surgical-treatment/\">the intervention</a> of a surgeon specialised in abdominal wall surgery. Treatment varies with the severity of the damage and may include surgical repair of the wall, the use of suture materials or meshes to reinforce the tissues, or complex reconstruction of the abdominal muscle. A wall disaster can be a significant challenge for the surgeon, as it requires detailed planning and a multidisciplinary approach to achieve an effective repair and reduce future complications." }
+  ],
+  "kind": "classifications",
+  "answer": "Abdominal wall defects are classified by site, size and origin: primary if they arise on an intact wall, incisional (laparoceles) if they appear on a scar. The EHS classification assigns each hernia a zone label and a size class and guides the choice of technique.",
+  "faq": [
+   { "q": "How are abdominal wall hernias classified?", "a": "There are many classifications of anterior-lateral abdominal wall defects. The best known and most internationally used are those proposed by the EHS." },
+   { "q": "What does the EHS classification measure?", "a": "The EHS classification measures the site and size of the defect, assigning each hernia a zone label (M1-M5 for the midline, L1-L4 laterally) and a size class." }
+  ],
+  "related": [
+   { "label": "Abdominal wall anatomy", "href": "/abdominal-wall-anatomy-and-abdominal-core/" },
+   { "label": "Meshes and the plane of placement", "href": "/meshes-and-the-plane-of-placement/" },
+   { "label": "Incisional hernia after abdominal surgery: when to operate (article)", "href": "/articles/incisional-hernia-after-abdominal-surgery-when-to-operate" }
+  ],
+  "fonti": [
+   { "label": "European Hernia Society — classification of primary and incisional abdominal wall hernias (Muysoms et al., Hernia 2009)", "href": "https://pubmed.ncbi.nlm.nih.gov/19495920/" },
+   { "label": "European Hernia Society — guidelines", "href": "https://europeanherniasociety.eu/about-ehs/guidelines/" },
+   { "label": "European Hernia Society (EHS)", "href": "https://europeanherniasociety.eu/" }
+  ]
+ },
  "modified": "2026-09-19T10:00:00"
 }

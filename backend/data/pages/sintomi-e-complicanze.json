@@ -218,6 +218,70 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Symptoms and complications",
+  "metaTitle": "Symptoms of abdominal wall defects: a clinical reference",
+  "metaDescription": "Symptoms of hernias and incisional hernias by type of defect, the warning signs of incarceration and strangulation, and when urgency changes the surgical strategy.",
+  "path": "/symptoms-and-complications/",
+  "slug": "symptoms-and-complications",
+  "blocks": [
+   { "type": "h2", "text": "What symptoms does an abdominal wall hernia cause?" },
+   { "type": "p", "html": "<strong>The symptoms of a wall defect vary widely and, as expected, depend on the type of defect in both intensity and frequency. The most common are:</strong>" },
+   { "type": "img", "src": "/api/media/difetto-e-pressione.webp", "alt": "Schematic cross-section of the wall with a gap in the fascia, a rounded bulge protruding and concentric pressure lines pushing from inside", "caption": "The bulge appears where the fascia gives way and the internal pressure pushes.", "kind": "schema", "width": 1024, "height": 1024 },
+   { "type": "p", "html": "Swelling or bulge/protrusion" },
+   { "type": "ul", "ordered": false, "items": [
+     "<b>Visible</b>: a visible bulge or swelling over the hernia, often more apparent when standing or straining.",
+     "<b>Reducible</b>: the bulge can often be pushed back manually into the abdominal cavity.",
+     "<b>Irreducible</b>: in some cases the hernia becomes irreducible, that is, it cannot be pushed back in. This can lead to a more serious condition known as incarceration, which is not a symptom but a complication."
+   ] },
+   { "type": "p", "html": "Pain or discomfort" },
+   { "type": "ul", "ordered": false, "items": [
+     "<b>Localized</b>: pain or discomfort over the hernia, which may increase with physical activity or straining, such as lifting or coughing.",
+     "<b>Pain on palpation</b>: pain when pressing on the hernia area."
+   ] },
+   { "type": "p", "html": "No symptoms" },
+   { "type": "p", "html": "Some hernias, especially smaller ones, may cause no obvious symptoms and are found only during a routine physical examination or while investigating other abdominal problems." },
+   { "type": "p", "html": "The symptoms of anterior abdominal wall hernias can vary considerably, and early recognition is essential for effective treatment. While some hernias — taking age and associated conditions into account — can be managed with regular monitoring and lifestyle changes, others require <a href=\"/surgical-treatment/\">surgery on the wall</a>. In particular, incarcerated or strangulated hernias are a medical emergency that requires immediate treatment to prevent serious or potentially fatal complications." },
+   { "type": "h2", "text": "What is muscular insufficiency of the wall?" },
+   { "type": "p", "html": "<strong>The disruption of the abdominal core caused by an anterior wall defect can lead — especially with diastasis or large defects — to muscle hypotrophy resulting from the prolonged malfunction of the muscles due to the insufficient function of the midline, which effectively leaves the anterior muscular circuit \"unclosed\". The reduced load during muscular work affects first the directly involved muscles and then all the other muscles of the abdominal core, with variable and subjective symptoms, at times severe and disabling, typical of patients with significant rectus diastasis.</strong>" },
+   { "type": "p", "html": "If this affects you, read more on <a href=\"https://www.diastasisandbeyond.com\" target=\"_blank\" rel=\"noopener\">diastasisandbeyond.com</a>." },
+   { "type": "h2", "text": "What happens if nothing is done?" },
+   { "type": "p", "html": "<b>An abdominal wall defect can remain without any particular clinical symptoms for a long time, but it may suddenly complicate into an urgent condition that must be dealt with quickly.</b>" },
+   { "type": "p", "html": "<b>The most common complications of primary and secondary hernias are:</b>" },
+   { "type": "p", "html": "Incarceration" },
+   { "type": "p", "html": "A hernia is said to be incarcerated when part of the tissue or internal organs passes through the wall defect and no longer returns to its place. This can cause intense pain, swelling and limitation of movement. In some cases, urgent surgery may be needed to free and reduce the incarcerated hernia." },
+   { "type": "p", "html": "Strangulation" },
+   { "type": "p", "html": "Hernia strangulation, a serious complication, occurs when part of the bowel or another organ becomes trapped after passing through the wall defect and is deprived of its blood supply. This condition can lead to tissue necrosis and requires emergency surgery to restore blood flow. If surgery is delayed, resection or removal of the necrotic tissue becomes necessary." },
+   { "type": "p", "html": "Bowel obstruction" },
+   { "type": "p", "html": "If intestinal contents cannot pass because of a problem related to the wall defect, a bowel obstruction may occur. This can cause symptoms such as bloating, pain, nausea, vomiting and difficulty passing gas and stool. A bowel obstruction often requires surgery to resolve the cause." },
+   { "type": "p", "html": "Chronic pain" },
+   { "type": "p", "html": "An untreated ventral hernia can cause chronic pain in the hernia area. This can interfere with daily activities and affect quality of life, and may require pain management such as medication or physical therapy." },
+   { "type": "img", "src": "/api/media/complicazioni-delle-ernie.webp", "alt": "Anatomical model showing the complications of abdominal wall hernias", "caption": "Anatomical model showing the complications of abdominal wall hernias", "width": 800, "height": 800, "kind": "schema" },
+   { "type": "img", "src": "/api/media/sintomatologia-01.webp", "alt": "Main symptoms of an incarcerated or strangulated hernia", "caption": "Main symptoms of an incarcerated or strangulated hernia", "width": 800, "height": 800, "kind": "schema" },
+   { "type": "h2", "text": "When does a bulge become an emergency?" },
+   { "type": "p", "html": "<b>In general, a strangulated hernia does not need much <a href=\"/imaging-and-radiology/\">imaging of the wall</a>, first of all because of the severe pain it causes in the patient. The signs are:</b>" },
+   { "type": "p", "html": "Acute pain" },
+   { "type": "p", "html": "Sudden, intense pain may indicate an incarcerated or strangulated hernia, which requires urgent medical attention." },
+   { "type": "p", "html": "Nausea and vomiting" },
+   { "type": "p", "html": "These may be associated with a strangulated hernia, where the blood supply to the protruding organ is interrupted." },
+   { "type": "p", "html": "Skin changes" },
+   { "type": "p", "html": "Redness or a bluish discoloration of the skin over the hernia can be a sign of a strangulated hernia." },
+   { "type": "p", "html": "Changes in bowel habit" },
+   { "type": "p", "html": "Difficulty passing stool or gas may indicate a bowel obstruction associated with the incarcerated hernia." },
+   { "type": "p", "html": "<strong>A strangulated hernia is a surgical emergency.</strong>" }
+  ],
+  "kind": "clinical-condition",
+  "answer": "An abdominal wall hernia is recognised by the bulge that appears on standing or straining and reduces when lying down. Sudden pain, irreducibility and redness are instead warning signs: they point to incarceration or strangulation and call for an urgent surgical assessment.",
+  "faq": [
+   { "q": "What symptoms does an abdominal wall hernia cause?", "a": "The symptoms of a wall defect vary widely and, as expected, depend on the type of defect in both intensity and frequency. The most common are swelling or a bulge, localized pain and, in some cases, no symptoms at all." },
+   { "q": "What is an incarcerated hernia?", "a": "A hernia is incarcerated when part of the tissue or internal organs passes through the wall defect and no longer returns to its place. Incarcerated or strangulated hernias are a medical emergency that requires immediate treatment to prevent serious or potentially fatal complications." },
+   { "q": "When does a hernia become an emergency?", "a": "When there is sudden intense pain, irreducibility, nausea and vomiting or skin changes over the hernia. These point to incarceration or strangulation and require immediate treatment." }
+  ],
+  "related": [
+   { "label": "Abdominal wall defects and classification", "href": "/abdominal-wall-defects-and-classification/" },
+   { "label": "Imaging and radiology of the wall", "href": "/imaging-and-radiology/" },
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" }
+  ]
+ },
  "modified": "2026-09-16T10:00:00"
 }

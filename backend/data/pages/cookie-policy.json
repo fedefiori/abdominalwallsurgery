@@ -286,6 +286,26 @@
     "answer": "Questa pagina è la cookie policy di chirurgiadellaparete.it: elenca le tipologie di cookie utilizzate dal sito, le loro finalità e durata, e spiega come l'utente può gestire, modificare o revocare il consenso all'uso dei cookie.",
     "faq": []
   },
-  "en": null,
+  "en": {
+  "h1": "Cookie policy",
+  "metaTitle": "Cookie policy | Abdominal Wall Surgery",
+  "metaDescription": "How abdominalwallsurgery.com uses cookies: no profiling, an anonymous first-party counter and YouTube content loaded only on click.",
+  "path": "/cookie-policy/",
+  "slug": "cookie-policy",
+  "kind": "legal",
+  "answer": "This site does not use profiling or advertising cookies. Traffic is measured with an anonymous first-party counter that does not use cookies, and YouTube videos are loaded only when you click to play them.",
+  "blocks": [
+   { "type": "h2", "text": "Does this site use cookies?" },
+   { "type": "p", "html": "The site does not use profiling or advertising cookies and does not share data with third parties for marketing purposes. Only technical items strictly necessary to make the site work may be used." },
+   { "type": "h2", "text": "How is traffic measured?" },
+   { "type": "p", "html": "Traffic is measured with a first-party, anonymous counter that records page views without cookies, without your IP address and without any identifier that can be traced back to a person. For this reason no consent banner is shown." },
+   { "type": "h2", "text": "Third-party content (YouTube)" },
+   { "type": "p", "html": "The <a href=\"/videos/\">videos page</a> embeds content from YouTube. To protect your privacy, videos are <strong>loaded only when you click to play them</strong>: until then no request is sent to YouTube and no third-party cookie is set. When you choose to play a video, YouTube (Google) may set its own cookies, governed by Google's privacy policy; the embed uses the youtube-nocookie.com domain." },
+   { "type": "h2", "text": "Managing cookies" },
+   { "type": "p", "html": "You can delete or block cookies at any time through your browser settings. See also the <a href=\"/privacy-policy/\">privacy policy</a>." }
+  ],
+  "faq": [],
+  "related": []
+ },
   "modified": "2026-09-27T16:00:00"
 }

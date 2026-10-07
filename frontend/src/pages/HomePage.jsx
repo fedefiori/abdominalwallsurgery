@@ -86,6 +86,15 @@ export default function HomePage() {
         imageAlt: page?.h1 || ui.site_name,
     });
 
+    const en = site?.lang === 'en';
+    const toTherapy = en ? '/surgical-treatment/' : '/la-terapia-chirurgica/';
+    const toContact = en ? '/contact/' : '/contatti/';
+    const MARQUEE_EN = [
+        'Umbilical hernia', 'Incisional hernia', 'Rectus diastasis', 'Rives-Stoppa repair',
+        'Component separation', 'TAR', 'Robotic surgery', 'Retromuscular mesh',
+        'Prehabilitation', 'VAC therapy', 'EHS classification', 'Abdominal core',
+    ];
+    const marquee = en ? MARQUEE_EN : MARQUEE;
     const chapters = site?.nav || [];
     const h1 = page?.h1 || ui.site_name || '';
 
@@ -104,8 +113,8 @@ export default function HomePage() {
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.2 }}
                     >
-                        <span className="pw-hero-titles-main">Medico Chirurgo — Specialista in Chirurgia Generale</span>
-                        <span className="pw-hero-titles-role">Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, Milano</span>
+                        <span className="pw-hero-titles-main">{site?.lang === 'en' ? 'General surgeon' : 'Medico Chirurgo — Specialista in Chirurgia Generale'}</span>
+                        <span className="pw-hero-titles-role">{site?.lang === 'en' ? 'Head of the Abdominal Wall Surgery Unit — ASST Santi Paolo e Carlo, Milan' : "Responsabile dell'Unità Operativa di Chirurgia della Parete Addominale — ASST Santi Paolo e Carlo, Milano"}</span>
                     </motion.div>
                     <MaskLines lines={splitLines(h1)} />
                     <motion.p
@@ -120,11 +129,11 @@ export default function HomePage() {
                         initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.4, delay: 0.38 }}
                     >
-                        <Link className="pw-btn pw-btn-solid" data-testid="hero-cta-therapy" to="/la-terapia-chirurgica/">
+                        <Link className="pw-btn pw-btn-solid" data-testid="hero-cta-therapy" to={toTherapy}>
                             {site?.lang === 'en' ? 'Surgical treatment' : 'La terapia chirurgica'}
                             <ArrowUpRight size={14} />
                         </Link>
-                        <Link className="pw-btn" data-testid="hero-cta-contact" to="/contatti/">
+                        <Link className="pw-btn" data-testid="hero-cta-contact" to={toContact}>
                             {ui.contact_cta}
                         </Link>
                     </motion.div>
@@ -133,7 +142,7 @@ export default function HomePage() {
 
             <div className="pw-marquee" aria-hidden="true" data-testid="home-marquee">
                 <div className="pw-marquee-track">
-                    {[...MARQUEE, ...MARQUEE].map((m, i) => <span key={i}>{m}</span>)}
+                    {[...marquee, ...marquee].map((m, i) => <span key={i}>{m}</span>)}
                 </div>
             </div>
 

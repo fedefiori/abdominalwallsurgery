@@ -99,6 +99,64 @@
       }
     ]
   },
-  "en": null,
+  "en": {
+    "h1": "Contact",
+    "metaTitle": "Contact | Abdominal Wall Surgery in Milan",
+    "metaDescription": "Dr. Federico Fiori sees patients at Fi Multicare, Galleria del Corso 4, 20122 Milano: phone +39 02 7602 1568, e-mail info@fimulticare.it, by appointment.",
+    "path": "/contact/",
+    "slug": "contact",
+    "blocks": [
+      {
+        "type": "ctaRow",
+        "items": [
+          { "icon": "phone", "label": "Call +39 02 7602 1568", "href": "tel:+390276021568" },
+          { "icon": "mail", "label": "Write to info@fimulticare.it", "href": "mailto:info@fimulticare.it" }
+        ]
+      },
+      { "type": "h2", "text": "Where is the practice?" },
+      {
+        "type": "p",
+        "html": "Dr. Federico Fiori sees patients by appointment at <strong>Fi Multicare — Multidisciplinary Medical Center</strong>, Galleria del Corso 4, 20122 Milano, a short walk from Piazza San Babila."
+      },
+      {
+        "type": "p",
+        "html": "His institutional surgical activity takes place at the Division of Emergency Surgery — General and Robotic Surgery — of ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital in Milan. His private practice surgical activity is carried out at private clinics in Milan."
+      },
+      {
+        "type": "contactList",
+        "items": [
+          { "icon": "map-pin", "label": "Address", "value": "Galleria del Corso 4, 20122 Milano", "href": "https://www.google.com/maps/search/?api=1&query=Galleria+del+Corso+4,+20122+Milano", "hrefLabel": "Open in Google Maps" },
+          { "icon": "phone", "label": "Phone", "value": "+39 02 7602 1568", "href": "tel:+390276021568" },
+          { "icon": "mail", "label": "E-mail", "value": "info@fimulticare.it", "href": "mailto:info@fimulticare.it" },
+          { "icon": "globe", "label": "Center website", "value": "fimulticare.it", "href": "https://www.fimulticare.it/" }
+        ]
+      },
+      {
+        "type": "p",
+        "html": "Before the visit it can help to read how <a href=\"/patient-prehabilitation-before-surgery/\">prehabilitation before surgery</a> works, the description of the <a href=\"/surgical-treatment/\">surgical treatment of the wall</a> and the profile of <a href=\"/about/\">Dr. Federico Fiori</a>."
+      }
+    ],
+    "kind": "contact",
+    "answer": "Dr. Federico Fiori sees patients by appointment at Fi Multicare — Multidisciplinary Medical Center, Galleria del Corso 4, 20122 Milano: phone +39 02 7602 1568, e-mail info@fimulticare.it. For the network's direct contact: info@federicofiori.com. The assessment covers hernias, incisional hernias and the other defects of the wall.",
+    "faq": [
+      {
+        "q": "Where is the practice and how do I book?",
+        "a": "Dr. Federico Fiori sees patients by appointment at Fi Multicare — Multidisciplinary Medical Center, Galleria del Corso 4, 20122 Milano, a short walk from Piazza San Babila. Phone +39 02 7602 1568, e-mail info@fimulticare.it."
+      },
+      {
+        "q": "Where does Dr. Fiori operate?",
+        "a": "His institutional surgical activity takes place at the Division of Emergency Surgery — General and Robotic Surgery — of ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital in Milan. His private practice surgical activity is carried out at private clinics in Milan."
+      },
+      {
+        "q": "What documents should I bring to the first visit?",
+        "a": "For the first visit it helps to bring an ID document, your tax code or health card, any investigations already performed (ultrasound, CT or MRI of the abdominal wall) and the records of any previous operations."
+      }
+    ],
+    "related": [
+      { "label": "Full curriculum on the hub", "href": "https://www.federicofiori.com/curriculum" },
+      { "label": "Surgical treatment", "href": "/surgical-treatment/" },
+      { "label": "Prehabilitation before surgery", "href": "/patient-prehabilitation-before-surgery/" }
+    ]
+  },
   "modified": "2026-10-04T10:00:00"
 }

@@ -11,7 +11,7 @@ import re
 import pytest
 import requests
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://chirurgia-test.preview.emergentagent.com").rstrip("/")
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://abdominal-wall-site.preview.emergentagent.com").rstrip("/")
 
 # Read token from backend/.env directly (source of truth)
 def _get_stats_token():

@@ -221,6 +221,63 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Imaging and radiology",
+  "metaTitle": "Imaging of the abdominal wall: ultrasound, CT and MRI",
+  "metaDescription": "Ultrasound, CT and MRI in the assessment of abdominal wall defects: what each investigation shows, its limits and when it is indispensable.",
+  "path": "/imaging-and-radiology/",
+  "slug": "imaging-and-radiology",
+  "blocks": [
+   { "type": "h2", "text": "Which investigations are needed before operating on the wall?" },
+   { "type": "table", "html": "<table><thead><tr><th>Investigation</th><th>What it shows</th><th>When it is requested</th></tr></thead><tbody><tr><td>Ultrasound</td><td>Skin, subcutaneous and muscle planes, linea alba, hernia orifices, rectus diastasis</td><td>First-line imaging; dynamic, no radiation and no preparation</td></tr><tr><td>CT</td><td>Panoramic view of the wall, reproducible measurement of defects</td><td>Second line, on specialist indication, for complex defects</td></tr><tr><td>MRI</td><td>Like CT, without ionising radiation</td><td>Second line, on specialist indication</td></tr></tbody></table><p class=\"pw-table-caption\">Imaging in the assessment of the abdominal wall.</p>" },
+   { "type": "p", "html": "Imaging in the assessment of the <a href=\"/abdominal-wall-anatomy-and-abdominal-core/\">abdominal wall</a> has become increasingly important in recent years, and the available indications and methods are expanding to give the clinician the maximum information for ever more detailed treatment planning." },
+   { "type": "p", "html": "In patients who have already been operated on, imaging can be useful to identify acute/subacute complications as well as to look for any recurrences." },
+   { "type": "p", "html": "From this comes the need for constant collaboration between specialists: the radiologist better defines his role by engaging with the surgeon's questions, and the competence of each grows from teamwork." },
+   { "type": "p", "html": "Which methods are used to assess the abdominal wall?" },
+   { "type": "img", "src": "/api/media/ecografia-addominale.webp", "alt": "Ultrasound examination of the abdomen to study the wall", "caption": "Ultrasound examination of the abdomen to study the wall", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "p", "html": "Ultrasound is the first-line imaging method for assessing the skin, subcutaneous and muscle planes, and is widely validated for its excellent diagnostic capabilities in musculoskeletal and osteoarticular conditions." },
+   { "type": "p", "html": "Ultrasound is therefore today the most widely available method in the assessment of the abdominal wall and serves as the first-level investigation for the instrumental diagnosis of <a href=\"/abdominal-wall-defects-and-classification/\">wall defects</a> (diastasis, hernias, incisional hernias)." },
+   { "type": "p", "html": "Ultrasound can also be useful in the postoperative assessment after laparotomy or endoscopic/laparoscopic abdominal surgery, both for any acute/subacute complications (haematomas, seromas) and for the diagnosis of recurrent diastasis/hernia." },
+   { "type": "p", "html": "Ultrasound has no contraindications, allows direct study of the superficial planes without the need for preparation and in a completely <b>non-invasive</b>, that is harmless, way." },
+   { "type": "p", "html": "Availability of the equipment, the non-invasiveness of the method, its <b>simplicity</b> and <b>speed</b> with good technical image quality, and its <b>limited cost</b> are undoubtedly the main advantages." },
+   { "type": "p", "html": "On the other hand, ultrasound has intrinsic <b>limits</b>." },
+   { "type": "p", "html": "First, it is <b>operator-dependent</b>, with consequent variability of results between different operators. In this respect the operator's experience plays a fundamental role, bringing greater reliability and reproducibility of the method with measurements comparable to CT and MRI." },
+   { "type": "p", "html": "The reliability of ultrasound depends on the operator: it must be performed by someone who knows the abdominal wall." },
+   { "type": "img", "src": "/api/media/ecografia-sicura.webp", "alt": "Abdominal ultrasound, a non-invasive examination without radiation", "caption": "Abdominal ultrasound, a non-invasive examination without radiation", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "img", "src": "/api/media/ecografia-parete-addominale-01.webp", "alt": "Ultrasound of the abdominal wall in the clinic", "caption": "Ultrasound of the abdominal wall in the clinic", "width": 800, "height": 343, "kind": "photo" },
+   { "type": "p", "html": "A further drawback of ultrasound is that it is <strong>poorly panoramic</strong>; this limits the precise assessment of larger wall defects. In fact the dimensions of the ultrasound probe represent roughly the maximum size that can be measured. Since the linear probe normally has a length of about 5–5.5 cm, the maximum measurements are around that value. It can therefore be difficult to quantify diastasis greater than 5.5 cm precisely. In these situations various workarounds are used, which however give more approximate measurements." },
+   { "type": "p", "html": "Technically, high-frequency linear probes (about 10–18 MHz) with excellent spatial resolution (measurements down to a tenth of a millimetre) are used." },
+   { "type": "p", "html": "The examination is generally performed with the patient supine, but the method adapts to dynamic situations, allowing study also while standing or during wall contraction (Valsalva manoeuvre)." },
+   { "type": "p", "html": "With ultrasound it is possible to visualise the linea alba, assess its integrity by highlighting any gaps (hernia orifices), and measure the width of the linea alba along its entire longitudinal extent from the xiphoid process to the pubis." },
+   { "type": "p", "html": "This allows a fairly precise representation of the distance between the rectus muscles at the different levels, tracing a sort of map that defines the shape of any diastasis as well as its maximum width." },
+   { "type": "p", "html": "At the umbilical site the greatest attention must be paid to demonstrating any hernia sacs, measuring the width of the orifice and the content of the sac, which at this site usually consists of properitoneal fat but, in the case of larger hernias, may also include bowel loops." },
+   { "type": "img", "src": "/api/media/ecografia-parete-addominale-01-1.webp", "alt": "Ultrasound of the abdominal wall in the clinic", "caption": "Ultrasound of the abdominal wall in the clinic", "width": 800, "height": 516, "kind": "photo" },
+   { "type": "p", "html": "Ultrasound: umbilical hernia with fatty content" },
+   { "type": "img", "src": "/api/media/ecografia-parete-addominale-02.webp", "alt": "Ultrasound of the abdominal wall in the clinic", "caption": "Ultrasound of the abdominal wall in the clinic", "width": 800, "height": 800, "kind": "photo" },
+   { "type": "p", "html": "Further hernia orifices are possible along the linea alba, mostly in the epi-mesogastric region, sometimes in association with an umbilical hernia." },
+   { "type": "p", "html": "Dynamic and standing manoeuvres are useful for diagnostic confirmation and to define a reducible hernia. Where there is clinical suspicion, ultrasound is also suited to confirming the diagnosis of inguinal hernias and of the rarer Spigelian hernias." },
+   { "type": "p", "html": "With ultrasound it is possible to assess the muscles of the abdominal wall (the rectus muscle and the flat muscles: external oblique, internal oblique and transversus): any asymmetries or muscle lesions can be shown, but above all the trophism of the wall can be estimated — data that proves important for planning the <a href=\"/surgical-treatment/\">surgical treatment of the wall</a> and for understanding the pathophysiological concept of the abdominal wall as an organ." },
+   { "type": "p", "html": "Loss of trophism (that is, of muscle mass) usually translates into thinning of the muscle bellies (particularly the rectus muscles) and lengthening of the muscle planes (particularly the flat muscles), which leads to an increase in abdominal circumference." },
+   { "type": "h2", "text": "What does the surgeon look for in CT and MRI?" },
+   { "type": "p", "html": "The second-level methods for studying the wall are CT and MRI.<br/>These use heavy machines and therefore have higher costs and lower availability on the territory.<br/>They are usually reserved for studying the contents of the abdomen and thus the more \"noble\" conditions." },
+   { "type": "img", "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale-01.webp", "alt": "CT of the abdominal wall for the assessment of defects", "caption": "CT of the abdominal wall for the assessment of defects", "width": 800, "height": 672, "kind": "photo" },
+   { "type": "p", "html": "The measurements obtained with CT/MRI are less operator-dependent and more easily reproducible, which is certainly an advantage, as is the fact that these methods are intrinsically more panoramic, suited to measuring very large wall defects. For this reason they are usually requested by surgeons for more complex and extensive wall problems such as incisional hernias/large hernias or large postsurgical collections." },
+   { "type": "p", "html": "However, there are some disadvantages. In particular they are non-dynamic methods: unlike ultrasound, they cannot be performed while standing or under strain (Valsalva manoeuvre)." },
+   { "type": "p", "html": "They are also more expensive and less available on the territory, with longer waiting times for an appointment, and this is especially true for MRI. For CT, which is relatively more available, there is the major disadvantage of being a method that uses ionising radiation and is therefore not harmless, so it is indicated only when there is an adequate risk/benefit ratio." },
+   { "type": "p", "html": "For all these reasons it is reasonable to conclude that the indication for CT/MRI should remain a specialist matter: it is the surgeon who decides the need and chooses the timing. By contrast, ultrasound also allows self-prescription (in the sense that the suspicion of diastasis is enough to decide to do the examination), provided one has the care to choose a competent centre for a good ultrasound!" },
+   { "type": "img", "src": "/api/media/tc-e-rm-nella-valutazione-della-parete-addominale-02.webp", "alt": "CT of the abdominal wall for the assessment of defects", "caption": "CT of the abdominal wall for the assessment of defects", "width": 800, "height": 681, "kind": "photo" }
+  ],
+  "kind": "clinical",
+  "answer": "In abdominal wall surgery, imaging serves two purposes: measuring the defect before surgery and recognising complications afterwards. Ultrasound is the first-level investigation, available and repeatable; CT is used when the defect is large or recurrent and must be planned; MRI is reserved for cases where soft tissues matter.",
+  "faq": [
+   { "q": "What is ultrasound of the abdominal wall for?", "a": "Ultrasound is the first-line imaging method for assessing the skin, subcutaneous and muscle planes, and is widely validated for its excellent diagnostic capabilities in musculoskeletal and osteoarticular conditions." },
+   { "q": "What are the limits of ultrasound in the abdominal wall?", "a": "First, it is operator-dependent, with consequent variability of results between different operators. The operator's experience plays a fundamental role, bringing greater reliability and reproducibility with measurements comparable to CT and MRI." }
+  ],
+  "related": [
+   { "label": "Symptoms and complications", "href": "/symptoms-and-complications/" },
+   { "label": "Abdominal wall defects and classification", "href": "/abdominal-wall-defects-and-classification/" },
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" }
+  ]
+ },
  "modified": "2026-09-16T10:00:00"
 }

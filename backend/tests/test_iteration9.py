@@ -4,7 +4,7 @@ import re
 import requests
 import pytest
 
-BASE = os.environ.get("REACT_APP_BACKEND_URL", "https://chirurgia-test.preview.emergentagent.com").rstrip("/")
+BASE = os.environ.get("REACT_APP_BACKEND_URL", "https://abdominal-wall-site.preview.emergentagent.com").rstrip("/")
 
 
 @pytest.fixture(scope="module")

@@ -145,6 +145,140 @@
       }
     ]
   },
-  "en": null,
+  "en": {
+    "h1": "Abdominal Wall Surgery",
+    "metaTitle": "Abdominal Wall Surgery | Dr. Federico Fiori",
+    "metaDescription": "Hernias, incisional hernias and abdominal wall defects: diagnosis, classification and reconstructive surgery in Milan with Dr. Federico Fiori. Information and contact.",
+    "blocks": [
+      {
+        "type": "p",
+        "html": "Abdominal wall surgery is now a super-specialized branch of general surgery. A thorough knowledge of the anatomy and a precise understanding of the pathophysiology make it possible to approach this very heterogeneous field with different operative techniques, chosen to get the best result for the patient. Defects range from small umbilical hernias to complex wall disasters, and the options span open, laparoscopic and endoscopic surgery through to the robotic approach. As always, it is the correct indication that makes the good surgeon and determines the result."
+      },
+      {
+        "type": "p",
+        "html": "For this reason it helps to set out which defects affect the abdominal wall, why imaging matters, which surgical options exist, and the role of pre- and rehabilitation and of the related treatments that improve the overall outcome. This site focuses on the anterior abdominal wall and leaves aside the groin region, for which dedicated resources already exist, touching on it only to present some minimally invasive techniques."
+      },
+      {
+        "type": "ul",
+        "ordered": false,
+        "items": [
+          "<a href=\"/patient-prehabilitation-before-surgery/\">Patient prehabilitation before surgery</a>",
+          "<a href=\"/surgical-treatment/\">Surgical treatment</a>",
+          "<a href=\"https://www.diastasisandbeyond.com\" target=\"_blank\" rel=\"noopener\">Rectus diastasis (dedicated site)</a>",
+          "<a href=\"/meshes-and-the-plane-of-placement/\">Meshes and the plane of placement</a>",
+          "<a href=\"/surgical-complications-and-vac-therapy/\">Surgical complications and VAC therapy</a>"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "What is this site about?"
+      },
+      {
+        "type": "p",
+        "html": "This is the English vertical site on abdominal wall surgery by Dr. Federico Fiori: it explains the anatomy of the wall, the classification of defects, the symptoms, the investigations and the repair techniques, with the surgeon's clinical text and the educational articles of the federicofiori.com editorial network."
+      },
+      {
+        "type": "img",
+        "src": "/api/media/strati-della-parete.webp",
+        "alt": "Exploded diagram of the layers of the abdominal wall seen from the side: skin, fat, fasciae, rectus muscles and peritoneum as parallel planes",
+        "caption": "The layers of the abdominal wall, from the superficial plane to the peritoneum.",
+        "kind": "schema",
+        "width": 1024,
+        "height": 1024
+      },
+      {
+        "type": "p",
+        "html": "Each topic in the network has its own reference site: rectus diastasis is covered in full on diastasisandbeyond.com, while the curriculum, the TESAR technique, the MILA technique and the glossary live on the federicofiori.com hub. Everything you need to understand hernias and incisional hernias, and to come prepared to the consultation, stays here."
+      },
+      {
+        "type": "h3",
+        "text": "Hernias and primary wall defects"
+      },
+      {
+        "type": "p",
+        "html": "A hernia is the protrusion of a viscus or tissue through a weak point in the abdominal wall: epigastric, umbilical or Spigelian. Locations, labels and sizes are on the page about the <a href=\"/abdominal-wall-defects-and-classification/\">classification of abdominal wall defects</a>."
+      },
+      {
+        "type": "h3",
+        "text": "Incisional hernia: the hernia on a scar"
+      },
+      {
+        "type": "p",
+        "html": "An incisional hernia, or laparocele, is the defect that appears on the scar of a previous abdominal operation. How to recognise it and when it becomes urgent is explained on the <a href=\"/symptoms-and-complications/\">symptoms and complications</a> page."
+      },
+      {
+        "type": "h3",
+        "text": "Prehabilitation before surgery"
+      },
+      {
+        "type": "p",
+        "html": "Prehabilitation is the clinical preparation in the weeks before surgery: weight, blood glucose, smoking, nutrition and exercise. The path is described on the <a href=\"/patient-prehabilitation-before-surgery/\">patient prehabilitation</a> page."
+      },
+      {
+        "type": "h2",
+        "text": "How do you get to surgery?"
+      },
+      {
+        "type": "ul",
+        "ordered": true,
+        "items": [
+          "The <strong>specialist assessment</strong> in the clinic, with the clinical examination of the wall: you can book it from the <a href=\"/contact/\">contact</a> page.",
+          "<strong>Imaging</strong> — ultrasound, CT or MRI — when the defect needs to be measured: the investigations are described on the <a href=\"/imaging-and-radiology/\">abdominal wall imaging</a> page.",
+          "<strong>Prehabilitation</strong>, when the picture calls for it, to reach surgery in the best possible condition.",
+          "The <strong>operation</strong> with the technique chosen for the individual patient: the techniques are on the <a href=\"/surgical-treatment/\">surgical treatment</a> page."
+        ]
+      },
+      {
+        "type": "img",
+        "src": "/api/media/chirurgo-sala-operatoria.webp",
+        "alt": "Surgeon in the operating room during an abdominal wall procedure, schematic illustration",
+        "caption": "The operation is planned for the individual patient, from assessment to the operating room.",
+        "kind": "schema",
+        "width": 1200,
+        "height": 896
+      },
+      {
+        "type": "h2",
+        "text": "Why is the wall assessed together with the shape of the abdomen?"
+      },
+      {
+        "type": "img",
+        "src": "/api/media/approccio-morfofunzionale.webp",
+        "alt": "The structure of the wall and the profile of the abdomen merged into a single schematic drawing",
+        "caption": "Structure and shape of the abdomen are the same structure seen from two sides.",
+        "kind": "schema",
+        "width": 1200,
+        "height": 896
+      },
+      {
+        "type": "p",
+        "html": "In the abdominal wall, structure and appearance are not two separate problems: they are the same structure seen from two sides. A defect that is well closed but leaves an abdomen the patient does not recognise is only half a result, and a correct profile over a wall that remains weak does not last. For this reason the assessment keeps three things together: the musculo-aponeurotic defect, the covering tissues and the person's everyday movements."
+      },
+      {
+        "type": "p",
+        "html": "This is the criterion behind the indications described on these pages. The method, with its principles and its limits, is explained in full on the network hub: <a href=\"https://www.federicofiori.com\" target=\"_blank\" rel=\"noopener\">federicofiori.com</a>."
+      }
+    ],
+    "kind": "home",
+    "answer": "Abdominal wall surgery is the branch of general surgery that repairs defects of the wall: hernias, incisional hernias and rectus diastasis. This site, authored by Dr. Federico Fiori, explains anatomy, classifications, symptoms, investigations and repair techniques.",
+    "faq": [
+      {
+        "q": "What is this site about?",
+        "a": "This is the English vertical site on abdominal wall surgery by Dr. Federico Fiori: it explains the anatomy of the wall, the classification of defects, the symptoms, the investigations and the repair techniques, with the surgeon's clinical text and the educational articles of the federicofiori.com editorial network."
+      },
+      {
+        "q": "What is prehabilitation?",
+        "a": "Prehabilitation is the clinical preparation in the weeks before surgery: weight, blood glucose, smoking, nutrition and exercise."
+      },
+      {
+        "q": "Where does Dr. Fiori practice?",
+        "a": "By appointment at Fi Multicare — Multidisciplinary Medical Center, Galleria del Corso 4, 20122 Milano. Phone +39 02 7602 1568, e-mail info@fimulticare.it."
+      },
+      {
+        "q": "What is an incisional hernia?",
+        "a": "An incisional hernia, or laparocele, is the defect that appears on the scar of a previous abdominal operation."
+      }
+    ]
+  },
   "modified": "2026-10-04T10:00:00"
 }

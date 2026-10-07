@@ -199,7 +199,7 @@ robots.txt mai Disallow:/; noindex fuori dominio; stats di rete protette; llms.t
   enfatiche ("centinaia di interventi", "originale"). Nav: "Chi sono" → "Il dott. Fiori". AuthorBox:
   "Dove ricevo" → "Dove riceve". Nessun testo autocelebrativo residuo (scansione su tutti i JSON).
 - Test: test_reports/iteration_1.json — 100% backend/frontend, 0 bug, 0 errori console.
-- NOTA preview URL valido: https://chirurgia-test.preview.emergentagent.com (da REACT_APP_BACKEND_URL).
+- NOTA preview URL valido: https://abdominal-wall-site.preview.emergentagent.com (da REACT_APP_BACKEND_URL).
 
 
 ## Iterazione 18/09/2026 (giro hub 3: punti 13-14)
@@ -654,3 +654,34 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   invio sitemap a Search Console/Bing (account del Dottore: sitemap
   https://www.chirurgiadellaparete.it/sitemap.xml), video hero (file dal Dottore),
   parere H1 home = nome sito (in attesa).
+
+## Gemello inglese abdominalwallsurgery.com — build (07/10/2026)
+- Questo job/preview è ora il sito EN: backend/.env SITE_KEY=parete_en, SITE_LANG=en,
+  SITE_DOMAIN=https://www.abdominalwallsurgery.com, CANONICAL_HOSTS aggiornati, EMAIL_FROM_NAME
+  "Abdominal Wall Surgery - Dr. Federico Fiori". Il sito IT resta sul suo deployment separato.
+- Path per-lingua: ogni blocco "en" dei JSON ha "slug"+"path" inglesi; server.py helper page_path/
+  page_urlslug; get_page risolve per url-slug; routes/sitemap/prerender/llms usano il path di lingua.
+  seo_render: active_path(), kind da lang, author_box/network_html/llms_txt in EN, base_css() con
+  override accento lime per i crawler, menu_html usa active_path (fix /videos/ /about/ /contact/).
+- 16 pagine EN: home, 9 capitoli (anatomy, defects&classification, symptoms&complications,
+  imaging&radiology, rectus-diastasis[NEW stub→diastasisandbeyond], surgical-treatment, meshes,
+  complications&VAC, prehabilitation), about[NEW], contact, videos, privacy, cookie. Articoli: 2 EN
+  dall'hub via syndication parete_en (serviti, non tradotti qui). ARTICLE_RELATED EN aggiunta.
+- Visual: logo AWS inline SVG (quadrato nero, "AWS" lime+bianco) + "Abdominal Wall Surgery / Dr.
+  Federico Fiori"; accento LIME due toni (light #4F7A0B, dark #B6E23D) via html[lang=en] in index.css;
+  marquee lime testo scuro; footer/nav/hero/marquee/ContactForm EN (reason values invariati).
+- SEO verificato (Googlebot): canonical self assoluto www, robots index/follow max-snippet:-1,
+  og:locale en_US, MedicalWebPage+author/reviewedBy @id hub, menu in <header>, sitemap 18 URL,
+  0 hreflang (regola 10: niente hreflang finché IT non è live), llms.txt EN, robots allow-list AI.
+- DEVIAZIONI/da verificare: privacy/cookie EN sono versione concisa adattata (NON traduzione verbatim
+  del testo legale IT) — far validare testo ufficiale; OG images ancora azzurre (da rigenerare lime);
+  favicon ancora PNG CP; link hub EN /en/tesar-technique e /en/videos assunti dal brief (verificare che
+  risolvano); morpho-functional/MILA puntano all'hub root per evitare link morti; language switcher IT↔EN
+  NON aggiunto (dominio IT non ancora live). testing_agent NON eseguito (collaudo via curl+screenshot).
+
+
+### 2026-10-07 — Accento LIME FLUO (richiesta utente)
+- Accento EN passato a verde lime fluo #7DF542 (light+dark): barre, bordi, marquee, selezione, logo AWS
+  (stroke + lettere A/S), bottoni pieni (testo quasi-nero #0C0A09, hover #9BFF66), play video.
+- Su crema i testi piccoli/link restano verde scuro #2E6B0B (~6:1) per leggibilità; in dark tutto fluo.
+- seo_render.EN_ACCENT_CSS allineato. Verificato con screenshot 1440 + 390 (light/dark).

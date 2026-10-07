@@ -642,6 +642,122 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Abdominal wall anatomy and the abdominal core",
+  "metaTitle": "Abdominal wall anatomy and the abdominal core | Fiori",
+  "metaDescription": "Rectus, oblique and transversus muscles and the linea alba: the anatomy of the abdominal wall explained in detail to understand hernias, incisional hernias and their repair.",
+  "path": "/abdominal-wall-anatomy-and-abdominal-core/",
+  "slug": "abdominal-wall-anatomy-and-abdominal-core",
+  "blocks": [
+   { "type": "h2", "text": "How is the abdominal wall built?" },
+   { "type": "p", "html": "To understand the <a href=\"/abdominal-wall-defects-and-classification/\">defects of the abdominal wall</a> and the <a href=\"/meshes-and-the-plane-of-placement/\">planes of mesh placement</a>, we must first understand its anatomy." },
+   { "type": "img", "src": "/api/media/strati-della-parete.webp", "alt": "Exploded diagram of the layers of the abdominal wall seen from the side: skin, fat, fasciae, rectus muscles and peritoneum as parallel bright planes", "caption": "The layers of the abdominal wall, from the superficial plane to the peritoneum.", "kind": "schema", "width": 1024, "height": 1024 },
+   { "type": "p", "html": "The main muscles of the anterior abdominal wall are the rectus abdominis, the internal and external oblique muscles, and the transversus abdominis. These muscles work together to provide stability and support to the abdominal wall. The rectus abdominis runs along the midline of the abdomen, while the internal and external obliques run diagonally along its sides. The transversus abdominis runs horizontally in the deepest part of the wall. These muscles are innervated by the spinal nerves and supplied by branches of the epigastric and intercostal arteries." },
+   { "type": "img", "src": "/api/media/muscolo-retto-addome.webp", "alt": "Anatomical model of the rectus abdominis muscle", "caption": "Anatomical model of the rectus abdominis muscle", "width": 800, "height": 1200, "kind": "schema" },
+   { "type": "h2", "text": "What is the rectus abdominis muscle?" },
+   { "type": "p", "html": "The rectus muscles run vertically from the superior ramus of the pubis to the xiphoid process and the cartilages of the 5th, 6th and 7th ribs." },
+   { "type": "p", "html": "Laterally their limit is the semilunar line, which defines the border with the oblique muscles. They have transverse tendinous intersections, usually three, that characterise them as polygastric muscles and that cross the midline (linea alba), dividing the muscles into several quadrangular segments (these are the segments clearly visible in particularly fit people with little fat, which make up the so-called six-pack). They are surrounded by the rectus sheath, formed by the fusion of the aponeuroses of the oblique and transversus muscles. The rectus sheath fuses in the midline to form the linea alba." },
+   { "type": "p", "html": "Innervation: the rectus abdominis muscles are innervated by the thoracic intercostal nerves T6-T12." },
+   { "type": "p", "html": "Vascular supply: the rectus muscles receive blood through branches of the superior and inferior epigastric arteries, which arise from the internal thoracic (internal mammary) artery. The corresponding veins drain the blood from the muscle." },
+   { "type": "p", "html": "Function: the rectus abdominis muscles are involved in anterior flexion of the trunk, mainly in flexion of the lumbar spine. They are responsible, for example, for bending forward or rising from a supine position." },
+   { "type": "h2", "text": "What is the external oblique muscle?" },
+   { "type": "p", "html": "The external oblique muscles arise from the outer surface of the last eight ribs, from the 5th to the 12th, and insert inferiorly on the iliac crests and the pubic tubercle." },
+   { "type": "p", "html": "Medially the fibres continue into a broad aponeurosis that contributes to the anterior rectus sheath and the linea alba, and inferiorly forms the inguinal ligament and the superficial inguinal ring." },
+   { "type": "p", "html": "Innervation: by the anterior branches of the thoracic intercostal nerves T7-T12, with a modest contribution from the iliohypogastric nerve (L1)." },
+   { "type": "p", "html": "Vascular supply: through branches of the epigastric arteries; the corresponding epigastric veins drain the returning blood." },
+   { "type": "p", "html": "Function: the external obliques are involved in flexion, lateral bending and rotation of the trunk. When both contract, they compress the abdomen and help raise intra-abdominal pressure, for example during coughing or effort." },
+   { "type": "h2", "text": "What is the internal oblique muscle?" },
+   { "type": "p", "html": "The internal oblique muscles lie deep to the external obliques and arise from the lateral third of the inguinal ligament, the anterior superior iliac spine and the thoracolumbar fascia. They run upwards and forwards in an ascending, fan-shaped course. Their fibres cross those of the external obliques perpendicularly and insert on the last three costal cartilages. Their aponeurosis splits and contributes medially to the anterior and posterior rectus sheath and the linea alba, and inferiorly inserts on the upper margin of the pubis to form the conjoint tendon (inguinal falx)." },
+   { "type": "p", "html": "Innervation: by the anterior branches of the thoracic intercostal nerves T7-T12, with a modest contribution from the iliohypogastric nerve (L1)." },
+   { "type": "p", "html": "Vascular supply: through branches of the epigastric arteries; the corresponding epigastric veins drain the blood." },
+   { "type": "p", "html": "Function: the internal obliques are involved in lateral bending and rotation of the trunk. When both contract, they produce a twisting effect of the chest on the abdominal organs." },
+   { "type": "img", "src": "/api/media/muscolo-obliquo-addome.webp", "alt": "Anatomical model of the internal oblique muscle", "caption": "Anatomical model of the internal oblique muscle", "width": 800, "height": 800, "kind": "schema" },
+   { "type": "h2", "text": "What is the transversus abdominis muscle?" },
+   { "type": "p", "html": "It is a deep muscle of the abdominal region, the deepest of the anterior abdominal wall. The transversus muscles arise from the 7th to the 12th costal cartilage, where they are related to the diaphragm, extend laterally to the thoracolumbar fascia, joining its deep layer, and insert inferiorly on the iliac crests and the lateral third of the inguinal ligament. Its aponeurosis contributes medially, in its upper portion, to the posterior rectus sheath and the linea alba. In its lower portion the aponeurosis, together with that of the internal oblique, forms the conjoint tendon ending on the upper margin of the pubis, the pubic tubercle and the pectineal line." },
+   { "type": "p", "html": "Innervation: by the intercostal (thoracic) nerves T7-T12, with a modest contribution from the iliohypogastric nerve (L1)." },
+   { "type": "p", "html": "Vascular supply: through branches of the inferior and superior epigastric arteries, branches of the internal thoracic (internal mammary) artery. The inferior epigastric vein drains the region." },
+   { "type": "p", "html": "Function: the main function of the transversus abdominis is to compress the abdominal viscera to provide stability and support to the spine. These muscles work synergistically with the other abdominal core muscles to maintain good posture and stabilise the trunk during everyday movements and physical activity. They also assist in flexion and rotation of the trunk and are involved in respiration, contracting to favour expiration and raise intra-abdominal pressure, supporting the diaphragm in correct respiratory mechanics." },
+   { "type": "h2", "text": "What is the abdominal core?" },
+   { "type": "p", "html": "The muscles of the anterior abdominal wall are part of a wider context that we call the abdominal core, or abdominal box (with the diaphragm): a large group of muscles that form a synergistic muscular system, working in unison. The abdominal core plays a fundamental role in maintaining posture, supporting the spine and stabilising the trunk during movement, and it helps transmit forces between the upper and lower body during activities such as lifting, rotation and functional movements." },
+   { "type": "p", "html": "A defect of the abdominal wall often entails a malfunction of the whole abdominal core, losing the synergy of function that characterises it." },
+   { "type": "p", "html": "Besides the muscles of the anterior abdominal wall, the abdominal core is made up of:" },
+   { "type": "img", "src": "/api/media/abdominal-core.webp", "alt": "Anatomical model representing the abdominal core", "caption": "Anatomical model representing the abdominal core", "width": 800, "height": 800, "kind": "schema" },
+   { "type": "h2", "text": "What is the quadratus lumborum muscle?" },
+   { "type": "p", "html": "It is a muscle located in the posterior and lateral region of the abdomen, involved in stabilising and moving the lumbar spine. Its bony attachments are on the posterior part of the ilium (iliac crest) and on the transverse processes of the fourth and fifth lumbar vertebrae." },
+   { "type": "p", "html": "Innervation: by the dorsal branches of the thoracic spinal nerves (T12-L4) and the ventral branches of the lumbar spinal nerves (L1-L3). Vascular supply: through branches of the lumbar arteries." },
+   { "type": "p", "html": "Function: to stabilise the lumbar spine during trunk movement. When the quadratus lumborum on both sides contract simultaneously, they raise intra-abdominal pressure, supporting the lumbar spine. It can also be involved in lateral flexion of the trunk on one side, contributing to lateral flexion and contralateral rotation of the trunk." },
+   { "type": "h2", "text": "Which are the pelvic floor muscles?" },
+   { "type": "p", "html": "They are a group of muscles in the lower part of the pelvis. The main pelvic floor muscles are the levator ani, the coccygeus, the pubococcygeus, the iliococcygeus, the puborectalis and the anococcygeus. These muscles insert on various bones of the pelvic area, including the sacrum, coccyx, ischium, pubis and pubic rami, adapting to the underlying bony structure to support and control the pelvic organs." },
+   { "type": "p", "html": "Innervation is provided by the nerves of the sacral plexus, including the pudendal nerve, the nerve to the levator ani and the perineal nerves. Vascular supply comes from several arteries, including the internal pudendal, the inferior gluteal and the middle rectal artery." },
+   { "type": "p", "html": "Function: they support the pelvic organs, control the sphincters and provide support during micturition, defecation and, in women, childbirth." },
+   { "type": "h2", "text": "Which hip muscles complete the abdominal core?" },
+   { "type": "p", "html": "Also known as the gluteal muscles, they are a group of muscles in the buttock region." },
+   { "type": "p", "html": "<strong>Gluteus maximus</strong>: arises from the iliac crest, the lateral surface of the ilium, the posterior surface of the sacrum, the coccyx and the lumbodorsal fascia; it inserts on the gluteal tuberosity of the femur." },
+   { "type": "p", "html": "<strong>Gluteus medius</strong>: arises from the gluteal fascia, the iliac crest, the hip bone and the posterior superior iliac spine. It inserts on the outer surface of the greater trochanter of the femur." },
+   { "type": "p", "html": "<strong>Gluteus minimus</strong>: arises from the outer surface of the ilium and the iliac crest. Its fibres converge downwards and insert on the anterior surface of the greater trochanter." },
+   { "type": "p", "html": "Innervation: mainly by the superior and inferior gluteal nerves, allowing extension, flexion, abduction and rotation of the hip. Vascular supply: mainly by the superior and inferior gluteal arteries." },
+   { "type": "img", "src": "/api/media/muscoli-paravertebrali.webp", "alt": "Anatomical model of the paravertebral muscles", "caption": "Anatomical model of the paravertebral muscles", "width": 800, "height": 800, "kind": "schema" },
+   { "type": "h2", "text": "What are the paravertebral muscles?" },
+   { "type": "p", "html": "Also called the deep spinal muscles, they are a group of muscles along the vertebral column, including the erector spinae, the iliocostalis, the longissimus and the semispinalis. They insert mainly on various vertebrae (spinous, transverse and costal processes); their multilayer arrangement contributes to extension, lateral flexion and rotation of the spine." },
+   { "type": "p", "html": "Innervation: by the posterior branches of the spinal nerves. Vascular supply: by branches of the spinal, intercostal and lumbar arteries." },
+   { "type": "p", "html": "Function: together with the pelvic floor and hip muscles, these muscle groups ensure correct support, movement and control of the pelvis and spine. If we add the diaphragm to these muscles we speak of the abdominal box, since this muscle closes the top of this muscular \"box\" that works as a true synergistic system." },
+   { "type": "h2", "text": "What role does the diaphragm play in abdominal pressure?" },
+   { "type": "p", "html": "Although not traditionally considered a core muscle, the diaphragm plays an important role in respiration and works in coordination with the core muscles during many activities. It is a dome-shaped muscle located between the thoracic and abdominal cavities." },
+   { "type": "ul", "ordered": false, "items": [
+     "<b>Sternal</b> part: inserts on the xiphoid process of the sternum.",
+     "<b>Costal</b> part: inserts on the cartilages of the last six ribs.",
+     "<b>Lumbar</b> part: inserts on the first and second lumbar vertebrae via the crura of the diaphragm; the right crus is generally longer and inserts higher than the left."
+   ] },
+   { "type": "p", "html": "Vascular supply: mainly from the inferior phrenic arteries (from the abdominal aorta) and the superior phrenic arteries (from the internal thoracic artery); venous drainage through the homologous veins. Innervation: motor from the phrenic nerves (C3, C4, C5); peripheral sensory also from the phrenic nerves, central sensory from the lower intercostal nerves." },
+   { "type": "ul", "ordered": false, "items": [
+     "<b>Respiratory</b>: on inspiration the diaphragm contracts and descends, increasing the volume of the thoracic cavity and lowering intrathoracic pressure so that air enters the lungs. On expiration it relaxes and returns to its position, helping push air out.",
+     "<b>In swallowing and coughing</b>: it takes part by raising abdominal pressure.",
+     "<b>In the Valsalva and Müller manoeuvres</b>: it increases intra-abdominal pressure."
+   ] },
+   { "type": "h2", "text": "What functions does the abdominal core have?" },
+   { "type": "p", "html": "The core acts as a central point for the transmission of forces in the body. Stabilisation: it provides stability to the spine, pelvis and surrounding joints. Movement: it contributes to flexion, extension, lateral flexion and rotation of the trunk. Support: it supports and protects the internal organs and keeps the pelvic organs in place. Respiration: the core muscles, especially the diaphragm, play an important role in breathing, particularly during exercise." },
+   { "type": "p", "html": "A strong core is vital for good posture and efficient movement, and can help prevent injuries to the back and other parts of the body. In physiotherapy, core exercises are often used to treat and prevent musculoskeletal problems, improve balance and agility, and enhance performance in many sports." },
+   { "type": "h2", "text": "What are the anatomical landmarks of the abdominal wall?" },
+   { "type": "p", "html": "Linea alba" },
+   { "type": "ul", "ordered": false, "items": [
+     "<strong>Location: a fibrous structure running along the midline of the abdomen, from the xiphoid to the pubic bone.</strong>",
+     "<strong>Composition: dense connective tissue and collagen fibres.</strong>",
+     "<strong>Function: it serves as the insertion site for the abdominal muscles, joining the rectus muscles of both sides.</strong>"
+   ] },
+   { "type": "p", "html": "Semilunar line" },
+   { "type": "ul", "ordered": false, "items": [
+     "<strong>Location: lateral to the linea alba, it is the lateral border of the rectus sheath.</strong>",
+     "<strong>Composition: formed by the fusion of the aponeuroses of the oblique and transversus muscles.</strong>",
+     "<strong>Function: it defines the lateral margin of the rectus abdominis and is fundamental in defining the anatomy of the wall.</strong>"
+   ] },
+   { "type": "p", "html": "Arcuate line" },
+   { "type": "p", "html": "<strong>The arcuate line is a curved margin at the level of the posterior rectus sheath, located roughly midway between the umbilicus and the pubis. It marks the transition where the posterior aponeurosis of the transversus abdominis passes anterior to the rectus muscle.</strong>" },
+   { "type": "p", "html": "Space of Retzius" },
+   { "type": "ul", "ordered": false, "items": [
+     "<strong>Location: behind the pubic symphysis and in front of the urinary bladder, in the lower abdomen.</strong>",
+     "<strong>Composition: a potential space filled with fat and loose connective tissue.</strong>",
+     "<strong>Function: important in surgery, especially during prostate or bladder operations, as a dissection plane; its understanding is also key in assessing pelvic trauma and bleeding.</strong>"
+   ] },
+   { "type": "img", "src": "/api/media/riferimenti-anatomici-parete-addominale.webp", "alt": "Anatomical landmarks of the abdominal wall", "caption": "Anatomical landmarks of the abdominal wall", "width": 800, "height": 1212, "kind": "schema" }
+  ],
+  "kind": "clinical",
+  "answer": "The anterior abdominal wall is made of skin, fat, fasciae, four pairs of muscles and peritoneum, with the linea alba at the centre. Knowing these layers is the basis for understanding where hernias and incisional hernias open, how they are classified and in which plane the mesh that repairs them is placed.",
+  "faq": [
+   { "q": "What are the main muscles of the abdominal wall?", "a": "The main muscles of the anterior abdominal wall are the rectus abdominis, the internal and external obliques, and the transversus abdominis. They work together to provide stability and support; the rectus runs along the midline, the obliques diagonally along the sides and the transversus horizontally in the deepest plane." },
+   { "q": "What is the abdominal core?", "a": "The abdominal core is the synergistic group of muscles — the wall muscles with the diaphragm, pelvic floor, hip and paravertebral muscles — that maintain posture, support the spine and stabilise the trunk during movement and breathing." },
+   { "q": "What is the linea alba?", "a": "The linea alba is the fibrous midline band of dense connective tissue that joins the rectus muscles of both sides, running from the xiphoid to the pubis. The rectus sheath, formed by the oblique and transversus aponeuroses, fuses in the midline to form it." },
+   { "q": "Why does anatomy matter for understanding hernias and incisional hernias?", "a": "To understand the defects of the abdominal wall we must first understand its anatomy." }
+  ],
+  "related": [
+   { "label": "Abdominal wall defects and classification", "href": "/abdominal-wall-defects-and-classification/" },
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" },
+   { "label": "Meshes and the plane of placement", "href": "/meshes-and-the-plane-of-placement/" }
+  ],
+  "fonti": [
+   { "label": "European Hernia Society — classification of primary and incisional wall hernias (Muysoms et al., Hernia 2009)", "href": "https://pubmed.ncbi.nlm.nih.gov/19495920/" },
+   { "label": "European Hernia Society (EHS)", "href": "https://europeanherniasociety.eu/" },
+   { "label": "ISHAWS — Italian Society of Hernia and Abdominal Wall Surgery", "href": "https://www.ishaws.it/" }
+  ]
+ },
  "modified": "2026-09-19T10:00:00"
 }

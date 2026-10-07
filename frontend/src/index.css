@@ -880,3 +880,40 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-net-contacts { margin-top: 1.5rem; }
 .pw-net-contacts p { margin: 0 0 .9rem; }
 .pw-net-contacts a { word-break: break-all; }
+
+/* ===================== Gemello inglese: accento LIME (due toni) ===================== */
+html[lang="en"] {
+    --accent: #7DF542;         /* lime fluo: grafica, barre, sfondi */
+    --accent-soft: #A8FA7E;
+    --accent-btn: #7DF542;     /* bottoni fluo con testo quasi-nero: ~14:1 */
+    --accent-ink: #2E6B0B;     /* testo piccolo su crema: ~6:1 */
+    --signal: #2E6B0B;
+    --signal-on-deep: #7DF542; /* fluo su fasce scure */
+    --on-deep: #7DF542;
+}
+html[lang="en"][data-theme="dark"] {
+    --accent: #7DF542;
+    --accent-soft: #7DF542;
+    --accent-btn: #7DF542;
+    --accent-ink: #7DF542;
+    --signal: #7DF542;
+    --signal-on-deep: #7DF542;
+    --on-deep: #7DF542;
+}
+/* bottoni pieni fluo: testo quasi-nero */
+html[lang="en"] .pw-btn-solid, html[lang="en"] .pw-content a.pw-cta.solid, html[lang="en"][data-theme] .pw-cta.solid { color: #0C0A09; text-decoration: none; }
+html[lang="en"] .pw-btn-solid:hover, html[lang="en"] .pw-content a.pw-cta.solid:hover, html[lang="en"][data-theme] .pw-cta.solid:hover { background: #9BFF66; border-color: #9BFF66; color: #0C0A09; }
+/* su crema il fluo resta grafica: i testi usano il verde scuro */
+html[lang="en"] .pw-video-play { color: #0C0A09; }
+html[lang="en"] a:hover { color: var(--accent-ink); }
+html[lang="en"] .pw-form-error, html[lang="en"] .pw-contact-phone svg { color: var(--accent-ink); }
+/* marquee: fascia lime piena con testo quasi-nero (contrasto alto in entrambi i temi) */
+html[lang="en"] .pw-marquee { background: #7DF542; }
+html[lang="en"] .pw-marquee span { color: #0C0A09; }
+html[lang="en"] .pw-marquee span::after { background: #0C0A09; }
+html[lang="en"] ::selection { background: #7DF542; color: #0C0A09; }
+/* lockup AWS: nome del sito accanto al monogramma */
+.pw-brand-textblock { display: flex; flex-direction: column; line-height: 1.1; }
+.pw-brand-name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--text); letter-spacing: -0.01em; }
+html[lang="en"] .pw-brand-logo { border: none; border-radius: 13px; }
+@media (max-width: 760px) { .pw-brand-name { font-size: 15px; } .pw-brand-logo { height: 44px; width: auto; } }

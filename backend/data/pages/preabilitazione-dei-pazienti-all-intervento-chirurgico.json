@@ -132,6 +132,47 @@
    }
   ]
  },
- "en": null,
+ "en": {
+  "h1": "Patient prehabilitation before surgery",
+  "metaTitle": "Prehabilitation before abdominal wall surgery",
+  "metaDescription": "How to prepare for abdominal wall surgery: control of weight and blood glucose, stopping smoking, nutrition and physical exercise before the operation.",
+  "path": "/patient-prehabilitation-before-surgery/",
+  "slug": "patient-prehabilitation-before-surgery",
+  "blocks": [
+   { "type": "h2", "text": "What is prehabilitation and what is it for?" },
+   { "type": "p", "html": "Recurrence rates after repair of a primary anterior abdominal wall defect are something to know and take into account. Recurrence remains the main problem of this surgery, with wide differences between case series: this is why preparation for surgery matters as much as the technique." },
+   { "type": "img", "src": "/api/media/respiro-diaframma.webp", "alt": "Abstract diagram of a dome-shaped diaphragm descending into the profile of the chest, with a pressure gradient beneath it", "caption": "Breathing governs the internal pressure: it is the first exercise, not the last.", "kind": "schema", "width": 1024, "height": 1024 },
+   { "type": "p", "html": "Even in the repair of an incisional hernia, recurrence remains the outcome most to be feared: prehabilitation serves to lower its risk before surgery." },
+   { "type": "p", "html": "These numbers are related to several factors. Some are modifiable and some are not." },
+   { "type": "p", "html": "Surgical technique is certainly important. A repair without a mesh is in fact subject to a much higher recurrence rate. There are various types of mesh with different characteristics." },
+   { "type": "p", "html": "But several patient-related factors contribute in different ways to a marked increase in the risk of recurrence by raising the rate of SSO (Surgical Site Occurrence), namely wound cellulitis, non-healing wound, fascial dehiscence, skin or soft-tissue ischaemia, skin or soft-tissue necrosis, serous or purulent wound discharge, abscess, seroma, haematoma and infected or exposed mesh, wound dehiscence and enterocutaneous fistula." },
+   { "type": "h2", "text": "What should I do in the weeks before surgery?" },
+   { "type": "p", "html": "The known factors that can alter these parameters are smoking, obesity, hyperglycaemia, nutritional deficiencies and pre-existing infections." },
+   { "type": "img", "src": "/api/media/preabilitazione-parete.webp", "alt": "Frontal diagram of the abdominal wall with the rectus muscles and the linea alba, schematic illustration", "caption": "The abdominal wall: the structure that prehabilitation prepares for surgery.", "kind": "schema", "width": 1200, "height": 896 },
+   { "type": "p", "html": "These elements are treatable, or at least they are aspects that it is advisable to try to improve clinically. In this way the patient's chances of a surgical course free of complications are optimised, thereby lowering the recurrence rate." },
+   { "type": "p", "html": "Proper preparation for the <a href=\"/surgical-treatment/\">surgical treatment of the abdominal wall</a> should include:" },
+   { "type": "p", "html": "Stopping smoking for 4 weeks before surgery" },
+   { "type": "p", "html": "The scientific evidence of the negative effect of smoking on wound healing is by now extensive and well known. Reduced tissue oxygenation and impaired repair processes predispose to severe complications. Abstention should be continued for 30 days after surgery." },
+   { "type": "p", "html": "Control of any hyperglycaemia" },
+   { "type": "p", "html": "Hyperglycaemia, and of course uncontrolled diabetes, are associated with an increase in surgical site infections (SSI). For this reason preoperative assessment and, where appropriate, pharmacological control help to reduce complications and therefore recurrences. Postoperative hyperglycaemia, moreover, by reducing the ability of neutrophils to attack the bacteria present in the wound, increases the risk of infectious complications." },
+   { "type": "p", "html": "Assessment and, if needed, correction of nutritional status" },
+   { "type": "p", "html": "Undergoing surgery in a state of malnutrition entails a greater risk of complications. This applies to every surgical field. In particular, an albumin value below 3.0 g/dL has been found to predict a worse outcome, so anyone due to undergo surgery, especially major surgery, should be assessed and treated with the aim of reaching the procedure in optimal condition." },
+   { "type": "p", "html": "Weight control — obesity" },
+   { "type": "p", "html": "This issue is often difficult to manage and frequently requires many months of treatment. Operating on a patient with a BMI > 50 entails a 100% recurrence rate. Therefore preoperative weight control is mandatory to obtain a favourable outcome. Clearly this assessment often conflicts with the state of necessity: when faced with complications such as incarceration or strangulation the operation cannot be postponed, but it should be stressed that, where possible, elective treatment should be carried out after achieving sufficient weight control." },
+   { "type": "p", "html": "Clinical optimisation of any COPD" },
+   { "type": "p", "html": "Optimising the respiratory component is clearly mandatory when treating a ventral defect. Tension along the midline often has an unfavourable effect on respiratory dynamics, and even a mild deficit can turn into a clinically significant component. Pulmonary function tests and, where appropriate, respiratory physiotherapy are indicated in all cases of COPD." }
+  ],
+  "kind": "clinical",
+  "answer": "Prehabilitation is the clinical preparation in the weeks before wall surgery: weight, blood glucose, smoking, nutrition and physical exercise. It matters because recurrence remains the main problem of this surgery, and reaching the operation in the best possible condition reduces complications and improves healing.",
+  "faq": [
+   { "q": "Which factors impair healing before surgery?", "a": "The known factors that can alter these parameters are smoking, obesity, hyperglycaemia, nutritional deficiencies and pre-existing infections." },
+   { "q": "How does weight affect the outcome of wall surgery?", "a": "Operating on a patient with a BMI > 50 entails a 100% recurrence rate. Therefore preoperative weight control is mandatory to obtain a favourable outcome." },
+   { "q": "Why is the patient prepared before surgery?", "a": "These elements are treatable, or at least aspects that it is advisable to improve clinically. In this way the patient's chances of a surgical course free of complications are optimised, thereby lowering the recurrence rate." }
+  ],
+  "related": [
+   { "label": "Surgical treatment", "href": "/surgical-treatment/" },
+   { "label": "Contact and booking an assessment", "href": "/contact/" }
+  ]
+ },
  "modified": "2026-09-19T15:00:00"
 }

@@ -1,0 +1,47 @@
+{
+ "slug": "rectus-diastasis",
+ "path": "/rectus-diastasis/",
+ "it": null,
+ "en": {
+  "h1": "Rectus diastasis in abdominal wall surgery",
+  "metaTitle": "Rectus diastasis with hernia: what changes in surgery",
+  "metaDescription": "When rectus diastasis is associated with an umbilical hernia the indication changes: the midline must be reconstructed. The full path is on diastasisandbeyond.com.",
+  "path": "/rectus-diastasis/",
+  "slug": "rectus-diastasis",
+  "blocks": [
+   {
+    "type": "plainBox",
+    "html": "<a href=\"https://www.diastasisandbeyond.com\" target=\"_blank\" rel=\"noopener\">The whole path of rectus diastasis — symptoms, measurement, rehabilitation, surgery and results — is covered on diastasisandbeyond.com</a>, the network's dedicated site for this topic. On this page diastasis is described only for what matters in abdominal wall surgery."
+   },
+   { "type": "h2", "text": "What is rectus diastasis?" },
+   {
+    "type": "p",
+    "html": "Rectus diastasis is the separation of the two rectus muscles along the linea alba, the fibrous band that joins them at the midline. It is not a defect of the fascia and it is not a hernia: the wall remains continuous, but it is thinned and gives way under pressure."
+   },
+   { "type": "h2", "text": "Why does diastasis matter in abdominal wall surgery?" },
+   {
+    "type": "p",
+    "html": "Diastasis is often associated with an <a href=\"/articles/umbilical-hernia-why-it-recurs-and-how-to-prevent-recurrence\">umbilical hernia</a> or with small midline defects. When the two problems coexist the technical choice changes: it is not enough to close the hernia <a href=\"/abdominal-wall-defects-and-classification/\">defect</a>, the whole midline must be reconstructed, otherwise the repair remains exposed to recurrence."
+   },
+   { "type": "h2", "text": "When does diastasis change the hernia operation?" },
+   {
+    "type": "p",
+    "html": "In the surgical assessment what counts is the size of the associated hernia defect, the quality of the residual linea alba and the presence of excess skin. These three elements determine the approach, the plane of mesh placement and any need for skin remodelling. A small defect with a solid linea alba can be treated differently from a wide diastasis with an umbilical hernia and excess skin, which requires a complete reconstruction of the midline."
+   },
+   { "type": "h2", "text": "What are the limits of this page?" },
+   {
+    "type": "p",
+    "html": "The assessment of diastasis and the rehabilitation path are not covered on this site. For measurement, symptoms, rehabilitation and the results of surgery, the reference is <a href=\"https://www.diastasisandbeyond.com\" target=\"_blank\" rel=\"noopener\">rectus diastasis on diastasisandbeyond.com</a>."
+   }
+  ],
+  "kind": "clinical-condition",
+  "answer": "In abdominal wall surgery rectus diastasis matters because it is often associated with an umbilical hernia: then it is not enough to close the defect, the midline must be reconstructed. This page explains only what changes in the surgical indication; the full path is on diastasisandbeyond.com.",
+  "faq": [],
+  "related": [
+   { "label": "The full rectus diastasis path on diastasisandbeyond.com", "href": "https://www.diastasisandbeyond.com" },
+   { "label": "Abdominal wall defects and classification", "href": "/abdominal-wall-defects-and-classification/" },
+   { "label": "Umbilical hernia: why it recurs and how to prevent recurrence (article)", "href": "/articles/umbilical-hernia-why-it-recurs-and-how-to-prevent-recurrence" }
+  ]
+ },
+ "modified": "2026-10-07T10:00:00"
+}

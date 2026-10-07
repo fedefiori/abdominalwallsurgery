@@ -628,3 +628,12 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
 - Utente ha confermato i 50 ECU del primo deploy. Promemoria go-live dominio vero:
   Worker con mappa 301 -> DNS -> collaudo 12 redirect -> Search Console/Bing.
   NON spegnere Aruba finche' i 301 non sono collaudati e le pagine indicizzate.
+
+## DEPLOY COMPLETATO (06/10/2026)
+- Produzione live: https://chirurgia-test.emergent.host (tutti i passaggi verdi nel pannello).
+- Collaudo su produzione: home /video/ /contatti/ /la-terapia-chirurgica/ -> 200;
+  prerender con robots index,follow + nav in <header> + canonical self + dicitura
+  canonica; sitemap 200; /api/seo/routes con i 2 redirect 301 esterni (copia DB ok);
+  validazione contatti 400 su payload invalido. Nessuna email reale inviata nei test.
+- Il dominio vero chirurgiadellaparete.it NON e' ancora attivo: serve il passo hub
+  (Worker + mappa 301 + DNS). Aruba resta acceso finche' i 301 non sono collaudati.

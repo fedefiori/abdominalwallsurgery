@@ -79,6 +79,11 @@ async def sync_articles(full=True):
         logger.warning('sync articoli fallita: %s', e)
         return {'ok': False, 'error': str(e)}
     items = data.get('items', [])
+    if not items:
+        # feed vuoto = quasi certamente un problema a monte: mai svuotare
+        # l'archivio articoli al boot di un deploy (guardia di produzione)
+        logger.warning('sync articoli: feed vuoto, salto per sicurezza')
+        return {'ok': False, 'error': 'feed vuoto'}
     seen = set()
     now = datetime.now(timezone.utc).isoformat()
     for it in items:
@@ -89,20 +94,26 @@ async def sync_articles(full=True):
         doc['syncedAt'] = now
         existing = await db.articles.find_one({'groupId': gid, 'site': SITE['key']})
         if existing:
-            await db.articles.update_one({'_id': existing['_id']}, {'$set': doc})
+            # se l'articolo torna nel feed, il ritiro morbido si annulla da solo
+            await db.articles.update_one({'_id': existing['_id']},
+                                         {'$set': doc, '$unset': {'retired': '', 'retiredAt': ''}})
         else:
             doc['site'] = SITE['key']
             await db.articles.insert_one(doc)
     # ritirati: non piu' nel catalogo -> via dall'indice, redirect verso /articoli
     withdrawn = await db.articles.find(
-        {'site': SITE['key'], 'groupId': {'$nin': list(seen)}}).to_list(1000)
+        {'site': SITE['key'], 'retired': {'$ne': True},
+         'groupId': {'$nin': list(seen)}}).to_list(1000)
     for w in withdrawn:
         await db.retired_redirects.update_one(
             {'path': SITE['articlePath'] + w['slug']},
             {'$set': {'path': SITE['articlePath'] + w['slug'],
                       'target': SITE['domain'] + SITE['articlesIndex']}},
             upsert=True)
-        await db.articles.delete_one({'_id': w['_id']})
+        # ritiro morbido: il record resta, sparisce da indice/sitemap/prerender.
+        # Se l'hub lo rimette nel feed, torna visibile da solo al prossimo sync.
+        await db.articles.update_one({'_id': w['_id']},
+                                     {'$set': {'retired': True, 'retiredAt': now}})
         logger.info('articolo ritirato: %s', w['slug'])
     return {'ok': True, 'total': len(items), 'withdrawn': len(withdrawn)}
 
@@ -562,7 +573,7 @@ async def get_page(slug: str):
 # ---------------------------------------------------------------- articoli
 @api_router.get('/blog/articles')
 async def list_articles():
-    arts = await db.articles.find({'site': SITE['key']}).sort('publishedAt', -1).to_list(500)
+    arts = await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).sort('publishedAt', -1).to_list(500)
     def trim_words(s, lo=12, hi=18):
         w = (s or '').split()
         if len(w) <= hi:
@@ -588,7 +599,7 @@ async def probe_post(lang: str, slug: str):
     """LA SONDA: 200 JSON con l'articolo, solo nella lingua del sito."""
     if lang != SITE['lang']:
         raise HTTPException(404, 'lingua non servita da questo sito')
-    a = await db.articles.find_one({'site': SITE['key'], 'slug': slug, 'lang': lang})
+    a = await db.articles.find_one({'site': SITE['key'], 'slug': slug, 'lang': lang, 'retired': {'$ne': True}})
     if not a:
         raise HTTPException(404, 'articolo non trovato')
     post = clean_article(a)
@@ -610,7 +621,7 @@ async def seo_routes():
         if page_content(p):
             paths.append(p['path'])
     paths.append(SITE['articlesIndex'])
-    arts = await db.articles.find({'site': SITE['key']}).to_list(500)
+    arts = await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).to_list(500)
     for a in arts:
         paths.append(SITE['articlePath'] + a['slug'])
     paths.append('/404')
@@ -645,13 +656,13 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
     apath = SITE['articlePath']
     if path.startswith(apath) and path != SITE['articlesIndex']:
         slug = path[len(apath):].strip('/')
-        a = await db.articles.find_one({'site': SITE['key'], 'slug': slug})
+        a = await db.articles.find_one({'site': SITE['key'], 'slug': slug, 'retired': {'$ne': True}})
         if not a:
             raise HTTPException(404, 'articolo non trovato')
         return HTMLResponse(seo_render.prerender_article(
             clean_article(a), SITE, entity(), absolute, noindex, pages))
     if path == SITE['articlesIndex']:
-        arts = await db.articles.find({'site': SITE['key']}).sort('publishedAt', -1).to_list(500)
+        arts = await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).sort('publishedAt', -1).to_list(500)
         ui = SITE['ui']
         domain = SITE['domain']
         lis = ''.join(
@@ -700,7 +711,7 @@ async def seo_jsonld(path: str = Query('/')):
     ui = SITE['ui']
     if path.startswith(apath) and path != SITE['articlesIndex']:
         slug = path[len(apath):].strip('/')
-        a = await db.articles.find_one({'site': SITE['key'], 'slug': slug})
+        a = await db.articles.find_one({'site': SITE['key'], 'slug': slug, 'retired': {'$ne': True}})
         if not a:
             raise HTTPException(404, 'articolo non trovato')
         art = clean_article(a)
@@ -747,7 +758,7 @@ async def seo_sitemap():
             lm = (p.get('modified') or '')[:10]
             entries.append((SITE['domain'] + p['path'], lm))
     entries.append((SITE['domain'] + SITE['articlesIndex'], datetime.now(timezone.utc).date().isoformat()))
-    arts = await db.articles.find({'site': SITE['key']}).to_list(500)
+    arts = await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).to_list(500)
     for a in arts:
         entries.append((a.get('canonical') or SITE['domain'] + SITE['articlePath'] + a['slug'],
                         (a.get('updatedAt') or a.get('publishedAt') or '')[:10]))
@@ -766,7 +777,7 @@ async def seo_robots():
 async def seo_llms():
     pages = [p for p in load_pages().values() if page_content(p)]
     pages.sort(key=lambda p: p['path'])
-    arts = [clean_article(a) for a in await db.articles.find({'site': SITE['key']}).to_list(500)]
+    arts = [clean_article(a) for a in await db.articles.find({'site': SITE['key'], 'retired': {'$ne': True}}).to_list(500)]
     return PlainTextResponse(seo_render.llms_txt(SITE, pages, arts, entity()))
 
 

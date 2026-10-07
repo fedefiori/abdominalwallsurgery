@@ -119,7 +119,7 @@ def active_path(page, site):
 
 
 # Override accento lime per il gemello inglese (solo HTML dei crawler).
-EN_ACCENT_CSS = ":root{--accent:#7DF542;--accent-soft:#A8FA7E;--accent-ink:#2E6B0B;--signal:#2E6B0B;--on-deep:#7DF542;--deep-text:#EDE4D8}"
+EN_ACCENT_CSS = ":root{--accent:#5E9E1E;--accent-soft:#9BC34A;--accent-ink:#2E6B0B;--signal:#2E6B0B;--on-deep:#B6E23D;--deep-text:#EDE4D8}"
 
 
 def base_css(site):
@@ -500,7 +500,13 @@ def og_meta(site, title, description, canonical, image, image_alt):
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{esc(title)}" />
 <meta name="twitter:description" content="{esc(og_desc)}" />
-<meta name="twitter:image" content="{esc(image)}" />'''
+<meta name="twitter:image" content="{esc(image)}" />
+<link rel="icon" type="{site['brand']['faviconType']}" href="{esc(site['domain'] + site['brand']['favicon'])}" />
+<link rel="apple-touch-icon" href="{esc(site['domain'] + site['brand']['appleTouch'])}" />'''
+
+
+def og_fallback(site):
+    return site['domain'] + site['brand']['ogFallback']
 
 
 def menu_html(site, pages=None):
@@ -538,7 +544,7 @@ def prerender_404(site, pages=None):
          'publisher': {'@id': PERSON_REF_ID}},
     ]}
     og = og_meta(site, f"{title} | {ui['site_name']}", ui['notfound_text'],
-                 canonical, f'{domain}/og/og-fallback.jpg', ui['notfound_title'])
+                 canonical, og_fallback(site), ui['notfound_title'])
     return f"""<!DOCTYPE html>
 <html lang="{site['lang']}">
 <head>
@@ -603,7 +609,12 @@ def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
         lis = ''.join(f'<li><a href="{esc(x["href"])}" target="_blank" rel="noopener">{esc(x["label"])}</a></li>' for x in fonti)
         fonti_html = f'<section class="pw-rel" aria-label="Fonti"><strong>Fonti</strong><ul>{lis}</ul></section>'
     first_img = next((b for b in (content.get('blocks') or []) if b.get('type') == 'img'), None)
-    og_image = abs_url(domain, first_img['src']) if first_img else f'{domain}/og/og-fallback.jpg'
+    if kind == 'home':
+        og_image = site['domain'] + site['brand']['ogHome']
+    elif first_img:
+        og_image = abs_url(domain, first_img['src'])
+    else:
+        og_image = og_fallback(site)
     og = og_meta(site, content.get('metaTitle') or h1, content.get('metaDescription', ''),
                  canonical, og_image, h1)
     return f"""<!DOCTYPE html>
@@ -663,7 +674,7 @@ def prerender_article(article, site, entity, absolute, noindex, pages=None):
     robots = robots_meta(noindex)
     og = og_meta(site, article.get('metaTitle') or article.get('title', ''),
                  article.get('metaDescription') or article.get('excerpt') or '',
-                 canonical, article.get('coverUrl') or f'{domain}/og/og-fallback.jpg',
+                 canonical, article.get('coverUrl') or og_fallback(site),
                  article.get('title', ''))
     rel = ARTICLE_RELATED.get(article.get('slug'), [])
     abox = author_box_html(site['domain'], (entity or {}).get('person') or {},

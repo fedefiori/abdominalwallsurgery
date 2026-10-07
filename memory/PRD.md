@@ -685,3 +685,13 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   (stroke + lettere A/S), bottoni pieni (testo quasi-nero #0C0A09, hover #9BFF66), play video.
 - Su crema i testi piccoli/link restano verde scuro #2E6B0B (~6:1) per leggibilità; in dark tutto fluo.
 - seo_render.EN_ACCENT_CSS allineato. Verificato con screenshot 1440 + 390 (light/dark).
+
+### 2026-10-07 — Due toni lime + immagini social + favicon AWS
+- Due toni: FLUO #7DF542 (logo, bottoni pieni, marquee, play, selezione, etichette/numeri su scuro);
+  lime MORBIDO per linee/bordi/link (light: --accent #5E9E1E, testi #2E6B0B; dark: #B6E23D).
+- Nuove immagini OG EN generate da /app/scripts/gen_aws_brand.py: /og/og-home-en.jpg (hero + fascia
+  nera con logo AWS), /og/og-fallback-en.jpg (crema + logo AWS + striscia fluo). File IT invariati.
+- Favicon AWS: /favicon-aws.svg (+ PNG 32/192/512, /apple-touch-icon-aws.png). Config per sito in
+  siteconfig.NETWORK_SITES[*]['brand'], esposta da /api/site; favicon cambiata via SiteContext,
+  icon + apple-touch-icon anche nell'HTML dei crawler (og_meta). Prerender home usa sempre ogHome
+  (anche IT: og-home.jpg, allineato a quanto già faceva il browser).

@@ -20,6 +20,9 @@ NETWORK_SITES = {
         'articlesIndex': '/articoli',
         'twin': 'parete_en',
         'syndication': f'{HUB_URL}/api/blog/syndication/parete',
+        'brand': {'ogHome': '/og/og-home.jpg', 'ogFallback': '/og/og-fallback.jpg',
+                  'favicon': '/logo-chirurgia-della-parete.png', 'faviconType': 'image/png',
+                  'appleTouch': '/logo-chirurgia-della-parete.png'},
     },
     'parete_en': {
         'lang': 'en',
@@ -28,6 +31,9 @@ NETWORK_SITES = {
         'articlesIndex': '/articles',
         'twin': 'parete',
         'syndication': f'{HUB_URL}/api/blog/syndication/parete_en',
+        'brand': {'ogHome': '/og/og-home-en.jpg', 'ogFallback': '/og/og-fallback-en.jpg',
+                  'favicon': '/favicon-aws.svg', 'faviconType': 'image/svg+xml',
+                  'appleTouch': '/apple-touch-icon-aws.png'},
     },
 }
 
@@ -116,6 +122,7 @@ def site():
         'syndication': cfg['syndication'],
         'twinKey': cfg['twin'],
         'twin': NETWORK_SITES[cfg['twin']],
+        'brand': cfg['brand'],
         'ui': UI[lang],
     }
 

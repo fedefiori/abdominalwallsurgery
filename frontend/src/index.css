@@ -882,23 +882,25 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-net-contacts a { word-break: break-all; }
 
 /* ===================== Gemello inglese: accento LIME (due toni) ===================== */
+/* due toni: FLUO #7DF542 per i punti forti (logo, bottoni, fascia, etichette su scuro),
+   lime MORBIDO per linee, bordi e link (#5E9E1E su crema, #B6E23D su scuro) */
 html[lang="en"] {
-    --accent: #7DF542;         /* lime fluo: grafica, barre, sfondi */
-    --accent-soft: #A8FA7E;
+    --accent: #5E9E1E;         /* lime morbido: linee, barre, bordi su crema */
+    --accent-soft: #9BC34A;
     --accent-btn: #7DF542;     /* bottoni fluo con testo quasi-nero: ~14:1 */
     --accent-ink: #2E6B0B;     /* testo piccolo su crema: ~6:1 */
     --signal: #2E6B0B;
-    --signal-on-deep: #7DF542; /* fluo su fasce scure */
-    --on-deep: #7DF542;
+    --signal-on-deep: #7DF542; /* etichette fluo su fasce scure */
+    --on-deep: #B6E23D;        /* link lime morbido su fasce scure */
 }
 html[lang="en"][data-theme="dark"] {
-    --accent: #7DF542;
-    --accent-soft: #7DF542;
+    --accent: #B6E23D;         /* lime morbido: linee e bordi su scuro */
+    --accent-soft: #B6E23D;
     --accent-btn: #7DF542;
-    --accent-ink: #7DF542;
-    --signal: #7DF542;
+    --accent-ink: #B6E23D;     /* link lime morbido */
+    --signal: #7DF542;         /* etichette e numeri fluo */
     --signal-on-deep: #7DF542;
-    --on-deep: #7DF542;
+    --on-deep: #B6E23D;
 }
 /* bottoni pieni fluo: testo quasi-nero */
 html[lang="en"] .pw-btn-solid, html[lang="en"] .pw-content a.pw-cta.solid, html[lang="en"][data-theme] .pw-cta.solid { color: #0C0A09; text-decoration: none; }

@@ -541,7 +541,7 @@ async def get_site():
     return {
         'key': SITE['key'], 'lang': SITE['lang'], 'domain': SITE['domain'],
         'articlePath': SITE['articlePath'], 'articlesIndex': SITE['articlesIndex'],
-        'ui': ui, 'nav': nav,
+        'ui': ui, 'nav': nav, 'brand': SITE['brand'],
         'hasVideo': bool(pages.get('video') and page_content(pages['video'])),
         'network': [{'url': s['url'], 'label': s['label'][SITE['lang']], 'desc': s['desc'][SITE['lang']]}
                     for s in NETWORK_ECOSYSTEM if s['url'] != SITE['domain'] and s.get('live', True)],
@@ -699,7 +699,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
 <title>{seo_render.esc(ui['articles_title'])} | {seo_render.esc(ui['site_name'])}</title>
 <meta name="description" content="{seo_render.esc(ui['articles_sub'])}" />
 <link rel="canonical" href="{seo_render.esc(domain + SITE['articlesIndex'])}" />{robots}
-{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui['articles_sub'], domain + SITE['articlesIndex'], domain + '/og/og-fallback.jpg', ui['articles_title'])}
+{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui['articles_sub'], domain + SITE['articlesIndex'], seo_render.og_fallback(SITE), ui['articles_title'])}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{seo_render.base_css(SITE)}</style></head><body><main>
 {seo_render.menu_html(SITE, pages)}

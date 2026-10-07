@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSite } from '../lib/SiteContext';
 
 const API = process.env.REACT_APP_BACKEND_URL;
 
@@ -41,6 +42,7 @@ function ogDescription(t, limit = 125) {
 /** SEO lato client: il crawler riceve l'HTML dal prerender del Worker;
     qui gestiamo la vista per gli utenti nel browser, con OG completi. */
 export default function useSEO({ title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType }) {
+    const fallback = useSite()?.site?.brand?.ogFallback || '/og/og-fallback.jpg';
     useEffect(() => {
         if (title) document.title = title;
         if (title) setMeta('property', 'og:title', title);
@@ -53,7 +55,7 @@ export default function useSEO({ title, description, canonical, noindex, domain,
             setMeta('property', 'og:url', canonical);
         }
         if (domain) {
-            const img = image || `${domain}/og/og-fallback.jpg`;
+            const img = image || `${domain}${fallback}`;
             setMeta('property', 'og:type', ogType || 'website');
             setMeta('property', 'og:site_name', siteName || '');
             setMeta('property', 'og:locale', lang === 'en' ? 'en_US' : 'it_IT');
@@ -75,7 +77,7 @@ export default function useSEO({ title, description, canonical, noindex, domain,
         setMeta('name', 'robots', (noindex || hostMismatch)
             ? 'noindex,nofollow'
             : 'index, follow, max-snippet:-1, max-image-preview:large');
-    }, [title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType]);
+    }, [title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType, fallback]);
 }
 
 /** BLOCCANTE 1 (collaudo 19/06): i dati strutturati devono esistere nel DOM vivo.

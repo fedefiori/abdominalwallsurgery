@@ -19,6 +19,20 @@ export function SiteProvider({ children }) {
         try { localStorage.setItem('pw-theme', theme); } catch { /* ignore */ }
     }, [theme, site]);
 
+    useEffect(() => {
+        const b = site?.brand;
+        if (!b) return;
+        const icon = document.head.querySelector('link[rel="icon"]');
+        if (icon) { icon.setAttribute('href', b.favicon); icon.setAttribute('type', b.faviconType); }
+        let touch = document.head.querySelector('link[rel="apple-touch-icon"]');
+        if (!touch) {
+            touch = document.createElement('link');
+            touch.setAttribute('rel', 'apple-touch-icon');
+            document.head.appendChild(touch);
+        }
+        touch.setAttribute('href', b.appleTouch);
+    }, [site]);
+
     const ui = site?.ui || {};
     return (
         <SiteCtx.Provider value={{ site, ui, theme, setTheme: setThemeState }}>

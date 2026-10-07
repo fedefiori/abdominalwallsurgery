@@ -82,7 +82,7 @@ export default function HomePage() {
         domain: site?.domain,
         siteName: ui?.site_name,
         lang: site?.lang,
-        image: site ? `${site.domain}/og/og-home.jpg` : undefined,
+        image: site ? `${site.domain}${site.brand?.ogHome || '/og/og-home.jpg'}` : undefined,
         imageAlt: page?.h1 || ui.site_name,
     });
 

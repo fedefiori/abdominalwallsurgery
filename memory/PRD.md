@@ -616,3 +616,15 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
 - APERTO (decisione del Dottore, segnalata non eseguita): H1 home = nome del sito
   ("Chirurgia della Parete Addominale") — coincide con l'argomento esatto del verticale;
   la regola hub vieta H1=nome sito. In attesa di parere.
+
+## Deploy — tentativi e stato (06/10/2026)
+- Health check deploy: PASS dopo correzione blocker (sync_articles: mai piu' delete al
+  boot — feed giu'/vuoto = sync saltato; articoli ritirati = flag morbido 'retired',
+  filtrato da tutte le letture; riammissione automatica se tornano nel feed).
+- Tentativo 1 FALLITO in build_image: craco.config.js leggeva /app/backend/data/pages a
+  build-time (ENOENT nel contesto Docker solo-frontend). Fix: try/catch con fallback
+  ['/home'] (middleware slash-301 e' solo per l'anteprima). yarn build locale: OK 33s.
+- Tentativo 2: in coda (job 22fdafad-ddf5-4386-b2ca-ee9bc6c3d2bf), esito in attesa.
+- Utente ha confermato i 50 ECU del primo deploy. Promemoria go-live dominio vero:
+  Worker con mappa 301 -> DNS -> collaudo 12 redirect -> Search Console/Bing.
+  NON spegnere Aruba finche' i 301 non sono collaudati e le pagine indicizzate.

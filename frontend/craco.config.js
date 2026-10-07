@@ -229,11 +229,18 @@ webpackConfig.devServer = (devServerConfig) =>
 // ---- 301 canonicali (collaudo 19/06): /pagina -> /pagina/ in anteprima.
 // In produzione gli stessi redirect li applica il Worker da /api/seo/routes.
 const fs = require("fs");
-const PAGE_PATHS = fs
-  .readdirSync("/app/backend/data/pages")
-  .filter((f) => f.endsWith(".json"))
-  .map((f) => "/" + f.replace(".json", ""))
-  .concat(["/home"]);
+let PAGE_PATHS = ["/home"];
+try {
+  PAGE_PATHS = fs
+    .readdirSync("/app/backend/data/pages")
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => "/" + f.replace(".json", ""))
+    .concat(["/home"]);
+} catch (e) {
+  // build di produzione (contesto Docker solo-frontend): la directory del
+  // backend non esiste qui. Il middleware slash-301 serve solo al dev-server
+  // di anteprima, quindi si degrada alla sola '/home' senza fallire la build.
+}
 const baseDevServer = webpackConfig.devServer;
 webpackConfig.devServer = (devServerConfig) => {
   devServerConfig = baseDevServer(devServerConfig);

@@ -637,3 +637,20 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   validazione contatti 400 su payload invalido. Nessuna email reale inviata nei test.
 - Il dominio vero chirurgiadellaparete.it NON e' ancora attivo: serve il passo hub
   (Worker + mappa 301 + DNS). Aruba resta acceso finche' i 301 non sono collaudati.
+
+## Pacchetto go-live consegnato (07/10/2026)
+- /app/scripts/worker-301-map.js: mappa REDIRECTS pronta da incollare nel Worker
+  (2 uscite dal dominio + /home + articolo TESAR ritirato) + contratto origine per il
+  Worker (prerender crawler, /sitemap.xml /robots.txt /llms.txt proxati da /api/*,
+  404 via prerender /404). Le 10 rotte invariate NON vanno redirect-ate (loop).
+- /app/scripts/collaudo-301.sh: batteria post-DNS one-shot (10 rotte 200 dirette,
+  301 in un salto, file SEO radice, HTML completo per Googlebot/GPTBot/PerplexityBot,
+  404 vero). Criterio: un solo salto per redirect.
+- Rilevato e documentato: sull'URL di produzione Emergent /sitemap.xml|robots.txt|llms.txt
+  alla radice rispondono col guscio SPA (in produzione non c'e' il middleware dev):
+  sul dominio vero ci pensa il Worker col proxy sopra — i file veri sono sotto /api/.
+- Verifica visiva produzione: home e /video/ renderizzate identiche all'anteprima.
+- RESTA ESTERNO (non facibile da qui): Worker+DNS (hub, con il file consegnato),
+  invio sitemap a Search Console/Bing (account del Dottore: sitemap
+  https://www.chirurgiadellaparete.it/sitemap.xml), video hero (file dal Dottore),
+  parere H1 home = nome sito (in attesa).

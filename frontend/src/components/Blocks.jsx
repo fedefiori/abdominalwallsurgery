@@ -56,7 +56,8 @@ export function anchorOf(text) {
 function imgSrc(src) {
     if (!src) return src;
     if (src.startsWith('http')) return src; // figure dell'hub: URL assoluti, invariati
-    return `${API}${src}`;
+    const palette = document.documentElement.dataset.palette;
+    return palette && src.startsWith('/api/media/') ? `${API}${src}?p=${palette}` : `${API}${src}`;
 }
 
 function Figure({ b, first, side }) {

@@ -22,7 +22,8 @@ NETWORK_SITES = {
         'syndication': f'{HUB_URL}/api/blog/syndication/parete',
         'brand': {'ogHome': '/og/og-home.jpg', 'ogFallback': '/og/og-fallback.jpg',
                   'favicon': '/logo-chirurgia-della-parete.png', 'faviconType': 'image/png',
-                  'appleTouch': '/logo-chirurgia-della-parete.png'},
+                  'appleTouch': '/logo-chirurgia-della-parete.png',
+                  'hero': '/media/hero-loop-parete-addominale', 'palette': None},
     },
     'parete_en': {
         'lang': 'en',
@@ -33,7 +34,8 @@ NETWORK_SITES = {
         'syndication': f'{HUB_URL}/api/blog/syndication/parete_en',
         'brand': {'ogHome': '/og/og-home-en.jpg', 'ogFallback': '/og/og-fallback-en.jpg',
                   'favicon': '/favicon-aws.svg', 'faviconType': 'image/svg+xml',
-                  'appleTouch': '/apple-touch-icon-aws.png'},
+                  'appleTouch': '/apple-touch-icon-aws.png',
+                  'hero': '/media/hero-loop-parete-addominale-en', 'palette': 'lime'},
     },
 }
 

@@ -46,7 +46,7 @@ function splitLines(text) {
     return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
 }
 
-function HeroMedia() {
+function HeroMedia({ base }) {
     const [reduced] = useState(() =>
         typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
     );
@@ -56,10 +56,10 @@ function HeroMedia() {
                 data-testid="hero-video"
                 ref={(el) => { if (el) { el.muted = true; el.setAttribute('muted', ''); } }}
                 autoPlay={!reduced} loop playsInline preload="metadata"
-                poster="/media/hero-loop-parete-addominale.webp"
+                poster={`${base}.webp`}
             >
-                <source src="/media/hero-loop-parete-addominale.webm" type="video/webm" media="(min-width: 768px)" />
-                <source src="/media/hero-loop-parete-addominale.mp4" type="video/mp4" media="(min-width: 768px)" />
+                <source src={`${base}.webm`} type="video/webm" media="(min-width: 768px)" />
+                <source src={`${base}.mp4`} type="video/mp4" media="(min-width: 768px)" />
             </video>
         </div>
     );
@@ -101,8 +101,8 @@ export default function HomePage() {
     return (
         <div data-testid="home-page">
             <section className="pw-hero">
-                <HeroMedia />
-                <div className="pw-hero-ghost" aria-hidden="true">PARETE</div>
+                {site?.brand?.hero && <HeroMedia base={site.brand.hero} />}
+                <div className="pw-hero-ghost" aria-hidden="true">{site?.lang === 'en' ? 'WALL' : 'PARETE'}</div>
                 <div className="pw-shell" style={{ position: 'relative' }}>
                     <div className="pw-ticks" aria-hidden="true"><i /><i /><i /><i /></div>
                     <div className="pw-hero-kicker">

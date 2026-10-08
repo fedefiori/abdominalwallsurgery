@@ -41,7 +41,7 @@ def wordmark(d, x, y, dark):
 
 def og_home():
     W, H, band = 1200, 630, 150
-    bg = Image.open(PUB / 'media/hero-loop-parete-addominale.webp').convert('RGB')
+    bg = Image.open(PUB / 'media/hero-loop-parete-addominale-en.webp').convert('RGB')
     bg = bg.resize((W, round(bg.height * W / bg.width)), Image.LANCZOS)
     im = Image.new('RGB', (W, H), INK)
     im.paste(bg.crop((0, 70, W, 70 + H - band)), (0, 0))

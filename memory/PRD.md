@@ -695,3 +695,15 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   siteconfig.NETWORK_SITES[*]['brand'], esposta da /api/site; favicon cambiata via SiteContext,
   icon + apple-touch-icon anche nell'HTML dei crawler (og_meta). Prerender home usa sempre ogHome
   (anche IT: og-home.jpg, allineato a quanto già faceva il browser).
+
+### 2026-10-08 — Immagini nella palette del verticale (lime)
+- backend/recolor.py: riconosce in automatico le illustrazioni di marca (fondo notte + tratto azzurro)
+  e le ricolora lime a due toni (morbido #B6E23D mezzi toni, fluo #7DF542 luci), fondo quasi-nero.
+  Le FOTO CLINICHE (interventi, eco, TC, ritratto, protesi) NON vengono ricolorate: fedeltà clinica.
+- /api/media/{file}: se SITE.brand.palette ('lime' solo per parete_en) serve la versione in cache
+  backend/static/media-lime/ (generata al primo accesso, vale anche per immagini future).
+  Frontend aggiunge ?p=lime agli URL (cache-busting) leggendo dataset.palette da SiteContext.
+- Video hero EN ricolorato frame per frame: /media/hero-loop-parete-addominale-en.{mp4,webm,webp}
+  (script /app/scripts/recolor_hero.py, richiede imageio-ffmpeg solo offline); og-home-en rigenerata.
+- Hero ghost text EN: "WALL" (prima "PARETE" in italiano). Test: backend/tests/test_palette.py.
+- Limite: copertine/figure degli articoli arrivano dall'hub con URL assoluti → non ricolorate qui.

@@ -10,7 +10,11 @@ export function SiteProvider({ children }) {
     });
 
     useEffect(() => {
-        api.site().then(setSite).catch(() => setSite(null));
+        api.site().then((s) => {
+            // palette immagini del verticale: letta da imgSrc per invalidare la cache
+            document.documentElement.dataset.palette = s?.brand?.palette || '';
+            setSite(s);
+        }).catch(() => setSite(null));
     }, []);
 
     useEffect(() => {

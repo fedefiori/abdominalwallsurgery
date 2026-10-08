@@ -21,6 +21,7 @@ from starlette.middleware.cors import CORSMiddleware
 import siteconfig
 from siteconfig import site, nav_pages, NETWORK_ECOSYSTEM
 import seo_render
+import recolor
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -799,6 +800,9 @@ async def media(filename: str):
     f = MEDIA_DIR / filename
     if not f.exists() or f.suffix != '.webp':
         raise HTTPException(404, 'media non trovato')
+    palette = SITE['brand'].get('palette')
+    if palette:
+        f = await asyncio.to_thread(recolor.palette_file, f, ROOT_DIR / 'static' / f'media-{palette}')
     return FileResponse(f, media_type='image/webp',
                         headers={'Cache-Control': 'public, max-age=31536000, immutable'})
 

@@ -46,7 +46,7 @@ function splitLines(text) {
     return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
 }
 
-function HeroMedia({ base }) {
+function HeroMedia({ base, mobile }) {
     const [reduced] = useState(() =>
         typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
     );
@@ -60,6 +60,8 @@ function HeroMedia({ base }) {
             >
                 <source src={`${base}.webm`} type="video/webm" media="(min-width: 768px)" />
                 <source src={`${base}.mp4`} type="video/mp4" media="(min-width: 768px)" />
+                {mobile && <source src={`${base}-mobile.webm`} type="video/webm" />}
+                {mobile && <source src={`${base}-mobile.mp4`} type="video/mp4" />}
             </video>
         </div>
     );
@@ -101,7 +103,7 @@ export default function HomePage() {
     return (
         <div data-testid="home-page">
             <section className="pw-hero">
-                {site?.brand?.hero && <HeroMedia base={site.brand.hero} />}
+                {site?.brand?.hero && <HeroMedia base={site.brand.hero} mobile={!!site.brand.heroMobile} />}
                 <div className="pw-hero-ghost" aria-hidden="true">{site?.lang === 'en' ? 'WALL' : 'PARETE'}</div>
                 <div className="pw-shell" style={{ position: 'relative' }}>
                     <div className="pw-ticks" aria-hidden="true"><i /><i /><i /><i /></div>

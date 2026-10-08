@@ -43,4 +43,11 @@ if __name__ == '__main__':
                   ['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '26', '-preset', 'slow', '-movflags', '+faststart'])
     recolor_video(f'{SRC}.webm', f'{DST}.webm', 1280, 720,
                   ['-c:v', 'libvpx-vp9', '-pix_fmt', 'yuv420p', '-b:v', '0', '-crf', '40', '-row-mt', '1'])
+    # versione leggera per telefono: ritaglio verticale centrato sul busto (360x600)
+    mob = f'{DST}-mobile'
+    subprocess.run([FF, '-v', 'error', '-y', '-i', f'{DST}.webm', '-vf', 'crop=432:720:424:0,scale=360:600', '-an',
+                    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '30', '-preset', 'slow',
+                    '-movflags', '+faststart', '-r', '24', f'{mob}.mp4'], check=True)
+    subprocess.run([FF, '-v', 'error', '-y', '-i', f'{mob}.mp4', '-an', '-c:v', 'libvpx-vp9', '-b:v', '0',
+                    '-crf', '42', '-row-mt', '1', f'{mob}.webm'], check=True)
     print('ok')

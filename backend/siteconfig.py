@@ -96,6 +96,7 @@ UI = {
         'network_intro': 'This site is part of Dr. Federico Fiori’s editorial network: each topic has a reference site.',
         'articles_title': 'In-depth articles',
         'articles_sub': 'Educational articles written and approved in the federicofiori.com editorial area, served here for this site’s readers.',
+        'articles_meta': 'Educational articles on hernias and abdominal wall surgery, written and approved in the federicofiori.com editorial area, served here for this site’s readers.',
         'read_article': 'Read the article', 'updated': 'Updated on', 'published': 'Published on',
         'breadcrumb_home': 'Home', 'breadcrumb_articles': 'Articles',
         'notfound_title': 'Page not found',

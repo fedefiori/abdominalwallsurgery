@@ -16,7 +16,7 @@ export default function ArticlesPage() {
 
     useSEO({
         title: `${ui.articles_title} | ${ui.site_name}`,
-        description: ui.articles_sub,
+        description: ui.articles_meta || ui.articles_sub,
         canonical: site ? `${site.domain}${site.articlesIndex}` : undefined,
         domain: site?.domain,
         siteName: ui?.site_name,

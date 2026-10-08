@@ -1,0 +1,45 @@
+{
+  "summary": "Iteration 12 — Full QA of English twin site abdominalwallsurgery.com (SITE_KEY=parete_en). Backend pytest: 47/57 PASS (82%). Frontend Playwright: all 16 pillar/legal/listing pages + 404 load clean at both 1440 and 390 — H1 present, no empty headings/paragraphs, 0 horizontal overflow at 390px, no Italian UI leftover on any page. Hero video on mobile 390 correctly plays the mobile variant (hero-loop-parete-addominale-en-mobile.webm, paused=false, playing, playsInline, muted, loop); on desktop 1440 plays the full variant (hero-loop-parete-addominale-en.webm). Hamburger menu at 390 opens and lists all 9 chapters + main nav in English. Desktop CHAPTERS dropdown shows exactly the 9 pillar chapters with correct hrefs. Theme toggle flips html[data-theme] light↔dark. Contact form: reason-appuntamento/reason-dottore toggle the reason note correctly (‘Emma Gadda answers…’ vs ‘Write directly to Dr. F. Fiori’); native HTML5 validation blocks invalid email (form not submitted); honeypot POST (company field) to /api/contact returns 200 {ok:true} without sending; mailto info@federicofiori / fedefiori@federicofiori + tel +39 02 7602 1568 visible. Videos page: 9 posters pre-click, 0 iframes; after click first iframe loads youtube-nocookie.com/embed/Y9Y_NlzmK-Q. /articles list has English articles (Incisional Hernia, Umbilical Hernia); article detail renders content and TOC in English. /sitemap.xml, /robots.txt, /llms.txt all under /api/, English, abdominalwallsurgery.com domain. NO hreflang in any prerendered HTML. NO VideoObject JSON-LD. /api/site.lang=en, key=parete_en, brand.palette=green. 404 page is English (Page not found + Back to home). The 10 pytest failures are ALL meta description length violations outside the 150-160 contract band — 6 too short (defects 132, imaging 139, privacy 133, cookie 131, articles 119, defects…) and 4 too long (anatomy 173, symptoms 163, rectus 163, home 167, videos 166).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/seo/prerender?path=/", "issue": "meta description 167 chars (contract says 150-160): 'Hernias, incisional hernias and abdominal wall defects: diagnosis, classification and reconstructive surgery in Milan with Dr. Federico Fiori. Information and contact.'"},
+      {"endpoint": "/api/seo/prerender?path=/abdominal-wall-anatomy-and-abdominal-core/", "issue": "meta description 173 chars (over 160): starts 'Rectus, oblique and transversus muscles and the linea alba...'"},
+      {"endpoint": "/api/seo/prerender?path=/abdominal-wall-defects-and-classification/", "issue": "meta description 132 chars (under 150)"},
+      {"endpoint": "/api/seo/prerender?path=/symptoms-and-complications/", "issue": "meta description 163 chars (over 160)"},
+      {"endpoint": "/api/seo/prerender?path=/imaging-and-radiology/", "issue": "meta description 139 chars (under 150)"},
+      {"endpoint": "/api/seo/prerender?path=/rectus-diastasis/", "issue": "meta description 163 chars (over 160)"},
+      {"endpoint": "/api/seo/prerender?path=/videos/", "issue": "meta description 166 chars (over 160) and contains HTML entity &#x27; from apostrophe — consider using a straight ASCII description or decoding the entity so length is counted correctly"},
+      {"endpoint": "/api/seo/prerender?path=/privacy-policy/", "issue": "meta description 133 chars (under 150)"},
+      {"endpoint": "/api/seo/prerender?path=/cookie-policy/", "issue": "meta description 131 chars (under 150)"},
+      {"endpoint": "/api/seo/prerender?path=/articles", "issue": "meta description 119 chars (well under 150) — currently just the generic sub-copy"}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_english_site.py",
+    "/app/test_reports/pytest/english_site.xml"
+  ],
+  "action_items": [
+    "Rework the 10 meta descriptions flagged above so each one is 150-160 characters (contract requirement). Priority: HIGH on home/, videos/, articles/ (user-facing landing/listing) and MEDIUM on the two legal pages.",
+    "On /videos/ specifically, replace Dr. Federico Fiori&#x27;s with Dr. Federico Fiori's (straight apostrophe) or wrap in an attribute-safe single quote so counting is unambiguous."
+  ],
+  "critical_code_review_comments": [
+    "backend/server.py line 801: /api/media/{filename} rejects anything that isn't .webp. Fine today because videos are served from the frontend public/media/ (no /api/ prefix). Just confirm the production ingress keeps /media/* routed to the frontend bucket; otherwise the hero videos will 404 in prod.",
+    "Honeypot path (server.py ~l.465) correctly returns silent 200 — verified. Keep this behavior documented so future refactors don't accidentally start validating `company` as a real field."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_english_site.py (new)"
+  ],
+  "success_rate": {"backend": "82% (47/57)", "frontend": "100% (0 UI bugs)"},
+  "test_credentials": "Confirmed per /app/memory/test_credentials.md — no login. Contact form NOT submitted with valid payload (would trigger Resend). Only honeypot POST exercised: returned 200 {ok:true} without sending.",
+  "seed_data_creation": "None.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend baseline for English site is /app/backend/tests/test_english_site.py (47/57 pass). Only remaining failures are meta description length (contract 150-160). After main agent rewrites those descriptions in backend/data/pages/*.json en.metaDescription + privacy/cookie/articles copies, re-run pytest backend/tests/test_english_site.py — expect 57/57. Hero mobile variant playback at 390 is confirmed working; home currentSrc = /media/hero-loop-parete-addominale-en-mobile.webm, paused=false, currentTime advancing. Desktop variant /media/hero-loop-parete-addominale-en.webm also plays. Honeypot endpoint path: POST /api/contact with body including {company:'bot'} returns 200 ok silently — safe for automated success-path testing.",
+  "rca of the issue": "Meta description length deviations stem from direct translation of Italian source descriptions into English without re-tuning character count. Italian/English length ratios differ (~5-15%), so each description must be rephrased to land in the 150-160 window. Example: /home desc currently 167 chars — can be shortened by cutting trailing 'Information and contact.' (removes 24 chars) and adding a 7-9 char hook to settle at ~155."
+}

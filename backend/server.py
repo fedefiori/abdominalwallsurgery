@@ -698,9 +698,9 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
         return HTMLResponse(f"""<!DOCTYPE html><html lang="{SITE['lang']}"><head>
 <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{seo_render.esc(ui['articles_title'])} | {seo_render.esc(ui['site_name'])}</title>
-<meta name="description" content="{seo_render.esc(ui['articles_sub'])}" />
+<meta name="description" content="{seo_render.esc(ui.get('articles_meta', ui['articles_sub']))}" />
 <link rel="canonical" href="{seo_render.esc(domain + SITE['articlesIndex'])}" />{robots}
-{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui['articles_sub'], domain + SITE['articlesIndex'], seo_render.og_fallback(SITE), ui['articles_title'])}
+{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui.get('articles_meta', ui['articles_sub']), domain + SITE['articlesIndex'], seo_render.og_fallback(SITE), ui['articles_title'])}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{seo_render.base_css(SITE)}</style></head><body><main>
 {seo_render.menu_html(SITE, pages)}

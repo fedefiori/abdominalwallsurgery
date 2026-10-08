@@ -707,3 +707,10 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   (script /app/scripts/recolor_hero.py, richiede imageio-ffmpeg solo offline); og-home-en rigenerata.
 - Hero ghost text EN: "WALL" (prima "PARETE" in italiano). Test: backend/tests/test_palette.py.
 - Limite: copertine/figure degli articoli arrivano dall'hub con URL assoluti → non ricolorate qui.
+
+### 2026-10-08 — Verde fluo puro #00FF00 + video hero più visibile
+- Fluo ora #00FF00 (hover #66FF66); tono morbido stessa tinta #6FE06F (scuro), linee su crema #2FA23A,
+  testi/link su crema #0B6B1E. Aggiornati CSS, logo SVG, favicon, OG, recolor.py (tinta 120°, morbido =
+  meno saturo), seo_render.EN_ACCENT_CSS. Cache immagini rinominata media-green (?p=green, cache-busting).
+- Video hero EN: rigenerato con gain luminosità 1.45; opacità .95 desktop / .5 mobile (<768px, dove
+  si vede solo il poster sotto il testo); velo scuro solo sul lato del testo; alone hero verde.

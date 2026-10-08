@@ -16,6 +16,7 @@ MEDIA = Path('/app/frontend/public/media')
 SRC = MEDIA / 'hero-loop-parete-addominale'
 DST = MEDIA / 'hero-loop-parete-addominale-en'
 FF = imageio_ffmpeg.get_ffmpeg_exe()
+GAIN = 1.45  # video piu' luminoso: dietro le scritte deve leggersi bene
 
 
 def recolor_video(src, dst, w, h, enc_args):
@@ -29,14 +30,15 @@ def recolor_video(src, dst, w, h, enc_args):
         if len(buf) < size:
             break
         frame = np.frombuffer(buf, np.uint8).reshape(h, w, 3)
-        writer.stdin.write(recolor.recolor_array(frame).tobytes())
+        writer.stdin.write(recolor.recolor_array(frame, GAIN).tobytes())
     writer.stdin.close()
     writer.wait()
     reader.wait()
 
 
 if __name__ == '__main__':
-    recolor.recolor_image(Image.open(f'{SRC}.webp')).save(f'{DST}.webp', 'WEBP', quality=82, method=6)
+    poster = recolor.recolor_array(np.asarray(Image.open(f'{SRC}.webp').convert('RGB')), GAIN)
+    Image.fromarray(poster, 'RGB').save(f'{DST}.webp', 'WEBP', quality=82, method=6)
     recolor_video(f'{SRC}.mp4', f'{DST}.mp4', 960, 540,
                   ['-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '26', '-preset', 'slow', '-movflags', '+faststart'])
     recolor_video(f'{SRC}.webm', f'{DST}.webm', 1280, 720,

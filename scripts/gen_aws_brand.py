@@ -4,7 +4,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 PUB = Path('/app/frontend/public')
-FLUO, SOFT, INK, CREAM, WHITE = '#7DF542', '#B6E23D', '#0C0A09', '#FBF4EF', '#FFFFFF'
+FLUO, SOFT, INK, CREAM, WHITE = '#00FF00', '#6FE06F', '#0C0A09', '#FBF4EF', '#FFFFFF'
 INTER, MONO = '/tmp/fonts/InterTight.ttf', '/tmp/fonts/Azeret.ttf'
 
 
@@ -36,7 +36,7 @@ def logo(size):
 def wordmark(d, x, y, dark):
     d.text((x, y), 'Abdominal Wall Surgery', font=font(INTER, 54), fill=WHITE if dark else INK, anchor='lm')
     d.text((x + 2, y + 52), 'DR. FEDERICO FIORI', font=font(MONO, 22, 'Medium'),
-           fill=SOFT if dark else '#2E6B0B', anchor='lm')
+           fill=SOFT if dark else '#0B6B1E', anchor='lm')
 
 
 def og_home():
@@ -66,7 +66,7 @@ def og_fallback():
     d.text((420, 270), 'Abdominal Wall', font=font(INTER, 76), fill=INK, anchor='lm')
     d.text((420, 352), 'Surgery', font=font(INTER, 76), fill=INK, anchor='lm')
     d.text((424, 425), 'DR. FEDERICO FIORI  ·  HERNIAS · INCISIONAL HERNIAS', font=font(MONO, 20, 'Medium'),
-           fill='#2E6B0B', anchor='lm')
+           fill='#0B6B1E', anchor='lm')
     im.save(PUB / 'og/og-fallback-en.jpg', quality=88, optimize=True)
 
 
@@ -80,10 +80,10 @@ def favicons():
     t.save(PUB / 'apple-touch-icon-aws.png')
     (PUB / 'favicon-aws.svg').write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">'
-        '<rect x="1.5" y="1.5" width="57" height="57" rx="13" fill="#0C0A09" stroke="#7DF542" stroke-width="2.6"/>'
+        '<rect x="1.5" y="1.5" width="57" height="57" rx="13" fill="#0C0A09" stroke="#00FF00" stroke-width="2.6"/>'
         '<text x="30" y="30" text-anchor="middle" dominant-baseline="central" '
         'font-family="Inter Tight,Arial,Helvetica,sans-serif" font-weight="700" font-size="21" letter-spacing="1">'
-        '<tspan fill="#7DF542">A</tspan><tspan fill="#FFFFFF">W</tspan><tspan fill="#7DF542">S</tspan></text></svg>')
+        '<tspan fill="#00FF00">A</tspan><tspan fill="#FFFFFF">W</tspan><tspan fill="#00FF00">S</tspan></text></svg>')
 
 
 if __name__ == '__main__':

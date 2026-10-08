@@ -119,7 +119,7 @@ def active_path(page, site):
 
 
 # Override accento lime per il gemello inglese (solo HTML dei crawler).
-EN_ACCENT_CSS = ":root{--accent:#5E9E1E;--accent-soft:#9BC34A;--accent-ink:#2E6B0B;--signal:#2E6B0B;--on-deep:#B6E23D;--deep-text:#EDE4D8}"
+EN_ACCENT_CSS = ":root{--accent:#2FA23A;--accent-soft:#7FCF86;--accent-ink:#0B6B1E;--signal:#0B6B1E;--on-deep:#6FE06F;--deep-text:#EDE4D8}"
 
 
 def base_css(site):

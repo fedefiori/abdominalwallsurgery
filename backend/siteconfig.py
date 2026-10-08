@@ -35,7 +35,7 @@ NETWORK_SITES = {
         'brand': {'ogHome': '/og/og-home-en.jpg', 'ogFallback': '/og/og-fallback-en.jpg',
                   'favicon': '/favicon-aws.svg', 'faviconType': 'image/svg+xml',
                   'appleTouch': '/apple-touch-icon-aws.png',
-                  'hero': '/media/hero-loop-parete-addominale-en', 'palette': 'lime'},
+                  'hero': '/media/hero-loop-parete-addominale-en', 'palette': 'green'},
     },
 }
 

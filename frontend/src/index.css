@@ -882,38 +882,47 @@ h1, h2, h3, h4 { color: var(--title); }
 .pw-net-contacts a { word-break: break-all; }
 
 /* ===================== Gemello inglese: accento LIME (due toni) ===================== */
-/* due toni: FLUO #7DF542 per i punti forti (logo, bottoni, fascia, etichette su scuro),
-   lime MORBIDO per linee, bordi e link (#5E9E1E su crema, #B6E23D su scuro) */
+/* due toni: FLUO #00FF00 per i punti forti (logo, bottoni, fascia, etichette su scuro),
+   lime MORBIDO per linee, bordi e link (#2FA23A su crema, #6FE06F su scuro) */
 html[lang="en"] {
-    --accent: #5E9E1E;         /* lime morbido: linee, barre, bordi su crema */
-    --accent-soft: #9BC34A;
-    --accent-btn: #7DF542;     /* bottoni fluo con testo quasi-nero: ~14:1 */
-    --accent-ink: #2E6B0B;     /* testo piccolo su crema: ~6:1 */
-    --signal: #2E6B0B;
-    --signal-on-deep: #7DF542; /* etichette fluo su fasce scure */
-    --on-deep: #B6E23D;        /* link lime morbido su fasce scure */
+    --accent: #2FA23A;         /* lime morbido: linee, barre, bordi su crema */
+    --accent-soft: #7FCF86;
+    --accent-btn: #00FF00;     /* bottoni fluo con testo quasi-nero: ~14:1 */
+    --accent-ink: #0B6B1E;     /* testo piccolo su crema: ~6:1 */
+    --signal: #0B6B1E;
+    --signal-on-deep: #00FF00; /* etichette fluo su fasce scure */
+    --on-deep: #6FE06F;        /* link lime morbido su fasce scure */
 }
 html[lang="en"][data-theme="dark"] {
-    --accent: #B6E23D;         /* lime morbido: linee e bordi su scuro */
-    --accent-soft: #B6E23D;
-    --accent-btn: #7DF542;
-    --accent-ink: #B6E23D;     /* link lime morbido */
-    --signal: #7DF542;         /* etichette e numeri fluo */
-    --signal-on-deep: #7DF542;
-    --on-deep: #B6E23D;
+    --accent: #6FE06F;         /* lime morbido: linee e bordi su scuro */
+    --accent-soft: #6FE06F;
+    --accent-btn: #00FF00;
+    --accent-ink: #6FE06F;     /* link lime morbido */
+    --signal: #00FF00;         /* etichette e numeri fluo */
+    --signal-on-deep: #00FF00;
+    --on-deep: #6FE06F;
 }
 /* bottoni pieni fluo: testo quasi-nero */
 html[lang="en"] .pw-btn-solid, html[lang="en"] .pw-content a.pw-cta.solid, html[lang="en"][data-theme] .pw-cta.solid { color: #0C0A09; text-decoration: none; }
-html[lang="en"] .pw-btn-solid:hover, html[lang="en"] .pw-content a.pw-cta.solid:hover, html[lang="en"][data-theme] .pw-cta.solid:hover { background: #9BFF66; border-color: #9BFF66; color: #0C0A09; }
+html[lang="en"] .pw-btn-solid:hover, html[lang="en"] .pw-content a.pw-cta.solid:hover, html[lang="en"][data-theme] .pw-cta.solid:hover { background: #66FF66; border-color: #66FF66; color: #0C0A09; }
 /* su crema il fluo resta grafica: i testi usano il verde scuro */
 html[lang="en"] .pw-video-play { color: #0C0A09; }
+/* video hero EN piu' visibile: velo piu' leggero a destra, alone verde */
+html[lang="en"] .pw-hero-media video, html[lang="en"][data-theme="dark"] .pw-hero-media video { opacity: .95; }
+@media (max-width: 767px) { html[lang="en"] .pw-hero-media video, html[lang="en"][data-theme="dark"] .pw-hero-media video { opacity: .5; } }
+html[lang="en"] .pw-hero-media::after {
+    background:
+        linear-gradient(102deg, var(--deep) 24%, color-mix(in srgb, var(--deep) 72%, transparent) 46%, transparent 78%),
+        linear-gradient(to top, var(--deep) 1%, transparent 26%);
+}
+html[lang="en"] .pw-hero::before { background: radial-gradient(ellipse 58% 82% at 76% 18%, rgba(0, 255, 0, .10), transparent 70%); }
 html[lang="en"] a:hover { color: var(--accent-ink); }
 html[lang="en"] .pw-form-error, html[lang="en"] .pw-contact-phone svg { color: var(--accent-ink); }
 /* marquee: fascia lime piena con testo quasi-nero (contrasto alto in entrambi i temi) */
-html[lang="en"] .pw-marquee { background: #7DF542; }
+html[lang="en"] .pw-marquee { background: #00FF00; }
 html[lang="en"] .pw-marquee span { color: #0C0A09; }
 html[lang="en"] .pw-marquee span::after { background: #0C0A09; }
-html[lang="en"] ::selection { background: #7DF542; color: #0C0A09; }
+html[lang="en"] ::selection { background: #00FF00; color: #0C0A09; }
 /* lockup AWS: nome del sito accanto al monogramma */
 .pw-brand-textblock { display: flex; flex-direction: column; line-height: 1.1; }
 .pw-brand-name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--text); letter-spacing: -0.01em; }

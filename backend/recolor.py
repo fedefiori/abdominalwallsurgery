@@ -1,16 +1,16 @@
 """Palette del verticale inglese: le illustrazioni di marca (fondo notte + tratto
-azzurro) vengono ricolorate in lime, le foto cliniche restano fedeli.
+azzurro) vengono ricolorate in verde, le foto cliniche restano fedeli.
 
 Riconoscimento automatico (vale anche per le immagini future): immagine scura
 con colore quasi tutto nella banda azzurra. Ricolorazione: il tratto azzurro
-diventa lime a due toni (morbido #B6E23D nei mezzi toni, fluo #7DF542 nelle
+diventa verde a due toni (morbido #6FE06F nei mezzi toni, fluo #00FF00 nelle
 luci), il fondo notte diventa il quasi-nero caldo del sito. I toni non azzurri
 (es. muscoli nel busto del video) restano invariati."""
 import numpy as np
 from PIL import Image
 
 BLUE_LO, BLUE_HI = 165.0, 255.0       # banda azzurra/ciano (gradi)
-HUE_SOFT, HUE_FLUO = 76.0, 101.0      # #B6E23D / #7DF542
+HUE_SOFT, HUE_FLUO = 120.0, 120.0     # #6FE06F / #00FF00 (stessa tinta, cambia la saturazione)
 
 
 def is_brand_illustration(im):
@@ -23,8 +23,8 @@ def is_brand_illustration(im):
     return blue > 0.9
 
 
-def recolor_array(rgb):
-    """rgb: uint8 HxWx3 -> uint8 HxWx3 in palette lime."""
+def recolor_array(rgb, gain=1.0):
+    """rgb: uint8 HxWx3 -> uint8 HxWx3 in palette verde. gain>1 schiarisce (video)."""
     img = Image.fromarray(rgb, 'RGB')
     hsv = np.asarray(img.convert('HSV')).astype(np.float32)
     h, s, v = hsv[..., 0] * (360 / 255), hsv[..., 1] / 255, hsv[..., 2] / 255
@@ -37,7 +37,9 @@ def recolor_array(rgb):
     # fondo notte (scuro e azzurro) -> quasi-nero caldo: saturazione giu'
     dark = np.clip((0.42 - v) / 0.3, 0, 1) * w
     new_s = s * (1 - 0.93 * dark)
-    new_s = np.where(w > 0, np.clip(new_s * (1 + 0.25 * t * w), 0, 1), new_s)
+    # morbido nei mezzi toni (saturazione ~0.5), fluo pieno nelle luci
+    new_s = np.where(w > 0, np.clip(new_s * (0.6 + 1.0 * t) * w + new_s * (1 - w), 0, 1), new_s)
+    v = np.clip(v * gain, 0, 1)
     out = np.stack([new_h * (255 / 360), new_s * 255, v * 255], -1)
     out = np.clip(out, 0, 255).astype(np.uint8)
     return np.asarray(Image.fromarray(out, 'HSV').convert('RGB'))

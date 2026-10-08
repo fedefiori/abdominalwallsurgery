@@ -140,11 +140,11 @@ export default function Layout({ children }) {
                                 <svg className="pw-brand-logo" width="60" height="60" viewBox="0 0 60 60"
                                     role="img" aria-label="AWS — Abdominal Wall Surgery" data-testid="brand-logo">
                                     <rect x="1.5" y="1.5" width="57" height="57" rx="13" fill="#0C0A09"
-                                        stroke="#7DF542" strokeWidth="2.6" />
+                                        stroke="#00FF00" strokeWidth="2.6" />
                                     <text x="30" y="30" textAnchor="middle" dominantBaseline="central"
                                         fontFamily="Inter Tight, sans-serif" fontWeight="700" fontSize="21"
                                         letterSpacing="1">
-                                        <tspan fill="#7DF542">A</tspan><tspan fill="#FFFFFF">W</tspan><tspan fill="#7DF542">S</tspan>
+                                        <tspan fill="#00FF00">A</tspan><tspan fill="#FFFFFF">W</tspan><tspan fill="#00FF00">S</tspan>
                                     </text>
                                 </svg>
                                 <span className="pw-brand-textblock">

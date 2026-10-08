@@ -714,3 +714,11 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   meno saturo), seo_render.EN_ACCENT_CSS. Cache immagini rinominata media-green (?p=green, cache-busting).
 - Video hero EN: rigenerato con gain luminosità 1.45; opacità .95 desktop / .5 mobile (<768px, dove
   si vede solo il poster sotto il testo); velo scuro solo sul lato del testo; alone hero verde.
+
+### 2026-10-08 — Video hero su telefono + collaudo completo
+- Video mobile leggero: /media/hero-loop-parete-addominale-en-mobile.{webm 89KB, mp4 126KB}, ritaglio
+  verticale 360x600 sul busto; attivo solo se SITE.brand.heroMobile (solo EN). IT invariato.
+- Collaudo (iteration_12/13): 16 pagine + 404 a 1440 e 390 OK, menu, tema, form contatti (solo
+  validazione + honeypot, nessun invio reale), video click-to-load nocookie, SEO senza hreflang/VideoObject.
+- Corrette 10 meta description fuori dalla fascia 150-160 (+ ui.articles_meta per /articles EN).
+- Test: backend/tests/test_english_site.py (60/60 con test_palette.py).

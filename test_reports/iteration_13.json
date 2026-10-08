@@ -1,0 +1,27 @@
+{
+  "summary": "Retest of iteration_12 minor issues on English twin site (SITE_KEY=parete_en). Backend pytest 60/60 PASS (test_english_site.py + test_palette.py) — every prerendered meta description is now 150-160 chars after html.unescape, including the 10 pages previously flagged (home 154, anatomy 152, defects 156, symptoms 156, imaging 156, rectus 155, surgical-treatment 157, meshes 159, surgical-complications 150, prehabilitation 151, about 156, videos 156, contact 153, privacy 153, cookie 157, articles 158). English only, no hreflang anywhere, no VideoObject JSON-LD anywhere. Frontend SPA: all 16 pages render meta description within 150-160 after client-side fetch applies (verified with fresh hard loads). Hero video regression PASS: at 390px currentSrc = /media/hero-loop-parete-addominale-en-mobile.webm (paused=false, playsInline=true, muted=true, currentTime advances 1.93→3.44); at 1440px currentSrc = /media/hero-loop-parete-addominale-en.webm (paused=false, currentTime advances 1.71→2.92). No console errors on home at either breakpoint.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_english_site.py",
+    "/app/backend/tests/test_palette.py",
+    "/app/test_reports/pytest/iter13.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "SPA meta description on in-app route transitions briefly keeps the previous page's description for ~1-3s until the page JSON resolves (noticed as transient 142-char/lang=it readings mid-transition). Not a prod issue because crawlers consume the prerendered HTML, but if you ever add a client-side analytics beacon on route change, defer it until the content-ready signal.",
+    "No hreflang / no VideoObject invariants are enforced by prerender tests and confirmed in live SPA DOM — safe for English-only contract."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (60/60)", "frontend": "100% (16/16 pages, hero mobile+desktop)"},
+  "test_credentials": "N/A — no auth; contact form NOT submitted with valid payload.",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Iteration 12's 10 meta-description length issues are fully resolved. Baseline pytest suite: /app/backend/tests/test_english_site.py (60 tests, all pass incl. parametrized meta length over 16 paths, MedicalWebPage schema on 9 pillars, sitemap/robots/llms English, honeypot silent 200, hero mobile+desktop media served). Hero mobile playback at 390 and desktop at 1440 confirmed via live Playwright on preview URL. For SPA meta checks in future iterations, use hard navigation (page.goto with domcontentloaded) + 3s settle before reading document.querySelector('meta[name=description]').content — SPA transitions show stale meta until page fetch resolves.",
+  "rca of the issue": "N/A — all previously reported issues fixed by main agent in iteration 12 rewrite of en.metaDescription fields and addition of ui.articles_meta."
+}

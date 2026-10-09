@@ -31,7 +31,7 @@ export function AuthorBox({ updated }) {
                     {data && <> {en ? 'Last reviewed:' : 'Ultima revisione:'} <time dateTime={(updated || '').slice(0, 10)}>{data}</time>.</>}
                 </span>
                 <span className="pw-authorbox-links">
-                    <a href="https://www.federicofiori.com/curriculum" target="_blank" rel="author noopener">{en ? 'Full curriculum' : 'Curriculum completo'}</a>
+                    <a href={en ? 'https://www.federicofiori.com/en/curriculum' : 'https://www.federicofiori.com/curriculum'} target="_blank" rel="author noopener">{en ? 'Full curriculum' : 'Curriculum completo'}</a>
                     {!en && <>
                         <span aria-hidden="true"> · </span>
                         <Link to="/contatti/">Dove riceve</Link>

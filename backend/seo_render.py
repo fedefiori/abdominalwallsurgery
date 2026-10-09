@@ -271,7 +271,7 @@ def author_box_html(domain, person, updated_iso, lang):
 <span>General surgeon</span><br />
 <span>Head of the Abdominal Wall Surgery Unit — ASST Santi Paolo e Carlo, San Carlo Borromeo Hospital, Milan</span><br />
 <span>Written and reviewed by Dr. Federico Fiori.{f' Last reviewed: {esc(data)}.' if data else ''}</span><br />
-<a rel="author" href="https://www.federicofiori.com/curriculum">Full curriculum</a>
+<a rel="author" href="https://www.federicofiori.com/en/curriculum">Full curriculum</a>
 </div>
 </aside>'''
     return f'''<aside class="pw-authorbox" aria-label="Autore e revisione">

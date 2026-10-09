@@ -7,6 +7,7 @@ import { Reveal } from '../components/Reveal';
 
 export default function ArticlesPage() {
     const { site, ui } = useSite();
+    const en = site?.lang === 'en';
     const location = useLocation();
     const [data, setData] = useState(null);
 
@@ -58,7 +59,7 @@ export default function ArticlesPage() {
                                 </Link>
                                 {a.siteLink && (
                                     <p className="pw-card-sitelink" data-testid={`article-sitelink-${a.slug}`}>
-                                        Pagina del sito collegata: <Link to={a.siteLink[1]}>{a.siteLink[0]}</Link>
+                                        {en ? 'Related page on this site:' : 'Pagina del sito collegata:'} <Link to={a.siteLink[1]}>{a.siteLink[0]}</Link>
                                     </p>
                                 )}
                             </div>
@@ -69,6 +70,42 @@ export default function ArticlesPage() {
                     )}
                 </div>
                 <div className="pw-content" style={{ marginTop: '3.5rem' }}>
+                    {en ? <IndexFaqEn /> : <IndexFaqIt />}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function IndexFaqEn() {
+    return (
+        <>
+            <section className="pw-sect pw-sect-1">
+                <h2>What will I find in these articles?</h2>
+                <p>
+                    The articles in this index are the educational texts written and approved in the
+                    federicofiori.com editorial area and served here for this site’s readers: they explain in
+                    plain words topics that the clinical pages cover in technical terms, from the TESAR technique
+                    to preventing the recurrence of umbilical hernia.
+                </p>
+            </section>
+            <section className="pw-sect pw-sect-2">
+                <h2>Where are the other in-depth articles published?</h2>
+                <p>
+                    The full editorial plan lives on the hub <a href="https://www.federicofiori.com">federicofiori.com</a>:
+                    there you will find the acronym glossary, the TESAR technique, the MILA technique and the results
+                    gallery. The reference clinical pages stay on this site: to find your way, start from
+                    the <Link to="/abdominal-wall-defects-and-classification/">classification of wall defects</Link> and
+                    the <Link to="/surgical-treatment/">surgical treatment</Link>.
+                </p>
+            </section>
+        </>
+    );
+}
+
+function IndexFaqIt() {
+    return (
+        <>
                     <section className="pw-sect pw-sect-1">
                         <h2>Che cosa trovo in questi articoli?</h2>
                         <p>
@@ -88,8 +125,6 @@ export default function ArticlesPage() {
                             dalla <Link to="/la-terapia-chirurgica/">terapia chirurgica</Link>.
                         </p>
                     </section>
-                </div>
-            </div>
-        </div>
+        </>
     );
 }

@@ -1,10 +1,12 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { X } from 'lucide-react';
+import { useSite } from '../lib/SiteContext';
 
 const LightboxCtx = createContext(() => {});
 
 export function LightboxProvider({ children }) {
     const [current, setCurrent] = useState(null);
+    const { ui } = useSite();
 
     useEffect(() => {
         if (!current) return undefined;
@@ -29,7 +31,7 @@ export function LightboxProvider({ children }) {
                     aria-label={current.caption || current.alt}
                     onClick={() => setCurrent(null)}
                 >
-                    <button className="pw-lightbox-close" data-testid="lightbox-close" aria-label="Chiudi l'ingrandimento">
+                    <button className="pw-lightbox-close" data-testid="lightbox-close" aria-label={ui?.zoom_close || 'Close'}>
                         <X size={18} />
                     </button>
                     <img src={current.src} alt={current.alt} />

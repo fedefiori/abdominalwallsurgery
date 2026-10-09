@@ -41,8 +41,20 @@ function ogDescription(t, limit = 125) {
 
 /** SEO lato client: il crawler riceve l'HTML dal prerender del Worker;
     qui gestiamo la vista per gli utenti nel browser, con OG completi. */
-export default function useSEO({ title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType }) {
+export default function useSEO({ title, description, canonical, noindex, domain, siteName, lang, image, imageAlt, ogType, alternates }) {
     const fallback = useSite()?.site?.brand?.ogFallback || '/og/og-fallback.jpg';
+    const altKey = JSON.stringify(Array.isArray(alternates) ? alternates : []);
+    useEffect(() => {
+        // hreflang IT <-> EN: stessi tag del prerender; nessuno se la pagina non ha gemello
+        document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+        JSON.parse(altKey).forEach((a) => {
+            const el = document.createElement('link');
+            el.setAttribute('rel', 'alternate');
+            el.setAttribute('hreflang', a.hreflang);
+            el.setAttribute('href', a.href);
+            document.head.appendChild(el);
+        });
+    }, [altKey]);
     useEffect(() => {
         if (title) document.title = title;
         if (title) setMeta('property', 'og:title', title);

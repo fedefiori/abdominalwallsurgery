@@ -118,6 +118,36 @@ def active_path(page, site):
     return c.get('path') or page['path']
 
 
+# hreflang IT <-> EN (decisione concordata con l'hub): coppia completa + x-default
+# sulla versione italiana, solo dove esistono ENTRAMBE le lingue. Mai verso l'hub.
+def _lang_domains(site):
+    if site['lang'] == 'it':
+        return site['domain'], site['twin']['domain']
+    return site['twin']['domain'], site['domain']
+
+
+def _alt_triplet(site, it_path, en_path):
+    it_dom, en_dom = _lang_domains(site)
+    return [('it', it_dom + it_path), ('en', en_dom + en_path), ('x-default', it_dom + it_path)]
+
+
+def page_alternates(page, site):
+    it, en = page.get('it'), page.get('en')
+    if not (it and en):
+        return []
+    return _alt_triplet(site, it.get('path') or page['path'], en.get('path') or page['path'])
+
+
+def articles_index_alternates(site):
+    it_index = site['articlesIndex'] if site['lang'] == 'it' else site['twin']['articlesIndex']
+    en_index = site['articlesIndex'] if site['lang'] == 'en' else site['twin']['articlesIndex']
+    return _alt_triplet(site, it_index, en_index)
+
+
+def hreflang_html(alts):
+    return ''.join(f'<link rel="alternate" hreflang="{h}" href="{esc(u)}" />\n' for h, u in alts)
+
+
 # Override accento lime per il gemello inglese (solo HTML dei crawler).
 EN_ACCENT_CSS = ":root{--accent:#2FA23A;--accent-soft:#7FCF86;--accent-ink:#0B6B1E;--signal:#0B6B1E;--on-deep:#6FE06F;--deep-text:#EDE4D8}"
 
@@ -147,7 +177,8 @@ def org_ld(entity, domain, lang):
     org = {
         '@type': 'Organization',
         '@id': f'{domain}/#organization',
-        'name': 'Chirurgia della Parete Addominale - Dott. Federico Fiori',
+        'name': ('Abdominal Wall Surgery - Dr. Federico Fiori' if lang == 'en'
+                 else 'Chirurgia della Parete Addominale - Dott. Federico Fiori'),
         'url': domain,
         'sameAs': same,
     }
@@ -255,27 +286,34 @@ def author_box_html(domain, person, updated_iso, lang):
 </aside>'''
 
 
-# about per slug: condizione o procedura clinica della pagina (mai generico)
+# about per slug: condizione o procedura clinica della pagina (mai generico), nome per lingua
 ABOUT_MAP = {
     'anatomia-della-parete-addominale-e-abdominal-core':
-        {'@type': 'AnatomicalStructure', 'name': 'Parete addominale anteriore'},
+        {'@type': 'AnatomicalStructure', 'name': {'it': 'Parete addominale anteriore', 'en': 'Anterior abdominal wall'}},
     'difetti-della-parete-addominale-e-classificazione':
-        {'@type': 'MedicalCondition', 'name': 'Ernia della parete addominale'},
+        {'@type': 'MedicalCondition', 'name': {'it': 'Ernia della parete addominale', 'en': 'Abdominal wall hernia'}},
     'sintomi-e-complicanze':
-        {'@type': 'MedicalCondition', 'name': 'Ernia e laparocele'},
+        {'@type': 'MedicalCondition', 'name': {'it': 'Ernia e laparocele', 'en': 'Hernia and incisional hernia'}},
     'la-terapia-chirurgica':
-        {'@type': 'MedicalProcedure', 'name': 'Rives-Stoppa, TAR e TESAR per la riparazione della parete addominale'},
+        {'@type': 'MedicalProcedure', 'name': {'it': 'Rives-Stoppa, TAR e TESAR per la riparazione della parete addominale',
+                                               'en': 'Rives-Stoppa, TAR and TESAR for abdominal wall repair'}},
     'le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi':
-        {'@type': 'MedicalProcedure', 'name': 'Riparazione protesica della parete addominale'},
+        {'@type': 'MedicalProcedure', 'name': {'it': 'Riparazione protesica della parete addominale', 'en': 'Mesh repair of the abdominal wall'}},
     'preabilitazione-dei-pazienti-all-intervento-chirurgico':
-        {'@type': 'MedicalProcedure', 'name': 'Pre-abilitazione alla Chirurgia della Parete Addominale'},
+        {'@type': 'MedicalProcedure', 'name': {'it': 'Pre-abilitazione alla Chirurgia della Parete Addominale',
+                                               'en': 'Prehabilitation for abdominal wall surgery'}},
     'le-complicanze-chirurgiche-la-vac-therapy':
-        {'@type': 'MedicalProcedure', 'name': 'Terapia a pressione negativa (VAC therapy)'},
+        {'@type': 'MedicalProcedure', 'name': {'it': 'Terapia a pressione negativa (VAC therapy)', 'en': 'Negative pressure wound therapy (VAC therapy)'}},
     'radiologia':
-        {'@type': 'MedicalProcedure', 'name': 'Diagnostica per immagini della parete addominale'},
+        {'@type': 'MedicalProcedure', 'name': {'it': 'Diagnostica per immagini della parete addominale', 'en': 'Imaging of the abdominal wall'}},
     'video':
-        {'@type': 'MedicalProcedure', 'name': 'Chirurgia della Parete Addominale'},
+        {'@type': 'MedicalProcedure', 'name': {'it': 'Chirurgia della Parete Addominale', 'en': 'Abdominal wall surgery'}},
 }
+
+
+def about_ld(slug, lang):
+    a = ABOUT_MAP.get(slug)
+    return {'@type': a['@type'], 'name': a['name'][lang]} if a else None
 
 
 def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
@@ -293,7 +331,7 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
         'description': content.get('metaDescription'),
         'inLanguage': site['lang'],
         'isPartOf': {'@id': f"{site['domain']}/#website"},
-        'about': ABOUT_MAP.get(page.get('slug')) or ({'@id': person.get('@id')} if person.get('@id') else None),
+        'about': about_ld(page.get('slug'), site['lang']) or ({'@id': person.get('@id')} if person.get('@id') else None),
         'author': {'@id': PERSON_REF_ID},
         'reviewedBy': {'@id': PERSON_REF_ID},
         'speakable': {
@@ -327,14 +365,20 @@ def page_jsonld(page, content, site, entity, canonical, breadcrumb_items):
             'procedureType': 'https://schema.org/SurgicalProcedure',
         })
     elif kind == 'classifications':
+        en = site['lang'] == 'en'
         graphs.append({
             '@type': 'DefinedTermSet',
-            'name': 'Classificazione EHS delle ernie della parete addominale',
+            'name': ('EHS classification of abdominal wall hernias' if en
+                     else 'Classificazione EHS delle ernie della parete addominale'),
             'url': canonical,
             'hasDefinedTerm': [
                 {'@type': 'DefinedTerm', 'name': 'EHS', 'description': 'European Hernia Society'},
-                {'@type': 'DefinedTerm', 'name': 'Ernia primaria', 'description': 'Ernia della parete addominale non associata a precedente incisione chirurgica'},
-                {'@type': 'DefinedTerm', 'name': 'Ernia incisionale (laparocele)', 'description': 'Ernia su cicatrice di precedente intervento chirurgico addominale'},
+                {'@type': 'DefinedTerm', 'name': 'Primary hernia' if en else 'Ernia primaria',
+                 'description': ('Abdominal wall hernia not associated with a previous surgical incision' if en
+                                 else 'Ernia della parete addominale non associata a precedente incisione chirurgica')},
+                {'@type': 'DefinedTerm', 'name': 'Incisional hernia' if en else 'Ernia incisionale (laparocele)',
+                 'description': ('Hernia through the scar of a previous abdominal operation' if en
+                                 else 'Ernia su cicatrice di precedente intervento chirurgico addominale')},
             ],
         })
     elif kind == 'profile':
@@ -518,13 +562,14 @@ def menu_html(site, pages=None):
     d = site['domain']
     items = [(d + '/', ui['breadcrumb_home']),
              (d + site['articlesIndex'], ui['nav_articles'])]
-    for slug, key in (('video', 'nav_video'), ('about', 'nav_about'), ('chi-sono', 'nav_about'), ('contatti', 'nav_contacts')):
+    for slug, key in (('video', 'nav_video'), ('chi-sono', 'nav_about'), ('contatti', 'nav_contacts')):
         p = (pages or {}).get(slug)
         if p and p.get(site['lang']):
             items.append((d + active_path(p, site), ui.get(key, slug)))
     links = ''.join(f'<a href="{esc(u)}">{esc(lbl)}</a>' for u, lbl in items)
     # i bot devono vedere una vera navigazione: <header><nav> (contratto 04/10)
-    return f'<header><nav class="pw-menu" aria-label="Menu principale">{links}</nav></header>'
+    menu_label = 'Main menu' if site['lang'] == 'en' else 'Menu principale'
+    return f'<header><nav class="pw-menu" aria-label="{menu_label}">{links}</nav></header>'
 
 
 def prerender_404(site, pages=None):
@@ -602,12 +647,12 @@ def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
     rel_html = ''
     if rel:
         lis = ''.join(f'<li><a href="{esc(r["href"] if r["href"].startswith("http") else domain + r["href"])}">{esc(r["label"])}</a></li>' for r in rel)
-        rel_html = f'<nav class="pw-rel" aria-label="Leggi anche"><strong>Leggi anche</strong><ul>{lis}</ul></nav>'
+        rel_html = f'<nav class="pw-rel" aria-label="{esc(ui["see_also"])}"><strong>{esc(ui["see_also"])}</strong><ul>{lis}</ul></nav>'
     fonti = content.get('fonti') or []
     fonti_html = ''
     if fonti:
         lis = ''.join(f'<li><a href="{esc(x["href"])}" target="_blank" rel="noopener">{esc(x["label"])}</a></li>' for x in fonti)
-        fonti_html = f'<section class="pw-rel" aria-label="Fonti"><strong>Fonti</strong><ul>{lis}</ul></section>'
+        fonti_html = f'<section class="pw-rel" aria-label="{esc(ui["sources"])}"><strong>{esc(ui["sources"])}</strong><ul>{lis}</ul></section>'
     first_img = next((b for b in (content.get('blocks') or []) if b.get('type') == 'img'), None)
     if kind == 'home':
         og_image = site['domain'] + site['brand']['ogHome']
@@ -625,7 +670,7 @@ def prerender_page(page, content, site, entity, absolute, noindex, pages=None):
 <title>{esc(content.get('metaTitle') or h1)}</title>
 <meta name="description" content="{esc(content.get('metaDescription', ''))}" />
 <link rel="canonical" href="{esc(canonical)}" />
-{og}
+{hreflang_html(page_alternates(page, site))}{og}
 {robots}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{base_css(site)}</style>
@@ -683,13 +728,10 @@ def prerender_article(article, site, entity, absolute, noindex, pages=None):
     if rel:
         lis = ''.join(f'<li><a href="{esc(domain + h)}">{esc(l)}</a></li>' for l, h in rel)
         lis += f'<li><a href="{esc(domain + site["articlesIndex"])}">{esc(u["breadcrumb_articles"])}</a></li>'
-        rel_html = f'<nav class="pw-rel" aria-label="Su questo sito"><strong>Su questo sito</strong><ul>{lis}</ul></nav>'
+        rel_html = f'<nav class="pw-rel" aria-label="{esc(u["on_this_site"])}"><strong>{esc(u["on_this_site"])}</strong><ul>{lis}</ul></nav>'
+    # Nessun hreflang sugli articoli: non sono nella mappa delle coppie IT<->EN e la
+    # traduzione dichiarata dall'hub punta all'hub (mai hreflang verso l'hub).
     hreflang = ''
-    tr = article.get('translation')
-    if tr and tr.get('url'):
-        hreflang = (f'<link rel="alternate" hreflang="{"en" if site["lang"]=="it" else "it"}" href="{esc(tr["url"])}" />\n'
-                    f'<link rel="alternate" hreflang="{site["lang"]}" href="{esc(canonical)}" />\n'
-                    f'<link rel="alternate" hreflang="x-default" href="{esc(canonical if site["lang"]=="it" else tr["url"])}" />')
     return f"""<!DOCTYPE html>
 <html lang="{site['lang']}">
 <head>
@@ -758,14 +800,21 @@ def sitemap_xml(entries):
             f'{rows}</urlset>')
 
 
-def robots_txt(domain):
-    return f"""# Chirurgia della Parete - rete federicofiori.com
+def robots_txt(domain, lang='it'):
+    if lang == 'en':
+        head = '# Abdominal Wall Surgery — federicofiori.com network'
+        ai = ('# AI bots and search engines: network allow-list, aligned with the full list of\n'
+              '# diastasisandbeyond.com (hub contract 04/10). Never a global Disallow: /.')
+    else:
+        head = '# Chirurgia della Parete - rete federicofiori.com'
+        ai = ('# Bot AI e motori: allow-list di rete, allineata a quella completa di\n'
+              '# diastasisandbeyond.com (contratto hub 04/10). Mai un Disallow: / globale.')
+    return f"""{head}
 User-agent: *
 Allow: /
 Disallow: /api/stats/
 
-# Bot AI e motori: allow-list di rete, allineata a quella completa di
-# diastasisandbeyond.com (contratto hub 04/10). Mai un Disallow: / globale.
+{ai}
 User-agent: GPTBot
 Allow: /
 User-agent: OAI-SearchBot

@@ -113,17 +113,14 @@ export default function Layout({ children }) {
     useJsonLd(location.pathname);
 
     // «Dott. F. Fiori» porta al curriculum canonico sull'hub (contratto 04/10:
-    // nessuna pagina-persona su questo sito). Sul gemello inglese esiste invece
-    // una pagina /about/ breve che rimanda al curriculum dell'hub.
-    const CURRICULUM_URL = 'https://www.federicofiori.com/curriculum';
-    const aboutItem = en
-        ? { to: '/about/', label: ui.nav_about }
-        : { to: CURRICULUM_URL, label: ui.nav_about, external: true };
+    // nessuna pagina-persona su questo sito). Sul gemello inglese la voce non c'e':
+    // /about/ e' ritirata (301 al curriculum EN dell'hub), come /chi-sono/ in italiano.
+    const CURRICULUM_URL = en ? 'https://www.federicofiori.com/en/curriculum' : 'https://www.federicofiori.com/curriculum';
     const mainNav = [
         { to: '/', label: ui.nav_home },
         { to: site?.articlesIndex || '/articoli', label: ui.nav_articles },
         ...(!site || site.hasVideo ? [{ to: en ? '/videos/' : '/video/', label: ui.nav_video || 'Video' }] : []),
-        aboutItem,
+        ...(en ? [] : [{ to: CURRICULUM_URL, label: ui.nav_about, external: true }]),
         { to: en ? '/contact/' : '/contatti/', label: ui.nav_contacts },
     ];
 
@@ -160,7 +157,7 @@ export default function Layout({ children }) {
                             </>
                         )}
                     </Link>
-                    <nav className="pw-nav" aria-label="Navigazione principale" data-testid="main-nav">
+                    <nav className="pw-nav" aria-label={ui.main_nav || 'Navigazione principale'} data-testid="main-nav">
                         <Link to="/" aria-current={location.pathname === '/' ? 'page' : undefined}>{ui.nav_home}</Link>
                         <ChaptersDropdown items={site?.nav} label={ui.nav_chapters || 'Capitoli'} />
                         {mainNav.slice(1).map((item) => (
@@ -222,7 +219,7 @@ export default function Layout({ children }) {
                             <p>{en ? 'Write to Dr. Fiori' : 'Scrivi al Dott. Fiori'}<br />
                                 <a href="mailto:fedefiori@federicofiori.com">fedefiori@federicofiori.com</a></p>
                             <p>{en ? 'Phone' : 'Telefono'} <a href="tel:+390276021568">+39 02 7602 1568</a></p>
-                            <p><a href="https://www.federicofiori.com/curriculum" target="_blank" rel="noopener">{en ? 'Full curriculum on the hub' : 'Curriculum completo sull’hub'}</a></p>
+                            <p><a href={CURRICULUM_URL} target="_blank" rel="noopener">{en ? 'Full curriculum on the hub' : 'Curriculum completo sull’hub'}</a></p>
                         </section>
                         <section data-testid="footer-dove-riceve">
                             <h3>{en ? 'Where he practices' : 'Dove riceve'}</h3>

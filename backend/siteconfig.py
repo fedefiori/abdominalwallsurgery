@@ -24,6 +24,8 @@ NETWORK_SITES = {
                   'favicon': '/logo-chirurgia-della-parete.png', 'faviconType': 'image/png',
                   'appleTouch': '/logo-chirurgia-della-parete.png',
                   'hero': '/media/hero-loop-parete-addominale', 'palette': None},
+        'retired': {},
+        'chaptersExternal': [],
     },
     'parete_en': {
         'lang': 'en',
@@ -36,6 +38,16 @@ NETWORK_SITES = {
                   'favicon': '/favicon-aws.svg', 'faviconType': 'image/svg+xml',
                   'appleTouch': '/apple-touch-icon-aws.png',
                   'hero': '/media/hero-loop-parete-addominale-en', 'heroMobile': True, 'palette': 'green'},
+        # pagine ritirate (allineamento al gemello italiano): 301 permanenti fuori dal sito
+        'retired': {
+            '/about/': 'https://www.federicofiori.com/en/curriculum',
+            '/rectus-diastasis/': 'https://www.diastasisandbeyond.com/',
+        },
+        # un argomento, un solo sito: la diastasi e' una scheda in uscita nell'indice dei capitoli
+        'chaptersExternal': [
+            {'url': 'https://www.diastasisandbeyond.com/', 'label': 'Rectus diastasis',
+             'note': 'Dedicated site: diastasisandbeyond.com'},
+        ],
     },
 }
 
@@ -85,6 +97,9 @@ UI = {
         'hero_answer_label': 'In sintesi',
         'figures_disclaimer': 'Immagini cliniche a scopo illustrativo.',
         'tags_label': 'Argomenti',
+        'enlarge': 'Ingrandisci', 'zoom_close': "Chiudi l'ingrandimento", 'play_video': 'Riproduci il video',
+        'toc_page': 'Indice della pagina', 'toc_article': "Indice dell'articolo", 'on_this_site': 'Su questo sito',
+        'main_nav': 'Navigazione principale', 'see_also': 'Leggi anche', 'sources': 'Fonti',
     },
     'en': {
         'site_name': 'Abdominal Wall Surgery',
@@ -108,6 +123,9 @@ UI = {
         'hero_answer_label': 'In brief',
         'figures_disclaimer': 'Clinical images for illustrative purposes.',
         'tags_label': 'Topics',
+        'enlarge': 'Enlarge', 'zoom_close': 'Close the enlarged image', 'play_video': 'Play the video',
+        'toc_page': 'Table of contents', 'toc_article': 'Table of contents', 'on_this_site': 'On this site',
+        'main_nav': 'Main navigation', 'see_also': 'See also', 'sources': 'Sources',
     },
 }
 
@@ -126,6 +144,8 @@ def site():
         'twinKey': cfg['twin'],
         'twin': NETWORK_SITES[cfg['twin']],
         'brand': cfg['brand'],
+        'retired': cfg['retired'],
+        'chaptersExternal': cfg['chaptersExternal'],
         'ui': UI[lang],
     }
 
@@ -137,7 +157,6 @@ def nav_pages(lang):
             ('difetti-della-parete-addominale-e-classificazione', 'Defects & classification'),
             ('sintomi-e-complicanze', 'Symptoms & complications'),
             ('radiologia', 'Imaging & radiology'),
-            ('rectus-diastasis', 'Rectus diastasis'),
             ('la-terapia-chirurgica', 'Surgical treatment'),
             ('le-protesi-in-chirurgia-della-parete-e-il-piano-di-posizionamento-della-protesi', 'Meshes & plane'),
             ('le-complicanze-chirurgiche-la-vac-therapy', 'Complications & VAC'),

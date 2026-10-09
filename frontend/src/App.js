@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
-import { SiteProvider } from './lib/SiteContext';
+import { SiteProvider, useSite } from './lib/SiteContext';
 import { LightboxProvider } from './components/Lightbox';
 import { trackPageview, initStatsClicks } from './lib/stats';
 import Layout from './components/Layout';
@@ -46,6 +46,19 @@ function SlugRedirect() {
     return <NotFoundPage />;
 }
 
+/** Pagine ritirate (es. /about/, /rectus-diastasis/ sul gemello inglese): anche
+    nel browser si esce verso la destinazione di rete, come il 301 del prerender. */
+function RetiredRedirect() {
+    const { pathname } = useLocation();
+    const { site } = useSite();
+    useEffect(() => {
+        const key = pathname.endsWith('/') ? pathname : `${pathname}/`;
+        const target = site?.retired?.[key];
+        if (target) window.location.replace(target);
+    }, [pathname, site]);
+    return null;
+}
+
 export default function App() {
     useLenis();
     return (
@@ -53,6 +66,7 @@ export default function App() {
             <LightboxProvider>
             <BrowserRouter>
                 <ScrollTop />
+                <RetiredRedirect />
                 <StatsTracker />
                 <Layout>
                     <Routes>

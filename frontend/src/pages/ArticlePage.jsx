@@ -91,7 +91,7 @@ export default function ArticlePage() {
                         )}
                         <Blocks blocks={post.sections || []} />
                         <AuthorBox updated={post.updatedAt || post.publishedAt} />
-                        <Related items={post.siteRelated} title="Su questo sito" />
+                        <Related items={post.siteRelated} title={ui.on_this_site} />
                         <p style={{ marginTop: '1rem' }}>
                             <Link to={site.articlesIndex} data-testid="article-back-index">← {ui.breadcrumb_articles}</Link>
                         </p>
@@ -104,7 +104,7 @@ export default function ArticlePage() {
                         <FaqView faq={post.faq} title={ui.faq_title} />
                     </article>
                     {toc.length >= 3 && (
-                        <nav className="pw-toc" aria-label="Indice dell'articolo" data-testid="page-toc">
+                        <nav className="pw-toc" aria-label={ui.toc_article} data-testid="page-toc">
                             {toc.map((t) => <a key={t.id} href={`#${t.id}`}>{t.label}</a>)}
                         </nav>
                     )}

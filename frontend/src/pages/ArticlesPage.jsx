@@ -21,6 +21,7 @@ export default function ArticlesPage() {
         domain: site?.domain,
         siteName: ui?.site_name,
         lang: site?.lang,
+        alternates: site?.articlesAlternates,
     });
 
     if (location.pathname !== (site?.articlesIndex || '/articoli')) {

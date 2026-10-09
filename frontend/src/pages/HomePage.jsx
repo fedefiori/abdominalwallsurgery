@@ -40,6 +40,9 @@ function WallArt() {
 }
 
 function splitLines(text) {
+    // titolo con sottotitolo ("X: y"): a capo dopo i due punti
+    const colon = (text || '').indexOf(': ');
+    if (colon > 0) return [text.slice(0, colon + 1), text.slice(colon + 2)];
     const words = (text || '').split(' ');
     if (words.length <= 3) return [text];
     const mid = Math.ceil(words.length / 2);
@@ -86,6 +89,7 @@ export default function HomePage() {
         lang: site?.lang,
         image: site ? `${site.domain}${site.brand?.ogHome || '/og/og-home.jpg'}` : undefined,
         imageAlt: page?.h1 || ui.site_name,
+        alternates: page?.alternates,
     });
 
     const en = site?.lang === 'en';
@@ -175,6 +179,19 @@ export default function HomePage() {
                                     </span>
                                     <ArrowUpRight className="pw-chapter-arrow" size={20} />
                                 </Link>
+                            </Reveal>
+                        ))}
+                        {(site?.chaptersExternal || []).map((x) => (
+                            <Reveal key={x.url}>
+                                <a className="pw-chapter" href={x.url} target="_blank" rel="noopener"
+                                    data-testid="chapter-external">
+                                    <span className="pw-chapter-num" aria-hidden="true">↗</span>
+                                    <span>
+                                        <span className="pw-chapter-title">{x.label}</span>
+                                        <span className="pw-chapter-desc" style={{ display: 'block' }}>{x.note}</span>
+                                    </span>
+                                    <ArrowUpRight className="pw-chapter-arrow" size={20} />
+                                </a>
                             </Reveal>
                         ))}
                     </div>

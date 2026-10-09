@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 import httpx
 from dotenv import load_dotenv
 from fastapi import FastAPI, APIRouter, Request, HTTPException, Query
-from fastapi.responses import HTMLResponse, PlainTextResponse, JSONResponse, FileResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse, JSONResponse, FileResponse, RedirectResponse
 from motor.motor_asyncio import AsyncIOMotorClient
 from starlette.middleware.cors import CORSMiddleware
 
@@ -137,7 +137,9 @@ async def refresh_entity():
     global _entity
     try:
         async with httpx.AsyncClient(timeout=20) as http:
-            r = await http.get(f'{siteconfig.HUB_URL}/api/seo/entity')
+            # entita' condivisa nella lingua del sito (l'hub serve ?lang=en per i gemelli inglesi)
+            params = {'lang': SITE['lang']} if SITE['lang'] != 'it' else None
+            r = await http.get(f'{siteconfig.HUB_URL}/api/seo/entity', params=params)
             r.raise_for_status()
             _entity = r.json()
             ENTITY_CACHE.write_text(json.dumps(_entity, ensure_ascii=False))
@@ -543,11 +545,14 @@ async def get_site():
         'key': SITE['key'], 'lang': SITE['lang'], 'domain': SITE['domain'],
         'articlePath': SITE['articlePath'], 'articlesIndex': SITE['articlesIndex'],
         'ui': ui, 'nav': nav, 'brand': SITE['brand'],
+        'retired': SITE['retired'], 'chaptersExternal': SITE['chaptersExternal'],
+        'articlesAlternates': [{'hreflang': h, 'href': u} for h, u in seo_render.articles_index_alternates(SITE)],
         'hasVideo': bool(pages.get('video') and page_content(pages['video'])),
         'network': [{'url': s['url'], 'label': s['label'][SITE['lang']], 'desc': s['desc'][SITE['lang']]}
                     for s in NETWORK_ECOSYSTEM if s['url'] != SITE['domain'] and s.get('live', True)],
         'clinic': {
-            'name': 'Fi Multicare — Centro Medico Multidisciplinare',
+            'name': {'it': 'Fi Multicare — Centro Medico Multidisciplinare',
+                     'en': 'Fi Multicare — Multidisciplinary Medical Center'}[SITE['lang']],
             'address': 'Galleria del Corso 4, 20122 Milano',
             'telLabel': '+39 02 7602 1568', 'telHref': 'tel:+390276021568',
             'email': 'info@fimulticare.it',
@@ -582,6 +587,7 @@ async def get_page(slug: str):
         'answer': content.get('answer'), 'faq': content.get('faq') or [],
         'related': content.get('related') or [], 'fonti': content.get('fonti') or [],
         'blocks': content.get('blocks') or [],
+        'alternates': [{'hreflang': h, 'href': u} for h, u in seo_render.page_alternates(page, SITE)],
     }
 
 
@@ -651,6 +657,9 @@ async def seo_routes():
     ret = await db.retired_redirects.find({}).to_list(1000)
     for r in ret:
         redirects[r['path']] = r['target']
+    for p, target in SITE['retired'].items():
+        redirects[p] = target
+        redirects[p.rstrip('/')] = target
     return {'paths': sorted(set(paths)), 'redirects': redirects}
 
 
@@ -663,6 +672,10 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
     # - senza absolute=true (HTML servito direttamente all'anteprima) la logica
     #   sull'host resta: noindex fuori dagli host canonici.
     noindex = False if absolute else not is_final_host(request)
+    # Pagine ritirate: 301 permanente verso la destinazione di rete (hub o sito dedicato)
+    retired = SITE['retired'].get(path if path.endswith('/') else path + '/')
+    if retired:
+        return RedirectResponse(retired, status_code=301)
     # La pagina 404 del sito, consegnata con 200: il codice 404 lo mette il
     # Worker sull'indirizzo inesistente (contratto hub 27/09). Sempre noindex.
     if path.strip('/') == '404':
@@ -700,7 +713,7 @@ async def seo_prerender(request: Request, path: str = Query('/'), absolute: bool
 <title>{seo_render.esc(ui['articles_title'])} | {seo_render.esc(ui['site_name'])}</title>
 <meta name="description" content="{seo_render.esc(ui.get('articles_meta', ui['articles_sub']))}" />
 <link rel="canonical" href="{seo_render.esc(domain + SITE['articlesIndex'])}" />{robots}
-{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui.get('articles_meta', ui['articles_sub']), domain + SITE['articlesIndex'], seo_render.og_fallback(SITE), ui['articles_title'])}
+{seo_render.hreflang_html(seo_render.articles_index_alternates(SITE))}{seo_render.og_meta(SITE, ui['articles_title'] + ' | ' + ui['site_name'], ui.get('articles_meta', ui['articles_sub']), domain + SITE['articlesIndex'], seo_render.og_fallback(SITE), ui['articles_title'])}
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{seo_render.base_css(SITE)}</style></head><body><main>
 {seo_render.menu_html(SITE, pages)}
@@ -782,7 +795,7 @@ async def seo_sitemap():
 @api_router.api_route('/robots.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)
 @api_router.api_route('/seo/robots.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)
 async def seo_robots():
-    return PlainTextResponse(seo_render.robots_txt(SITE['domain']))
+    return PlainTextResponse(seo_render.robots_txt(SITE['domain'], SITE['lang']))
 
 
 @api_router.api_route('/llms.txt', methods=['GET', 'HEAD'], response_class=PlainTextResponse)

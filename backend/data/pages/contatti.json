@@ -133,7 +133,7 @@
       },
       {
         "type": "p",
-        "html": "Before the visit it can help to read how <a href=\"/patient-prehabilitation-before-surgery/\">prehabilitation before surgery</a> works, the description of the <a href=\"/surgical-treatment/\">surgical treatment of the wall</a> and the profile of <a href=\"/about/\">Dr. Federico Fiori</a>."
+        "html": "Before the visit it can help to read how <a href=\"/patient-prehabilitation-before-surgery/\">prehabilitation before surgery</a> works, the description of the <a href=\"/surgical-treatment/\">surgical treatment of the wall</a> and the profile of <a href=\"https://www.federicofiori.com/en/curriculum\" target=\"_blank\" rel=\"noopener\">Dr. Federico Fiori</a>."
       }
     ],
     "kind": "contact",

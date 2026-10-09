@@ -21,6 +21,7 @@ export const KNOWN_SLUGS = [
 ];
 
 function Toc({ items }) {
+    const { ui } = useSite();
     const [active, setActive] = useState('');
     useEffect(() => {
         const obs = new IntersectionObserver(
@@ -36,7 +37,7 @@ function Toc({ items }) {
     }, [items]);
     if (items.length < 3) return null;
     return (
-        <nav className="pw-toc" aria-label="Indice della pagina" data-testid="page-toc">
+        <nav className="pw-toc" aria-label={ui?.toc_page || 'Table of contents'} data-testid="page-toc">
             {items.map((t) => (
                 <a key={t.id} href={`#${t.id}`} className={active === t.id ? 'active' : ''}>{t.label}</a>
             ))}
@@ -81,12 +82,15 @@ export default function PillarPage() {
         domain: site?.domain,
         siteName: ui?.site_name,
         lang: site?.lang,
+        alternates: page?.alternates,
         image: page?.blocks?.find((b) => b.type === 'img')?.src
             ? `${site?.domain}${page.blocks.find((b) => b.type === 'img').src}` : undefined,
         imageAlt: page?.h1,
     });
 
-    if (missing) return <Navigate to="/404" replace />;
+    // pagina ritirata: niente 404, RetiredRedirect porta fuori (attende /api/site)
+    const retired = !site || Boolean(site.retired?.[`/${slug}/`]);
+    if (missing && !retired) return <Navigate to="/404" replace />;
     if (!page) return <div className="pw-page pw-shell" data-testid="page-loading" />;
 
     const toc = tocOf(page.blocks);

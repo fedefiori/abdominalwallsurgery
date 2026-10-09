@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { API } from '../lib/api';
 import { useLightbox } from './Lightbox';
+import { useSite } from '../lib/SiteContext';
 import { Phone, Mail, MapPin, Globe, Play } from 'lucide-react';
 
 const CONTACT_ICONS = { phone: Phone, mail: Mail, 'map-pin': MapPin, globe: Globe };
@@ -62,6 +63,7 @@ function imgSrc(src) {
 
 function Figure({ b, first, side }) {
     const open = useLightbox();
+    const { ui } = useSite();
     const kind = b.kind === 'schema' ? 'schema' : 'photo';
     const src = imgSrc(b.src);
     return (
@@ -78,7 +80,7 @@ function Figure({ b, first, side }) {
                 onKeyDown={(e) => { if (e.key === 'Enter') open({ src, alt: b.alt, caption: b.caption }); }}
                 tabIndex={0}
                 role="button"
-                aria-label={`Ingrandisci: ${b.alt || ''}`}
+                aria-label={`${ui?.enlarge || 'Enlarge'}: ${b.alt || ''}`}
             />
             {b.caption && <figcaption>{b.caption}</figcaption>}
         </figure>
@@ -90,6 +92,7 @@ function Figure({ b, first, side }) {
     punta a youtube-nocookie.com: mai dati a YouTube prima della scelta. */
 function VideoEmbed({ b }) {
     const [play, setPlay] = useState(false);
+    const { ui } = useSite();
     return (
         <figure className="pw-video" data-testid={`video-${b.yt}`}>
             {play ? (
@@ -103,7 +106,7 @@ function VideoEmbed({ b }) {
                 />
             ) : (
                 <button type="button" className="pw-video-cover" onClick={() => setPlay(true)}
-                    aria-label={`Riproduci il video: ${b.title}`} data-testid={`video-play-${b.yt}`}>
+                    aria-label={`${ui?.play_video || 'Play the video'}: ${b.title}`} data-testid={`video-play-${b.yt}`}>
                     <img src={`https://i.ytimg.com/vi/${b.yt}/hqdefault.jpg`}
                         alt={b.alt || b.title} width="480" height="360" loading="lazy" decoding="async" />
                     <span className="pw-video-play" aria-hidden="true"><Play size={22} fill="currentColor" /></span>

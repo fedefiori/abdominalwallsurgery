@@ -722,3 +722,22 @@ B. Nuove rotte /api/robots.txt, /api/sitemap.xml, /api/llms.txt (doppio decorato
   validazione + honeypot, nessun invio reale), video click-to-load nocookie, SEO senza hreflang/VideoObject.
 - Corrette 10 meta description fuori dalla fascia 150-160 (+ ui.articles_meta per /articles EN).
 - Test: backend/tests/test_english_site.py (60/60 con test_palette.py).
+
+### 2026-10-09 — Modifiche finali pre-pubblicazione (richiesta utente, approvata dal Dottore)
+- H1 home EN: "Abdominal Wall Surgery: from diagnosis to repair" (meta title/description/canonical invariati;
+  hero spezza a capo dopo i due punti).
+- Pagine ritirate EN (archiviate in data/pages/_archivio): /about/ -> 301 https://www.federicofiori.com/en/curriculum,
+  /rectus-diastasis/ -> 301 https://www.diastasisandbeyond.com/ (siteconfig NETWORK_SITES[*]['retired'];
+  prerender 301, /seo/routes redirects, SPA RetiredRedirect). Voce "Dr. Federico Fiori" tolta dal menu EN;
+  link curriculum EN (footer, author box, prerender) -> /en/curriculum; link /about/ in contact -> hub.
+- Indice capitoli: 8 capitoli 01-08 + scheda in uscita "Rectus diastasis" (chaptersExternal). Diastasi citata
+  con link in uscita in anatomia (linea alba) e classificazione difetti.
+- hreflang IT<->EN + x-default (IT) su 14 coppie, derivate dal JSON (solo pagine con it+en) + indice articoli;
+  in prerender e nel DOM (useSEO alternates). Nessun hreflang sugli articoli (prima puntava all'hub) né verso l'hub.
+  Lo stesso codice con SITE_KEY=parete genera i tag reciproci sul sito italiano.
+- Attributi/stringhe EN: UI keys enlarge/zoom_close/play_video/toc_page/toc_article/on_this_site/main_nav/
+  see_also/sources; robots.txt EN (commenti tradotti, direttive invariate); ABOUT_MAP/DefinedTermSet/Organization
+  in inglese; entità hub richiesta con ?lang=en; /articles FAQ in inglese.
+- Residui italiani NON correggibili qui (fonte hub, regola di rete): alt di 2 figure dell'articolo
+  incisional-hernia (feed parete_en) e campi JSON-LD dell'entità hub (knowsAbout, nome clinica, contactPoint).
+- Test: iteration_14/15, backend/tests/test_english_site.py 60/60.

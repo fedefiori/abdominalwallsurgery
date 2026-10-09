@@ -1,0 +1,29 @@
+{
+  "summary": "Retest iteration_14 fixes for abdominalwallsurgery.com (SITE_KEY=parete_en). Backend pytest 60/60 PASS on /app/backend/tests/test_english_site.py. All 3 previously-reported frontend bugs are RESOLVED: (1) /articles bottom FAQ now renders English H2+paragraphs 'What will I find in these articles?' and 'Where are the other in-depth articles published?' with inline links -> /abdominal-wall-defects-and-classification/ and /surgical-treatment/; (2) article-card meta label now reads 'Related page on this site:' (no 'Pagina del sito collegata'); (3) author-box 'Full curriculum' link now points to https://www.federicofiori.com/en/curriculum on home, pillar (/surgical-treatment/) and article detail — both SPA DOM ([data-testid=author-box]) and prerender HTML confirmed. Italian-string regression scan at 1440 and 390 on /, /articles, /surgical-treatment/, /contact/ is clean in body innerText AND aria-label/alt/title/placeholder/aria-describedby. One NEW low-severity leak found on the article detail /articles/incisional-hernia-after-abdominal-surgery-when-to-operate: two <img> captions still Italian — alt+aria-label 'Piani di posizionamento della rete' and 'Chiusura della linea mediana passo a passo' (also present in prerender HTML).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "ArticleDetailPage figure images", "issue": "Two <img> elements in the article 'Incisional hernia after abdominal surgery…' have Italian alt text and matching Enlarge: aria-label — 'Piani di posizionamento della rete' and 'Chiusura della linea mediana passo a passo'. Present in both SPA DOM and prerender HTML, so it comes from the English article's figures data (coverUrl/figures captions) not translated. Should be translated to English (e.g., 'Mesh placement planes' and 'Midline closure step by step'). Lightbox 'Enlarge:' prefix is already English.", "selector": "/articles/incisional-hernia-after-abdominal-surgery-when-to-operate figure img[alt]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_english_site.py",
+    "/app/test_reports/pytest/iter15.xml"
+  ],
+  "action_items": [
+    "Translate the two figure captions on the English article 'incisional-hernia-after-abdominal-surgery-when-to-operate' from 'Piani di posizionamento della rete' and 'Chiusura della linea mediana passo a passo' to English equivalents — fix in article content/figures data for parete_en so both alt and the derived aria-label (Enlarge: …) render in English."
+  ],
+  "critical_code_review_comments": [
+    "The i18n pass for the English article body missed figure captions — alt text in figure data appears to be shared with the Italian twin. Audit all figures/images arrays on parete_en articles so alt is sourced from an English field, and ensure lightbox aria-label is built from that same English alt (prefix 'Enlarge:' already works)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100% (60/60)", "frontend": "~99% — all iter_14 bugs fixed; only remaining issue is two Italian figure alt/aria-label strings on one article detail page"},
+  "test_credentials": "N/A — no auth; contact form NOT submitted with a valid payload.",
+  "seed_data_creation": "None.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Iteration_14's 3 frontend bugs are fully fixed and verified at 1440+390. Backend pytest 60/60 (iter15.xml). Only new leftover is on article detail /articles/incisional-hernia-after-abdominal-surgery-when-to-operate: two figure images have Italian alt+aria-label ('Piani di posizionamento della rete', 'Chiusura della linea mediana passo a passo'). Both SPA DOM and prerender HTML show them. The second article slug 'umbilical-hernia-why-it-recurs-and-how-to-prevent-recurrence' was NOT re-scanned — check it too after fix. Author-box prerender confirmed to use /en/curriculum network-wide. Retired-page 301 behaviour (/about->/en/curriculum, /rectus-diastasis->diastasisandbeyond) still green.",
+  "rca of the issue": "Figures/images attached to the English twin of the 'incisional hernia' article still carry Italian alt text (data origin, not UI code). The AuthorBox and ArticlesPage code fixes landed correctly; this remaining issue is a content-translation miss in the article's figures array for SITE_KEY=parete_en. Reproduction: GET /articles/incisional-hernia-after-abdominal-surgery-when-to-operate at any viewport and inspect any <figure> <img> — alt attribute and the lightbox trigger's aria-label contain Italian. Fix in the content layer so both alt and aria-label come from the English figure caption."
+}
